@@ -1,2 +1,1407 @@
-# conference-management-system-back-end
-智能化会议管理系统
+## 会议室前后端接口
+
+### user 属性
+
+{
+
+​	user_id: long
+
+​	name: string     
+
+​	sex:string      => 男 女
+
+​	phone: string  => 18190870881
+
+​	email: string   
+
+​	organization: string
+
+​	department:string
+
+​	position:string
+
+​	 role:string =>  系统管理员   部门经理   一般员工
+
+​	username: string
+
+​        password: string   => (6-18位  至少有大小写)
+
+​	create_time: string => 2019/08/12/12/00/00  YYYY/MM/DD/HH/MM/SS
+
+​	modify_time: string => 2019/08/12/12/00/00  YYYY/MM/DD/HH/MM/SS
+
+​	attend_meeting: [name,name,name,name]
+
+}
+
+
+
+## **用户管理模块**
+
+## **登录**
+
+/login   post
+
+前端
+
+{
+
+​	username: string
+
+​	password: string
+
+​	 role:string =>  系统管理员   部门经理   一般员工
+
+}
+
+ 
+
+后端:
+
+{
+
+​	state:string   (fault代表失败，sucess)
+
+​	message:string 
+
+}
+
+
+
+## **注册**
+
+/login post
+
+前端
+
+{
+
+​	username: string
+
+​	password: string
+
+​        name: string
+
+​	email: string
+
+​	 role:string =>  系统管理员   部门经理   一般员工
+
+}
+
+ 
+
+后端:
+
+{
+
+​	state:string (fault代表失败，sucess)
+
+​	message: string
+
+}
+
+ 
+
+## **普通用户修改自己信息**
+
+/modify_info  post
+
+ 
+
+前端：
+
+如果没修改传null字符串
+
+{
+
+​	name: string
+
+​	sex: string
+
+​	phone: string
+
+​	email: string
+
+​	organization: string
+
+​	department: string
+
+​	position: string
+
+​	 role:string =>  系统管理员   部门经理   一般员工
+
+}
+
+后端:
+
+{
+
+​	State:string(fault代表失败，sucess)
+
+​	Message: string
+
+}
+
+ 
+
+ 
+
+## **用户管理**
+
+/admin_search
+
+ 
+
+前端
+
+{
+
+​	username: string
+
+​	page: int（页数）
+
+​	volume:int  (每页的容量)
+
+}
+
+后端：
+
+{
+
+​	Result:[
+
+​	{
+
+​		username: xxxx
+
+​		page: xxx（页数）
+
+​		（属性再说）
+
+​	}，
+
+​	{
+
+​		Username: xxxx
+
+​		page: xxx（页数）
+
+​		（属性再说）
+
+​	}
+
+​        ......
+
+]
+
+}
+
+ 
+
+/admin_search_all  get
+
+ 
+
+前端 get
+
+ 
+
+后端：
+
+{
+
+​	Result:[
+
+​	{
+
+​		username: string
+
+​		page: int（页数）
+
+​		（属性再说）
+
+​	}，
+
+​	{
+
+​		username: string
+
+​		page: int（页数）
+
+​		（属性再说）
+
+​	}
+
+​     ......
+
+]
+
+}
+
+ 
+
+/admin_add  post
+
+前端
+
+{
+
+​	username: string
+
+​	password: string
+
+​	 role:string =>  系统管理员   部门经理   一般员工
+
+​	(其他属性待定)
+
+}
+
+后端:
+
+{	
+
+​	username:string
+
+​	state:string(fault代表失败，success)
+
+​	message: string
+
+}
+
+ 
+
+ 
+
+/admin_delete post
+
+前端
+
+{
+
+​	username: string
+
+}
+
+后端:
+
+{	
+
+​	username:string
+
+​	state:string(fault代表失败，sucess)
+
+​	message:string
+
+}
+
+ 
+
+/admin_change post
+
+前端
+
+{
+
+​	username: string
+
+​	password: string
+
+​	 role:string => 系统管理员   部门经理  一般员工
+
+​	(其他属性待定)
+
+}
+
+后端:
+
+{	
+
+​	username:string
+
+​	state:string(fault代表失败，success)
+
+​	message: string
+
+}
+
+ 
+
+ 
+
+/get_excel get
+
+前端：get
+
+后端：
+
+Excel文件
+
+ 
+
+# **会议管理模块**
+
+会议信息
+
+{	
+
+​	meeting_id: long
+
+​	meeting_name: string
+
+​	meeting_room: string
+
+​	start_time: string   => 2019/08/30/12/23/23
+
+​	end_time: string   => 2019/08/30/12/23/23
+
+​	host: string
+
+​	recorder: string
+
+​	members:[name,name.name]
+
+​	topic: string
+
+​	abstract: string
+
+​	absent: [name,name,name]
+
+​	attendance: [name,name,name]
+
+​	mark: string
+
+​	meeting_state: string  => 已预约   进行中   空闲
+
+}
+
+会议室信息
+
+{
+
+​	room_id: long
+
+​	room_name: string
+
+​	country: string
+
+​	province: string
+
+​	city: string
+
+​	block: string
+
+​	building: string
+
+​	floor: string
+
+​	room_number: int
+
+​	room_volume: int
+
+​	mark: string
+
+​	create_time: string
+
+​	modify_time: string
+
+​	device_message: [string,string,string]
+
+}
+
+ 
+
+### **会议查询**
+
+/meeting_search get
+
+前端
+
+{
+
+​	meeting_state: string
+
+​	room_name: string
+
+​	meeting_name: string
+
+​	meeting_people: [name,name,name]
+
+ 
+
+}
+
+后端
+
+{
+
+​	Result:[
+
+{
+
+​	meeting_name: string
+
+​	meeting_room: string
+
+​	start_time: string
+
+​	end_time: string
+
+​	host: name
+
+​	recorder: name
+
+​	members:[name.name.name]
+
+​	topic: string
+
+​	abstract: string
+
+​	absent: [name,name,name]
+
+​	attendance: [name,name,name]
+
+​	mark: string
+
+​	meeting_state: string  => 已预约   进行中   空闲
+
+},
+
+…
+
+]
+
+}
+
+ 
+
+ 
+
+/meeting_search_all get
+
+ 
+
+前端 get请求
+
+后端
+
+{
+
+​	Result:**[**
+
+{
+
+​	meeting_name: string
+
+​	meeting_room: string
+
+​	start_time: string
+
+​	end_time: string
+
+​	host: name
+
+​	recorder: name
+
+​	members:[name.name.name]
+
+​	topic: string
+
+​	abstract: string
+
+​	absent: [name,name,name]
+
+​	attendance: [name,name,name]
+
+​	mark: string
+
+​	meeting_state: string  => 已预约   进行中   空闲
+
+},
+
+…
+
+**]**
+
+}
+
+ 
+
+### **会议预约**
+
+/meeting_order_search post
+
+前端：
+
+{
+
+​	site：xxx  => (这个是啥？？？)
+
+​	begin_time: string
+
+​	end_time: string
+
+}
+
+ 
+
+后端：
+
+{
+
+​	Result:[
+
+​		{
+
+​	room_name: string
+
+​	country: string
+
+​	province: string
+
+​	city: string
+
+​	block: string
+
+​	building: string
+
+​	floor: string
+
+​	room_number: int
+
+​	room_volume: int
+
+​	mark: string
+
+​	create_time: string
+
+​	modify_time: string
+
+​	device_message: [string,string,string]
+
+}，
+
+…
+
+]
+
+ 
+
+}
+
+ 
+
+会议预约
+
+/meeting_order post
+
+前端：
+
+必填会议主题、会议室、参会人员、时间
+
+没有的就用null
+
+{
+
+​	meeting_name: string
+
+​	meeting_room: string
+
+​	start_time: string
+
+​	end_time: string
+
+​	host: name
+
+​	recorder: name
+
+​	members:[name.name.name]
+
+​	topic: string
+
+​	abstract: string
+
+​	absent: [name,name,name]
+
+​	attendance:  [name,name,name]
+
+​	mark: string
+
+​	meeting_state:string
+
+}
+
+ 
+
+后端：
+
+{	
+
+​	state:string(fault，success)
+
+​	message: string
+
+}
+
+ 
+
+会议取消
+
+/meeting_delete post
+
+会议主题、会议室、时间
+
+前端：
+
+{
+
+​	meeting_name: string
+
+​	meeting_room: string
+
+​	start_time: string
+
+​	end_time: string
+
+}
+
+后端：
+
+{	
+
+​	state:string(fault，success)
+
+​	message: string
+
+}
+
+ 
+
+## **会议室管理模块**
+
+### **会议室增删改**
+
+会议室增加
+
+/room_add post
+
+前端：
+
+{	
+
+​	room_name: string
+
+​	country: string
+
+​	province: string
+
+​	city: string
+
+​	block: string
+
+​	building: string
+
+​	floor: string
+
+​	room_number: int
+
+​	room_volume: int
+
+​	mark: string
+
+​	create_time: string
+
+​	modify_time: string
+
+​	device_message: [string,string,string]
+
+}
+
+后端：
+
+{	
+
+​	state:string(fault，success)
+
+​	message: string
+
+}
+
+ 
+
+ 
+
+会议室删除
+
+/room_delete post
+
+前端：
+
+{
+
+​	room_id: long
+
+}
+
+后端：
+
+{	
+
+​	state:string(fault，success)
+
+​	message: string
+
+}
+
+ 
+
+会议室修改
+
+/room_modify post
+
+未修改部分用null
+
+前端：
+
+{
+
+​	room_id: string
+
+​	room_name: string
+
+​	country: string
+
+​	province: string
+
+​	city: string
+
+​	block: string
+
+​	building: string
+
+​	floor: string
+
+​	room_number: int
+
+​	room_volume: int
+
+​	mark: string
+
+}
+
+后端：
+
+{	
+
+​	state:string(fault，success)
+
+​	message: string
+
+}
+
+ 
+
+### **会议室状态查询**
+
+ 
+
+会议室详细信息
+
+/room_detail post
+
+未修改部分用null
+
+前端：
+
+{
+
+​	room_id: long
+
+}
+
+后端：
+
+{	
+
+​	room_id: long
+
+​	room_name: string
+
+​	country: string
+
+​	province: string
+
+​	city: string
+
+​	block: string
+
+​	building: string
+
+​	floor: string
+
+​	room_number: int
+
+​	room_volume: int
+
+​	mark: string
+
+​	create_time: string
+
+​	modify_time: string
+
+​	device_message: [string,string,string]
+
+}
+
+根据名称分页查询
+
+/room_search get
+
+前端
+
+{
+
+​	room_name: xxxx
+
+​	page: xxx（页数）
+
+​	volume：XXX
+
+}
+
+后端：
+
+{
+
+​	Result:[
+
+​	{
+
+​	room_id: long
+
+​	room_name: string
+
+​	country: string
+
+​	province: string
+
+​	city: string
+
+​	block: string
+
+​	building: string
+
+​	floor: string
+
+​	room_number: int
+
+​	room_volume: int
+
+},
+
+{
+
+​	room_id: long
+
+​	room_name: string
+
+​	country: string
+
+​	province: string
+
+​	city: string
+
+​	block: string
+
+​	building: string
+
+​	floor: string
+
+​	room_number: int
+
+​	room_volume: int
+
+},
+
+]
+
+ 
+
+}
+
+ 
+
+## **设备管理**
+
+ 
+
+### **增删改**
+
+{
+
+​	device_id: long
+
+​	device_name: string
+
+​	brand: string
+
+​	type: string
+
+​	repair_time: string
+
+​	room: room对象
+
+​	mttr: 设备平均维修时间
+
+​	mtbf: 设备平均故障间隔时间
+
+}
+
+添加设备
+
+/device_add post
+
+前端
+
+{
+
+​	device_name: string
+
+​        device_category:string
+
+​	brand: string
+
+​	type: string
+
+​	repair_time: string
+
+​	room_id:  string
+
+​	mttr: 设备平均维修时间
+
+​	mtbf: 设备平均故障间隔时间
+
+}
+
+后端：
+
+{	
+
+​	state:xx(fault代表失败，sucess)
+
+​	message: xxxxxx
+
+}
+
+ 
+
+删除设备
+
+/device_delete post
+
+前端
+
+{
+
+   device_id: long 
+
+}
+
+后端：
+
+{	
+
+​	state:string(fault代表失败，success)
+
+​	message: string
+
+}
+
+ 
+
+修改设备
+
+不修改填null
+
+/device_modify post  
+
+前端
+
+{
+
+​	device_name: string
+
+​        device_category:string
+
+​	brand: string
+
+​	type: string
+
+​	repair_time: string
+
+​	room_id:  string
+
+​	mttr: 设备平均维修时间
+
+​	mtbf: 设备平均故障间隔时间
+
+}
+
+后端：
+
+{	
+
+​	state:string(fault代表失败，success)
+
+​	message: string
+
+}
+
+
+
+设备的查询
+
+根据名称分页查询
+
+/device_search get
+
+ 
+
+前端
+
+{
+
+​	room_id: xxx
+
+​	device_name: xxxx
+
+​	page: xxx（页数）
+
+​	volume：XXX
+
+}
+
+后端：
+
+{
+
+​	Result:[
+
+​	{
+
+​	device_id: long
+
+​	device_name: string
+
+​        device_category:string
+
+​	brand: string
+
+​	type: string
+
+​	repair_time: string
+
+​	room_id:  string
+
+​	mttr: 设备平均维修时间
+
+​	mtbf: 设备平均故障间隔时间
+
+}，
+
+​	{
+
+​	device_id: long
+
+​	device_name: string
+
+​        device_category:string
+
+​	brand: string
+
+​	type: string
+
+​	repair_time: string
+
+​	room_id:  string
+
+​	mttr: 设备平均维修时间
+
+​	mtbf: 设备平均故障间隔时间
+
+}，
+
+…
+
+]
+
+ 
+
+}
+
+ 
+
+根据名称分页查询
+
+/device_search_all get
+
+前端：
+
+{
+
+​	room_id: long
+
+}
+
+后端：
+
+{
+
+​	Result:[
+
+​	{
+
+​	device_id: long
+
+​	device_name: string
+
+​        device_category:string
+
+​	brand: string
+
+​	type: string
+
+​	repair_time: string
+
+​	room_id:  string
+
+​	mttr: 设备平均维修时间
+
+​	mtbf: 设备平均故障间隔时间
+
+}，
+
+​	{
+
+​	device_id: long
+
+​	device_name: string
+
+​        device_category:string
+
+​	brand: string
+
+​	type: string
+
+​	repair_time: string
+
+​	room_id:  string
+
+​	mttr: 设备平均维修时间
+
+​	mtbf: 设备平均故障间隔时间
+
+}，
+
+…
+
+]
+
+ 
+
+}
+
+ 
+
+### **设备报修表单（在devices界面内部）**
+
+{
+
+​	devices_id: long
+
+​	form_name; string
+
+​	reason: string
+
+​	create_time: string
+
+​	repair_time: string
+
+​	state: 等待报修，报修完成
+
+}
+
+#### **表单查询**
+
+/form_search post
+
+前端：
+
+ 
+
+{
+
+​	device_id: xxxx
+
+​	form_name: xxxxx
+
+​	page: xxx（页数）
+
+​	volume：XXX
+
+}
+
+后端：
+
+{
+
+Result:[
+
+​	{
+
+​	form_name： string
+
+​	reason: string
+
+​	create_time: string
+
+​	repair_time: string
+
+​	state: 等待报修，报修完成
+
+}，
+
+{
+
+​	form_name: 
+
+​	reason: string
+
+​	create_time: string
+
+​	repair_time: string
+
+​	state: 等待报修，报修完成
+
+}，
+
+…
+
+]
+
+ 
+
+}
+
+ 
+
+/form_search_all post
+
+前端：
+
+ 
+
+{
+
+​	device_id: long
+
+}
+
+后端：
+
+{
+
+Result:[
+
+​	{
+
+​	form_name; string
+
+​	reason: string
+
+​	create_time: string
+
+​	repair_time: string
+
+​	state:  等待报修，报修完成
+
+}，
+
+{
+
+​	form_name: string
+
+​	reason: string
+
+​	create_time: string
+
+​	repair_time: string
+
+​	state: 等待报修,报修完成
+
+}，
+
+…
+
+]
+
+ 
+
+}
+
+ 
+
+#### **增加表单**
+
+/form_add  post
+
+ 
+
+前端
+
+{
+
+​	device_id: long
+
+​	form_name; string
+
+​	reason: string
+
+​	create_time: string  => 2019/08/30/12/00/23     YYYY/MM/DD/HH/MM/SS
+
+​	repair_time: string
+
+}
+
+后端：
+
+{	
+
+​	state:string(fault代表失败，sucess)
+
+​	message: string
+
+}
+
+#### **完成报修**
+
+/form_finish post
+
+前端
+
+{
+
+​	device_id: long
+
+​	form_name: string
+
+}
+
+后端：
+
+{	
+
+​	state:string(fault代表失败，sucess)
+
+​	message: string
+
+}
