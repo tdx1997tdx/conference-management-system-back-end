@@ -1,793 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="68f46c33-7d16-429f-9772-f6b143785f8e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/653ae09f-2906-433a-8bf5-cd7656686090.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+    <list default="true" id="68f46c33-7d16-429f-9772-f6b143785f8e" name="Default Changelist" comment="first-commit">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/[Help" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/controler/UserControler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/dto/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/mapper/UserMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V1__Create_user_table.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/User.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/sustech/conferenceSystem/service/UserServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/会议室前后端接口_v1.0.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/loginRegist.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/community.log" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/loginRegist/App.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/loginRegist/controler/LoginRegistControler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/loginRegist/mapper/UserMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/loginRegist/model/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/loginRegist/service/LoginRegistService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/loginRegist/view/LoginRegistView.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V1__Create_user_table.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/bootstrap-theme.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/bootstrap-theme.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/bootstrap-theme.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/bootstrap-theme.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/bootstrap.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/bootstrap.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/bootstrap.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/community.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/editormd.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/editormd.preview.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/fonts/FontAwesome.otf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/fonts/editormd-logo.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/fonts/editormd-logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/fonts/editormd-logo.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/fonts/editormd-logo.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/fonts/fontawesome-webfont.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/fonts/fontawesome-webfont.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/fonts/fontawesome-webfont.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/fonts/fontawesome-webfont.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/fonts/fontawesome-webfont.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/fonts/glyphicons-halflings-regular.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/fonts/glyphicons-halflings-regular.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/fonts/glyphicons-halflings-regular.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/fonts/glyphicons-halflings-regular.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/fonts/glyphicons-halflings-regular.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/bootstrap.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/bootstrap.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/community.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/editormd.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/jquery-3.4.1.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/AUTHORS" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addon/comment/comment.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addon/comment/continuecomment.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addon/dialog/dialog.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addon/dialog/dialog.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addon/display/fullscreen.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addon/display/fullscreen.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addon/display/panel.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addon/display/placeholder.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addon/display/rulers.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addon/edit/closebrackets.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addon/edit/closetag.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addon/edit/continuelist.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addon/edit/matchbrackets.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addon/edit/matchtags.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addon/edit/trailingspace.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addon/fold/brace-fold.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addon/fold/comment-fold.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addon/fold/foldcode.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addon/fold/foldgutter.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addon/fold/foldgutter.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addon/fold/indent-fold.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addon/fold/markdown-fold.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addon/fold/xml-fold.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addon/hint/anyword-hint.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addon/hint/css-hint.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addon/hint/html-hint.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addon/hint/javascript-hint.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addon/hint/show-hint.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addon/hint/show-hint.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addon/hint/sql-hint.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addon/hint/xml-hint.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addon/lint/coffeescript-lint.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addon/lint/css-lint.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addon/lint/javascript-lint.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addon/lint/json-lint.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addon/lint/lint.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addon/lint/lint.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addon/lint/yaml-lint.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addon/merge/merge.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addon/merge/merge.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addon/mode/loadmode.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addon/mode/multiplex.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addon/mode/multiplex_test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addon/mode/overlay.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addon/mode/simple.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addon/runmode/colorize.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addon/runmode/runmode-standalone.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addon/runmode/runmode.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addon/runmode/runmode.node.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addon/scroll/annotatescrollbar.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addon/scroll/scrollpastend.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addon/scroll/simplescrollbars.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addon/scroll/simplescrollbars.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addon/search/match-highlighter.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addon/search/matchesonscrollbar.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addon/search/matchesonscrollbar.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addon/search/search.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addon/search/searchcursor.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addon/selection/active-line.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addon/selection/mark-selection.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addon/selection/selection-pointer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addon/tern/tern.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addon/tern/tern.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addon/tern/worker.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addon/wrap/hardwrap.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/addons.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/bower.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/codemirror.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/codemirror.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/lib/codemirror.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/lib/codemirror.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/apl/apl.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/apl/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/asterisk/asterisk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/asterisk/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/clike/clike.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/clike/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/clike/scala.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/clojure/clojure.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/clojure/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/cobol/cobol.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/cobol/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/coffeescript/coffeescript.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/coffeescript/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/commonlisp/commonlisp.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/commonlisp/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/css/css.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/css/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/css/less.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/css/less_test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/css/scss.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/css/scss_test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/css/test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/cypher/cypher.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/cypher/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/d/d.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/d/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/dart/dart.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/dart/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/diff/diff.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/diff/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/django/django.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/django/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/dockerfile/dockerfile.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/dockerfile/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/dtd/dtd.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/dtd/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/dylan/dylan.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/dylan/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/ebnf/ebnf.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/ebnf/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/ecl/ecl.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/ecl/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/eiffel/eiffel.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/eiffel/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/erlang/erlang.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/erlang/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/forth/forth.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/forth/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/fortran/fortran.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/fortran/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/gas/gas.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/gas/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/gfm/gfm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/gfm/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/gfm/test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/gherkin/gherkin.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/gherkin/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/go/go.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/go/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/groovy/groovy.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/groovy/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/haml/haml.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/haml/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/haml/test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/haskell/haskell.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/haskell/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/haxe/haxe.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/haxe/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/htmlembedded/htmlembedded.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/htmlembedded/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/htmlmixed/htmlmixed.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/htmlmixed/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/http/http.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/http/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/idl/idl.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/idl/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/jade/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/jade/jade.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/javascript/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/javascript/javascript.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/javascript/json-ld.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/javascript/test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/javascript/typescript.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/jinja2/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/jinja2/jinja2.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/julia/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/julia/julia.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/kotlin/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/kotlin/kotlin.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/livescript/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/livescript/livescript.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/lua/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/lua/lua.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/markdown/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/markdown/markdown.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/markdown/test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/meta.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/mirc/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/mirc/mirc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/mllike/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/mllike/mllike.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/modelica/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/modelica/modelica.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/nginx/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/nginx/nginx.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/ntriples/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/ntriples/ntriples.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/octave/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/octave/octave.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/pascal/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/pascal/pascal.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/pegjs/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/pegjs/pegjs.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/perl/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/perl/perl.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/php/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/php/php.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/php/test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/pig/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/pig/pig.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/properties/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/properties/properties.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/puppet/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/puppet/puppet.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/python/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/python/python.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/q/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/q/q.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/r/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/r/r.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/rpm/changes/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/rpm/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/rpm/rpm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/rst/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/rst/rst.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/ruby/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/ruby/ruby.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/ruby/test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/rust/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/rust/rust.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/sass/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/sass/sass.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/scheme/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/scheme/scheme.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/shell/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/shell/shell.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/shell/test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/sieve/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/sieve/sieve.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/slim/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/slim/slim.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/slim/test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/smalltalk/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/smalltalk/smalltalk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/smarty/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/smarty/smarty.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/smartymixed/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/smartymixed/smartymixed.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/solr/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/solr/solr.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/soy/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/soy/soy.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/sparql/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/sparql/sparql.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/spreadsheet/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/spreadsheet/spreadsheet.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/sql/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/sql/sql.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/stex/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/stex/stex.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/stex/test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/stylus/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/stylus/stylus.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/tcl/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/tcl/tcl.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/textile/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/textile/test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/textile/textile.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/tiddlywiki/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/tiddlywiki/tiddlywiki.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/tiddlywiki/tiddlywiki.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/tiki/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/tiki/tiki.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/tiki/tiki.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/toml/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/toml/toml.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/tornado/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/tornado/tornado.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/turtle/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/turtle/turtle.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/vb/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/vb/vb.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/vbscript/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/vbscript/vbscript.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/velocity/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/velocity/velocity.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/verilog/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/verilog/test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/verilog/verilog.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/xml/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/xml/test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/xml/xml.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/xquery/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/xquery/test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/xquery/xquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/yaml/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/yaml/yaml.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/z80/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/mode/z80/z80.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/modes.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/theme/3024-day.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/theme/3024-night.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/theme/ambiance-mobile.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/theme/ambiance.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/theme/base16-dark.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/theme/base16-light.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/theme/blackboard.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/theme/cobalt.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/theme/colorforth.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/theme/eclipse.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/theme/elegant.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/theme/erlang-dark.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/theme/lesser-dark.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/theme/mbo.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/theme/mdn-like.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/theme/midnight.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/theme/monokai.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/theme/neat.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/theme/neo.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/theme/night.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/theme/paraiso-dark.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/theme/paraiso-light.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/theme/pastel-on-dark.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/theme/rubyblue.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/theme/solarized.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/theme/the-matrix.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/theme/tomorrow-night-bright.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/theme/tomorrow-night-eighties.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/theme/twilight.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/theme/vibrant-ink.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/theme/xq-dark.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/theme/xq-light.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/codemirror/theme/zenburn.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/flowchart.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/jquery.flowchart.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/marked.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/prettify.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/raphael.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/sequence-diagram.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/lib/underscore.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/moment.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/npm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/plugins/code-block-dialog/code-block-dialog.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/plugins/emoji-dialog/emoji-dialog.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/plugins/emoji-dialog/emoji.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/plugins/goto-line-dialog/goto-line-dialog.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/plugins/help-dialog/help-dialog.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/plugins/html-entities-dialog/html-entities-dialog.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/plugins/html-entities-dialog/html-entities.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/plugins/image-dialog/image-dialog.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/plugins/link-dialog/link-dialog.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/plugins/plugin-template.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/plugins/preformatted-text-dialog/preformatted-text-dialog.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/plugins/reference-link-dialog/reference-link-dialog.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/plugins/table-dialog/table-dialog.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/plugins/test-plugin/test-plugin.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/login.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/regist.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/vue/axios.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/vue/vue.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/loginRegist.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/loginRegist/App.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/loginRegist/controler/LoginRegistControler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/loginRegist/mapper/UserMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/loginRegist/model/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/loginRegist/service/LoginRegistService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/loginRegist/view/LoginRegistView.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/db/migration/V1__Create_user_table.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/css/bootstrap-theme.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/css/bootstrap-theme.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/css/bootstrap-theme.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/css/bootstrap-theme.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/css/bootstrap.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/css/bootstrap.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/css/bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/css/bootstrap.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/css/community.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/css/editormd.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/css/editormd.preview.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/fonts/FontAwesome.otf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/fonts/editormd-logo.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/fonts/editormd-logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/fonts/editormd-logo.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/fonts/editormd-logo.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/fonts/fontawesome-webfont.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/fonts/fontawesome-webfont.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/fonts/fontawesome-webfont.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/fonts/fontawesome-webfont.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/fonts/fontawesome-webfont.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/fonts/glyphicons-halflings-regular.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/fonts/glyphicons-halflings-regular.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/fonts/glyphicons-halflings-regular.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/fonts/glyphicons-halflings-regular.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/fonts/glyphicons-halflings-regular.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/bootstrap.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/bootstrap.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/community.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/editormd.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/jquery-3.4.1.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/AUTHORS" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addon/comment/comment.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addon/comment/continuecomment.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addon/dialog/dialog.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addon/dialog/dialog.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addon/display/fullscreen.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addon/display/fullscreen.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addon/display/panel.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addon/display/placeholder.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addon/display/rulers.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addon/edit/closebrackets.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addon/edit/closetag.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addon/edit/continuelist.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addon/edit/matchbrackets.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addon/edit/matchtags.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addon/edit/trailingspace.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addon/fold/brace-fold.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addon/fold/comment-fold.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addon/fold/foldcode.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addon/fold/foldgutter.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addon/fold/foldgutter.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addon/fold/indent-fold.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addon/fold/markdown-fold.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addon/fold/xml-fold.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addon/hint/anyword-hint.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addon/hint/css-hint.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addon/hint/html-hint.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addon/hint/javascript-hint.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addon/hint/show-hint.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addon/hint/show-hint.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addon/hint/sql-hint.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addon/hint/xml-hint.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addon/lint/coffeescript-lint.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addon/lint/css-lint.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addon/lint/javascript-lint.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addon/lint/json-lint.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addon/lint/lint.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addon/lint/lint.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addon/lint/yaml-lint.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addon/merge/merge.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addon/merge/merge.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addon/mode/loadmode.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addon/mode/multiplex.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addon/mode/multiplex_test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addon/mode/overlay.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addon/mode/simple.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addon/runmode/colorize.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addon/runmode/runmode-standalone.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addon/runmode/runmode.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addon/runmode/runmode.node.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addon/scroll/annotatescrollbar.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addon/scroll/scrollpastend.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addon/scroll/simplescrollbars.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addon/scroll/simplescrollbars.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addon/search/match-highlighter.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addon/search/matchesonscrollbar.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addon/search/matchesonscrollbar.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addon/search/search.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addon/search/searchcursor.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addon/selection/active-line.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addon/selection/mark-selection.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addon/selection/selection-pointer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addon/tern/tern.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addon/tern/tern.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addon/tern/worker.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addon/wrap/hardwrap.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/addons.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/bower.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/codemirror.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/codemirror.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/lib/codemirror.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/lib/codemirror.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/apl/apl.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/apl/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/asterisk/asterisk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/asterisk/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/clike/clike.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/clike/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/clike/scala.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/clojure/clojure.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/clojure/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/cobol/cobol.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/cobol/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/coffeescript/coffeescript.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/coffeescript/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/commonlisp/commonlisp.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/commonlisp/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/css/css.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/css/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/css/less.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/css/less_test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/css/scss.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/css/scss_test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/css/test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/cypher/cypher.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/cypher/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/d/d.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/d/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/dart/dart.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/dart/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/diff/diff.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/diff/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/django/django.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/django/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/dockerfile/dockerfile.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/dockerfile/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/dtd/dtd.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/dtd/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/dylan/dylan.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/dylan/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/ebnf/ebnf.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/ebnf/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/ecl/ecl.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/ecl/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/eiffel/eiffel.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/eiffel/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/erlang/erlang.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/erlang/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/forth/forth.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/forth/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/fortran/fortran.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/fortran/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/gas/gas.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/gas/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/gfm/gfm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/gfm/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/gfm/test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/gherkin/gherkin.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/gherkin/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/go/go.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/go/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/groovy/groovy.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/groovy/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/haml/haml.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/haml/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/haml/test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/haskell/haskell.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/haskell/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/haxe/haxe.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/haxe/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/htmlembedded/htmlembedded.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/htmlembedded/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/htmlmixed/htmlmixed.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/htmlmixed/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/http/http.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/http/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/idl/idl.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/idl/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/jade/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/jade/jade.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/javascript/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/javascript/javascript.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/javascript/json-ld.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/javascript/test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/javascript/typescript.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/jinja2/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/jinja2/jinja2.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/julia/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/julia/julia.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/kotlin/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/kotlin/kotlin.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/livescript/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/livescript/livescript.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/lua/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/lua/lua.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/markdown/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/markdown/markdown.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/markdown/test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/meta.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/mirc/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/mirc/mirc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/mllike/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/mllike/mllike.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/modelica/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/modelica/modelica.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/nginx/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/nginx/nginx.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/ntriples/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/ntriples/ntriples.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/octave/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/octave/octave.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/pascal/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/pascal/pascal.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/pegjs/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/pegjs/pegjs.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/perl/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/perl/perl.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/php/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/php/php.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/php/test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/pig/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/pig/pig.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/properties/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/properties/properties.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/puppet/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/puppet/puppet.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/python/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/python/python.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/q/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/q/q.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/r/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/r/r.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/rpm/changes/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/rpm/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/rpm/rpm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/rst/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/rst/rst.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/ruby/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/ruby/ruby.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/ruby/test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/rust/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/rust/rust.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/sass/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/sass/sass.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/scheme/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/scheme/scheme.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/shell/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/shell/shell.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/shell/test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/sieve/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/sieve/sieve.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/slim/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/slim/slim.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/slim/test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/smalltalk/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/smalltalk/smalltalk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/smarty/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/smarty/smarty.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/smartymixed/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/smartymixed/smartymixed.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/solr/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/solr/solr.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/soy/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/soy/soy.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/sparql/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/sparql/sparql.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/spreadsheet/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/spreadsheet/spreadsheet.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/sql/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/sql/sql.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/stex/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/stex/stex.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/stex/test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/stylus/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/stylus/stylus.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/tcl/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/tcl/tcl.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/textile/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/textile/test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/textile/textile.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/tiddlywiki/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/tiddlywiki/tiddlywiki.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/tiddlywiki/tiddlywiki.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/tiki/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/tiki/tiki.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/tiki/tiki.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/toml/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/toml/toml.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/tornado/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/tornado/tornado.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/turtle/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/turtle/turtle.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/vb/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/vb/vb.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/vbscript/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/vbscript/vbscript.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/velocity/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/velocity/velocity.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/verilog/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/verilog/test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/verilog/verilog.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/xml/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/xml/test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/xml/xml.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/xquery/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/xquery/test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/xquery/xquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/yaml/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/yaml/yaml.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/z80/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/mode/z80/z80.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/modes.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/theme/3024-day.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/theme/3024-night.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/theme/ambiance-mobile.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/theme/ambiance.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/theme/base16-dark.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/theme/base16-light.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/theme/blackboard.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/theme/cobalt.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/theme/colorforth.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/theme/eclipse.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/theme/elegant.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/theme/erlang-dark.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/theme/lesser-dark.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/theme/mbo.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/theme/mdn-like.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/theme/midnight.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/theme/monokai.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/theme/neat.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/theme/neo.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/theme/night.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/theme/paraiso-dark.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/theme/paraiso-light.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/theme/pastel-on-dark.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/theme/rubyblue.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/theme/solarized.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/theme/the-matrix.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/theme/tomorrow-night-bright.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/theme/tomorrow-night-eighties.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/theme/twilight.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/theme/vibrant-ink.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/theme/xq-dark.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/theme/xq-light.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/codemirror/theme/zenburn.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/flowchart.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/jquery.flowchart.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/marked.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/prettify.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/raphael.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/sequence-diagram.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/lib/underscore.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/moment.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/npm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/plugins/code-block-dialog/code-block-dialog.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/plugins/emoji-dialog/emoji-dialog.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/plugins/emoji-dialog/emoji.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/plugins/goto-line-dialog/goto-line-dialog.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/plugins/help-dialog/help-dialog.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/plugins/html-entities-dialog/html-entities-dialog.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/plugins/html-entities-dialog/html-entities.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/plugins/image-dialog/image-dialog.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/plugins/link-dialog/link-dialog.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/plugins/plugin-template.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/plugins/preformatted-text-dialog/preformatted-text-dialog.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/plugins/reference-link-dialog/reference-link-dialog.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/plugins/table-dialog/table-dialog.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/plugins/test-plugin/test-plugin.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/login.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/regist.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vue/axios.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/vue/vue.js" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -797,18 +30,142 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="conference_system@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="conference_system@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="conference_management_system" />
+  </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/db/migration/V1__Create_user_table.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="16" column="16" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
+            <state relative-caret-position="38">
+              <caret line="2" selection-start-line="2" selection-end-line="14" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/dto/User.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1364">
+              <caret line="143" column="18" selection-start-line="143" selection-start-column="18" selection-end-line="143" selection-end-column="18" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2527#2528#0" expanded="true" />
+                <element signature="e#2561#2562#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/App.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/sustech/conferenceSystem/service/UserServiceTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="160">
+              <caret line="28" selection-start-line="28" selection-end-line="28" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/controler/UserControler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="110">
+              <caret line="42" selection-start-line="42" selection-end-line="42" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/service/UserService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="129">
+              <caret line="24" column="28" lean-forward="true" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/User.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="431">
+              <caret line="24" column="9" lean-forward="true" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/mapper/UserMapper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="228">
+              <caret line="20" column="15" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="15" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="19">
+              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Interface" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -816,7 +173,21 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/APP.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/db/migration/V1__Create_user_table.sql" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/conferenceSystem/App.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/sustech/conferenceSystem/serviceTest/UserMapperTest.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/conferenceSystem/service/UserService.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/sustech/conferenceSystem/serviceTest/UserServiceTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/App.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/sustech/conferenceSystem/service/UserServiceTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/dto/User.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/controler/UserControler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/service/UserService.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/mapper/UserMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/User.xml" />
       </list>
     </option>
   </component>
@@ -834,6 +205,12 @@
       </MavenImportingSettings>
     </option>
   </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand />
+      <select />
+    </treeState>
+  </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="20" />
     <option name="y" value="40" />
@@ -846,6 +223,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -871,21 +249,117 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="conference_management_system" type="b2602c69:ProjectViewProjectNode" />
+              <item name="conference-management-system-back-end" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="conferenceSystem" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="conference_management_system" type="b2602c69:ProjectViewProjectNode" />
+              <item name="conference-management-system-back-end" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="conferenceSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="mapper" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="conference_management_system" type="b2602c69:ProjectViewProjectNode" />
+              <item name="conference-management-system-back-end" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="conferenceSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="conference_management_system" type="b2602c69:ProjectViewProjectNode" />
+              <item name="conference-management-system-back-end" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="conference_management_system" type="b2602c69:ProjectViewProjectNode" />
+              <item name="conference-management-system-back-end" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="migration" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="conference_management_system" type="b2602c69:ProjectViewProjectNode" />
+              <item name="conference-management-system-back-end" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="mapper" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="conference_management_system" type="b2602c69:ProjectViewProjectNode" />
+              <item name="conference-management-system-back-end" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="conference_management_system" type="b2602c69:ProjectViewProjectNode" />
+              <item name="conference-management-system-back-end" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="conference_management_system" type="b2602c69:ProjectViewProjectNode" />
+              <item name="conference-management-system-back-end" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="conferenceSystem" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="conference_management_system" type="b2602c69:ProjectViewProjectNode" />
+              <item name="conference-management-system-back-end" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="conferenceSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1574321749021" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1574341407994" />
+    <property name="database.console.LAST_STATE" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../loginRegist" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\dev\conference-management-system-back-end\src\main\resources\db" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.sustech.conferenceSystem.serviceTest" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\dev\conference-management-system-back-end\src\main\resources\mapper" />
+      <recent name="F:\dev\conference-management-system-back-end\src\main\resources" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -899,10 +373,64 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.ConferenceManagementSystemApplication">
+  <component name="RunManager" selected="Spring Boot.ConferenceManagementSystemApplication (1)">
+    <configuration name="UserServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="conference-management-system-back-end" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sustech.conferenceSystem.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.sustech.conferenceSystem.service" />
+      <option name="MAIN_CLASS_NAME" value="com.sustech.conferenceSystem.service.UserServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceTest.loginTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="conference-management-system-back-end" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sustech.conferenceSystem.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.sustech.conferenceSystem.service" />
+      <option name="MAIN_CLASS_NAME" value="com.sustech.conferenceSystem.service.UserServiceTest" />
+      <option name="METHOD_NAME" value="loginTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceTest.registTest2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="conference-management-system-back-end" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sustech.conferenceSystem.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.sustech.conferenceSystem.service" />
+      <option name="MAIN_CLASS_NAME" value="com.sustech.conferenceSystem.service.UserServiceTest" />
+      <option name="METHOD_NAME" value="registTest2" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="App" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="conference-management-system-back-end" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.sustech.conferenceSystem.conferenceSystem.App" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ConferenceManagementSystemApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="conference-management-system-back-end" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.sustech.conferenceSystem.ConferenceManagementSystemApplication" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.sustech.conferenceSystem.App" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -914,6 +442,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.UserServiceTest.registTest2" />
+        <item itemvalue="JUnit.UserServiceTest.loginTest" />
+        <item itemvalue="JUnit.UserServiceTest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -926,46 +461,76 @@
       <option name="presentableId" value="Default" />
       <updated>1574321461185</updated>
       <workItem from="1574321464480" duration="24000" />
-      <workItem from="1574321652588" duration="96000" />
+      <workItem from="1574321652588" duration="12933000" />
+      <workItem from="1574335848091" duration="5323000" />
     </task>
+    <task id="LOCAL-00001" summary="first-commit">
+      <created>1574321803487</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1574321803488</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="UserServiceTest_loginTest - 2019.11.21 at 19h 32m 52s.xml">
+      <configuration name="UserServiceTest.loginTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserServiceTest - 2019.11.21 at 19h 34m 21s.xml">
+      <configuration name="UserServiceTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserServiceTest - 2019.11.21 at 19h 37m 23s.xml">
+      <configuration name="UserServiceTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserServiceTest_loginTest - 2019.11.21 at 19h 58m 01s.xml">
+      <configuration name="UserServiceTest.loginTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserServiceTest_registTest2 - 2019.11.21 at 20h 08m 05s.xml">
+      <configuration name="UserServiceTest.registTest2" configurationId="JUnit" />
+    </history-entry>
+  </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="120000" />
+    <option name="totallyTimeSpent" value="18280000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1293" height="703" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2534413" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Designer" order="2" />
-      <window_info id="Image Layers" order="3" />
-      <window_info id="Capture Tool" order="4" />
-      <window_info id="UI Designer" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info id="Web" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Spring" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Java Enterprise" order="11" />
-      <window_info anchor="bottom" id="Database Changes" order="12" />
-      <window_info anchor="bottom" id="Version Control" order="13" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49825174" visible="true" weight="0.2574899" />
+      <window_info id="Designer" order="1" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Capture Tool" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Favorites" order="5" sideWeight="0.50174826" side_tool="true" weight="0.2534413" />
+      <window_info id="Web" order="6" sideWeight="0.50174826" side_tool="true" weight="0.2534413" />
+      <window_info anchor="bottom" id="Database Console" order="0" weight="0.32867134" />
+      <window_info anchor="bottom" id="Run with Parallel Runner" order="1" />
+      <window_info anchor="bottom" id="Messages" order="2" weight="0.32867134" />
+      <window_info anchor="bottom" id="Debug with Parallel Runner" order="3" />
+      <window_info anchor="bottom" id="Message" order="4" />
+      <window_info anchor="bottom" id="Find" order="5" visible="true" weight="0.32867134" />
+      <window_info anchor="bottom" id="Structure" order="6" weight="0.25" />
+      <window_info active="true" anchor="bottom" id="Run" order="7" visible="true" weight="0.32867134" />
+      <window_info anchor="bottom" id="Debug" order="8" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="11" />
+      <window_info anchor="bottom" id="Spring" order="12" />
+      <window_info anchor="bottom" id="Terminal" order="13" weight="0.32867134" />
+      <window_info anchor="bottom" id="Docker" order="14" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="15" side_tool="true" />
+      <window_info anchor="bottom" id="Java Enterprise" order="16" />
+      <window_info anchor="bottom" id="Database Changes" order="17" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="18" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Maven" order="3" />
+      <window_info anchor="right" id="Maven" order="3" weight="0.32955465" />
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="right" id="Database" order="6" />
+      <window_info anchor="right" id="Database" order="6" visible="true" weight="0.28421053" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info anchor="right" id="Bean Validation" order="9" />
@@ -974,11 +539,12 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="first-commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="first-commit" />
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/mvnw">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mvnw.cmd">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/maven/lib/maven.jar!/schemas/maven-4.0.0.xsd">
@@ -988,10 +554,128 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mvnw.cmd">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2508" />
+      </provider>
+    </entry>
+    <entry file="das://832875e3-365a-4a74-a125-7a3d833fee8e/schema/conference_system/table/user">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://832875e3-365a-4a74-a125-7a3d833fee8e/schema/conference_system/table/schema_version" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-autoconfigure/2.2.1.RELEASE/spring-boot-autoconfigure-2.2.1.RELEASE.jar!/org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="393" column="42" selection-start-line="393" selection-start-column="42" selection-end-line="393" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/832875e3-365a-4a74-a125-7a3d833fee8e/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="16" column="16" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
+        <state relative-caret-position="836">
+          <caret line="44" column="31" selection-start-line="44" selection-start-column="31" selection-end-line="44" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-test/5.2.1.RELEASE/spring-test-5.2.1.RELEASE.jar!/org/springframework/test/context/junit4/SpringRunner.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/sustech/conferenceSystem/service/UserServiceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/dto/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1364">
+          <caret line="143" column="18" selection-start-line="143" selection-start-column="18" selection-end-line="143" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2527#2528#0" expanded="true" />
+            <element signature="e#2561#2562#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/controler/UserControler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="42" selection-start-line="42" selection-end-line="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="24" column="28" lean-forward="true" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/App.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/db/migration/V1__Create_user_table.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" selection-start-line="2" selection-end-line="14" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/mapper/UserMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="20" column="15" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="15" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/User.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="431">
+          <caret line="24" column="9" lean-forward="true" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
         </state>
       </provider>
     </entry>
