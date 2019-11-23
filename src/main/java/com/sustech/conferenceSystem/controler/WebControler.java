@@ -2,7 +2,7 @@ package com.sustech.conferenceSystem.controler;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-@Controller
+@RestController
 @RequestMapping(value = "/")
 public class WebControler {
 

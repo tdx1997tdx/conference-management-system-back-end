@@ -13,6 +13,7 @@ import java.util.Map;
  */
 @ResponseBody
 @RestController
+@CrossOrigin
 @RequestMapping(value = "user")
 public class UserControler {
     @Resource
