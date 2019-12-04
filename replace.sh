@@ -4,6 +4,6 @@
 file="/root/conference_system/sys.jar"
 if [ -f "$file" ]
 then
-   mv /root/conference_system/old_version/sys.jar.`date +%Y%m%d%H%M%S`
+   mv /root/conference_system/sys.jar /root/conference_system/old_version/sys.jar.`date +%Y%m%d%H%M%S`
 fi
 mv /var/lib/jenkins/jobs/conference-management-system-back-end/workspace/target/conference_system-1.0.jar /root/conference_system/sys.jar
