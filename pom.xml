@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.sustech.conferenceSystem</groupId>
     <artifactId>conference_system</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0</version>
     <name>conference_management_system</name>
     <description>conference management system backend for faith company</description>
 
