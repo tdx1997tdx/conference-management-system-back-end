@@ -100,5 +100,14 @@ public class UserControler {
         return JSON.toJSONString(result, Filter.getFilter());
     }
 
+    /**
+     * /user/admin_search_all 接口，返回所有用户信息
+     */
+    @GetMapping(value = "/admin_search_all")
+    public String adminSearchAll(){
+        List<User> result=userService.adminSearchAllService();
+        return JSON.toJSONString(result, Filter.getFilter());
+    }
+
 
 }

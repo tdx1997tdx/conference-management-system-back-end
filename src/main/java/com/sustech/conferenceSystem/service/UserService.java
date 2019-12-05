@@ -5,7 +5,6 @@ import com.sustech.conferenceSystem.dto.User;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -75,11 +74,19 @@ public class UserService {
      * 模糊查找相关用户信息
      * @param page 分页第几页
      * @param volume 每页的容量
-     * @return map类型的结果state 0代表失败1代表成功
+     * @return 结果集合list
      */
     public List<User> adminSearchService(String username,int page,int volume){
         PageHelper.startPage(page, volume);
         List<User> res=userMapper.fuzzySearchUser(username);
+        return res;
+    }
+
+    /**
+     * 返回所有用户信息
+     */
+    public List<User> adminSearchAllService(){
+        List<User> res=userMapper.fuzzySearchUser("_");
         return res;
     }
 }
