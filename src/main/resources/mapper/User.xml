@@ -50,4 +50,8 @@
         where username=#{username}
     </update>
 
+    <select id="fuzzySearchUser" resultType="com.sustech.conferenceSystem.dto.User">
+        select * from user where username like "%"#{username}"%"
+    </select>
+
 </mapper>

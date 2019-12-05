@@ -4,8 +4,10 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.sustech.conferenceSystem.service.UserService;
 import com.sustech.conferenceSystem.dto.User;
+import com.sustech.conferenceSystem.util.Filter;
 import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -81,6 +83,21 @@ public class UserControler {
         User.attributeFilter(user);
         Map result=userService.modifyInfoService(user);
         return JSON.toJSONString(result);
+    }
+
+    /**
+     * /user/admin_search 接口，用查找相关用户信息
+     * @param jsonParam
+     * @return
+     */
+    @RequestMapping(value = "/admin_search", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    public String adminSearch(@RequestBody JSONObject jsonParam){
+        // 直接将json信息打印出来
+        String username=jsonParam.getString("username");
+        int page=Integer.parseInt(jsonParam.getString("page"));
+        int volume=Integer.parseInt(jsonParam.getString("volume"));
+        List<User> result=userService.adminSearchService(username,page,volume);
+        return JSON.toJSONString(result, Filter.getFilter());
     }
 
 

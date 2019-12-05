@@ -1,4 +1,5 @@
 package com.sustech.conferenceSystem.service;
+import com.github.pagehelper.PageHelper;
 import com.sustech.conferenceSystem.mapper.UserMapper;
 import com.sustech.conferenceSystem.dto.User;
 import org.springframework.stereotype.Service;
@@ -67,6 +68,18 @@ public class UserService {
             res.put("state","1");
             res.put("message","修改用户信息成功");
         }
+        return res;
+    }
+
+    /**
+     * 模糊查找相关用户信息
+     * @param page 分页第几页
+     * @param volume 每页的容量
+     * @return map类型的结果state 0代表失败1代表成功
+     */
+    public List<User> adminSearchService(String username,int page,int volume){
+        PageHelper.startPage(page, volume);
+        List<User> res=userMapper.fuzzySearchUser(username);
         return res;
     }
 }

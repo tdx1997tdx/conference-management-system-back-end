@@ -27,4 +27,11 @@ public interface UserMapper {
      */
     boolean modify(User user);
 
+    /**
+     * 模糊查找人物
+     * @param username 代表模糊查询字段
+     * @return
+     */
+    List<User> fuzzySearchUser(String username);
+
 }
