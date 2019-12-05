@@ -21,4 +21,33 @@
         insert into user(username,password,role,name,email) values (#{username},#{password},#{role},#{name},#{email})
     </insert>
 
+    <update id="modify" parameterType="com.sustech.conferenceSystem.dto.User">
+        update user
+        <set>
+            <if test="name!=null">
+                name=#{name},
+            </if>
+            <if test="gender!=null">
+                gender=#{gender},
+            </if>
+            <if test="phone!=null">
+                phone=#{phone},
+            </if>
+            <if test="email!=null">
+                email=#{email},
+            </if>
+            <if test="organization!=null">
+                organization=#{organization},
+            </if>
+            <if test="department!=null">
+                department=#{department},
+            </if>
+            <if test="position!=null">
+                position=#{position},
+            </if>
+            modify_time=now()
+        </set>
+        where username=#{username}
+    </update>
+
 </mapper>

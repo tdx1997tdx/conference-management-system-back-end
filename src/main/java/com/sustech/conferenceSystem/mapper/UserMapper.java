@@ -20,4 +20,11 @@ public interface UserMapper {
      */
     void regist(User user);
 
+    /**
+     * 修改用户信息
+     * @param user
+     * @return
+     */
+    boolean modify(User user);
+
 }
