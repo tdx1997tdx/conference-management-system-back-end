@@ -14,7 +14,7 @@ import java.util.Map;
 @ResponseBody
 @RestController
 @CrossOrigin
-@RequestMapping(value = "user")
+@RequestMapping(value = "/user")
 public class UserControler {
     @Resource
     private UserService userService;
@@ -24,7 +24,7 @@ public class UserControler {
      * @param jsonParam
      * @return
      */
-    @RequestMapping(value = "login", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    @RequestMapping(value = "/login", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
     public String login(@RequestBody JSONObject jsonParam){
         String username=jsonParam.getString("username");
         String password=jsonParam.getString("password");
@@ -32,7 +32,7 @@ public class UserControler {
         Map result=userService.loginService(new User(username,password,role));
         return JSON.toJSONString(result);
     }
-    @RequestMapping(value = "regist", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    @RequestMapping(value = "/regist", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
     public String registJson(@RequestBody JSONObject jsonParam){
         // 直接将json信息打印出来
         String username=jsonParam.getString("username");
