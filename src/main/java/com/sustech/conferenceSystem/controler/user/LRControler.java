@@ -5,6 +5,8 @@ import com.alibaba.fastjson.JSONObject;
 import com.sustech.conferenceSystem.dto.User;
 import com.sustech.conferenceSystem.service.user.LRService;
 import com.sustech.conferenceSystem.util.Filter;
+import com.sustech.conferenceSystem.util.RedisUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -43,6 +45,18 @@ public class LRControler {
         User user = JSON.parseObject(jsonParam.toString(), User.class);
         Filter.attributeFilter(user);
         Map result=lrService.registService(user);
+        return JSON.toJSONString(result);
+    }
+
+    /**
+     * /user/login_verification 接口，用于注册用户
+     * @param jsonParam
+     * @return
+     */
+    @RequestMapping(value = "/login_verification", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    public String loginVerification(@RequestBody JSONObject jsonParam){
+        String cookie=jsonParam.getString("cookie");
+        Map result=lrService.loginVerificationService(cookie);
         return JSON.toJSONString(result);
     }
 }
