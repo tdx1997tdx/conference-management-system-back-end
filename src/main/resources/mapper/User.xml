@@ -5,15 +5,7 @@
     <select id="searchUser" resultType="com.sustech.conferenceSystem.dto.User">
         select * from user
         <where>
-            <if test="username!=null">
-                username=#{username}
-            </if>
-            <if test="password!=null">
-                and password=#{password}
-            </if>
-            <if test="role!=null">
-                and role=#{role}
-            </if>
+            <include refid="kv2"/>
         </where>
     </select>
 
@@ -24,31 +16,15 @@
     <update id="modify" parameterType="com.sustech.conferenceSystem.dto.User">
         update user
         <set>
-            <if test="name!=null">
-                name=#{name},
-            </if>
-            <if test="gender!=null">
-                gender=#{gender},
-            </if>
-            <if test="phone!=null">
-                phone=#{phone},
-            </if>
-            <if test="email!=null">
-                email=#{email},
-            </if>
-            <if test="organization!=null">
-                organization=#{organization},
-            </if>
-            <if test="department!=null">
-                department=#{department},
-            </if>
-            <if test="position!=null">
-                position=#{position},
-            </if>
+            <include refid="kv"/>
             modify_time=now()
         </set>
         where username=#{username}
     </update>
+    
+    <delete id="deleteUser" parameterType="com.sustech.conferenceSystem.dto.User">
+        delete from user where username=#{username}
+    </delete>
 
     <select id="fuzzySearchUser" resultType="com.sustech.conferenceSystem.dto.User">
         select * from user where username like "%"#{username}"%"
@@ -124,6 +100,68 @@
                 #{password}
             </if>
         </trim>
+    </sql>
+
+    <!-- key-value -->
+    <sql id="kv">
+        <if test="name!=null">
+            name=#{name},
+        </if>
+        <if test="gender!=null">
+            gender=#{gender},
+        </if>
+        <if test="phone!=null">
+            phone=#{phone},
+        </if>
+        <if test="email!=null">
+            email=#{email},
+        </if>
+        <if test="organization!=null">
+            organization=#{organization},
+        </if>
+        <if test="department!=null">
+            department=#{department},
+        </if>
+        <if test="position!=null">
+            position=#{position},
+        </if>
+        <if test="password!=null">
+            password=#{password},
+        </if>
+        <if test="role!=null">
+            role=#{role},
+        </if>
+    </sql>
+
+    <!-- key-value -->
+    <sql id="kv2">
+        <if test="name!=null">
+            name=#{name} and
+        </if>
+        <if test="gender!=null">
+            gender=#{gender} and
+        </if>
+        <if test="phone!=null">
+            phone=#{phone} and
+        </if>
+        <if test="email!=null">
+            email=#{email} and
+        </if>
+        <if test="organization!=null">
+            organization=#{organization} and
+        </if>
+        <if test="department!=null">
+            department=#{department} and
+        </if>
+        <if test="position!=null">
+            position=#{position} and
+        </if>
+        <if test="password!=null">
+            password=#{password} and
+        </if>
+        <if test="role!=null">
+            role=#{role}
+        </if>
     </sql>
 
 </mapper>

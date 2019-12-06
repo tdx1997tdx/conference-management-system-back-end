@@ -34,4 +34,11 @@ public interface UserMapper {
      */
     List<User> fuzzySearchUser(String username);
 
+    /**
+     * 删除用户
+     * @param user 要删除的人物
+     * @return
+     */
+    boolean deleteUser(User user);
+
 }
