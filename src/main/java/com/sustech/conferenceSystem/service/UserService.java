@@ -40,14 +40,18 @@ public class UserService {
      */
     public Map<String,String> registService(User user){
         Map<String,String> res=new HashMap<>();
-        List<User> users=userMapper.isExistUser(new User(user.getUsername()));
-        if(users.size()==0){
-            userMapper.regist(user);
+        boolean isSucess;
+        try{
+            isSucess=userMapper.addUser(user);
+        }catch (Exception e){
+            isSucess=false;
+        }
+        if(isSucess){
             res.put("state","1");
-            res.put("message","用户创建成功");
+            res.put("message","添加用户成功");
         }else {
             res.put("state","0");
-            res.put("message","用户名已存在");
+            res.put("message","添加用户失败");
         }
         return res;
     }
@@ -86,7 +90,8 @@ public class UserService {
      * 返回所有用户信息
      */
     public List<User> adminSearchAllService(){
-        List<User> res=userMapper.fuzzySearchUser("_");
+        List<User> res=userMapper.fuzzySearchUser("");
         return res;
     }
+
 }

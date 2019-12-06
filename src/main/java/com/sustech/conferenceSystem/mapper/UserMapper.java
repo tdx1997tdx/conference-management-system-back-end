@@ -18,7 +18,7 @@ public interface UserMapper {
      * @param user 其中有username,password,role,name,email
      * @return
      */
-    void regist(User user);
+    boolean addUser(User user);
 
     /**
      * 修改用户信息

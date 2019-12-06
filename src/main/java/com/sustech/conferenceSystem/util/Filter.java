@@ -1,8 +1,5 @@
 package com.sustech.conferenceSystem.util;
-
 import com.alibaba.fastjson.serializer.ValueFilter;
-import com.sustech.conferenceSystem.dto.User;
-
 import java.lang.reflect.Field;
 
 public class Filter {

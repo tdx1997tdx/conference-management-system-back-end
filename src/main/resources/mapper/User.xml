@@ -17,8 +17,8 @@
         </where>
     </select>
 
-    <insert id="regist" parameterType="com.sustech.conferenceSystem.dto.User">
-        insert into user(username,password,role,name,email) values (#{username},#{password},#{role},#{name},#{email})
+    <insert id="addUser" parameterType="com.sustech.conferenceSystem.dto.User">
+        insert into user(<include refid="key"/>) values(<include refid="values"/>)
     </insert>
 
     <update id="modify" parameterType="com.sustech.conferenceSystem.dto.User">
@@ -53,5 +53,77 @@
     <select id="fuzzySearchUser" resultType="com.sustech.conferenceSystem.dto.User">
         select * from user where username like "%"#{username}"%"
     </select>
+
+    <!-- 对应的插入字段的名字 -->
+    <sql id="key">
+        <trim suffixOverrides=",">
+            <if test="name!=null">
+                name,
+            </if>
+            <if test="gender!=null">
+                gender,
+            </if>
+            <if test="phone!=null">
+                phone,
+            </if>
+            <if test="email!=null">
+                email,
+            </if>
+            <if test="organization!=null">
+                organization,
+            </if>
+            <if test="department!=null">
+                department,
+            </if>
+            <if test="position!=null">
+                position,
+            </if>
+            <if test="role!=null">
+                role,
+            </if>
+            <if test="username!=null">
+                username,
+            </if>
+            <if test="password!=null">
+                password
+            </if>
+        </trim>
+    </sql>
+
+    <!-- 对应的插入字段的值 -->
+    <sql id="values">
+        <trim suffixOverrides=",">
+            <if test="name!=null">
+                #{name},
+            </if>
+            <if test="gender!=null">
+                #{gender},
+            </if>
+            <if test="phone!=null">
+                #{phone},
+            </if>
+            <if test="email!=null">
+                #{email},
+            </if>
+            <if test="organization!=null">
+                #{organization},
+            </if>
+            <if test="department!=null">
+                #{department},
+            </if>
+            <if test="position!=null">
+                #{position},
+            </if>
+            <if test="role!=null">
+                #{role},
+            </if>
+            <if test="username!=null">
+                #{username},
+            </if>
+            <if test="password!=null">
+                #{password}
+            </if>
+        </trim>
+    </sql>
 
 </mapper>

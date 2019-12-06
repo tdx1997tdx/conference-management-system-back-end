@@ -28,10 +28,8 @@ public class UserControler {
      */
     @RequestMapping(value = "/login", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
     public String login(@RequestBody JSONObject jsonParam){
-        String username=jsonParam.getString("username");
-        String password=jsonParam.getString("password");
-        int role=Integer.parseInt(jsonParam.getString("role"));
-        Map result=userService.loginService(new User(username,password,role));
+        User user = JSON.parseObject(jsonParam.toString(), User.class);
+        Map result=userService.loginService(user);
         return JSON.toJSONString(result);
     }
 
@@ -42,13 +40,8 @@ public class UserControler {
      */
     @RequestMapping(value = "/regist", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
     public String registJson(@RequestBody JSONObject jsonParam){
-        // 直接将json信息打印出来
-        String username=jsonParam.getString("username");
-        String password=jsonParam.getString("password");
-        int role=Integer.parseInt(jsonParam.getString("role"));
-        User user=new User(username,password,role);
-        user.setEmail(jsonParam.getString("email"));
-        user.setName(jsonParam.getString("name"));
+        User user = JSON.parseObject(jsonParam.toString(), User.class);
+        Filter.attributeFilter(user);
         Map result=userService.registService(user);
         return JSON.toJSONString(result);
     }
@@ -60,27 +53,8 @@ public class UserControler {
      */
     @RequestMapping(value = "/modify_info", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
     public String modifyInfo(@RequestBody JSONObject jsonParam){
-        // 直接将json信息打印出来
-        String username=jsonParam.getString("username");
-        String name=jsonParam.getString("name");
-        String gender=jsonParam.getString("gender");
-        String phone=jsonParam.getString("phone");
-        String email=jsonParam.getString("email");
-        String organization=jsonParam.getString("organization");
-        String department=jsonParam.getString("department");
-        String position=jsonParam.getString("position");
-
-        User user=new User();
-        user.setName(name);
-        user.setUsername(username);
-        user.setGender(gender);
-        user.setPhone(phone);
-        user.setEmail(email);
-        user.setOrganization(organization);
-        user.setDepartment(department);
-        user.setPosition(position);
-
-        User.attributeFilter(user);
+        User user = JSON.parseObject(jsonParam.toString(), User.class);
+        Filter.attributeFilter(user);
         Map result=userService.modifyInfoService(user);
         return JSON.toJSONString(result);
     }
@@ -108,6 +82,5 @@ public class UserControler {
         List<User> result=userService.adminSearchAllService();
         return JSON.toJSONString(result, Filter.getFilter());
     }
-
 
 }
