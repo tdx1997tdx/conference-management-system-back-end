@@ -22,7 +22,7 @@ public class UserService {
      */
     public Map<String,String> loginService(User user){
         Map<String,String> res=new HashMap<>();
-        List<User> users=userMapper.isExistUser(user);
+        List<User> users=userMapper.searchUser(user);
         if(users.size()==0){
             res.put("state","0");
             res.put("message","用户名或密码错误");
@@ -72,6 +72,16 @@ public class UserService {
             res.put("message","修改用户信息成功");
         }
         return res;
+    }
+
+    /**
+     * 处理显示用户信息的业务逻辑
+     * @param user 传入javabean的user对象
+     * @return 查找到的user
+     */
+    public User showInfoService(User user){
+        List<User> users=userMapper.searchUser(user);
+        return users.get(0);
     }
 
     /**

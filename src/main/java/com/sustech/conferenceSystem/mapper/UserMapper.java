@@ -11,7 +11,7 @@ public interface UserMapper {
      * @param user 其中有username,password,role为空代表不传
      * @return
      */
-    List<User> isExistUser(User user);
+    List<User> searchUser(User user);
 
     /**
      * 注册人物

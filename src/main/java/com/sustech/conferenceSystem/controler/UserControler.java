@@ -39,7 +39,7 @@ public class UserControler {
      * @return
      */
     @RequestMapping(value = "/regist", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
-    public String registJson(@RequestBody JSONObject jsonParam){
+    public String regist(@RequestBody JSONObject jsonParam){
         User user = JSON.parseObject(jsonParam.toString(), User.class);
         Filter.attributeFilter(user);
         Map result=userService.registService(user);
@@ -47,7 +47,7 @@ public class UserControler {
     }
 
     /**
-     * /user/regist 接口，用于注册用户
+     * /user/modify_info 接口，用于修改用户信息
      * @param jsonParam
      * @return
      */
@@ -57,6 +57,18 @@ public class UserControler {
         Filter.attributeFilter(user);
         Map result=userService.modifyInfoService(user);
         return JSON.toJSONString(result);
+    }
+
+    /**
+     * /user/show_info 接口，用于显示用户信息
+     * @param jsonParam
+     * @return
+     */
+    @RequestMapping(value = "/show_info", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    public String showInfo(@RequestBody JSONObject jsonParam){
+        User user = JSON.parseObject(jsonParam.toString(), User.class);
+        User u=userService.showInfoService(user);
+        return JSON.toJSONString(u,Filter.getFilter());
     }
 
     /**
