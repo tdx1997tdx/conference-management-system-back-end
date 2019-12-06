@@ -48,13 +48,13 @@ public class LRService {
      */
     public Map<String,String> registService(User user){
         Map<String,String> res=new HashMap<>();
-        boolean isSucess;
+        boolean isSuccess;
         try{
-            isSucess=userMapper.addUser(user);
+            isSuccess=userMapper.addUser(user);
         }catch (Exception e){
-            isSucess=false;
+            isSuccess=false;
         }
-        if(isSucess){
+        if(isSuccess){
             res.put("state","1");
             res.put("message","添加用户成功");
         }else {
