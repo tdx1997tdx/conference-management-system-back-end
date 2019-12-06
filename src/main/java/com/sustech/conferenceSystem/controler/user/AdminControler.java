@@ -37,11 +37,13 @@ public class AdminControler {
     }
 
     /**
-     * /user/admin_search_all 接口，返回所有用户信息
+     * /user/admin_search_page 接口，返回指定页数用户信息
      */
-    @GetMapping(value = "/admin_search_all")
-    public String adminSearchAll(){
-        List<User> result=adminService.adminSearchAllService();
+    @RequestMapping(value = "/admin_search_page", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    public String adminSearchAll(@RequestBody JSONObject jsonParam){
+        int page=Integer.parseInt(jsonParam.getString("page"));
+        int volume=Integer.parseInt(jsonParam.getString("volume"));
+        Map result=adminService.adminSearchPageService(page,volume);
         return JSON.toJSONString(result, Filter.getFilter());
     }
 

@@ -31,8 +31,12 @@ public class AdminService {
     /**
      * 返回所有用户信息
      */
-    public List<User> adminSearchAllService(){
-        List<User> res=userMapper.fuzzySearchUser("");
+    public Map<String,Object> adminSearchPageService(int page,int volume){
+        Map<String,Object> res=new HashMap<>();
+        PageHelper.startPage(page, volume);
+        List<User> list=userMapper.fuzzySearchUser("");
+        res.put("list",list);
+        res.put("total",list.size());
         return res;
     }
 
