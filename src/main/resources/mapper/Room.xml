@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sustech.conferenceSystem.mapper.RoomMapper" >
+
+    <select id="searchRoom" resultType="com.sustech.conferenceSystem.dto.Room">
+        select * from room
+        <where>
+            <include refid="kv2"/>
+        </where>
+    </select>
+
+    <insert id="addRoom" parameterType="com.sustech.conferenceSystem.dto.Room">
+        insert into room(<include refid="key"/>) values(<include refid="values"/>)
+    </insert>
+
+    <update id="updateRoom" parameterType="com.sustech.conferenceSystem.dto.Room">
+        update room
+        <set>
+            <include refid="kv"/>
+            modify_time=now()
+        </set>
+        where room_id=#{roomId}
+    </update>
+
+    <delete id="deleteRoom">
+        delete from room where room_id=#{room_id}
+    </delete>
+
+    <select id="fuzzySearchRoom" resultType="com.sustech.conferenceSystem.dto.Room">
+        select * from room where room_name like "%"#{roomName}"%"
+    </select>
+
+    <!-- 对应的插入字段的名字 -->
+    <sql id="key">
+        <trim suffixOverrides=",">
+            <if test="roomName!=null">
+                room_name,
+            </if>
+            <if test="country!=null">
+                country,
+            </if>
+            <if test="province!=null">
+                province,
+            </if>
+            <if test="city!=null">
+                city,
+            </if>
+            <if test="block!=null">
+                block,
+            </if>
+            <if test="building!=null">
+                building,
+            </if>
+            <if test="floor!=null">
+                floor,
+            </if>
+            <if test="roomNumber!=null">
+                room_number,
+            </if>
+            <if test="roomVolume!=null">
+                room_volume,
+            </if>
+            <if test="mark!=null">
+                mark
+            </if>
+        </trim>
+    </sql>
+
+    <!-- 对应的插入字段的值 -->
+    <sql id="values">
+        <trim suffixOverrides=",">
+            <if test="roomName!=null">
+                #{roomName},
+            </if>
+            <if test="country!=null">
+                #{country},
+            </if>
+            <if test="province!=null">
+                #{province},
+            </if>
+            <if test="city!=null">
+                #{city},
+            </if>
+            <if test="block!=null">
+                #{block},
+            </if>
+            <if test="building!=null">
+                #{building},
+            </if>
+            <if test="floor!=null">
+                #{floor},
+            </if>
+            <if test="roomNumber!=null">
+                #{roomNumber},
+            </if>
+            <if test="roomVolume!=null">
+                #{roomVolume},
+            </if>
+            <if test="mark!=null">
+                #{mark}
+            </if>
+        </trim>
+    </sql>
+
+    <!-- key-value -->
+    <sql id="kv">
+        <if test="roomName!=null">
+            room_name = #{roomName},
+        </if>
+        <if test="country!=null">
+            country = #{country},
+        </if>
+        <if test="province!=null">
+            province = #{province},
+        </if>
+        <if test="city!=null">
+            city = #{city},
+        </if>
+        <if test="block!=null">
+            block = #{block},
+        </if>
+        <if test="building!=null">
+            building = #{building},
+        </if>
+        <if test="floor!=null">
+            floor = #{floor},
+        </if>
+        <if test="roomNumber!=null">
+            room_number = #{roomNumber},
+        </if>
+        <if test="roomVolume!=null">
+            room_volume = #{roomVolume},
+        </if>
+        <if test="mark!=null">
+            mark = #{mark},
+        </if>
+    </sql>
+
+    <!-- key-value -->
+    <sql id="kv2">
+        <if test="roomName!=null">
+            room_name = #{roomName} and
+        </if>
+        <if test="country!=null">
+            country = #{country} and
+        </if>
+        <if test="province!=null">
+            province = #{province} and
+        </if>
+        <if test="city!=null">
+            city = #{city} and
+        </if>
+        <if test="block!=null">
+            block = #{block} and
+        </if>
+        <if test="building!=null">
+            building = #{building} and
+        </if>
+        <if test="floor!=null">
+            floor = #{floor} and
+        </if>
+        <if test="roomNumber!=null">
+            room_number = #{roomNumber} and
+        </if>
+        <if test="roomVolume!=null">
+            room_volume = #{roomVolume} and
+        </if>
+        <if test="mark!=null">
+            mark = #{mark}
+        </if>
+    </sql>
+
+</mapper>
