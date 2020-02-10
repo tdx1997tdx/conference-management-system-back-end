@@ -1,0 +1,97 @@
+package com.sustech.conferenceSystem.service.meeting;
+
+import com.sustech.conferenceSystem.dto.Meeting;
+import com.sustech.conferenceSystem.mapper.MeetingMapper;
+import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+@Service
+public class MeetingService {
+    @Resource
+    private MeetingMapper meetingMapper;
+
+    /**
+     * 处理获取所有会议的业务逻辑
+     * @return 所有会议
+     */
+    public List<Meeting> meetingGetService(){
+        return meetingMapper.meetingGet();
+    }
+
+    /**
+     * 获取符合要求的会议
+     * @param meeting，其中有meetingName,roomName,meetingState,为空代表所有数据
+     * @return 符合要求会议集合
+     */
+    public List<Meeting> meetingSearchService(Meeting meeting){
+        return meetingMapper.meetingSearch(meeting);
+    }
+
+    /**
+     * 获取符合要求的会议
+     * @param meeting，其中有meetingName,roomName,meetingState，为空代表所有数据
+     * @return 符合要求会议集合
+     */
+    public List<Meeting> meetingOrderService(Meeting meeting){
+        List<Meeting> meetings = meetingMapper.meetingOrder(meeting);
+
+
+
+        return meetings;
+    }
+
+
+
+    /**
+     * 创建会议
+     * @param meeting 传入javabean的user对象
+     * @return map类型的结果state 0代表失败1代表成功
+     */
+    public Map<String,String> meetingCreateService(Meeting meeting){
+        Map<String,String> res = new HashMap<>();
+        System.out.println("create");
+        System.out.println(meeting);
+        List<Meeting> meetings = meetingMapper.isMeetingExist(meeting);
+        System.out.println(meetings);
+        if(meetings.size()==0){
+            System.out.println(meeting);
+            meetingMapper.meetingCreate(meeting);
+            res.put("state","Success");
+            res.put("message","会议创建成功");
+        }else {
+            res.put("state","Failed");
+            res.put("message","创建会议与其他会议冲突，创建失败");
+        }
+        return res;
+    }
+
+    /**
+     * 创建会议
+     * @param meeting 传入javabean的user对象
+     * @return map类型的结果state 0代表失败1代表成功
+     */
+    public Map<String,String> meetingDeleteService(Meeting meeting){
+        Map<String,String> res = new HashMap<>();
+        System.out.println("delete");
+        List<Meeting> meetings = meetingMapper.meetingSearch(meeting);
+        System.out.println(meetings);
+
+        if(meetings.size()==1){
+            System.out.println(meeting);
+            meetingMapper.meetingDelete(meeting);
+            res.put("state","Success");
+            res.put("message","会议删除成功");
+        }else if(meetings.size()==0){
+            res.put("state","Failed");
+            res.put("message","没有找到对应会议，删除失败");
+        } else {
+            res.put("state","Failed");
+            res.put("message","对应会议不止一个，请重新核对，删除失败");
+        }
+        return res;
+    }
+}
