@@ -41,5 +41,13 @@ public interface RoomMapper {
     List<Room> fuzzySearchRoom(String roomName);
 
 
+    /**
+     * 根据id查找房间
+     * @param roomId
+     * @return
+     */
+    Room findRoomById(int roomId);
+
+
 
 }

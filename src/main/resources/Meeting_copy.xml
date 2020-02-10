@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="" >
+    <resultMap id="meeting" type="com.sustech.conferenceSystem.dto.Meeting">
+        <id column="meeting_id" property="meetingId"/>
+        <result column="meeting_name" property="meetingName"/>
+        <result column="start_time" property="startTime"/>
+        <result column="end_time" property="endTime"/>
+        <result column="remark" property="remark"/>
+        <result column="meeting_state" property="meetingState"/>
+        <result column="topic" property="topic"/>
+        <result column="meeting_abstract" property="meetingAbstract"/>
+
+        <association property="meetingRoom" javaType="com.sustech.conferenceSystem.dto.Room"
+                     column="room_id">
+            <id column="room_id" property="roomId"/>
+            <result column="room_name" property="roomName"/>
+        </association>
+        <association property="host" javaType="com.sustech.conferenceSystem.dto.User"
+                     column="user_id">
+            <id column="user_id" property="userId"/>
+            <result column="user_name" property="userName"/>
+        </association>
+        <association property="recorder" javaType="com.sustech.conferenceSystem.dto.User"
+                     column="user_id">
+            <id column="user_id" property="userId"/>
+            <result column="user_name" property="userName"/>
+        </association>
+        <collection property="members" ofType="com.sustech.conferenceSystem.dto.User"
+                    column="user_id">
+            <id column="user_id" property="userId"/>
+            <result column="user_name" property="userName"/>
+        </collection>
+        <collection property="absent" ofType="com.sustech.conferenceSystem.dto.User"
+                    column="user_id">
+            <id column="user_id" property="userId"/>
+            <result column="user_name" property="userName"/>
+        </collection>
+        <collection property="attendance" ofType="com.sustech.conferenceSystem.dto.User"
+                    column="user_id">
+            <id column="user_id" property="userId"/>
+            <result column="user_name" property="userName"/>
+        </collection>
+    </resultMap>
+
+
+    <select id="meetingGet" resultType="com.sustech.conferenceSystem.dto.Meeting">
+        select * from meeting
+    </select>
+
+    <select id="meetingSearch" resultType="com.sustech.conferenceSystem.dto.Meeting">
+        select * from meeting
+        <where>
+            <if test="meetingName != null">
+                meeting_name = #{meetingName}
+            </if>
+            <!--<if test="room_name != null">-->
+                <!--and room_name = #{roomName}-->
+            <!--</if>-->
+            <if test="meetingState != null">
+                and meeting_state = #{meetingState}
+            </if>
+            <if test="startTime != null">
+                <![CDATA[ and start_time >= #{startTime} ]]>
+            </if>
+            <if test="endTime != null">
+                <![CDATA[ and end_time <= #{endTime} ]]>
+            </if>
+        </where>
+    </select>
+
+    <select id="isMeetingExist" resultType="com.sustech.conferenceSystem.dto.Meeting">
+        select * from meeting
+        <where>
+
+
+            <![CDATA[
+            (start_time < #{startTime} and end_time > #{startTime}) or
+            (start_time < #{endTime}   and end_time > #{endTime}) or
+            (start_time < #{startTime} and end_time > #{endTime}) or
+            (start_time > #{startTime} and end_time < #{endTime})
+            ]]>
+        </where>
+    </select>
+
+    <select id="meetingOrder" resultType="com.sustech.conferenceSystem.dto.Meeting">
+        select * from meeting
+        <where>
+
+        </where>
+    </select>
+
+    <insert id="meetingCreate" parameterType="com.sustech.conferenceSystem.dto.Meeting">
+        insert into meeting(meeting_name, start_time, end_time, host, recorder, topic, meeting_abstract, mark, meeting_state)
+          values (#{meetingName},#{startTime},#{endTime},#{host},#{recorder},#{topic},#{meetingAbstract},#{mark},#{meetingState})
+    </insert>
+
+    <delete id="meetingDelete" parameterType="com.sustech.conferenceSystem.dto.Meeting">
+        select * from meeting
+        <where>
+            <if test="meetingName != null">
+                meeting_name = #{meetingName}
+            </if>
+            <if test="meetingState != null">
+                and meeting_state = #{meetingState}
+            </if>
+            <if test="startTime != null">
+                <![CDATA[ and start_time = #{startTime} ]]>
+            </if>
+            <if test="endTime != null">
+                <![CDATA[ and end_time = #{endTime} ]]>
+            </if>
+        </where>
+    </delete>
+</mapper>
