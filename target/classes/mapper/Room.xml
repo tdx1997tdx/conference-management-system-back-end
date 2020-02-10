@@ -30,6 +30,10 @@
         select * from room where room_name like "%"#{roomName}"%"
     </select>
 
+    <select id="findRoomById" resultType="com.sustech.conferenceSystem.dto.Room">
+        select room_id,room_name from room where room_id = #{roomId}
+    </select>
+
     <!-- 对应的插入字段的名字 -->
     <sql id="key">
         <trim suffixOverrides=",">

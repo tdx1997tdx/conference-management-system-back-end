@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sustech.conferenceSystem.mapper.MeetingMapper" >
-    <resultMap id="meeting" type="com.sustech.conferenceSystem.dto.Meeting">
+    <resultMap type="com.sustech.conferenceSystem.dto.MeetingFull" id="searchCertain">
         <id column="meeting_id" property="meetingId"/>
         <result column="meeting_name" property="meetingName"/>
         <result column="start_time" property="startTime"/>
@@ -10,106 +10,73 @@
         <result column="meeting_state" property="meetingState"/>
         <result column="topic" property="topic"/>
         <result column="meeting_abstract" property="meetingAbstract"/>
-
-        <association property="meetingRoom" javaType="com.sustech.conferenceSystem.dto.Room"
-                     column="room_id">
-            <id column="room_id" property="roomId"/>
-            <result column="room_name" property="roomName"/>
+        <!--查询room信息-->
+        <association property="room" javaType="com.sustech.conferenceSystem.dto.Room"
+                     column="room_id" select="com.sustech.conferenceSystem.mapper.RoomMapper.findRoomById">
         </association>
+        <!--查询host信息-->
         <association property="host" javaType="com.sustech.conferenceSystem.dto.User"
-                     column="user_id">
-            <id column="user_id" property="userId"/>
-            <result column="user_name" property="userName"/>
+                     column="host_id" select="com.sustech.conferenceSystem.mapper.UserMapper.findUserById">
         </association>
+        <!--查询recorder信息-->
         <association property="recorder" javaType="com.sustech.conferenceSystem.dto.User"
-                     column="user_id">
-            <id column="user_id" property="userId"/>
-            <result column="user_name" property="userName"/>
+                     column="recorder_id" select="com.sustech.conferenceSystem.mapper.UserMapper.findUserById">
         </association>
-        <collection property="members" ofType="com.sustech.conferenceSystem.dto.User"
-                    column="user_id">
-            <id column="user_id" property="userId"/>
-            <result column="user_name" property="userName"/>
-        </collection>
-        <collection property="absent" ofType="com.sustech.conferenceSystem.dto.User"
-                    column="user_id">
-            <id column="user_id" property="userId"/>
-            <result column="user_name" property="userName"/>
-        </collection>
-        <collection property="attendance" ofType="com.sustech.conferenceSystem.dto.User"
-                    column="user_id">
-            <id column="user_id" property="userId"/>
-            <result column="user_name" property="userName"/>
-        </collection>
+        <!--查询members信息-->
+        <association property="members" javaType="java.util.ArrayList"
+                     column="meeting_id" select="com.sustech.conferenceSystem.mapper.MeetingMapper.findMeetingMembers">
+        </association>
+        <!--查询absent信息-->
+        <association property="absent" javaType="java.util.ArrayList"
+                     column="meeting_id" select="com.sustech.conferenceSystem.mapper.MeetingMapper.findMeetingAbsent">
+        </association>
+        <!--查询attendance信息-->
+        <association property="attendance" javaType="java.util.ArrayList"
+                     column="meeting_id" select="com.sustech.conferenceSystem.mapper.MeetingMapper.findMeetingAttend">
+        </association>
     </resultMap>
 
 
-    <select id="meetingGet" resultType="com.sustech.conferenceSystem.dto.Meeting">
-        select * from meeting
-    </select>
-
-    <select id="meetingSearch" resultType="com.sustech.conferenceSystem.dto.Meeting">
-        select * from meeting
+    <select id="meetingSearch" resultType="com.sustech.conferenceSystem.dto.MeetingSimple">
+        select meeting_id,meeting_name,room_name,name host_name,start_time,end_time,topic,m.meeting_state from meeting m inner join room r on m.room_id=r.room_id inner join user u on u.user_id=m.host_id
         <where>
             <if test="meetingName != null">
-                meeting_name = #{meetingName}
+                meeting_name like "%"#{meetingName}"%"
             </if>
-            <!--<if test="room_name != null">-->
-                <!--and room_name = #{roomName}-->
-            <!--</if>-->
-            <if test="meetingState != null">
-                and meeting_state = #{meetingState}
-            </if>
-            <if test="startTime != null">
-                <![CDATA[ and start_time >= #{startTime} ]]>
-            </if>
-            <if test="endTime != null">
-                <![CDATA[ and end_time <= #{endTime} ]]>
-            </if>
-        </where>
-    </select>
-
-    <select id="isMeetingExist" resultType="com.sustech.conferenceSystem.dto.Meeting">
-        select * from meeting
-        <where>
-
-
-            <![CDATA[
-            (start_time < #{startTime} and end_time > #{startTime}) or
-            (start_time < #{endTime}   and end_time > #{endTime}) or
-            (start_time < #{startTime} and end_time > #{endTime}) or
-            (start_time > #{startTime} and end_time < #{endTime})
-            ]]>
-        </where>
-    </select>
-
-    <select id="meetingOrder" resultType="com.sustech.conferenceSystem.dto.Meeting">
-        select * from meeting
-        <where>
-
-        </where>
-    </select>
-
-    <insert id="meetingCreate" parameterType="com.sustech.conferenceSystem.dto.Meeting">
-        insert into meeting(meeting_name, start_time, end_time, host, recorder, topic, meeting_abstract, mark, meeting_state)
-          values (#{meetingName},#{startTime},#{endTime},#{host},#{recorder},#{topic},#{meetingAbstract},#{mark},#{meetingState})
-    </insert>
-
-    <delete id="meetingDelete" parameterType="com.sustech.conferenceSystem.dto.Meeting">
-        select * from meeting
-        <where>
-            <if test="meetingName != null">
-                meeting_name = #{meetingName}
+            <if test="roomName != null">
+                and room_name like "%"#{roomName}"%"
             </if>
             <if test="meetingState != null">
-                and meeting_state = #{meetingState}
-            </if>
-            <if test="startTime != null">
-                <![CDATA[ and start_time = #{startTime} ]]>
-            </if>
-            <if test="endTime != null">
-                <![CDATA[ and end_time = #{endTime} ]]>
+                and meeting_state = #{meetingState,jdbcType=INTEGER}
             </if>
         </where>
-    </delete>
+    </select>
+
+    <select id="meetingSearchCertain" resultMap="searchCertain">
+        select * from meeting
+        <where>
+            meeting_id = #{meetingId}
+        </where>
+    </select>
+    <!--查询会议所有成员-->
+    <select id="findMeetingMembers" resultType="com.sustech.conferenceSystem.dto.User">
+        select u.user_id,name,state from user_and_meeting uam inner join user u on uam.user_id = u.user_id
+        <where>
+                meeting_id = #{meetingId}
+        </where>
+    </select>
+    <!--查询会议参加成员-->
+    <select id="findMeetingAttend" resultType="com.sustech.conferenceSystem.dto.User">
+        select u.user_id,name,state from user_and_meeting uam inner join user u on uam.user_id = u.user_id
+        <where>
+            meeting_id = #{meetingId} and state=0
+        </where>
+    </select>
+    <!--查询会议缺席成员-->
+    <select id="findMeetingAbsent" resultType="com.sustech.conferenceSystem.dto.User">
+        select u.user_id,name,state from user_and_meeting uam inner join user u on uam.user_id = u.user_id
+        <where>
+            meeting_id = #{meetingId} and state=1
+        </where>
+    </select>
 </mapper>

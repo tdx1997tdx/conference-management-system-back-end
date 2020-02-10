@@ -41,4 +41,11 @@ public interface UserMapper {
      */
     boolean deleteUser(User user);
 
+    /**
+     * 根据id查找用户
+     * @param userId
+     * @return
+     */
+    User findUserById(int userId);
+
 }

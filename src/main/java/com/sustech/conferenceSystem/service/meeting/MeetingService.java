@@ -1,6 +1,8 @@
 package com.sustech.conferenceSystem.service.meeting;
 
-import com.sustech.conferenceSystem.dto.Meeting;
+import com.github.pagehelper.PageHelper;
+import com.sustech.conferenceSystem.dto.MeetingFull;
+import com.sustech.conferenceSystem.dto.MeetingSimple;
 import com.sustech.conferenceSystem.mapper.MeetingMapper;
 import org.springframework.stereotype.Service;
 
@@ -15,29 +17,40 @@ public class MeetingService {
     private MeetingMapper meetingMapper;
 
     /**
-     * 处理获取所有会议的业务逻辑
-     * @return 所有会议
+     * 获取会议
+     * @param meetingName 会议名称，模糊搜索
+     * @param roomName 会议室名称
+     * @param meetingState 会议状态
+     * @param page 第几页
+     * @param volume 一页几个
+     * @return 符合要求会议集合
      */
-    public List<Meeting> meetingGetService(){
-        return meetingMapper.meetingGet();
+    public List<MeetingSimple> meetingSearchService(String meetingName, String roomName, String meetingState, int page, int volume){
+        PageHelper.startPage(page, volume);
+        List<MeetingSimple> res=meetingMapper.meetingSearch(meetingName,roomName,meetingState);
+        return res;
+    }
+
+    public MeetingFull meetingSearchCertainService(int meetingId){
+        return meetingMapper.meetingSearchCertain(meetingId);
     }
 
     /**
-     * 获取符合要求的会议
-     * @param meeting，其中有meetingName,roomName,meetingState,为空代表所有数据
-     * @return 符合要求会议集合
+     * 处理获取所有会议的业务逻辑
+     * @return 所有会议
      */
-    public List<Meeting> meetingSearchService(Meeting meeting){
-        return meetingMapper.meetingSearch(meeting);
+    public List<MeetingSimple> meetingGetService(){
+        return meetingMapper.meetingSearch(null,null,null);
     }
+
 
     /**
      * 获取符合要求的会议
      * @param meeting，其中有meetingName,roomName,meetingState，为空代表所有数据
      * @return 符合要求会议集合
      */
-    public List<Meeting> meetingOrderService(Meeting meeting){
-        List<Meeting> meetings = meetingMapper.meetingOrder(meeting);
+    public List<MeetingFull> meetingOrderService(MeetingFull meeting){
+        List<MeetingFull> meetings = meetingMapper.meetingOrder(meeting);
 
 
 
@@ -51,11 +64,11 @@ public class MeetingService {
      * @param meeting 传入javabean的user对象
      * @return map类型的结果state 0代表失败1代表成功
      */
-    public Map<String,String> meetingCreateService(Meeting meeting){
+    public Map<String,String> meetingCreateService(MeetingFull meeting){
         Map<String,String> res = new HashMap<>();
         System.out.println("create");
         System.out.println(meeting);
-        List<Meeting> meetings = meetingMapper.isMeetingExist(meeting);
+        List<MeetingFull> meetings = meetingMapper.isMeetingExist(meeting);
         System.out.println(meetings);
         if(meetings.size()==0){
             System.out.println(meeting);
@@ -74,10 +87,11 @@ public class MeetingService {
      * @param meeting 传入javabean的user对象
      * @return map类型的结果state 0代表失败1代表成功
      */
-    public Map<String,String> meetingDeleteService(Meeting meeting){
+    public Map<String,String> meetingDeleteService(MeetingFull meeting){
         Map<String,String> res = new HashMap<>();
         System.out.println("delete");
-        List<Meeting> meetings = meetingMapper.meetingSearch(meeting);
+        List<MeetingFull> meetings = null;
+        //meetingMapper.meetingSearch(meeting);
         System.out.println(meetings);
 
         if(meetings.size()==1){
