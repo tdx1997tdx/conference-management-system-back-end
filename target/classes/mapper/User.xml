@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sustech.conferenceSystem.mapper.UserMapper" >
+
+    <select id="searchUser" resultType="com.sustech.conferenceSystem.dto.User">
+        select * from user
+        <where>
+            <include refid="kv2"/>
+        </where>
+    </select>
+
+    <insert id="addUser" parameterType="com.sustech.conferenceSystem.dto.User">
+        insert into user(<include refid="key"/>) values(<include refid="values"/>)
+    </insert>
+
+    <update id="modify" parameterType="com.sustech.conferenceSystem.dto.User">
+        update user
+        <set>
+            <include refid="kv"/>
+            modify_time=now()
+        </set>
+        where username=#{username}
+    </update>
+    
+    <delete id="deleteUser" parameterType="com.sustech.conferenceSystem.dto.User">
+        delete from user where username=#{username}
+    </delete>
+
+    <select id="fuzzySearchUser" resultType="com.sustech.conferenceSystem.dto.User">
+        select * from user where username like "%"#{username}"%"
+    </select>
+
+    <!-- 对应的插入字段的名字 -->
+    <sql id="key">
+        <trim suffixOverrides=",">
+            <if test="name!=null">
+                name,
+            </if>
+            <if test="gender!=null">
+                gender,
+            </if>
+            <if test="phone!=null">
+                phone,
+            </if>
+            <if test="email!=null">
+                email,
+            </if>
+            <if test="organization!=null">
+                organization,
+            </if>
+            <if test="department!=null">
+                department,
+            </if>
+            <if test="position!=null">
+                position,
+            </if>
+            <if test="role!=null">
+                role,
+            </if>
+            <if test="username!=null">
+                username,
+            </if>
+            <if test="password!=null">
+                password
+            </if>
+        </trim>
+    </sql>
+
+    <!-- 对应的插入字段的值 -->
+    <sql id="values">
+        <trim suffixOverrides=",">
+            <if test="name!=null">
+                #{name},
+            </if>
+            <if test="gender!=null">
+                #{gender},
+            </if>
+            <if test="phone!=null">
+                #{phone},
+            </if>
+            <if test="email!=null">
+                #{email},
+            </if>
+            <if test="organization!=null">
+                #{organization},
+            </if>
+            <if test="department!=null">
+                #{department},
+            </if>
+            <if test="position!=null">
+                #{position},
+            </if>
+            <if test="role!=null">
+                #{role},
+            </if>
+            <if test="username!=null">
+                #{username},
+            </if>
+            <if test="password!=null">
+                #{password}
+            </if>
+        </trim>
+    </sql>
+
+    <!-- key-value -->
+    <sql id="kv">
+        <if test="name!=null">
+            name=#{name},
+        </if>
+        <if test="gender!=null">
+            gender=#{gender},
+        </if>
+        <if test="phone!=null">
+            phone=#{phone},
+        </if>
+        <if test="email!=null">
+            email=#{email},
+        </if>
+        <if test="organization!=null">
+            organization=#{organization},
+        </if>
+        <if test="department!=null">
+            department=#{department},
+        </if>
+        <if test="position!=null">
+            position=#{position},
+        </if>
+        <if test="password!=null">
+            password=#{password},
+        </if>
+        <if test="role!=null">
+            role=#{role},
+        </if>
+    </sql>
+
+    <!-- key-value -->
+    <sql id="kv2">
+        <if test="name!=null">
+            name=#{name} and
+        </if>
+        <if test="gender!=null">
+            gender=#{gender} and
+        </if>
+        <if test="phone!=null">
+            phone=#{phone} and
+        </if>
+        <if test="email!=null">
+            email=#{email} and
+        </if>
+        <if test="organization!=null">
+            organization=#{organization} and
+        </if>
+        <if test="department!=null">
+            department=#{department} and
+        </if>
+        <if test="position!=null">
+            position=#{position} and
+        </if>
+        <if test="password!=null">
+            password=#{password} and
+        </if>
+        <if test="role!=null">
+            role=#{role}
+        </if>
+    </sql>
+
+</mapper>

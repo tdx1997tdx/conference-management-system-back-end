@@ -11,21 +11,21 @@ import java.util.Date;
  */
 @Data
 public class Room {
-    private Integer roomId;
-    private String roomName;
-    private String country;
-    private String province;
-    private String city;
-    private String block;
-    private String building;
-    private String floor;
-    private Integer roomNumber;
-    private Integer roomVolume;
-    private String mark;
-    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")//页面写入数据库时格式化
-    @JSONField(format="yyyy-MM-dd HH:mm:ss")//数据库导出页面时json格式化
-    private Date createTime;
-    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")//页面写入数据库时格式化
-    @JSONField(format="yyyy-MM-dd HH:mm:ss")//数据库导出页面时json格式化
-    private Date modifyTime;
+    private Integer roomId; //会议室id号
+    private String roomName; //会议室名称
+    private String country; //国家
+    private String province; //省
+    private String city; //市
+    private String block; //街区
+    private String building; //楼
+    private String floor; //层号
+    private Integer roomNumber; //门牌号
+    private Integer roomVolume; //会议室容量
+    private String mark; //备注
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    @JSONField(format="yyyy-MM-dd HH:mm:ss")
+    private Date createTime; //创建时间
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    @JSONField(format="yyyy-MM-dd HH:mm:ss")
+    private Date modifyTime; //修改时间
 }

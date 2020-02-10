@@ -5,8 +5,6 @@ import com.alibaba.fastjson.JSONObject;
 import com.sustech.conferenceSystem.dto.User;
 import com.sustech.conferenceSystem.service.user.LRService;
 import com.sustech.conferenceSystem.util.Filter;
-import com.sustech.conferenceSystem.util.RedisUtil;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
