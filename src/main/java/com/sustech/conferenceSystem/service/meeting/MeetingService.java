@@ -1,8 +1,10 @@
 package com.sustech.conferenceSystem.service.meeting;
 
 import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.sustech.conferenceSystem.dto.MeetingFull;
 import com.sustech.conferenceSystem.dto.MeetingSimple;
+import com.sustech.conferenceSystem.dto.User;
 import com.sustech.conferenceSystem.mapper.MeetingMapper;
 import org.springframework.stereotype.Service;
 
@@ -25,9 +27,13 @@ public class MeetingService {
      * @param volume 一页几个
      * @return 符合要求会议集合
      */
-    public List<MeetingSimple> meetingSearchService(String meetingName, String roomName, String meetingState, int page, int volume){
+    public Map<String,Object> meetingSearchService(String meetingName, String roomName, String meetingState, int page, int volume){
+        Map<String,Object> res=new HashMap<>();
         PageHelper.startPage(page, volume);
-        List<MeetingSimple> res=meetingMapper.meetingSearch(meetingName,roomName,meetingState);
+        List<MeetingSimple> list=meetingMapper.meetingSearch(meetingName,roomName,meetingState);
+        PageInfo<MeetingSimple> pageInfo=new PageInfo<>(list);
+        res.put("list",list);
+        res.put("total",pageInfo.getTotal());
         return res;
     }
 
