@@ -32,7 +32,7 @@ public class AdminControler {
         String username=jsonParam.getString("username");
         int page=Integer.parseInt(jsonParam.getString("page"));
         int volume=Integer.parseInt(jsonParam.getString("volume"));
-        List<User> result= adminService.adminSearchService(username,page,volume);
+        Map<String,Object> result= adminService.adminSearchService(username,page,volume);
         return JSON.toJSONString(result, Filter.getFilter());
     }
 

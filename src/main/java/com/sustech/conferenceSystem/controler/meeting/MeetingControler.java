@@ -38,7 +38,6 @@ public class MeetingControler {
         String roomName=jsonParam.getString("room_name");
         String meetingState=jsonParam.getString("meeting_state");
         List<MeetingSimple> result = meetingService.meetingSearchService(meetingName,roomName,meetingState,page,volume);
-        System.out.println(result);
         return JSON.toJSONString(result);
     }
 
@@ -53,8 +52,6 @@ public class MeetingControler {
     public String meetingSearchCertain(@RequestBody JSONObject jsonParam){
         int meetingId=Integer.parseInt(jsonParam.getString("meeting_id"));
         MeetingFull result = meetingService.meetingSearchCertainService(meetingId);
-        System.out.println(result);
-        System.out.println(result.getRoom());
         return JSON.toJSONString(result);
     }
 

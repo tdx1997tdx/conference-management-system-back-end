@@ -1,6 +1,7 @@
 package com.sustech.conferenceSystem.service.user;
 
 import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.sustech.conferenceSystem.dto.User;
 import com.sustech.conferenceSystem.mapper.UserMapper;
 import org.springframework.stereotype.Service;
@@ -22,9 +23,13 @@ public class AdminService {
      * @param volume 每页的容量
      * @return 结果集合list
      */
-    public List<User> adminSearchService(String username,int page,int volume){
+    public Map<String,Object> adminSearchService(String username,int page,int volume){
+        Map<String,Object> res=new HashMap<>();
         PageHelper.startPage(page, volume);
-        List<User> res=userMapper.fuzzySearchUser(username);
+        List<User> list=userMapper.fuzzySearchUser(username);
+        PageInfo<User> pageInfo=new PageInfo<>(list);
+        res.put("list",list);
+        res.put("total",pageInfo.getTotal());
         return res;
     }
 
@@ -35,8 +40,9 @@ public class AdminService {
         Map<String,Object> res=new HashMap<>();
         PageHelper.startPage(page, volume);
         List<User> list=userMapper.fuzzySearchUser("");
+        PageInfo<User> pageInfo=new PageInfo<>(list);
         res.put("list",list);
-        res.put("total",list.size());
+        res.put("total",pageInfo.getTotal());
         return res;
     }
 
