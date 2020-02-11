@@ -8,6 +8,7 @@ import com.sustech.conferenceSystem.util.Filter;
 import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 控制房间的增删改模块controler层
@@ -43,7 +44,7 @@ public class RoomQueryControler {
         String roomName=jsonParam.getString("room_name");
         int page=Integer.parseInt(jsonParam.getString("page"));
         int volume=Integer.parseInt(jsonParam.getString("volume"));
-        List<Room> result=roomQueryService.roomSearchService(roomName,page,volume);
+        Map<String,Object> result=roomQueryService.roomSearchService(roomName,page,volume);
         return JSON.toJSONString(result);
     }
 
@@ -56,7 +57,7 @@ public class RoomQueryControler {
     public String roomSearchPage(@RequestBody JSONObject jsonParam){
         int page=Integer.parseInt(jsonParam.getString("page"));
         int volume=Integer.parseInt(jsonParam.getString("volume"));
-        List<Room> result=roomQueryService.roomSearchPageService(page,volume);
+        Map<String,Object> result=roomQueryService.roomSearchPageService(page,volume);
         return JSON.toJSONString(result);
     }
 }

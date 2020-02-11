@@ -1,6 +1,8 @@
 package com.sustech.conferenceSystem.service.room;
 
 import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import com.sustech.conferenceSystem.dto.MeetingSimple;
 import com.sustech.conferenceSystem.dto.Room;
 import com.sustech.conferenceSystem.mapper.RoomMapper;
 import org.springframework.stereotype.Service;
@@ -35,9 +37,13 @@ public class RoomQueryService {
      * @param volume 容量
      * @return 结果集合
      */
-    public List<Room> roomSearchService(String roomName,int page,int volume){
+    public Map<String,Object> roomSearchService(String roomName,int page,int volume){
+        Map<String,Object> res=new HashMap<>();
         PageHelper.startPage(page, volume);
-        List<Room> res=roomMapper.fuzzySearchRoom(roomName);
+        List<Room> list=roomMapper.fuzzySearchRoom(roomName);
+        PageInfo<Room> pageInfo=new PageInfo<>(list);
+        res.put("list",list);
+        res.put("total",pageInfo.getTotal());
         return res;
     }
 
@@ -47,9 +53,13 @@ public class RoomQueryService {
      * @param volume 容量
      * @return 结果集合
      */
-    public List<Room> roomSearchPageService(int page,int volume){
+    public Map<String,Object> roomSearchPageService(int page,int volume){
+        Map<String,Object> res=new HashMap<>();
         PageHelper.startPage(page, volume);
-        List<Room> res=roomMapper.fuzzySearchRoom("");
+        List<Room> list=roomMapper.fuzzySearchRoom("");
+        PageInfo<Room> pageInfo=new PageInfo<>(list);
+        res.put("list",list);
+        res.put("total",pageInfo.getTotal());
         return res;
     }
 }
