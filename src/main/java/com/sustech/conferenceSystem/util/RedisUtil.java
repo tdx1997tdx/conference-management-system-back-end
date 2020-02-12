@@ -84,6 +84,15 @@ public class RedisUtil {
         }
     }
 
+    /**
+     * 删除key
+     *
+     * @param key
+     */
+    public void delete(String key) {
+        redisTemplate.delete(key);
+    }
+
 
     // =============================map============================
     /**

@@ -33,7 +33,6 @@ public class LRService {
         }else {
             String token=Token.getInstance().makeToken(user.getUsername());
             redisUtil.set(token,user.getUsername(),432000);
-            System.out.println(token);
             res.put("state","1");
             res.put("set_cookie",token);
             res.put("message","登陆成功");
@@ -80,6 +79,25 @@ public class LRService {
             res.put("state","0");
             res.put("message","验证失败");
         }
+        return res;
+    }
+
+    /**
+     * 处理退出登陆业务逻辑
+     * @param token 要删除的token
+     * @return map类型的结果state 0代表失败1代表成功
+     */
+    public Map<String,String> loginExitService(String token){
+        Map<String,String> res=new HashMap<>();
+        try {
+            redisUtil.delete(token);
+            res.put("state","1");
+            res.put("message","删除成功");
+        }catch (Exception e){
+            res.put("state","0");
+            res.put("message",e.getMessage());
+        }
+
         return res;
     }
 
