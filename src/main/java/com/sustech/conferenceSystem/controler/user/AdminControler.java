@@ -48,6 +48,16 @@ public class AdminControler {
     }
 
     /**
+     * /user/admin_search_certain 接口，返回指定用户的详细信息
+     */
+    @RequestMapping(value = "/admin_search_certain", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    public String adminSearchCertain(@RequestBody JSONObject jsonParam){
+        int userId=Integer.parseInt(jsonParam.getString("user_id"));
+        User result=adminService.adminSearchCertainService(userId);
+        return JSON.toJSONString(result, Filter.getFilter());
+    }
+
+    /**
      * /user/admin_delete 接口，用于删除某一用户
      * @param jsonParam
      * @return

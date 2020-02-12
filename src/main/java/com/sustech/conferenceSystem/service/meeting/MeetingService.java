@@ -38,7 +38,12 @@ public class MeetingService {
     }
 
     public MeetingFull meetingSearchCertainService(int meetingId){
-        return meetingMapper.meetingSearchCertain(meetingId);
+        MeetingFull res=meetingMapper.meetingSearchCertain(meetingId);
+        User host=res.getHost();
+        User recorder=res.getRecorder();
+        res.setHost(host.userFilter());
+        res.setRecorder(recorder.userFilter());
+        return res;
     }
 
     /**
@@ -57,9 +62,6 @@ public class MeetingService {
      */
     public List<MeetingFull> meetingOrderService(MeetingFull meeting){
         List<MeetingFull> meetings = meetingMapper.meetingOrder(meeting);
-
-
-
         return meetings;
     }
 
