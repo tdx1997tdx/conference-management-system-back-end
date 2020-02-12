@@ -3,13 +3,13 @@ package com.sustech.conferenceSystem.service.user;
 import com.sustech.conferenceSystem.dto.User;
 import com.sustech.conferenceSystem.mapper.UserMapper;
 import com.sustech.conferenceSystem.util.RedisUtil;
-import com.sustech.conferenceSystem.util.Token;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 @Service
 public class LRService {
@@ -31,7 +31,7 @@ public class LRService {
             res.put("state","0");
             res.put("message","用户名或密码错误");
         }else {
-            String token=Token.getInstance().makeToken(user.getUsername());
+            String token= UUID.randomUUID().toString();
             redisUtil.set(token,user.getUsername(),432000);
             res.put("state","1");
             res.put("set_cookie",token);
