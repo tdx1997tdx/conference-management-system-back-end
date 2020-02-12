@@ -19,7 +19,7 @@
             <include refid="kv"/>
             modify_time=now()
         </set>
-        where username=#{username}
+        where user_id=#{userId}
     </update>
     
     <delete id="deleteUser" parameterType="com.sustech.conferenceSystem.dto.User">
