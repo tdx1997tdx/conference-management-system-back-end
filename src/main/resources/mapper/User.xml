@@ -19,7 +19,7 @@
             <include refid="kv"/>
             modify_time=now()
         </set>
-        where username=#{username}
+        where user_id=#{userId}
     </update>
     
     <delete id="deleteUser" parameterType="com.sustech.conferenceSystem.dto.User">
@@ -31,7 +31,7 @@
     </select>
 
     <select id="findUserById" resultType="com.sustech.conferenceSystem.dto.User">
-        select user_id,username,name from user where user_id = #{userId}
+        select * from user where user_id = #{userId}
     </select>
     <!-- 对应的插入字段的名字 -->
     <sql id="key">

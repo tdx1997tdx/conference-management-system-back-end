@@ -22,7 +22,7 @@ public class UserManagementControler {
     private UserManagementService userManagementService;
 
     /**
-     * /user/modify_info 接口，用于修改用户信息
+     * /user/modify_info 接口，普通用户用于修改用户信息
      * @param jsonParam
      * @return
      */
@@ -35,7 +35,7 @@ public class UserManagementControler {
     }
 
     /**
-     * /user/show_info 接口，用于显示用户信息
+     * /user/show_info 接口，普通用户用于显示用户信息
      * @param jsonParam
      * @return
      */

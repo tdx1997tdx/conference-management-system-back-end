@@ -13,10 +13,4 @@ public class UtilTest {
         Filter.attributeFilter(u);
         assertEquals(null,u.getUsername());
     }
-
-    @Test
-    public void testToken(){
-        String s=Token.getInstance().makeToken("11wewe");
-        System.out.println(s);
-    }
 }

@@ -47,6 +47,15 @@ public class AdminService {
     }
 
     /**
+     * 返回指定用户的详细信息
+     */
+    public User adminSearchCertainService(int userId){
+        User user=userMapper.findUserById(userId);
+        user.setPassword(null);
+        return user;
+    }
+
+    /**
      * 处理删除用户信息的业务逻辑
      * @param user 传入javabean的user对象
      * @return map类型的结果state 0代表失败1代表成功

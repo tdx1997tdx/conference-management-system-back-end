@@ -47,7 +47,7 @@ public class LRControler {
     }
 
     /**
-     * /user/login_verification 接口，用于注册用户
+     * /user/login_verification 接口，用于登陆验证
      * @param jsonParam
      * @return
      */
@@ -55,6 +55,18 @@ public class LRControler {
     public String loginVerification(@RequestBody JSONObject jsonParam){
         String cookie=jsonParam.getString("cookie");
         Map result=lrService.loginVerificationService(cookie);
+        return JSON.toJSONString(result);
+    }
+
+    /**
+     * /user/login_exit 接口，用于退出登陆
+     * @param jsonParam
+     * @return
+     */
+    @RequestMapping(value = "/login_exit", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    public String loginExit(@RequestBody JSONObject jsonParam){
+        String token=jsonParam.getString("token");
+        Map result=lrService.loginExitService(token);
         return JSON.toJSONString(result);
     }
 }
