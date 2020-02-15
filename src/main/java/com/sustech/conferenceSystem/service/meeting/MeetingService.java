@@ -46,7 +46,7 @@ public class MeetingService {
      * @return 所有会议
      */
     public List<MeetingSimple> meetingGetService(){
-        return meetingMapper.meetingSearch(null,null,null);
+        return meetingMapper.meetingGetAll();
     }
 
 

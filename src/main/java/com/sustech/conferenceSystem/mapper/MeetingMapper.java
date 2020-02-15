@@ -9,6 +9,12 @@ import java.util.List;
 
 public interface MeetingMapper {
 
+
+    /**
+     * @return 所有会议
+     */
+    List<MeetingSimple> meetingGetAll();
+
     /**
      * 检查数据库中是否有符合要求的会议
      * @param meetingName 会议名称，模糊搜索
@@ -68,4 +74,5 @@ public interface MeetingMapper {
      * @param meeting 其中有meetingName,roomName,startTime,endTime。
      */
     void meetingDelete (MeetingFull meeting);
+
 }

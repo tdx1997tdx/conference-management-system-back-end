@@ -108,70 +108,74 @@
 
     <!-- key-value -->
     <sql id="kv">
-        <if test="roomName!=null">
-            room_name = #{roomName},
-        </if>
-        <if test="country!=null">
-            country = #{country},
-        </if>
-        <if test="province!=null">
-            province = #{province},
-        </if>
-        <if test="city!=null">
-            city = #{city},
-        </if>
-        <if test="block!=null">
-            block = #{block},
-        </if>
-        <if test="building!=null">
-            building = #{building},
-        </if>
-        <if test="floor!=null">
-            floor = #{floor},
-        </if>
-        <if test="roomNumber!=null">
-            room_number = #{roomNumber},
-        </if>
-        <if test="roomVolume!=null">
-            room_volume = #{roomVolume},
-        </if>
-        <if test="mark!=null">
-            mark = #{mark},
-        </if>
+        <trim suffixOverrides=",">
+            <if test="roomName!=null">
+                room_name = #{roomName},
+            </if>
+            <if test="country!=null">
+                country = #{country},
+            </if>
+            <if test="province!=null">
+                province = #{province},
+            </if>
+            <if test="city!=null">
+                city = #{city},
+            </if>
+            <if test="block!=null">
+                block = #{block},
+            </if>
+            <if test="building!=null">
+                building = #{building},
+            </if>
+            <if test="floor!=null">
+                floor = #{floor},
+            </if>
+            <if test="roomNumber!=null">
+                room_number = #{roomNumber},
+            </if>
+            <if test="roomVolume!=null">
+                room_volume = #{roomVolume},
+            </if>
+            <if test="mark!=null">
+                mark = #{mark},
+            </if>
+        </trim>
     </sql>
 
     <!-- key-value -->
     <sql id="kv2">
-        <if test="roomName!=null">
-            room_name = #{roomName} and
-        </if>
-        <if test="country!=null">
-            country = #{country} and
-        </if>
-        <if test="province!=null">
-            province = #{province} and
-        </if>
-        <if test="city!=null">
-            city = #{city} and
-        </if>
-        <if test="block!=null">
-            block = #{block} and
-        </if>
-        <if test="building!=null">
-            building = #{building} and
-        </if>
-        <if test="floor!=null">
-            floor = #{floor} and
-        </if>
-        <if test="roomNumber!=null">
-            room_number = #{roomNumber} and
-        </if>
-        <if test="roomVolume!=null">
-            room_volume = #{roomVolume} and
-        </if>
-        <if test="mark!=null">
-            mark = #{mark}
-        </if>
+        <trim suffixOverrides="and">
+            <if test="roomName!=null">
+                room_name = #{roomName} and
+            </if>
+            <if test="country!=null">
+                country = #{country} and
+            </if>
+            <if test="province!=null">
+                province = #{province} and
+            </if>
+            <if test="city!=null">
+                city = #{city} and
+            </if>
+            <if test="block!=null">
+                block = #{block} and
+            </if>
+            <if test="building!=null">
+                building = #{building} and
+            </if>
+            <if test="floor!=null">
+                floor = #{floor} and
+            </if>
+            <if test="roomNumber!=null">
+                room_number = #{roomNumber} and
+            </if>
+            <if test="roomVolume!=null">
+                room_volume = #{roomVolume} and
+            </if>
+            <if test="mark!=null">
+                mark = #{mark}
+            </if>
+        </trim>
     </sql>
 
 </mapper>

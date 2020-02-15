@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sustech.conferenceSystem.mapper.DeviceMapper" >
+
+    <resultMap type="com.sustech.conferenceSystem.dto.Device" id="deviceFull">
+        <id column="device_id" property="deviceId"/>
+        <result column="device_name" property="deviceName"/>
+        <result column="brand" property="brand"/>
+        <result column="repair_times" property="repairTimes"/>
+        <result column="mttr" property="mttr"/>
+        <result column="mtbf" property="mtbf"/>
+        <!--查询room信息-->
+        <association property="room" javaType="com.sustech.conferenceSystem.dto.Room"
+                     column="room_id" select="com.sustech.conferenceSystem.mapper.RoomMapper.findRoomById">
+        </association>
+    </resultMap>
+
+    <select id="getAllDevice" resultMap="deviceFull">
+        select * from device
+    </select>
+
+    <select id="searchDevice" resultMap="deviceFull">
+        select * from device
+        <where>
+            <include refid="kv_and"/>
+        </where>
+    </select>
+
+    <select id="fuzzySearchDevice" resultMap="deviceFull">
+        select * from device where device_name like "%"#{deviceName}"%"
+    </select>
+
+    <insert id="addDevice" parameterType="com.sustech.conferenceSystem.dto.Device">
+        insert into device(<include refid="key"/>) values(<include refid="values"/>)
+    </insert>
+
+    <update id="updateDevice" parameterType="com.sustech.conferenceSystem.dto.Device">
+        update device
+        <set>
+            <include refid="kv_comma"/>
+        </set>
+        where device_id=#{deviceId}
+    </update>
+
+    <delete id="deleteDevice">
+        delete from device where device_id=#{device_id}
+    </delete>
+
+    <select id="findDeviceById" resultType="com.sustech.conferenceSystem.dto.Device">
+        select device_id,device_name from device where device_id = #{deviceId}
+    </select>
+
+    <!-- 对应的插入字段的名字 -->
+    <sql id="key">
+        <trim suffixOverrides=",">
+            <if test="deviceName!=null">
+                device_name,
+            </if>
+            <if test="brand!=null">
+                brand,
+            </if>
+            <if test="deviceType!=null">
+                device_type,
+            </if>
+            <if test="repairTimes!=null">
+                repair_times,
+            </if>
+            <if test="mttr!=null">
+                mttr,
+            </if>
+            <if test="mtbf!=null">
+                mtbf,
+            </if>
+            <if test="room!=null">
+                room_id
+            </if>
+        </trim>
+    </sql>
+
+    <!-- 对应的插入字段的值 -->
+    <sql id="values">
+        <trim suffixOverrides=",">
+            <if test="deviceName!=null">
+                #{deviceName},
+            </if>
+            <if test="brand!=null">
+                #{brand},
+            </if>
+            <if test="deviceType!=null">
+                #{deviceType},
+            </if>
+            <if test="repairTimes!=null">
+                #{repairTimes},
+            </if>
+            <if test="mttr!=null">
+                #{mttr},
+            </if>
+            <if test="mtbf!=null">
+                #{mtbf},
+            </if>
+            <if test="room!=null">
+                #{room.roomId}
+            </if>
+        </trim>
+    </sql>
+
+    <!-- key-value -->
+    <sql id="kv_comma">
+        <trim suffixOverrides=",">
+            <if test="deviceName!=null">
+                device_name = #{deviceName},
+            </if>
+            <if test="brand!=null">
+                brand = #{brand},
+            </if>
+            <if test="deviceType!=null">
+                device_type = #{deviceType},
+            </if>
+            <if test="repairTimes!=null">
+                repair_times = #{repairTimes},
+            </if>
+            <if test="mttr!=null">
+                mttr = #{mttr},
+            </if>
+            <if test="mtbf!=null">
+                mttr = #{mtbf},
+            </if>
+            <if test="room!=null">
+                room_id = #{room.roomId}
+            </if>
+        </trim>
+    </sql>
+
+    <!-- key-value -->
+    <sql id="kv_and">
+        <trim suffixOverrides="and">
+            <if test="deviceName!=null">
+                device_name = #{deviceName} and
+            </if>
+            <if test="brand!=null">
+                brand = #{brand} and
+            </if>
+            <if test="deviceType!=null">
+                device_type = #{deviceType} and
+            </if>
+            <if test="repairTimes!=null">
+                repair_times = #{repairTimes} and
+            </if>
+            <if test="mttr!=null">
+                mttr = #{mttr} and
+            </if>
+            <if test="mtbf!=null">
+                mttr = #{mtbf} and
+            </if>
+            <if test="room!=null">
+                room_id = #{room.roomId}
+            </if>
+        </trim>
+    </sql>
+
+</mapper>

@@ -3,24 +3,18 @@ package com.sustech.conferenceSystem.dto;
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
+
+import java.sql.Time;
 import java.util.Date;
 
 @Data
 public class Device {
-    private String name; //设备名称
+    private Integer deviceId; //设备编号
+    private String deviceName; //设备名称
+    private String brand; //品牌
+    private String deviceType; //设备类型
+    private int repairTimes; //维修次数
     private Room room; //会议室
-    private String repairMan; //检修人员
-    private String serviceMan; //报修人员
-    private String verifyMan; //验证人员
-    private String reason; //报修原因（设备故障现象）
-    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
-    @JSONField(format="yyyy-MM-dd HH:mm:ss")
-    private Date serviceTime; //报修时间
-    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
-    @JSONField(format="yyyy-MM-dd HH:mm:ss")
-    private Date repairTime; //上门修理时间
-    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
-    @JSONField(format="yyyy-MM-dd HH:mm:ss")
-    private Date finishTime; //报修完成时间
-    private String measures; //检修措施
+    private Time mttr; //设备平均维修时间
+    private Time mtbf; //设备平均故障间隔时间
 }

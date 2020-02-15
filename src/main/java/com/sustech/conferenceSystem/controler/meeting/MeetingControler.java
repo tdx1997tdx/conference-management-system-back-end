@@ -24,6 +24,18 @@ public class MeetingControler {
     private MeetingService meetingService;
 
     /**
+     * /meeting/meeting_search_all 接口，用于获取所有会议
+     * @return
+     */
+    @RequestMapping(value = "/meeting_search_all",
+            method = RequestMethod.GET,
+            produces = "application/json;charset=UTF-8")
+    public String meetingGetAll(){
+        List<MeetingSimple> result = meetingService.meetingGetService();
+        return JSON.toJSONString(result);
+    }
+
+    /**
      * /meeting/meeting_search 接口，用于查找相关会议
      * @param jsonParam
      * @return
@@ -56,19 +68,7 @@ public class MeetingControler {
     }
 
     /**
-     * /meeting/meeting_search_all 接口，用于获取所有会议
-     * @return
-     */
-    @RequestMapping(value = "/meeting_search_all",
-            method = RequestMethod.GET,
-            produces = "application/json;charset=UTF-8")
-    public String meetingGetAll(){
-        List<MeetingSimple> result = meetingService.meetingGetService();
-        return JSON.toJSONString(result);
-    }
-
-    /**
-     * /meeting/meeting_order_search 接口，用于获取所有会议
+     * /meeting/meeting_order_search 接口，用于预约会议 (未实现)
      * @return
      */
     @RequestMapping(value = "/meeting_order_search",
@@ -81,7 +81,7 @@ public class MeetingControler {
     }
 
     /**
-     * /meeting/meeting_create 接口，用于创建会议
+     * /meeting/meeting_create 接口，用于创建会议 (未实现)
      * @return
      */
     @RequestMapping(value = "/meeting_create",
@@ -96,7 +96,7 @@ public class MeetingControler {
     }
 
     /**
-     * /meeting/meeting_delete 接口，用于删除会议
+     * /meeting/meeting_delete 接口，用于删除会议 (未实现)
      * @return
      */
     @RequestMapping(value = "/meeting_delete",

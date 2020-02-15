@@ -36,6 +36,9 @@
         </association>
     </resultMap>
 
+    <select id="meetingGetAll" resultType="com.sustech.conferenceSystem.dto.MeetingSimple">
+        select * from meeting
+    </select>
 
     <select id="meetingSearch" resultType="com.sustech.conferenceSystem.dto.MeetingSimple">
         select meeting_id,meeting_name,room_name,name host_name,start_time,end_time,topic,m.meeting_state from meeting m inner join room r on m.room_id=r.room_id inner join user u on u.user_id=m.host_id
