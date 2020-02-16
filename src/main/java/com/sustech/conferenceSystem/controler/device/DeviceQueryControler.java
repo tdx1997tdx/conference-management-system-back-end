@@ -36,7 +36,7 @@ public class DeviceQueryControler {
     }
     
     /**
-     * /device/device_detail 接口，用于显示设备相关信息
+     * /device/device_detail 接口，接收指定id,用于显示设备相关信息
      * @param jsonParam
      * @return
      */
@@ -54,8 +54,8 @@ public class DeviceQueryControler {
      * @return
      */
     @RequestMapping(value = "/device_search", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
-    public String deviceDelete(@RequestBody JSONObject jsonParam){
-        String deviceName=jsonParam.getString("deviceName");
+    public String deviceSearch(@RequestBody JSONObject jsonParam){
+        String deviceName=jsonParam.getString("device_name");
         int page=Integer.parseInt(jsonParam.getString("page"));
         int volume=Integer.parseInt(jsonParam.getString("volume"));
         Map<String,Object> result=deviceQueryService.deviceSearchService(deviceName,page,volume);
