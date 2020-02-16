@@ -2,18 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="68f46c33-7d16-429f-9772-f6b143785f8e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/controler/form/FormManagementControler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/controler/form/FormQueryControler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/mapper/FormMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/service/form/FormManagementService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/service/form/FormQueryService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/Form.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/dto/Device.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/dto/Device.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/dto/Form.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/dto/Form.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/mapper/DeviceMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/mapper/DeviceMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/Device.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/Device.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/会议室前后端接口/0.对象.md" beforeDir="false" afterPath="$PROJECT_DIR$/会议室前后端接口/0.对象.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/Room.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/Room.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -52,18 +42,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/controler/form/FormManagementControler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1053">
-              <caret line="59" column="63" selection-start-line="59" selection-start-column="63" selection-end-line="59" selection-end-column="63" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/controler/form/FormQueryControler.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -139,10 +117,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/Form.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="122">
+            <state relative-caret-position="475">
               <caret line="25" column="26" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
               <folding>
                 <element signature="n#select#0;n#mapper#0;n#!!top" />
@@ -151,6 +129,23 @@
                 <element signature="n#delete#0;n#mapper#0;n#!!top" />
                 <element signature="n#select#3;n#mapper#0;n#!!top" />
                 <element signature="n#sql#0;n#mapper#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/Room.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="50">
+              <caret line="110" selection-start-line="110" selection-end-line="139" selection-end-column="13" />
+              <folding>
+                <element signature="n#insert#0;n#mapper#0;n#!!top" />
+                <element signature="n#delete#0;n#mapper#0;n#!!top" />
+                <element signature="n#select#1;n#mapper#0;n#!!top" />
+                <element signature="n#sql#0;n#mapper#0;n#!!top" />
+                <element signature="n#sql#1;n#mapper#0;n#!!top" />
+                <element signature="n#sql#3;n#mapper#0;n#!!top" />
               </folding>
             </state>
           </provider>
@@ -214,7 +209,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/dto/MeetingFull.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/mapper/RoomMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/mapper/UserMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/Room.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/mapper/MeetingMapper.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/Meeting.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/service/room/RoomQueryService.java" />
@@ -245,6 +239,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/service/form/FormQueryService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/controler/form/FormQueryControler.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/Form.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/Room.xml" />
       </list>
     </option>
   </component>
@@ -475,7 +470,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1581857140304" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1581865117900" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../conference-management-system-mysqlscrip" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -671,7 +666,7 @@
       <workItem from="1581332730138" duration="1900000" />
       <workItem from="1581418864547" duration="12394000" />
       <workItem from="1581586887008" duration="1988000" />
-      <workItem from="1581737626563" duration="15589000" />
+      <workItem from="1581737626563" duration="16981000" />
     </task>
     <task id="LOCAL-00001" summary="first-commit">
       <created>1574321803487</created>
@@ -904,7 +899,14 @@
       <option name="project" value="LOCAL" />
       <updated>1581839900644</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="添加了表单模块">
+      <created>1581857172884</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1581857172884</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -940,13 +942,13 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="168976000" />
+    <option name="totallyTimeSpent" value="170368000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1293" height="703" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49825174" visible="true" weight="0.254251" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49825174" visible="true" weight="0.254251" />
       <window_info id="Designer" order="1" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Capture Tool" order="3" />
@@ -960,7 +962,7 @@
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" weight="0.32867134" />
       <window_info anchor="bottom" id="Structure" order="6" weight="0.25" />
-      <window_info anchor="bottom" id="Run" order="7" visible="true" weight="0.2937063" />
+      <window_info active="true" anchor="bottom" id="Run" order="7" visible="true" weight="0.2937063" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.3986014" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
@@ -1026,7 +1028,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="增加hello" />
     <MESSAGE value="增加了图纸" />
     <MESSAGE value="增加了架构图纸" />
     <MESSAGE value="修改stop.sh" />
@@ -1051,7 +1052,8 @@
     <MESSAGE value="token改uuid" />
     <MESSAGE value="修改 modify_info接口" />
     <MESSAGE value="微调了设备模块" />
-    <option name="LAST_COMMIT_MESSAGE" value="微调了设备模块" />
+    <MESSAGE value="添加了表单模块" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加了表单模块" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/mapper/RoomMapper.java">
@@ -1331,23 +1333,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/Room.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="33" column="22" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
-          <folding>
-            <element signature="n#insert#0;n#mapper#0;n#!!top" />
-            <element signature="n#update#0;n#mapper#0;n#!!top" />
-            <element signature="n#delete#0;n#mapper#0;n#!!top" />
-            <element signature="n#select#1;n#mapper#0;n#!!top" />
-            <element signature="n#sql#0;n#mapper#0;n#!!top" />
-            <element signature="n#sql#1;n#mapper#0;n#!!top" />
-            <element signature="n#sql#2;n#mapper#0;n#!!top" />
-            <element signature="n#sql#3;n#mapper#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-autoconfigure/2.2.1.RELEASE/spring-boot-autoconfigure-2.2.1.RELEASE.jar!/org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
@@ -1485,7 +1470,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/Form.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
+        <state relative-caret-position="475">
           <caret line="25" column="26" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
           <folding>
             <element signature="n#select#0;n#mapper#0;n#!!top" />
@@ -1494,6 +1479,21 @@
             <element signature="n#delete#0;n#mapper#0;n#!!top" />
             <element signature="n#select#3;n#mapper#0;n#!!top" />
             <element signature="n#sql#0;n#mapper#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/Room.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="110" selection-start-line="110" selection-end-line="139" selection-end-column="13" />
+          <folding>
+            <element signature="n#insert#0;n#mapper#0;n#!!top" />
+            <element signature="n#delete#0;n#mapper#0;n#!!top" />
+            <element signature="n#select#1;n#mapper#0;n#!!top" />
+            <element signature="n#sql#0;n#mapper#0;n#!!top" />
+            <element signature="n#sql#1;n#mapper#0;n#!!top" />
+            <element signature="n#sql#3;n#mapper#0;n#!!top" />
           </folding>
         </state>
       </provider>
