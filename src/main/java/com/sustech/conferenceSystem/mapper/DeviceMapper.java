@@ -28,7 +28,7 @@ public interface DeviceMapper {
     boolean deleteDevice(int deviceId);
 
     /**
-     * 删除修改一个device
+     * 修改一个device
      * @param device 设备
      * @return
      */

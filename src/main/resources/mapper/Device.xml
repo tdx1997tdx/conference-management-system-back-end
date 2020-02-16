@@ -6,7 +6,7 @@
         <id column="device_id" property="deviceId"/>
         <result column="device_name" property="deviceName"/>
         <result column="brand" property="brand"/>
-        <result column="repair_times" property="repairTimes"/>
+        <result column="repair_time" property="repairTime"/>
         <result column="mttr" property="mttr"/>
         <result column="mtbf" property="mtbf"/>
         <!--查询room信息-->
@@ -62,8 +62,8 @@
             <if test="deviceType!=null">
                 device_type,
             </if>
-            <if test="repairTimes!=null">
-                repair_times,
+            <if test="repairTime!=null">
+                repair_time,
             </if>
             <if test="mttr!=null">
                 mttr,
@@ -89,8 +89,8 @@
             <if test="deviceType!=null">
                 #{deviceType},
             </if>
-            <if test="repairTimes!=null">
-                #{repairTimes},
+            <if test="repairTime!=null">
+                #{repairTime},
             </if>
             <if test="mttr!=null">
                 #{mttr},
@@ -116,8 +116,8 @@
             <if test="deviceType!=null">
                 device_type = #{deviceType},
             </if>
-            <if test="repairTimes!=null">
-                repair_times = #{repairTimes},
+            <if test="repairTime!=null">
+                repair_time = #{repairTime},
             </if>
             <if test="mttr!=null">
                 mttr = #{mttr},
@@ -143,8 +143,8 @@
             <if test="deviceType!=null">
                 device_type = #{deviceType} and
             </if>
-            <if test="repairTimes!=null">
-                repair_times = #{repairTimes} and
+            <if test="repairTime!=null">
+                repair_time = #{repairTime} and
             </if>
             <if test="mttr!=null">
                 mttr = #{mttr} and

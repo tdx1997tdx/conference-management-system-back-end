@@ -1,11 +1,7 @@
 package com.sustech.conferenceSystem.dto;
-
-import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import java.sql.Time;
-import java.util.Date;
 
 @Data
 public class Device {
@@ -13,7 +9,7 @@ public class Device {
     private String deviceName; //设备名称
     private String brand; //品牌
     private String deviceType; //设备类型
-    private int repairTimes; //维修次数
+    private Integer repairTime; //维修次数
     private Room room; //会议室
     private Time mttr; //设备平均维修时间
     private Time mtbf; //设备平均故障间隔时间

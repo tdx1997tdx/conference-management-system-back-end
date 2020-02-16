@@ -8,10 +8,14 @@ import java.util.Date;
 
 @Data
 public class Form {
+    private Integer formId;
     private String formName; //表单名称
     private Device device; //设备
+    private Integer deviceId; //设备id
     private String deviceName; //设备名称
     private Room room; //会议室
+    private Integer roomId; //会议室id
+    private String roomName; //会议室名称
     private String repairMan; //检修人员
     private String serviceMan; //报修人员
     private String verifyMan; //验证人员
@@ -25,5 +29,5 @@ public class Form {
     @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
     @JSONField(format="yyyy-MM-dd HH:mm:ss")
     private Date finishTime; //报修完成时间
-    private String measures; //检修措施
+    private String measure; //检修措施
 }
