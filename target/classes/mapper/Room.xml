@@ -108,43 +108,44 @@
 
     <!-- key-value -->
     <sql id="kv">
-        <trim suffixOverrides=",">
-            <if test="roomName!=null">
-                room_name = #{roomName},
-            </if>
-            <if test="country!=null">
-                country = #{country},
-            </if>
-            <if test="province!=null">
-                province = #{province},
-            </if>
-            <if test="city!=null">
-                city = #{city},
-            </if>
-            <if test="block!=null">
-                block = #{block},
-            </if>
-            <if test="building!=null">
-                building = #{building},
-            </if>
-            <if test="floor!=null">
-                floor = #{floor},
-            </if>
-            <if test="roomNumber!=null">
-                room_number = #{roomNumber},
-            </if>
-            <if test="roomVolume!=null">
-                room_volume = #{roomVolume},
-            </if>
-            <if test="mark!=null">
-                mark = #{mark},
-            </if>
-        </trim>
+        <if test="roomName!=null">
+            room_name = #{roomName},
+        </if>
+        <if test="country!=null">
+            country = #{country},
+        </if>
+        <if test="province!=null">
+            province = #{province},
+        </if>
+        <if test="city!=null">
+            city = #{city},
+        </if>
+        <if test="block!=null">
+            block = #{block},
+        </if>
+        <if test="building!=null">
+            building = #{building},
+        </if>
+        <if test="floor!=null">
+            floor = #{floor},
+        </if>
+        <if test="roomNumber!=null">
+            room_number = #{roomNumber},
+        </if>
+        <if test="roomVolume!=null">
+            room_volume = #{roomVolume},
+        </if>
+        <if test="mark!=null">
+            mark = #{mark},
+        </if>
     </sql>
 
     <!-- key-value -->
     <sql id="kv2">
         <trim suffixOverrides="and">
+            <if test="roomId!=null">
+                room_id = #{roomId} and
+            </if>
             <if test="roomName!=null">
                 room_name = #{roomName} and
             </if>

@@ -143,6 +143,9 @@
     <!-- key-value -->
     <sql id="kv2">
         <trim suffixOverrides="and">
+            <if test="roomId!=null">
+                room_id = #{roomId} and
+            </if>
             <if test="roomName!=null">
                 room_name = #{roomName} and
             </if>
