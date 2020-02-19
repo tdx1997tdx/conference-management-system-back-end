@@ -71,7 +71,7 @@
             <if test="mtbf!=null">
                 mtbf,
             </if>
-            <if test="room!=null">
+            <if test="roomId!=null">
                 room_id
             </if>
         </trim>
@@ -98,8 +98,8 @@
             <if test="mtbf!=null">
                 #{mtbf},
             </if>
-            <if test="room!=null">
-                #{room.roomId}
+            <if test="roomId!=null">
+                #{roomId}
             </if>
         </trim>
     </sql>

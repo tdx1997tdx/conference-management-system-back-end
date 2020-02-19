@@ -11,6 +11,7 @@ public class Device {
     private String deviceType; //设备类型
     private Integer repairTime; //维修次数
     private Room room; //会议室
+    private Integer roomId; //会议室
     private Time mttr; //设备平均维修时间
     private Time mtbf; //设备平均故障间隔时间
 }
