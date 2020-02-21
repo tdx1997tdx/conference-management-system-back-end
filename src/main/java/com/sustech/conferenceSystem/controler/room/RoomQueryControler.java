@@ -7,6 +7,7 @@ import com.sustech.conferenceSystem.service.room.RoomQueryService;
 import com.sustech.conferenceSystem.util.Filter;
 import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -54,9 +55,11 @@ public class RoomQueryControler {
      */
     @RequestMapping(value = "/room_search_page", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
     public String roomSearchPage(@RequestBody JSONObject jsonParam){
-        int page=Integer.parseInt(jsonParam.getString("page"));
-        int volume=Integer.parseInt(jsonParam.getString("volume"));
+        int page=jsonParam.getInteger("page");
+        int volume=jsonParam.getInteger("volume");
         Map<String,Object> result=roomQueryService.roomSearchPageService(page,volume);
         return JSON.toJSONString(result);
     }
+
+
 }

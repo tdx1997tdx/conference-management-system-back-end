@@ -25,6 +25,13 @@ public interface MeetingMapper {
     List<MeetingSimple> meetingSearch (@Param("userId")Integer userId,@Param("meetingName")String meetingName, @Param("roomName")String roomName, @Param("meetingState")String meetingState);
 
     /**
+     * 检查数据库中是否有符合要求的会议
+     * @param meetingSimple 会议名称，模糊搜索
+     * @return 符合要求会议集合
+     */
+    List<MeetingSimple> meetingSearch2(MeetingSimple meetingSimple);
+
+    /**
      * 查找指定id会议
      * @param meetingId
      * @return

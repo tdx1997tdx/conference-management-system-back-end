@@ -44,8 +44,8 @@ public class MeetingQueryControler {
             method = RequestMethod.POST,
             produces = "application/json;charset=UTF-8")
     public String meetingSearch(@RequestBody JSONObject jsonParam){
-        int page=Integer.parseInt(jsonParam.getString("page"));
-        int volume=Integer.parseInt(jsonParam.getString("volume"));
+        int page=jsonParam.getInteger("page");
+        int volume=jsonParam.getInteger("volume");
         String meetingName=jsonParam.getString("meeting_name");
         String roomName=jsonParam.getString("room_name");
         String meetingState=jsonParam.getString("meeting_state");
@@ -65,6 +65,21 @@ public class MeetingQueryControler {
     public String meetingSearchCertain(@RequestBody JSONObject jsonParam){
         int meetingId=Integer.parseInt(jsonParam.getString("meeting_id"));
         MeetingFull result = meetingService.meetingSearchCertainService(meetingId);
+        return JSON.toJSONString(result);
+    }
+
+    /**
+     * /meeting/meeting_search2 接口，用于查询指定房间的会议信息
+     * @param jsonParam
+     * @return
+     */
+    @RequestMapping(value = "/meeting_search2", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    public String meetingSearch2(@RequestBody JSONObject jsonParam){
+        int page=jsonParam.getInteger("page");
+        int volume=jsonParam.getInteger("volume");
+        MeetingSimple meeting = JSON.parseObject(jsonParam.toString(), MeetingSimple.class);
+        System.out.println(meeting);
+        Map<String,Object> result=meetingService.meetingSearch2Service(meeting,page,volume);
         return JSON.toJSONString(result);
     }
 }

@@ -60,6 +60,13 @@
         </where>
     </select>
 
+    <select id="meetingSearch2" resultType="com.sustech.conferenceSystem.dto.MeetingSimple">
+        select * from meeting
+        <where>
+            <include refid="kv_and"/>
+        </where>
+    </select>
+
     <select id="meetingSearchCertain" resultMap="searchCertain">
         select * from meeting
         <where>
@@ -87,4 +94,13 @@
             meeting_id = #{meetingId} and state=1
         </where>
     </select>
+
+    <!-- key-value -->
+    <sql id="kv_and">
+        <trim suffixOverrides="and">
+            <if test="roomId!=null">
+                room_id = #{roomId} and
+            </if>
+        </trim>
+    </sql>
 </mapper>

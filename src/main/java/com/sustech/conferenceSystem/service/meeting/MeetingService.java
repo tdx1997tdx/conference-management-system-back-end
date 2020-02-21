@@ -37,6 +37,16 @@ public class MeetingService {
         return res;
     }
 
+    public Map<String,Object> meetingSearch2Service(MeetingSimple meetingSimple, int page, int volume){
+        Map<String,Object> res=new HashMap<>();
+        PageHelper.startPage(page, volume);
+        List<MeetingSimple> list=meetingMapper.meetingSearch2(meetingSimple);
+        PageInfo<MeetingSimple> pageInfo=new PageInfo<>(list);
+        res.put("list",list);
+        res.put("total",pageInfo.getTotal());
+        return res;
+    }
+
     public MeetingFull meetingSearchCertainService(int meetingId){
         MeetingFull res=meetingMapper.meetingSearchCertain(meetingId);
         User host=res.getHost();
