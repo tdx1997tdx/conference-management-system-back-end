@@ -32,15 +32,15 @@ public class RoomQueryService {
 
     /**
      * 模糊查询业务逻辑
-     * @param roomName 房间名称
+     * @param room 房间
      * @param page 页数
      * @param volume 容量
      * @return 结果集合
      */
-    public Map<String,Object> roomSearchService(String roomName,int page,int volume){
+    public Map<String,Object> roomSearchService(Room room,int page,int volume){
         Map<String,Object> res=new HashMap<>();
         PageHelper.startPage(page, volume);
-        List<Room> list=roomMapper.fuzzySearchRoom(roomName);
+        List<Room> list=roomMapper.fuzzySearchRoom(room);
         PageInfo<Room> pageInfo=new PageInfo<>(list);
         res.put("list",list);
         res.put("total",pageInfo.getTotal());
@@ -56,7 +56,7 @@ public class RoomQueryService {
     public Map<String,Object> roomSearchPageService(int page,int volume){
         Map<String,Object> res=new HashMap<>();
         PageHelper.startPage(page, volume);
-        List<Room> list=roomMapper.fuzzySearchRoom("");
+        List<Room> list=roomMapper.fuzzySearchRoom(new Room());
         PageInfo<Room> pageInfo=new PageInfo<>(list);
         res.put("list",list);
         res.put("total",pageInfo.getTotal());

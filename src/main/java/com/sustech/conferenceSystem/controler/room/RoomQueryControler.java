@@ -40,10 +40,10 @@ public class RoomQueryControler {
      */
     @RequestMapping(value = "/room_search", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
     public String roomDelete(@RequestBody JSONObject jsonParam){
-        String roomName=jsonParam.getString("room_name");
+        Room room=JSON.parseObject(jsonParam.toString(), Room.class);
         int page=Integer.parseInt(jsonParam.getString("page"));
         int volume=Integer.parseInt(jsonParam.getString("volume"));
-        Map<String,Object> result=roomQueryService.roomSearchService(roomName,page,volume);
+        Map<String,Object> result=roomQueryService.roomSearchService(room,page,volume);
         return JSON.toJSONString(result);
     }
 

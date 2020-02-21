@@ -19,54 +19,9 @@ import java.util.Map;
 @RestController
 @CrossOrigin
 @RequestMapping(value = "/meeting")
-public class MeetingControler {
+public class MeetingManagerControler {
     @Resource
     private MeetingService meetingService;
-
-    /**
-     * /meeting/meeting_search_all 接口，用于获取所有会议
-     * @return
-     */
-    @RequestMapping(value = "/meeting_search_all",
-            method = RequestMethod.GET,
-            produces = "application/json;charset=UTF-8")
-    public String meetingGetAll(){
-        List<MeetingSimple> result = meetingService.meetingGetService();
-        return JSON.toJSONString(result);
-    }
-
-    /**
-     * /meeting/meeting_search 接口，用于查找相关会议
-     * @param jsonParam
-     * @return
-     */
-    @RequestMapping(value = "/meeting_search",
-            method = RequestMethod.POST,
-            produces = "application/json;charset=UTF-8")
-    public String meetingSearch(@RequestBody JSONObject jsonParam){
-        int page=Integer.parseInt(jsonParam.getString("page"));
-        int volume=Integer.parseInt(jsonParam.getString("volume"));
-        String meetingName=jsonParam.getString("meeting_name");
-        String roomName=jsonParam.getString("room_name");
-        String meetingState=jsonParam.getString("meeting_state");
-        Integer userId=jsonParam.getInteger("user_id");
-        Map<String,Object> result = meetingService.meetingSearchService(userId,meetingName,roomName,meetingState,page,volume);
-        return JSON.toJSONString(result);
-    }
-
-    /**
-     * /meeting/meeting_search_certain 接口，用于查找会议具体信息
-     * @param jsonParam
-     * @return
-     */
-    @RequestMapping(value = "/meeting_search_certain",
-            method = RequestMethod.POST,
-            produces = "application/json;charset=UTF-8")
-    public String meetingSearchCertain(@RequestBody JSONObject jsonParam){
-        int meetingId=Integer.parseInt(jsonParam.getString("meeting_id"));
-        MeetingFull result = meetingService.meetingSearchCertainService(meetingId);
-        return JSON.toJSONString(result);
-    }
 
     /**
      * /meeting/meeting_order_search 接口，用于预约会议 (未实现)

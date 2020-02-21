@@ -35,10 +35,10 @@ public interface RoomMapper {
 
     /**
      * 模糊查询房间
-     * @param roomName 房间名字
+     * @param room 房间
      * @return
      */
-    List<Room> fuzzySearchRoom(String roomName);
+    List<Room> fuzzySearchRoom(Room room);
 
 
     /**

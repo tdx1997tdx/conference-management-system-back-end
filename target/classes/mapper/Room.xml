@@ -27,7 +27,20 @@
     </delete>
 
     <select id="fuzzySearchRoom" resultType="com.sustech.conferenceSystem.dto.Room">
-        select * from room where room_name like "%"#{roomName}"%"
+        select * from room
+        <where>
+            <trim suffixOverrides="and">
+                <if test="roomName!=null">
+                    room_name like "%"#{roomName}"%" and
+                </if>
+                <if test="building!=null">
+                    building = #{building} and
+                </if>
+                <if test="floor!=null">
+                    floor = #{floor} and
+                </if>
+            </trim>
+        </where>
     </select>
 
     <select id="findRoomById" resultType="com.sustech.conferenceSystem.dto.Room">
