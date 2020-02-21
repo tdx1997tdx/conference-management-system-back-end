@@ -22,7 +22,7 @@ public interface MeetingMapper {
      * @param meetingState 会议状态
      * @return 符合要求会议集合
      */
-    List<MeetingSimple> meetingSearch (@Param("meetingName")String meetingName, @Param("roomName")String roomName, @Param("meetingState")String meetingState);
+    List<MeetingSimple> meetingSearch (@Param("userId")Integer userId,@Param("meetingName")String meetingName, @Param("roomName")String roomName, @Param("meetingState")String meetingState);
 
     /**
      * 查找指定id会议

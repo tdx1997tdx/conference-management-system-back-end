@@ -27,10 +27,10 @@ public class MeetingService {
      * @param volume 一页几个
      * @return 符合要求会议集合
      */
-    public Map<String,Object> meetingSearchService(String meetingName, String roomName, String meetingState, int page, int volume){
+    public Map<String,Object> meetingSearchService(Integer userId,String meetingName, String roomName, String meetingState, int page, int volume){
         Map<String,Object> res=new HashMap<>();
         PageHelper.startPage(page, volume);
-        List<MeetingSimple> list=meetingMapper.meetingSearch(meetingName,roomName,meetingState);
+        List<MeetingSimple> list=meetingMapper.meetingSearch(userId,meetingName,roomName,meetingState);
         PageInfo<MeetingSimple> pageInfo=new PageInfo<>(list);
         res.put("list",list);
         res.put("total",pageInfo.getTotal());

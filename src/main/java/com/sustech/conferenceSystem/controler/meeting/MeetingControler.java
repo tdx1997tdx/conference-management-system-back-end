@@ -49,7 +49,8 @@ public class MeetingControler {
         String meetingName=jsonParam.getString("meeting_name");
         String roomName=jsonParam.getString("room_name");
         String meetingState=jsonParam.getString("meeting_state");
-        Map<String,Object> result = meetingService.meetingSearchService(meetingName,roomName,meetingState,page,volume);
+        Integer userId=jsonParam.getInteger("user_id");
+        Map<String,Object> result = meetingService.meetingSearchService(userId,meetingName,roomName,meetingState,page,volume);
         return JSON.toJSONString(result);
     }
 

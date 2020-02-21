@@ -41,17 +41,22 @@
     </select>
 
     <select id="meetingSearch" resultType="com.sustech.conferenceSystem.dto.MeetingSimple">
-        select meeting_id,meeting_name,room_name,name host_name,start_time,end_time,topic,m.meeting_state from meeting m inner join room r on m.room_id=r.room_id inner join user u on u.user_id=m.host_id
+        select user_id,meeting_id,meeting_name,room_name,name host_name,start_time,end_time,topic,m.meeting_state from meeting m inner join room r on m.room_id=r.room_id inner join user u on u.user_id=m.host_id
         <where>
-            <if test="meetingName != null">
-                meeting_name like "%"#{meetingName}"%"
-            </if>
-            <if test="roomName != null">
-                and room_name like "%"#{roomName}"%"
-            </if>
-            <if test="meetingState != null">
-                and meeting_state = #{meetingState,jdbcType=INTEGER}
-            </if>
+            <trim suffixOverrides="and">
+                <if test="userId != null">
+                    user_id = #{userId,jdbcType=INTEGER} and
+                </if>
+                <if test="meetingName != null">
+                    meeting_name like "%"#{meetingName}"%" and
+                </if>
+                <if test="roomName != null">
+                    room_name like "%"#{roomName}"%" and
+                </if>
+                <if test="meetingState != null">
+                    meeting_state = #{meetingState,jdbcType=INTEGER}
+                </if>
+            </trim>
         </where>
     </select>
 
