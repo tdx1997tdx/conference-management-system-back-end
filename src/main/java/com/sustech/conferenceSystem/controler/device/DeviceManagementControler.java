@@ -58,4 +58,6 @@ public class DeviceManagementControler {
         Map result=deviceManagementService.deviceModifyService(device);
         return JSON.toJSONString(result);
     }
+
+
 }
