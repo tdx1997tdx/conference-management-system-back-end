@@ -95,6 +95,11 @@
         </where>
     </select>
 
+    <insert id="meetingCreate" parameterType="com.sustech.conferenceSystem.dto.MeetingFull">
+        insert into meeting(meeting_name,room_id, start_time, end_time, host_id, recorder_id, topic, meeting_abstract, remark, meeting_state)
+          values (#{meetingName},#{room.roomId},#{startTime},#{endTime},#{host.userId},#{recorder.userId},#{topic},#{meetingAbstract},#{remark},#{meetingState})
+    </insert>
+
     <!-- key-value -->
     <sql id="kv_and">
         <trim suffixOverrides="and">

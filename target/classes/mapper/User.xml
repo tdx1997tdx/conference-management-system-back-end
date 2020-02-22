@@ -107,64 +107,68 @@
 
     <!-- key-value -->
     <sql id="kv">
-        <if test="name!=null">
-            name=#{name},
-        </if>
-        <if test="gender!=null">
-            gender=#{gender},
-        </if>
-        <if test="phone!=null">
-            phone=#{phone},
-        </if>
-        <if test="email!=null">
-            email=#{email},
-        </if>
-        <if test="organization!=null">
-            organization=#{organization},
-        </if>
-        <if test="department!=null">
-            department=#{department},
-        </if>
-        <if test="position!=null">
-            position=#{position},
-        </if>
-        <if test="password!=null">
-            password=#{password},
-        </if>
-        <if test="role!=null">
-            role=#{role},
-        </if>
+        <trim suffixOverrides=",">
+            <if test="name!=null">
+                name=#{name},
+            </if>
+            <if test="gender!=null">
+                gender=#{gender},
+            </if>
+            <if test="phone!=null">
+                phone=#{phone},
+            </if>
+            <if test="email!=null">
+                email=#{email},
+            </if>
+            <if test="organization!=null">
+                organization=#{organization},
+            </if>
+            <if test="department!=null">
+                department=#{department},
+            </if>
+            <if test="position!=null">
+                position=#{position},
+            </if>
+            <if test="password!=null">
+                password=#{password},
+            </if>
+            <if test="role!=null">
+                role=#{role},
+            </if>
+        </trim>
     </sql>
 
     <!-- key-value -->
     <sql id="kv2">
-        <if test="name!=null">
-            name=#{name} and
-        </if>
-        <if test="gender!=null">
-            gender=#{gender} and
-        </if>
-        <if test="phone!=null">
-            phone=#{phone} and
-        </if>
-        <if test="email!=null">
-            email=#{email} and
-        </if>
-        <if test="organization!=null">
-            organization=#{organization} and
-        </if>
-        <if test="department!=null">
-            department=#{department} and
-        </if>
-        <if test="position!=null">
-            position=#{position} and
-        </if>
-        <if test="password!=null">
-            password=#{password} and
-        </if>
-        <if test="role!=null">
-            role=#{role}
-        </if>
+        <trim suffixOverrides="and">
+            <if test="name!=null">
+                name=#{name} and
+            </if>
+            <if test="gender!=null">
+                gender=#{gender} and
+            </if>
+            <if test="phone!=null">
+                phone=#{phone} and
+            </if>
+            <if test="email!=null">
+                email=#{email} and
+            </if>
+            <if test="organization!=null">
+                organization=#{organization} and
+            </if>
+            <if test="department!=null">
+                department=#{department} and
+            </if>
+            <if test="position!=null">
+                position=#{position} and
+            </if>
+            <if test="password!=null">
+                password=#{password} and
+            </if>
+            <if test="role!=null">
+                role=#{role}
+            </if>
+        </trim>
     </sql>
 
 </mapper>

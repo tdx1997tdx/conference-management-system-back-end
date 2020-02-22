@@ -74,7 +74,7 @@ public interface MeetingMapper {
      * 创建一个会议
      * @param meeting 其中有meeting所需所有信息
      */
-    void meetingCreate (MeetingFull meeting);
+    boolean meetingCreate (MeetingFull meeting);
 
     /**
      * 取消一个会议

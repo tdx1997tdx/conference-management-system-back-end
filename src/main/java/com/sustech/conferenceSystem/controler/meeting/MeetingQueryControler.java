@@ -4,8 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.sustech.conferenceSystem.dto.MeetingFull;
 import com.sustech.conferenceSystem.dto.MeetingSimple;
-import com.sustech.conferenceSystem.service.meeting.MeetingService;
-import com.sustech.conferenceSystem.util.Filter;
+import com.sustech.conferenceSystem.service.meeting.MeetingQueryService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -21,7 +20,7 @@ import java.util.Map;
 @RequestMapping(value = "/meeting")
 public class MeetingQueryControler {
     @Resource
-    private MeetingService meetingService;
+    private MeetingQueryService meetingQueryService;
 
     /**
      * /meeting/meeting_search_all 接口，用于获取所有会议
@@ -31,7 +30,7 @@ public class MeetingQueryControler {
             method = RequestMethod.GET,
             produces = "application/json;charset=UTF-8")
     public String meetingGetAll(){
-        List<MeetingSimple> result = meetingService.meetingGetService();
+        List<MeetingSimple> result = meetingQueryService.meetingGetService();
         return JSON.toJSONString(result);
     }
 
@@ -50,7 +49,7 @@ public class MeetingQueryControler {
         String roomName=jsonParam.getString("room_name");
         String meetingState=jsonParam.getString("meeting_state");
         Integer userId=jsonParam.getInteger("user_id");
-        Map<String,Object> result = meetingService.meetingSearchService(userId,meetingName,roomName,meetingState,page,volume);
+        Map<String,Object> result = meetingQueryService.meetingSearchService(userId,meetingName,roomName,meetingState,page,volume);
         return JSON.toJSONString(result);
     }
 
@@ -63,8 +62,8 @@ public class MeetingQueryControler {
             method = RequestMethod.POST,
             produces = "application/json;charset=UTF-8")
     public String meetingSearchCertain(@RequestBody JSONObject jsonParam){
-        int meetingId=Integer.parseInt(jsonParam.getString("meeting_id"));
-        MeetingFull result = meetingService.meetingSearchCertainService(meetingId);
+        Integer meetingId=Integer.parseInt(jsonParam.getString("meeting_id"));
+        MeetingFull result = meetingQueryService.meetingSearchCertainService(meetingId);
         return JSON.toJSONString(result);
     }
 
@@ -78,8 +77,7 @@ public class MeetingQueryControler {
         int page=jsonParam.getInteger("page");
         int volume=jsonParam.getInteger("volume");
         MeetingSimple meeting = JSON.parseObject(jsonParam.toString(), MeetingSimple.class);
-        System.out.println(meeting);
-        Map<String,Object> result=meetingService.meetingSearch2Service(meeting,page,volume);
+        Map<String,Object> result=meetingQueryService.meetingSearch2Service(meeting,page,volume);
         return JSON.toJSONString(result);
     }
 }

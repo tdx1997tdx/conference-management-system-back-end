@@ -3,8 +3,7 @@ package com.sustech.conferenceSystem.controler.meeting;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.sustech.conferenceSystem.dto.MeetingFull;
-import com.sustech.conferenceSystem.dto.MeetingSimple;
-import com.sustech.conferenceSystem.service.meeting.MeetingService;
+import com.sustech.conferenceSystem.service.meeting.MeetingManagerService;
 import com.sustech.conferenceSystem.util.Filter;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,7 +20,7 @@ import java.util.Map;
 @RequestMapping(value = "/meeting")
 public class MeetingManagerControler {
     @Resource
-    private MeetingService meetingService;
+    private MeetingManagerService meetingManagerService;
 
     /**
      * /meeting/meeting_order_search 接口，用于预约会议 (未实现)
@@ -32,7 +31,7 @@ public class MeetingManagerControler {
             produces = "application/json;charset=UTF-8")
     public String meetingOrderSearch (@RequestBody JSONObject jsonParam){
         MeetingFull meeting = JSON.parseObject(jsonParam.toString(), MeetingFull.class);
-        List<MeetingFull> result = meetingService.meetingOrderService(meeting);
+        List<MeetingFull> result = meetingManagerService.meetingOrderService(meeting);
         return JSON.toJSONString(result);
     }
 
@@ -40,14 +39,14 @@ public class MeetingManagerControler {
      * /meeting/meeting_create 接口，用于创建会议 (未实现)
      * @return
      */
-    @RequestMapping(value = "/meeting_create",
+    @RequestMapping(value = "/meeting_add",
             method = RequestMethod.POST,
             produces = "application/json;charset=UTF-8")
-    public String meetingCreate(@RequestBody JSONObject jsonParam){
+    public String meetingAdd(@RequestBody JSONObject jsonParam){
         MeetingFull meeting = JSON.parseObject(jsonParam.toString(), MeetingFull.class);
         Filter.attributeFilter(meeting);
-        //需要加判断
-        Map<String, String> result = meetingService.meetingCreateService(meeting);
+        System.out.println(meeting);
+        Map<String, String> result = meetingManagerService.meetingAddService(meeting);
         return JSON.toJSONString(result);
     }
 
@@ -61,7 +60,7 @@ public class MeetingManagerControler {
     public String meetingDelete(@RequestBody JSONObject jsonParam){
         MeetingFull meeting = JSON.parseObject(jsonParam.toString(), MeetingFull.class);
         Filter.attributeFilter(meeting);
-        Map<String, String> result = meetingService.meetingDeleteService(meeting);
+        Map<String, String> result = meetingManagerService.meetingDeleteService(meeting);
         return JSON.toJSONString(result);
     }
 }
