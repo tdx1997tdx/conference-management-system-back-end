@@ -73,6 +73,11 @@
             meeting_id = #{meetingId}
         </where>
     </select>
+
+    <delete id="meetingDelete">
+        delete from meeting where meeting_id = #{meetingId}
+    </delete>
+
     <!--查询会议所有成员-->
     <select id="findMeetingMembers" resultType="com.sustech.conferenceSystem.dto.User">
         select u.user_id,name,state from user_and_meeting uam inner join user u on uam.user_id = u.user_id

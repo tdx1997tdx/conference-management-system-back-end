@@ -70,8 +70,8 @@ public class MeetingManagerService {
             res.put("message","成员中存在姓名不合法的情况");
             return res;
         }
-        //判断成员时间是否冲突
-
+        //判断成员时间是否冲突(未完成)
+        //通知相关人员(未完成)
         //添加user和meeting的映射表
         for(User u:members){
             UserAndMeeting userAndMeeting=new UserAndMeeting();
@@ -95,28 +95,19 @@ public class MeetingManagerService {
 
     /**
      * 创建会议
-     * @param meeting 传入javabean的user对象
+     * @param meetingId 传入meeting_id
      * @return map类型的结果state 0代表失败1代表成功
      */
-    public Map<String,String> meetingDeleteService(MeetingFull meeting){
+    public Map<String,String> meetingDeleteService(Integer meetingId){
         Map<String,String> res = new HashMap<>();
-        System.out.println("delete");
-        List<MeetingFull> meetings = null;
-        //meetingMapper.meetingSearch(meeting);
-        System.out.println(meetings);
-
-        if(meetings.size()==1){
-            System.out.println(meeting);
-            meetingMapper.meetingDelete(meeting);
-            res.put("state","Success");
-            res.put("message","会议删除成功");
-        }else if(meetings.size()==0){
-            res.put("state","Failed");
-            res.put("message","没有找到对应会议，删除失败");
-        } else {
-            res.put("state","Failed");
-            res.put("message","对应会议不止一个，请重新核对，删除失败");
+        boolean delRes=meetingMapper.meetingDelete(meetingId);
+        if(!delRes){
+            res.put("state","0");
+            res.put("message","会议删除失败");
+            return res;
         }
+        res.put("state","1");
+        res.put("message","会议删除成功");
         return res;
     }
 }

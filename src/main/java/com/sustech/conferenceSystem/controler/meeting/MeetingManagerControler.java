@@ -23,20 +23,20 @@ public class MeetingManagerControler {
     private MeetingManagerService meetingManagerService;
 
     /**
-     * /meeting/meeting_order_search 接口，用于预约会议 (未实现)
+     * /meeting/meeting_modify 接口，用于修改会议
      * @return
      */
-    @RequestMapping(value = "/meeting_order_search",
+    @RequestMapping(value = "/meeting_modify",
             method = RequestMethod.POST,
             produces = "application/json;charset=UTF-8")
-    public String meetingOrderSearch (@RequestBody JSONObject jsonParam){
+    public String meetingModify (@RequestBody JSONObject jsonParam){
         MeetingFull meeting = JSON.parseObject(jsonParam.toString(), MeetingFull.class);
         List<MeetingFull> result = meetingManagerService.meetingOrderService(meeting);
         return JSON.toJSONString(result);
     }
 
     /**
-     * /meeting/meeting_create 接口，用于创建会议 (未实现)
+     * /meeting/meeting_add 接口，用于创建会议 (未实现)
      * @return
      */
     @RequestMapping(value = "/meeting_add",
@@ -45,7 +45,6 @@ public class MeetingManagerControler {
     public String meetingAdd(@RequestBody JSONObject jsonParam){
         MeetingFull meeting = JSON.parseObject(jsonParam.toString(), MeetingFull.class);
         Filter.attributeFilter(meeting);
-        System.out.println(meeting);
         Map<String, String> result = meetingManagerService.meetingAddService(meeting);
         return JSON.toJSONString(result);
     }
@@ -58,9 +57,8 @@ public class MeetingManagerControler {
             method = RequestMethod.POST,
             produces = "application/json;charset=UTF-8")
     public String meetingDelete(@RequestBody JSONObject jsonParam){
-        MeetingFull meeting = JSON.parseObject(jsonParam.toString(), MeetingFull.class);
-        Filter.attributeFilter(meeting);
-        Map<String, String> result = meetingManagerService.meetingDeleteService(meeting);
+        int meetingId=jsonParam.getInteger("meeting_id");
+        Map<String, String> result = meetingManagerService.meetingDeleteService(meetingId);
         return JSON.toJSONString(result);
     }
 }

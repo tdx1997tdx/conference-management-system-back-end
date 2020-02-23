@@ -3,6 +3,7 @@ package com.sustech.conferenceSystem.mapper;
 import com.sustech.conferenceSystem.dto.MeetingFull;
 import com.sustech.conferenceSystem.dto.MeetingSimple;
 import com.sustech.conferenceSystem.dto.User;
+import io.swagger.models.auth.In;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -78,8 +79,8 @@ public interface MeetingMapper {
 
     /**
      * 取消一个会议
-     * @param meeting 其中有meetingName,roomName,startTime,endTime。
+     * @param meetingId
      */
-    void meetingDelete (MeetingFull meeting);
+    boolean meetingDelete (Integer meetingId);
 
 }
