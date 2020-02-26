@@ -93,6 +93,9 @@ public class Inform {
      */
     @Scheduled(cron="0 * *  * * ? ")
     public void meetingCheck(){
+        if (!InformConstants.INFORM_TEST_ON) {
+            return;
+        }
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date dateNow = new Date();
         System.out.println("当前时间为："+sdf.format(dateNow));
@@ -133,6 +136,9 @@ public class Inform {
      */
     @Scheduled(cron="0/5 * *  * * ? ")
     public void informAll() throws IOException{
+        if (!InformConstants.INFORM_TEST_ON) {
+            return;
+        }
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date dateNow = new Date();
         System.out.println("当前时间为：" + sdf.format(dateNow));
@@ -158,6 +164,9 @@ public class Inform {
     private static final String FIRST_USER_NAME = "yyj";
     @Scheduled(cron="0/5 * *  * * ? ")
     public void informFirstUser() throws IOException{
+        if (!InformConstants.INFORM_TEST_ON) {
+            return;
+        }
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date dateNow = new Date();
         System.out.println("当前时间为：" + sdf.format(dateNow));
