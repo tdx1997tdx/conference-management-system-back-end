@@ -111,6 +111,12 @@
             <if test="roomId!=null">
                 room_id = #{roomId} and
             </if>
+            <if test="startTime != null ">
+                <![CDATA[start_time>=#{startTime,jdbcType=DATE}]]> and
+            </if>
+            <if test="endTime != null ">
+                <![CDATA[end_time<=#{endTime,jdbcType=DATE}]]>
+            </if>
         </trim>
     </sql>
 </mapper>

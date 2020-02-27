@@ -1,6 +1,7 @@
 package com.sustech.conferenceSystem.mapper;
 
 import com.sustech.conferenceSystem.dto.Room;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -59,5 +60,6 @@ public interface RoomMapper {
      * @return
      */
     List<String> floorSearch(String building);
+
 
 }

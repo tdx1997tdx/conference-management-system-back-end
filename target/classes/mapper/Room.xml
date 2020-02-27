@@ -47,6 +47,14 @@
         select room_id,room_name from room where room_id = #{roomId}
     </select>
 
+    <select id="buildingSearch" resultType="java.lang.String">
+        select building from room group by building
+    </select>
+
+    <select id="floorSearch" resultType="java.lang.String">
+        select floor from room where building=#{building} group by floor
+    </select>
+
     <!-- 对应的插入字段的名字 -->
     <sql id="key">
         <trim suffixOverrides=",">

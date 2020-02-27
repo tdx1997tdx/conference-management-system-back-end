@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.sustech.conferenceSystem.dto.MeetingFull;
 import com.sustech.conferenceSystem.dto.MeetingSimple;
+import com.sustech.conferenceSystem.dto.Room;
 import com.sustech.conferenceSystem.service.meeting.MeetingQueryService;
 import org.springframework.web.bind.annotation.*;
 
@@ -74,10 +75,21 @@ public class MeetingQueryControler {
      */
     @RequestMapping(value = "/meeting_search2", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
     public String meetingSearch2(@RequestBody JSONObject jsonParam){
-        int page=jsonParam.getInteger("page");
-        int volume=jsonParam.getInteger("volume");
         MeetingSimple meeting = JSON.parseObject(jsonParam.toString(), MeetingSimple.class);
-        Map<String,Object> result=meetingQueryService.meetingSearch2Service(meeting,page,volume);
+        Map<String,Object> result=meetingQueryService.meetingSearch2Service(meeting);
+        return JSON.toJSONString(result);
+    }
+
+    /**
+     * /meeting/meeting_search3 接口，用于查询范围内会议信息
+     * @param jsonParam
+     * @return
+     */
+    @RequestMapping(value = "/meeting_search3", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    public String meetingSearch3(@RequestBody JSONObject jsonParam){
+        MeetingSimple meeting = JSON.parseObject(jsonParam.toString(), MeetingSimple.class);
+        Room room = JSON.parseObject(jsonParam.toString(), Room.class);
+        List<Map<String,Object>> result=meetingQueryService.meetingSearch3Service(meeting,room);
         return JSON.toJSONString(result);
     }
 }
