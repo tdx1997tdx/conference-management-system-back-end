@@ -61,7 +61,7 @@
     </select>
 
     <select id="meetingSearch2" resultType="com.sustech.conferenceSystem.dto.MeetingSimple">
-        select * from meeting
+        select meeting_id,meeting_name,start_time,end_time,name host_name,meeting_state from meeting m inner join user u on m.host_id = u.user_id
         <where>
             <include refid="kv_and"/>
         </where>
