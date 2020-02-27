@@ -43,7 +43,7 @@
     </update>
 
     <delete id="deleteDevice">
-        delete from device where device_id=#{device_id}
+        delete from device where device_id=#{deviceId}
     </delete>
 
     <select id="findDeviceById" resultType="com.sustech.conferenceSystem.dto.Device">

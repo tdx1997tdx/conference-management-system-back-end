@@ -12,7 +12,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @Configuration
 @EnableSwagger2
-public class Swagger2 {
+public class Swagger2Config {
     /**
      * 通过 createRestApi函数来构建一个DocketBean
      * 函数名,可以随意命名,喜欢什么命名就什么命名
