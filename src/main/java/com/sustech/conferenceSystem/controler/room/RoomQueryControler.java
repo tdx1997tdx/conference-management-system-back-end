@@ -65,7 +65,7 @@ public class RoomQueryControler {
      * /room/building_search 接口，用于获取所有楼层信息
      * @return
      */
-    @GetMapping(value = "/building_search")
+    @RequestMapping(value = "/building_search", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
     public String buildingSearch(){
         List<String> result = roomQueryService.buildingSearchService();
         return JSON.toJSONString(result);
