@@ -48,6 +48,16 @@ public interface RoomMapper {
      */
     Room findRoomById(int roomId);
 
+    /**
+     * 查询大楼信息
+     * @return
+     */
+    List<String> buildingSearch();
 
+    /**
+     * 查询楼层信息
+     * @return
+     */
+    List<String> floorSearch(String building);
 
 }

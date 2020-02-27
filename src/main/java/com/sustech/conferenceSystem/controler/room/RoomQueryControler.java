@@ -61,5 +61,27 @@ public class RoomQueryControler {
         return JSON.toJSONString(result);
     }
 
+    /**
+     * /room/building_search 接口，用于获取所有楼层信息
+     * @return
+     */
+    @GetMapping(value = "/building_search")
+    public String buildingSearch(){
+        List<String> result = roomQueryService.buildingSearchService();
+        return JSON.toJSONString(result);
+    }
+
+    /**
+     * /room/floor_search 接口，用于查询指定大楼的楼层
+     * @param jsonParam
+     * @return
+     */
+    @RequestMapping(value = "/floor_search", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    public String floorSearch(@RequestBody JSONObject jsonParam){
+        String building=jsonParam.getString("building");
+        List<String> result=roomQueryService.floorSearchService(building);
+        return JSON.toJSONString(result);
+    }
+
 
 }
