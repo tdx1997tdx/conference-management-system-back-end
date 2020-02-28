@@ -1,16 +1,14 @@
 package com.sustech.conferenceSystem.service.inform;
 
+import com.alibaba.fastjson.JSON;
+import com.sustech.conferenceSystem.dto.Message;
 import lombok.Getter;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import javax.websocket.*;
 import javax.websocket.server.PathParam;
 import javax.websocket.server.ServerEndpoint;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Collection;
-import java.util.Date;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -31,7 +29,7 @@ public class WebSocketServer {
     private String id;   //客户端用户ID，验证客户身份
     private String name; //客户端用户名字，验证客户身份
     private String uri; //连接的uri
-    
+
      /**
      * 连接建立成功时触发，绑定参数
      * @param session
@@ -47,15 +45,19 @@ public class WebSocketServer {
         this.name = name;
         this.uri = session.getRequestURI().toString();
 
+        Message message = new Message();
+        message.setMessageTopic("onOpen");
         WebSocketServer webSocketServer = webSocketServerMAP.get(uri);
         if(webSocketServer != null){ //同样业务的连接已经在线，则把原来的挤下线。
             // 需要添加cookie认证（未实现）
-            webSocketServer.sendMessage(uri + "重复连接被挤下线了");
+            message.setMessageBody(uri + "重复连接被挤下线了");
+            webSocketServer.sendMessage(message);
             webSocketServer.onClose();//关闭连接，触发关闭连接方法onClose()
         }
         webSocketServerMAP.put(uri, this);//保存uri对应的连接服务
         addOnlineCount(); // 在线数加1
-        sendMessage("新用户登录， id:"+ id + " name: " + name + "当前在线连接数:" + getOnlineCount());
+        message.setMessageBody("新用户登录， id:"+ id + " name: " + name + "当前在线连接数:" + getOnlineCount());
+        sendMessage(message);
         System.out.println("onOpen: " + uri);
         System.out.println("有新连接加入！当前在线连接数：" + getOnlineCount());
     }
@@ -76,14 +78,17 @@ public class WebSocketServer {
      * 收到客户端消息后触发
      * （暂时用不到，出于学习原因，保留相关代码，在之后删除）
      *
-     * @param message 客户端发送过来的消息
+     * @param messageGet 客户端发送过来的消息
 //     * @param session 可选的参数
      * @throws IOException
      */
     @OnMessage
-    public void onMessage(String message) throws IOException {
+    public void onMessage(String messageGet) throws IOException {
         //服务器向消息发送者客户端发送消息
-        this.sendMessage("id: " + id + " name: " + name + "发送给服务端消息：" + message);
+        Message message = new Message();
+        message.setMessageTopic("onMessage");
+        message.setMessageBody("id: " + id + " name: " + name + "发送给服务端消息：" + message);
+        this.sendMessage(message);
         System.out.println("id: " + id + " name: " + name + "发送来消息：" + message);
 
     }
@@ -105,9 +110,10 @@ public class WebSocketServer {
      * @param message
      * @throws IOException
      */
-     public void sendMessage(String message) throws IOException {
-         System.out.println("sendMessage： uri: " + this.uri + " message: " + message);
-         this.session.getBasicRemote().sendText(message);
+     public void sendMessage(Message message) throws IOException {
+         System.out.println("sendMessage： uri: " + this.uri);
+         System.out.println("message: " + message);
+         this.session.getBasicRemote().sendText(JSON.toJSONString(message));
     }
 
     /**
