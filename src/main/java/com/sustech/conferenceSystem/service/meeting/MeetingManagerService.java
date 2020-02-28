@@ -44,7 +44,7 @@ public class MeetingManagerService {
      */
     public Map<String,String> meetingAddService(MeetingFull meeting){
         Map<String,String> res = new HashMap<>();
-        MeetingSimple meetingSimple=meetingMapper.meetingSearch(null,meeting.getMeetingName(),null,null).get(0);
+
         //判断recoder是否存在
         List<User> recorder=userMapper.searchUser(meeting.getRecorder());
         if(recorder.size()==0){
@@ -72,24 +72,29 @@ public class MeetingManagerService {
         }
         //判断成员时间是否冲突(未完成)
         //通知相关人员(未完成)
-        //添加user和meeting的映射表
-        for(User u:members){
-            UserAndMeeting userAndMeeting=new UserAndMeeting();
-            userAndMeeting.setUserId(u.getUserId());
-            userAndMeeting.setMeetingId(meetingSimple.getMeetingId());
-            userAndMeeting.setState(2);
-            userAndMeetingMapper.addUserAndMeeting(userAndMeeting);
-        }
 
+        //添加会议
         meeting.setMeetingState(2);
-        boolean state=meetingMapper.meetingCreate(meeting);
-        if(state){
-            res.put("state","2");
-            res.put("message","添加成功");
+        try {
+            meetingMapper.meetingCreate(meeting);
+            //添加user和meeting的映射表
+            MeetingSimple meetingSimple=meetingMapper.meetingSearch(null,meeting.getMeetingName(),null,null).get(0);
+            for(User u:members){
+                UserAndMeeting userAndMeeting=new UserAndMeeting();
+                userAndMeeting.setUserId(u.getUserId());
+                userAndMeeting.setMeetingId(meetingSimple.getMeetingId());
+                userAndMeeting.setState(2);
+                userAndMeetingMapper.addUserAndMeeting(userAndMeeting);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            res.put("state","3");
+            res.put("message","添加失败:"+e.getMessage());
             return res;
         }
-        res.put("state","3");
-        res.put("message","未知错误");
+
+        res.put("state","2");
+        res.put("message","添加成功");
         return res;
     }
 
