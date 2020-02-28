@@ -27,6 +27,7 @@ public class LRService {
     public Map<String,String> loginService(User user){
         Map<String,String> res=new HashMap<>();
         List<User> users=userMapper.searchUser(user);
+        System.out.println(users.get(0));
         if(users.size()==0){
             res.put("state","0");
             res.put("message","用户名或密码错误");

@@ -141,6 +141,9 @@
     <!-- key-value -->
     <sql id="kv2">
         <trim suffixOverrides="and">
+            <if test="username!=null">
+                username=#{username} and
+            </if>
             <if test="name!=null">
                 name=#{name} and
             </if>
