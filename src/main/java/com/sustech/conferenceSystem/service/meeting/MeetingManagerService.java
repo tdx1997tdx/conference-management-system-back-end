@@ -44,7 +44,7 @@ public class MeetingManagerService {
      */
     public Map<String,String> meetingAddService(MeetingFull meeting){
         Map<String,String> res = new HashMap<>();
-        MeetingSimple meetingSimple=meetingMapper.meetingSearch(null,meeting.getMeetingName(),null,null).get(0);
+
         //判断recoder是否存在
         List<User> recorder=userMapper.searchUser(meeting.getRecorder());
         if(recorder.size()==0){
@@ -55,41 +55,45 @@ public class MeetingManagerService {
         meeting.setRecorder(recorder.get(0));
         //判断member是否存在
         List<User> members=meeting.getMembers();
-        boolean isOk=true;
         for(int i=0;i<members.size();i++){
             List<User> user=userMapper.searchUser(members.get(i));
             if(user.size()==0){
-                isOk=false;
-                break;
+                res.put("state","1");
+                res.put("message","成员中存在姓名不合法的情况,不合法成员名字:"+members.get(i).getName());
+                return res;
             }else{
                 members.set(i,user.get(0));
             }
         }
-        if(!isOk){
-            res.put("state","1");
-            res.put("message","成员中存在姓名不合法的情况");
-            return res;
-        }
         //判断成员时间是否冲突(未完成)
+        for(int i=0;i<members.size();i++){
+            MeetingSimple meetingSimple=new MeetingSimple();
+            meetingSimple.setStartTime(meeting.getStartTime());
+            meetingSimple.setEndTime(meeting.getEndTime());
+            int count1=meetingMapper.meetingIntervalSearch(members.get(i).getUserId(),null);
+            int count2=meetingMapper.meetingIntervalSearch(members.get(i).getUserId(),meetingSimple);
+            if(count1-count2!=0){
+                res.put("state","2");
+                res.put("message","成员中在该时间段存在会议时间冲突:"+members.get(i).getName());
+                return res;
+            }
+        }
         //通知相关人员(未完成)
+
+        //添加会议
+        meeting.setMeetingState(2);
+        meetingMapper.meetingCreate(meeting);
         //添加user和meeting的映射表
         for(User u:members){
             UserAndMeeting userAndMeeting=new UserAndMeeting();
             userAndMeeting.setUserId(u.getUserId());
-            userAndMeeting.setMeetingId(meetingSimple.getMeetingId());
+            userAndMeeting.setMeetingId(meeting.getMeetingId());
             userAndMeeting.setState(2);
             userAndMeetingMapper.addUserAndMeeting(userAndMeeting);
         }
 
-        meeting.setMeetingState(2);
-        boolean state=meetingMapper.meetingCreate(meeting);
-        if(state){
-            res.put("state","2");
-            res.put("message","添加成功");
-            return res;
-        }
         res.put("state","3");
-        res.put("message","未知错误");
+        res.put("message","添加成功");
         return res;
     }
 

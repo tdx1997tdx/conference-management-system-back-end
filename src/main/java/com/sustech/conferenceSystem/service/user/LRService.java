@@ -29,7 +29,7 @@ public class LRService {
         List<User> users=userMapper.searchUser(user);
         if(users.size()==0){
             res.put("state","0");
-            res.put("message","用户名或密码错误");
+            res.put("message","用户名或密码错误,或者权限选择错误");
         }else {
             String token= UUID.randomUUID().toString();
             Map<String,Object> map=new HashMap<>();

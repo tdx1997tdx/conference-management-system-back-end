@@ -4,12 +4,15 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.sustech.conferenceSystem.dto.MeetingFull;
 import com.sustech.conferenceSystem.dto.MeetingSimple;
+import com.sustech.conferenceSystem.dto.Room;
 import com.sustech.conferenceSystem.dto.User;
 import com.sustech.conferenceSystem.mapper.MeetingMapper;
+import com.sustech.conferenceSystem.mapper.RoomMapper;
 import com.sustech.conferenceSystem.mapper.UserMapper;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,6 +21,8 @@ import java.util.Map;
 public class MeetingQueryService {
     @Resource
     private MeetingMapper meetingMapper;
+    @Resource
+    private RoomMapper roomMapper;
 
     /**
      * 获取会议
@@ -31,20 +36,36 @@ public class MeetingQueryService {
     public Map<String,Object> meetingSearchService(Integer userId,String meetingName, String roomName, String meetingState, int page, int volume){
         Map<String,Object> res=new HashMap<>();
         PageHelper.startPage(page, volume);
-        List<MeetingSimple> list=meetingMapper.meetingSearch(userId,meetingName,roomName,meetingState);
+        MeetingSimple meetingSimple=new MeetingSimple();
+        meetingSimple.setMeetingName(meetingName);
+        meetingSimple.setMeetingName(meetingState);
+        List<MeetingSimple> list=meetingMapper.meetingSearch(userId,roomName,meetingSimple);
         PageInfo<MeetingSimple> pageInfo=new PageInfo<>(list);
         res.put("list",list);
         res.put("total",pageInfo.getTotal());
         return res;
     }
 
-    public Map<String,Object> meetingSearch2Service(MeetingSimple meetingSimple, int page, int volume){
+    public Map<String,Object> meetingSearch2Service(MeetingSimple meetingSimple){
         Map<String,Object> res=new HashMap<>();
-        PageHelper.startPage(page, volume);
         List<MeetingSimple> list=meetingMapper.meetingSearch2(meetingSimple);
-        PageInfo<MeetingSimple> pageInfo=new PageInfo<>(list);
         res.put("list",list);
-        res.put("total",pageInfo.getTotal());
+        res.put("total",list.size());
+        return res;
+    }
+
+    public List<Map<String,Object>> meetingSearch3Service(MeetingSimple meetingSimple, Room room){
+        List<Map<String,Object>> res=new ArrayList<>();
+        List<Room> rooms=roomMapper.searchRoom(room);
+        for(Room r:rooms){
+            Map<String,Object> m=new HashMap<>();
+            m.put("room_id",r.getRoomId());
+            m.put("room_name",r.getRoomName());
+            meetingSimple.setRoomId(r.getRoomId());
+            List<MeetingSimple> list=meetingMapper.meetingSearch2(meetingSimple);
+            m.put("meeting_list",list);
+            res.add(m);
+        }
         return res;
     }
 

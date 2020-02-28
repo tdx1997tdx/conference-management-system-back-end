@@ -18,12 +18,9 @@ public interface MeetingMapper {
 
     /**
      * 检查数据库中是否有符合要求的会议
-     * @param meetingName 会议名称，模糊搜索
-     * @param roomName 会议室名称
-     * @param meetingState 会议状态
      * @return 符合要求会议集合
      */
-    List<MeetingSimple> meetingSearch (@Param("userId")Integer userId,@Param("meetingName")String meetingName, @Param("roomName")String roomName, @Param("meetingState")String meetingState);
+    List<MeetingSimple> meetingSearch (@Param("userId")Integer userId, @Param("roomName")String roomName, @Param("meetingSimple")MeetingSimple meetingSimple);
 
     /**
      * 检查数据库中是否有符合要求的会议
@@ -31,6 +28,12 @@ public interface MeetingMapper {
      * @return 符合要求会议集合
      */
     List<MeetingSimple> meetingSearch2(MeetingSimple meetingSimple);
+
+    /**
+     * 检查数据库中查询某个user在某个时间段是否有会议
+     * @return 符合要求会议集合
+     */
+    Integer meetingIntervalSearch(@Param("userId")Integer userId,@Param("meetingSimple")MeetingSimple meetingSimple);
 
     /**
      * 查找指定id会议

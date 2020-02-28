@@ -62,4 +62,22 @@ public class RoomQueryService {
         res.put("total",pageInfo.getTotal());
         return res;
     }
+
+    /**
+     * 大楼查询业务逻辑
+     * @return 结果集合
+     */
+    public List<String> buildingSearchService(){
+        List<String> res=roomMapper.buildingSearch();
+        return res;
+    }
+
+    /**
+     * 楼层查询业务逻辑
+     * @return 结果集合
+     */
+    public List<String> floorSearchService(String building){
+        List<String> res=roomMapper.floorSearch(building);
+        return res;
+    }
 }
