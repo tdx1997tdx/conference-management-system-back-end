@@ -36,7 +36,10 @@ public class MeetingQueryService {
     public Map<String,Object> meetingSearchService(Integer userId,String meetingName, String roomName, String meetingState, int page, int volume){
         Map<String,Object> res=new HashMap<>();
         PageHelper.startPage(page, volume);
-        List<MeetingSimple> list=meetingMapper.meetingSearch(userId,meetingName,roomName,meetingState);
+        MeetingSimple meetingSimple=new MeetingSimple();
+        meetingSimple.setMeetingName(meetingName);
+        meetingSimple.setMeetingName(meetingState);
+        List<MeetingSimple> list=meetingMapper.meetingSearch(userId,roomName,meetingSimple);
         PageInfo<MeetingSimple> pageInfo=new PageInfo<>(list);
         res.put("list",list);
         res.put("total",pageInfo.getTotal());
