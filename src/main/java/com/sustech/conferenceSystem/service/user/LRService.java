@@ -33,8 +33,8 @@ public class LRService {
         }else {
             String token= UUID.randomUUID().toString();
             Map<String,Object> map=new HashMap<>();
-            map.put("username",user.getUsername());
             map.put("userId",user.getUserId());
+            map.put("username",user.getUsername());
             redisUtil.hmset(token,map,432000);
             res.put("state","1");
             res.put("set_cookie",token);
