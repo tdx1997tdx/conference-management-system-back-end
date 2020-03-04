@@ -69,7 +69,7 @@ public class MeetingManagerService {
         List<User> recorder=userMapper.searchUser(meeting.getRecorder());
         if(recorder.size()==0){
             res.put("state","0");
-            res.put("message","recorder不存在");
+            res.put("message","记录者不存在");
             return res;
         }
         meeting.setRecorder(recorder.get(0));
@@ -79,7 +79,7 @@ public class MeetingManagerService {
             List<User> user=userMapper.searchUser(members.get(i));
             if(user.size()==0){
                 res.put("state","1");
-                res.put("message","成员中存在姓名不合法的情况,不合法成员名字:"+members.get(i).getName());
+                res.put("message","成员已不存在，请刷新页面后重试");
                 return res;
             }else{
                 members.set(i,user.get(0));
