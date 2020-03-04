@@ -47,11 +47,9 @@ public class MeetingManagerService {
         //通知相关人员(未完成)
 
         //修改会议
-        meeting.setMeetingState(2);
-        meetingMapper.meetingCreate(meeting);
-
-        res.put("state","3");
-        res.put("message","添加成功");
+        meetingMapper.meetingModify(meeting);
+        res.put("state","1");
+        res.put("message","修改成功");
         return res;
     }
 

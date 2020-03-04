@@ -126,6 +126,14 @@
           values (#{meetingName},#{room.roomId},#{startTime},#{endTime},#{host.userId},#{recorder.userId},#{topic},#{meetingAbstract},#{remark},#{meetingState})
     </insert>
 
+    <update id="meetingModify" parameterType="com.sustech.conferenceSystem.dto.MeetingFull" keyProperty="meetingId" useGeneratedKeys="true">
+        update meeting
+        <set>
+            <include refid="kv_comma"/>
+        </set>
+        where meeting_id=#{meetingId}
+    </update>
+
     <!-- key-value -->
     <sql id="kv_and">
         <trim suffixOverrides="and">
@@ -215,6 +223,33 @@
             </if>
             <if test="meetingState!=null">
                 meeting_state,
+            </if>
+        </trim>
+    </sql>
+
+    <!-- key-value -->
+    <sql id="kv_comma">
+        <trim suffixOverrides=",">
+            <if test="room.roomId!=null">
+                room_id = #{room.roomId},
+            </if>
+            <if test="startTime!=null">
+                start_time = #{startTime},
+            </if>
+            <if test="endTime!=null">
+                end_time = #{endTime},
+            </if>
+            <if test="recorder.userId!=null">
+                recorder_id = #{recorder.userId},
+            </if>
+            <if test="topic!=null">
+                topic = #{topic},
+            </if>
+            <if test="meetingAbstract!=null">
+                meeting_abstract = #{meetingAbstract},
+            </if>
+            <if test="remark!=null">
+                remark = #{remark}
             </if>
         </trim>
     </sql>

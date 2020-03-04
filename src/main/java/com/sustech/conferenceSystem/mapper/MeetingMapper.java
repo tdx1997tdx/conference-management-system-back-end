@@ -86,4 +86,10 @@ public interface MeetingMapper {
      */
     boolean meetingDelete (Integer meetingId);
 
+    /**
+     * 创建一个会议
+     * @param meeting 其中有meeting所需所有信息
+     */
+    boolean meetingModify (MeetingFull meeting);
+
 }
