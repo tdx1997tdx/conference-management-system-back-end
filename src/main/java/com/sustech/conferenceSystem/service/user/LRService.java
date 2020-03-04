@@ -78,7 +78,7 @@ public class LRService {
         if(map.get("userId")!=null){
             res.put("state","1");
             res.put("username",(String)map.get("username"));
-            res.put("user_id",(String)map.get("userId"));
+            res.put("user_id",String.valueOf(map.get("userId")));
             res.put("message","验证成功");
         }else {
             res.put("state","0");

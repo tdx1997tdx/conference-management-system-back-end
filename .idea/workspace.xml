@@ -92,8 +92,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/service/user/LRService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="251">
-              <caret line="36" column="44" selection-start-line="36" selection-start-column="44" selection-end-line="36" selection-end-column="44" />
+            <state relative-caret-position="232">
+              <caret line="80" column="62" selection-start-line="80" selection-start-column="62" selection-end-line="80" selection-end-column="62" />
             </state>
           </provider>
         </entry>
@@ -539,7 +539,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1583327820447" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1583328003915" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -740,14 +740,7 @@
       <workItem from="1582803697271" duration="2596000" />
       <workItem from="1582807886363" duration="5859000" />
       <workItem from="1582859976989" duration="19441000" />
-      <workItem from="1583306864384" duration="13944000" />
-    </task>
-    <task id="LOCAL-00011" summary="修改stop.sh">
-      <created>1575548414061</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1575548414061</updated>
+      <workItem from="1583306864384" duration="14127000" />
     </task>
     <task id="LOCAL-00012" summary="增加了修改用户接口">
       <created>1575559375111</created>
@@ -1085,7 +1078,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583327638018</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="修改了登陆验证的bug">
+      <created>1583327841268</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1583327841268</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1121,13 +1121,13 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="261220000" />
+    <option name="totallyTimeSpent" value="261403000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1293" height="703" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4921875" visible="true" weight="0.31093118" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4921875" visible="true" weight="0.31093118" />
       <window_info id="Designer" order="1" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Capture Tool" order="3" />
@@ -1152,7 +1152,7 @@
       <window_info anchor="bottom" id="Event Log" order="15" side_tool="true" weight="0.32867134" />
       <window_info anchor="bottom" id="Java Enterprise" order="16" weight="0.32867134" />
       <window_info anchor="bottom" id="Database Changes" order="17" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="18" visible="true" weight="0.33566433" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="18" visible="true" weight="0.33566433" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -1207,7 +1207,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="修改 modify_info接口" />
     <MESSAGE value="微调了设备模块" />
     <MESSAGE value="添加了表单模块" />
     <MESSAGE value="修复modify_room的bug" />
@@ -1232,7 +1231,8 @@
     <MESSAGE value="测试登陆验证模块2" />
     <MESSAGE value="测试登陆验证模块3" />
     <MESSAGE value="测试登陆验证模块4" />
-    <option name="LAST_COMMIT_MESSAGE" value="测试登陆验证模块4" />
+    <MESSAGE value="修改了登陆验证的bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改了登陆验证的bug" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/controler/device/DeviceQueryControler.java">
@@ -1666,8 +1666,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/service/user/LRService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="36" column="44" selection-start-line="36" selection-start-column="44" selection-end-line="36" selection-end-column="44" />
+        <state relative-caret-position="232">
+          <caret line="80" column="62" selection-start-line="80" selection-start-column="62" selection-end-line="80" selection-end-column="62" />
         </state>
       </provider>
     </entry>
