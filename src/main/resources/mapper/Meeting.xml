@@ -58,10 +58,10 @@
                     meeting_state = #{meetingSimple.meetingState,jdbcType=INTEGER} and
                 </if>
                 <if test="meetingSimple.startTime != null ">
-                    <![CDATA[start_time>=#{meetingSimple.startTime,jdbcType=DATE}]]> and
+                    <![CDATA[start_time>=#{meetingSimple.startTime,jdbcType=TIMESTAMP}]]> and
                 </if>
                 <if test="meetingSimple.endTime != null ">
-                    <![CDATA[end_time<=#{meetingSimple.endTime,jdbcType=DATE}]]>
+                    <![CDATA[end_time<=#{meetingSimple.endTime,jdbcType=TIMESTAMP}]]>
                 </if>
             </trim>
         </where>
@@ -137,6 +137,84 @@
             </if>
             <if test="endTime != null ">
                 <![CDATA[end_time<=#{endTime,jdbcType=TIMESTAMP}]]>
+            </if>
+        </trim>
+    </sql>
+
+    <!-- 对应的插入字段的名字 -->
+    <sql id="value">
+        <trim suffixOverrides=",">
+            <if test="meetingId!=null">
+                #{meetingId},
+            </if>
+            <if test="meetingName!=null">
+                #{meetingName},
+            </if>
+            <if test="room.roomId!=null">
+                #{room.roomId},
+            </if>
+            <if test="startTime!=null">
+                #{startTime},
+            </if>
+            <if test="endTime!=null">
+                #{endTime},
+            </if>
+            <if test="host.userId!=null">
+                #{host.userId},
+            </if>
+            <if test="recorder.userId!=null">
+                #{recorder.userId},
+            </if>
+            <if test="topic!=null">
+                #{topic},
+            </if>
+            <if test="meetingAbstract!=null">
+                #{meetingAbstract},
+            </if>
+            <if test="remark!=null">
+                #{remark},
+            </if>
+            <if test="meetingState!=null">
+                #{meetingState},
+            </if>
+        </trim>
+    </sql>
+
+    <!-- 对应的插入字段的值 -->
+    <sql id="key">
+        <trim suffixOverrides=",">
+            <if test="meetingId!=null">
+                meeting_id,
+            </if>
+            <if test="meetingName!=null">
+                meeting_name,
+            </if>
+            <if test="room.roomId!=null">
+                room_id,
+            </if>
+            <if test="startTime!=null">
+                start_time,
+            </if>
+            <if test="endTime!=null">
+                end_time,
+            </if>
+            <if test="host.userId!=null">
+                host_id,
+            </if>
+            <if test="recorder.userId!=null">
+                recorder_id,
+            </if>
+            <if test="topic!=null">
+                topic,
+            </if>
+            <if test="meetingAbstract!=null">
+                meeting_abstract,
+            </if>
+            <if test="remark!=null">
+                remark,
+            </if>
+            <if test="meetingState!=null">
+                meeting_state,
             </if>
         </trim>
     </sql>

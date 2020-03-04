@@ -31,7 +31,7 @@ public class MeetingManagerControler {
             produces = "application/json;charset=UTF-8")
     public String meetingModify (@RequestBody JSONObject jsonParam){
         MeetingFull meeting = JSON.parseObject(jsonParam.toString(), MeetingFull.class);
-        List<MeetingFull> result = meetingManagerService.meetingOrderService(meeting);
+        Map<String, String> result = meetingManagerService.meetingModifyService(meeting);
         return JSON.toJSONString(result);
     }
 
@@ -44,7 +44,6 @@ public class MeetingManagerControler {
             produces = "application/json;charset=UTF-8")
     public String meetingAdd(@RequestBody JSONObject jsonParam){
         MeetingFull meeting = JSON.parseObject(jsonParam.toString(), MeetingFull.class);
-        Filter.attributeFilter(meeting);
         Map<String, String> result = meetingManagerService.meetingAddService(meeting);
         return JSON.toJSONString(result);
     }

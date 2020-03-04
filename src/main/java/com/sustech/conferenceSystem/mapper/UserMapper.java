@@ -1,7 +1,10 @@
 package com.sustech.conferenceSystem.mapper;
 
 import com.sustech.conferenceSystem.dto.User;
+import org.apache.ibatis.annotations.Param;
 
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 
 public interface UserMapper {
@@ -47,5 +50,11 @@ public interface UserMapper {
      * @return
      */
     User findUserById(int userId);
+
+    /**
+     * 模糊查找在指定时间段空闲的人物
+     * @return
+     */
+    List<User> searchUserByTime(@Param("name")String name, @Param("startTime") Timestamp startTime, @Param("endTime") Timestamp endTime);
 
 }

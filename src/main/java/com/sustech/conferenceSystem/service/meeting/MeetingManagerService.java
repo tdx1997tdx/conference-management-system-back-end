@@ -9,6 +9,7 @@ import com.sustech.conferenceSystem.dto.UserAndMeeting;
 import com.sustech.conferenceSystem.mapper.MeetingMapper;
 import com.sustech.conferenceSystem.mapper.UserAndMeetingMapper;
 import com.sustech.conferenceSystem.mapper.UserMapper;
+import io.swagger.models.auth.In;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -26,13 +27,32 @@ public class MeetingManagerService {
     private UserAndMeetingMapper userAndMeetingMapper;
 
     /**
-     * 获取符合要求的会议
-     * @param meeting，其中有meetingName,roomName,meetingState，为空代表所有数据
-     * @return 符合要求会议集合
+     * 修改会议，本质是删除会议重新创建
+     * @param meeting 传入javabean的meeting对象
+     * @return map类型的结果state 0代表失败1代表成功
      */
-    public List<MeetingFull> meetingOrderService(MeetingFull meeting){
-        List<MeetingFull> meetings = meetingMapper.meetingOrder(meeting);
-        return meetings;
+    public Map<String,String> meetingModifyService(MeetingFull meeting){
+        int delId=meeting.getMeetingId();
+        Map<String,String> res = new HashMap<>();
+        if(meeting.getRecorder()!=null){
+            //判断recoder是否存在
+            List<User> recorder=userMapper.searchUser(meeting.getRecorder());
+            if(recorder.size()==0){
+                res.put("state","0");
+                res.put("message","recorder不存在");
+                return res;
+            }
+            meeting.setRecorder(recorder.get(0));
+        }
+        //通知相关人员(未完成)
+
+        //修改会议
+        meeting.setMeetingState(2);
+        meetingMapper.meetingCreate(meeting);
+
+        res.put("state","3");
+        res.put("message","添加成功");
+        return res;
     }
 
 
