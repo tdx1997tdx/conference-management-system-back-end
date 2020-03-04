@@ -33,7 +33,7 @@ public class LRService {
         }else {
             String token= UUID.randomUUID().toString();
             Map<String,Object> map=new HashMap<>();
-            map.put("userId",user.getUserId());
+            map.put("userId",String.valueOf(user.getUserId()));
             map.put("username",user.getUsername());
             redisUtil.hmset(token,map,432000);
             res.put("state","1");
