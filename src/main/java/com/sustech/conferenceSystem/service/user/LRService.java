@@ -74,6 +74,7 @@ public class LRService {
     public Map<String,String> loginVerificationService(String cookie){
         Map<String,String> res=new HashMap<>();
         Map<Object,Object> map=redisUtil.hmget(cookie);
+        System.out.println(map.get("username")+" "+map.get("user_id"));
         if(map!=null){
             res.put("state","1");
             res.put("username",(String)map.get("username"));
