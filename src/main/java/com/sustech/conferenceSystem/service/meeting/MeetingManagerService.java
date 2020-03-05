@@ -27,12 +27,11 @@ public class MeetingManagerService {
     private UserAndMeetingMapper userAndMeetingMapper;
 
     /**
-     * 修改会议，本质是删除会议重新创建
+     * 修改会议
      * @param meeting 传入javabean的meeting对象
      * @return map类型的结果state 0代表失败1代表成功
      */
     public Map<String,String> meetingModifyService(MeetingFull meeting){
-        int delId=meeting.getMeetingId();
         Map<String,String> res = new HashMap<>();
         if(meeting.getRecorder()!=null){
             //判断recoder是否存在
@@ -50,6 +49,49 @@ public class MeetingManagerService {
         meetingMapper.meetingModify(meeting);
         res.put("state","1");
         res.put("message","修改成功");
+        return res;
+    }
+
+    /**
+     * 添加会议成员
+     * @param meeting 传入javabean的meeting对象
+     * @return map类型的结果state 0代表失败1代表成功
+     */
+    public Map<String,String> meetingMembersAddService(MeetingFull meeting){
+        Map<String,String> res = new HashMap<>();
+        //添加成员
+        boolean isOk=meetingMapper.meetingMembersAdd(meeting);
+        if(!isOk){
+            res.put("state","0");
+            res.put("message","添加失败");
+            return res;
+        }
+        //通知相关人员(未完成)
+
+        res.put("state","1");
+        res.put("message","添加成功");
+        return res;
+    }
+
+
+    /**
+     * 删除会议成员
+     * @param meeting 传入javabean的meeting对象
+     * @return map类型的结果state 0代表失败1代表成功
+     */
+    public Map<String,String> meetingMembersDeleteService(MeetingFull meeting){
+        Map<String,String> res = new HashMap<>();
+        //删除成员
+        boolean isOk=meetingMapper.meetingMembersDelete(meeting);
+        if(!isOk){
+            res.put("state","0");
+            res.put("message","删除失败");
+            return res;
+        }
+        //通知相关人员(未完成)
+
+        res.put("state","1");
+        res.put("message","删除成功");
         return res;
     }
 

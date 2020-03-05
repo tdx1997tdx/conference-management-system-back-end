@@ -134,6 +134,24 @@
         where meeting_id=#{meetingId}
     </update>
 
+    <!--删除相关参会人员-->
+    <delete id="meetingMembersDelete">
+        delete from user_and_meeting where meeting_id = #{meetingId} and user_id in
+        <foreach collection="members" item="user" separator="," open="(" close=")">
+            #{user.userId}
+        </foreach>
+    </delete>
+
+    <!--添加相关参会人员-->
+    <insert id="meetingMembersAdd" parameterType="com.sustech.conferenceSystem.dto.MeetingFull">
+        insert into user_and_meeting(meeting_id,user_id, state)
+        values
+        <foreach collection="members" item="user" separator=",">
+          (#{meetingId},#{user.userId},2)
+      </foreach>
+
+    </insert>
+
     <!-- key-value -->
     <sql id="kv_and">
         <trim suffixOverrides="and">
