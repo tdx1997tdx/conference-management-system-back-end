@@ -59,6 +59,30 @@ public class MeetingManagerService {
      */
     public Map<String,String> meetingMembersAddService(MeetingFull meeting){
         Map<String,String> res = new HashMap<>();
+        //判断member是否存在
+        List<User> members=meeting.getMembers();
+        for(int i=0;i<members.size();i++){
+            List<User> user=userMapper.searchUser(members.get(i));
+            if(user.size()==0){
+                res.put("state","1");
+                res.put("message","成员已不存在，请刷新页面后重试");
+                return res;
+            }else{
+                members.set(i,user.get(0));
+            }
+        }
+        //判断成员时间是否冲突(未完成)
+        for(int i=0;i<members.size();i++){
+            MeetingSimple meetingSimple=new MeetingSimple();
+            meetingSimple.setStartTime(meeting.getStartTime());
+            meetingSimple.setEndTime(meeting.getEndTime());
+            List<MeetingSimple> resList=meetingMapper.meetingIntervalSearch(members.get(i).getUserId(),meetingSimple);
+            if(resList.size()!=0){
+                res.put("state","2");
+                res.put("message","成员中在该时间段存在会议时间冲突:"+members.get(i).getName());
+                return res;
+            }
+        }
         //添加成员
         boolean isOk=meetingMapper.meetingMembersAdd(meeting);
         if(!isOk){
@@ -130,9 +154,8 @@ public class MeetingManagerService {
             MeetingSimple meetingSimple=new MeetingSimple();
             meetingSimple.setStartTime(meeting.getStartTime());
             meetingSimple.setEndTime(meeting.getEndTime());
-            int count1=meetingMapper.meetingIntervalSearch(members.get(i).getUserId(),null);
-            int count2=meetingMapper.meetingIntervalSearch(members.get(i).getUserId(),meetingSimple);
-            if(count1-count2!=0){
+            List<MeetingSimple> resList=meetingMapper.meetingIntervalSearch(members.get(i).getUserId(),meetingSimple);
+            if(resList.size()!=0){
                 res.put("state","2");
                 res.put("message","成员中在该时间段存在会议时间冲突:"+members.get(i).getName());
                 return res;

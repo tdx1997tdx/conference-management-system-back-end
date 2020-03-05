@@ -74,18 +74,15 @@
     </where>
 </select>
 
-    <select id="meetingIntervalSearch" resultType="java.lang.Integer">
-      select count(1) from meeting m inner join user_and_meeting uam on m.meeting_id = uam.meeting_id
-      <where>
-          <trim suffixOverrides="and">
-              <if test="userId!=null">
-                  user_id = #{userId} and
-              </if>
-              <if test="meetingSimple != null ">
-                  (<![CDATA[start_time>=#{meetingSimple.endTime,jdbcType=TIMESTAMP}]]> or <![CDATA[end_time<=#{meetingSimple.startTime,jdbcType=TIMESTAMP}]]>)
-              </if>
-          </trim>
-      </where>
+    <!--查询指定用户在某一区间段内存在冲突会议的个数-->
+    <select id="meetingIntervalSearch" resultType="com.sustech.conferenceSystem.dto.MeetingSimple">
+      select meeting_id,meeting_name,start_time,end_time from meeting m inner join user_and_meeting uam on m.meeting_id = uam.meeting_id
+      where
+      user_id = #{userId} and
+      ((<![CDATA[start_time>#{meetingSimple.startTime,jdbcType=TIMESTAMP}]]> and <![CDATA[start_time<#{meetingSimple.endTime,jdbcType=TIMESTAMP}]]>) or
+      (<![CDATA[start_time<#{meetingSimple.startTime,jdbcType=TIMESTAMP}]]> and <![CDATA[end_time>#{meetingSimple.endTime,jdbcType=TIMESTAMP}]]>) or
+      (<![CDATA[end_time>#{meetingSimple.startTime,jdbcType=TIMESTAMP}]]> and <![CDATA[end_time<#{meetingSimple.endTime,jdbcType=TIMESTAMP}]]>) or
+       (<![CDATA[start_time>#{meetingSimple.startTime,jdbcType=TIMESTAMP}]]> and <![CDATA[end_time<#{meetingSimple.endTime,jdbcType=TIMESTAMP}]]>))
     </select>
 
     <select id="meetingSearchCertain" resultMap="searchCertain">

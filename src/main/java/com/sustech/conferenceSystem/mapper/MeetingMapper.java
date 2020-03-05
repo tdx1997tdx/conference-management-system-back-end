@@ -33,7 +33,7 @@ public interface MeetingMapper {
      * 检查数据库中查询某个user在某个时间段是否有会议
      * @return 符合要求会议集合
      */
-    Integer meetingIntervalSearch(@Param("userId")Integer userId,@Param("meetingSimple")MeetingSimple meetingSimple);
+    List<MeetingSimple> meetingIntervalSearch(@Param("userId")Integer userId,@Param("meetingSimple")MeetingSimple meetingSimple);
 
     /**
      * 查找指定id会议
