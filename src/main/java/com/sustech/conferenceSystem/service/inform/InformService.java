@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Date;
 
-import com.sustech.conferenceSystem.controler.inform.WebSocketServer;
+import com.sustech.conferenceSystem.controler.inform.WebSocketControler;
 import com.sustech.conferenceSystem.dto.MeetingFull;
 import com.sustech.conferenceSystem.dto.Message;
 import com.sustech.conferenceSystem.dto.User;
@@ -17,7 +17,7 @@ import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 
 import static com.sustech.conferenceSystem.service.inform.InformConstants.*;
-import static com.sustech.conferenceSystem.controler.inform.WebSocketServer.webSocketServerMAP;
+import static com.sustech.conferenceSystem.controler.inform.WebSocketControler.webSocketServerMAP;
 
 
 @Component
@@ -85,12 +85,12 @@ public class InformService {
             System.out.println("写入数据库失败");
             return;
         }
-        WebSocketServer webSocketServer = webSocketServerMAP.get(receiverUri.toString());
-        if(webSocketServer == null){
+        WebSocketControler webSocketControler = webSocketServerMAP.get(receiverUri.toString());
+        if(webSocketControler == null){
             System.out.println("该用户未与服务器建立连接 id:" + id + " name: " + name);
             return;
         }
-        webSocketServer.sendMessage(message);
+        webSocketControler.sendMessage(message);
 //        webSocketServer.session.getBasicRemote().sendText(message);
 
     }
@@ -156,8 +156,8 @@ public class InformService {
         message.setMessageTopic("测试发送消息");
         message.setMessageBody(msg);
 
-        Collection<WebSocketServer> collection = webSocketServerMAP.values();
-        for (WebSocketServer item : collection) {
+        Collection<WebSocketControler> collection = webSocketServerMAP.values();
+        for (WebSocketControler item : collection) {
             try {
                 messageInform(item.getId(), item.getName(), message);
             } catch (IOException e) {
