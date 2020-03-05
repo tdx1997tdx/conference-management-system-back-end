@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sustech.conferenceSystem.mapper.MeetingMapper" >
+    <resultMap type="com.sustech.conferenceSystem.dto.MeetingFull" id="searchCertain">
+        <id column="meeting_id" property="meetingId"/>
+        <result column="meeting_name" property="meetingName"/>
+        <result column="start_time" property="startTime"/>
+        <result column="end_time" property="endTime"/>
+        <result column="remark" property="remark"/>
+        <result column="meeting_state" property="meetingState"/>
+        <result column="topic" property="topic"/>
+        <result column="meeting_abstract" property="meetingAbstract"/>
+        <!--查询room信息-->
+        <association property="room" javaType="com.sustech.conferenceSystem.dto.Room"
+                     column="room_id" select="com.sustech.conferenceSystem.mapper.RoomMapper.findRoomById">
+        </association>
+        <!--查询host信息-->
+        <association property="host" javaType="com.sustech.conferenceSystem.dto.User"
+                     column="host_id" select="com.sustech.conferenceSystem.mapper.UserMapper.findUserById">
+        </association>
+        <!--查询recorder信息-->
+        <association property="recorder" javaType="com.sustech.conferenceSystem.dto.User"
+                     column="recorder_id" select="com.sustech.conferenceSystem.mapper.UserMapper.findUserById">
+        </association>
+        <!--查询members信息-->
+        <association property="members" javaType="java.util.ArrayList"
+                     column="meeting_id" select="com.sustech.conferenceSystem.mapper.MeetingMapper.findMeetingMembers">
+        </association>
+        <!--查询absent信息-->
+        <association property="absent" javaType="java.util.ArrayList"
+                     column="meeting_id" select="com.sustech.conferenceSystem.mapper.MeetingMapper.findMeetingAbsent">
+        </association>
+        <!--查询attendance信息-->
+        <association property="attendance" javaType="java.util.ArrayList"
+                     column="meeting_id" select="com.sustech.conferenceSystem.mapper.MeetingMapper.findMeetingAttend">
+        </association>
+    </resultMap>
+
+    <select id="meetingGetAll" resultType="com.sustech.conferenceSystem.dto.MeetingSimple">
+        select * from meeting
+    </select>
+
+    <select id="meetingSearch" resultType="com.sustech.conferenceSystem.dto.MeetingSimple">
+        select user_id,meeting_id,meeting_name,room_name,name host_name,start_time,end_time,topic,m.meeting_state from meeting m inner join room r on m.room_id=r.room_id inner join user u on u.user_id=m.host_id
+        <where>
+            <trim suffixOverrides="and">
+                <if test="userId != null">
+                    user_id = #{userId,jdbcType=INTEGER} and
+                </if>
+
+                <if test="roomName != null">
+                    room_name like "%"#{roomName}"%" and
+                </if>
+                <if test="meetingSimple.meetingName != null">
+                    meeting_name like "%"#{meetingSimple.meetingName}"%" and
+                </if>
+                <if test="meetingSimple.meetingState != null">
+                    meeting_state = #{meetingSimple.meetingState,jdbcType=INTEGER} and
+                </if>
+                <if test="meetingSimple.startTime != null ">
+                    <![CDATA[start_time>=#{meetingSimple.startTime,jdbcType=TIMESTAMP}]]> and
+                </if>
+                <if test="meetingSimple.endTime != null ">
+                    <![CDATA[end_time<=#{meetingSimple.endTime,jdbcType=TIMESTAMP}]]>
+                </if>
+            </trim>
+        </where>
+    </select>
+
+    <select id="meetingSearch2" resultType="com.sustech.conferenceSystem.dto.MeetingSimple">
+    select meeting_id,meeting_name,start_time,end_time,name host_name,meeting_state from meeting m inner join user u on m.host_id = u.user_id
+    <where>
+        <include refid="kv_and"/>
+    </where>
+</select>
+
+    <!--查询指定用户在某一区间段内存在冲突会议的个数-->
+    <select id="meetingIntervalSearch" resultType="com.sustech.conferenceSystem.dto.MeetingSimple">
+      select * from meeting m inner join user_and_meeting uam on m.meeting_id = uam.meeting_id
+      where
+      user_id = #{userId} and
+      ((<![CDATA[start_time>#{meetingSimple.startTime,jdbcType=TIMESTAMP}]]> and <![CDATA[start_time<#{meetingSimple.endTime,jdbcType=TIMESTAMP}]]>) or
+      (<![CDATA[start_time<#{meetingSimple.startTime,jdbcType=TIMESTAMP}]]> and <![CDATA[end_time>#{meetingSimple.endTime,jdbcType=TIMESTAMP}]]>) or
+      (<![CDATA[end_time>#{meetingSimple.startTime,jdbcType=TIMESTAMP}]]> and <![CDATA[end_time<#{meetingSimple.endTime,jdbcType=TIMESTAMP}]]>) or
+       (<![CDATA[start_time>#{meetingSimple.startTime,jdbcType=TIMESTAMP}]]> and <![CDATA[end_time<#{meetingSimple.endTime,jdbcType=TIMESTAMP}]]>))
+    </select>
+
+    <select id="meetingSearchCertain" resultMap="searchCertain">
+        select * from meeting
+        <where>
+            meeting_id = #{meetingId}
+        </where>
+    </select>
+
+    <delete id="meetingDelete">
+        delete from meeting where meeting_id = #{meetingId}
+    </delete>
+
+    <!--查询会议所有成员-->
+    <select id="findMeetingMembers" resultType="com.sustech.conferenceSystem.dto.User">
+        select u.user_id,name,state from user_and_meeting uam inner join user u on uam.user_id = u.user_id
+        <where>
+                meeting_id = #{meetingId}
+        </where>
+    </select>
+    <!--查询会议参加成员-->
+    <select id="findMeetingAttend" resultType="com.sustech.conferenceSystem.dto.User">
+        select u.user_id,name,state from user_and_meeting uam inner join user u on uam.user_id = u.user_id
+        <where>
+            meeting_id = #{meetingId} and state=0
+        </where>
+    </select>
+    <!--查询会议缺席成员-->
+    <select id="findMeetingAbsent" resultType="com.sustech.conferenceSystem.dto.User">
+        select u.user_id,name,state from user_and_meeting uam inner join user u on uam.user_id = u.user_id
+        <where>
+            meeting_id = #{meetingId} and state=1
+        </where>
+    </select>
+
+    <insert id="meetingCreate" parameterType="com.sustech.conferenceSystem.dto.MeetingFull" keyProperty="meetingId" useGeneratedKeys="true">
+        insert into meeting(meeting_name,room_id, start_time, end_time, host_id, recorder_id, topic, meeting_abstract, remark, meeting_state)
+          values (#{meetingName},#{room.roomId},#{startTime},#{endTime},#{host.userId},#{recorder.userId},#{topic},#{meetingAbstract},#{remark},#{meetingState})
+    </insert>
+
+    <update id="meetingModify" parameterType="com.sustech.conferenceSystem.dto.MeetingFull" keyProperty="meetingId" useGeneratedKeys="true">
+        update meeting
+        <set>
+            <include refid="kv_comma"/>
+        </set>
+        where meeting_id=#{meetingId}
+    </update>
+
+    <!--删除相关参会人员-->
+    <delete id="meetingMembersDelete">
+        delete from user_and_meeting where meeting_id = #{meetingId} and user_id in
+        <foreach collection="members" item="user" separator="," open="(" close=")">
+            #{user.userId}
+        </foreach>
+    </delete>
+
+    <!--添加相关参会人员-->
+    <insert id="meetingMembersAdd" parameterType="com.sustech.conferenceSystem.dto.MeetingFull">
+        insert into user_and_meeting(meeting_id,user_id, state)
+        values
+        <foreach collection="members" item="user" separator=",">
+          (#{meetingId},#{user.userId},2)
+      </foreach>
+
+    </insert>
+
+    <!-- key-value -->
+    <sql id="kv_and">
+        <trim suffixOverrides="and">
+            <if test="roomId!=null">
+                room_id = #{roomId} and
+            </if>
+            <if test="startTime != null ">
+                <![CDATA[start_time>=#{startTime,jdbcType=TIMESTAMP}]]> and
+            </if>
+            <if test="endTime != null ">
+                <![CDATA[end_time<=#{endTime,jdbcType=TIMESTAMP}]]>
+            </if>
+        </trim>
+    </sql>
+
+    <!-- 对应的插入字段的名字 -->
+    <sql id="value">
+        <trim suffixOverrides=",">
+            <if test="meetingId!=null">
+                #{meetingId},
+            </if>
+            <if test="meetingName!=null">
+                #{meetingName},
+            </if>
+            <if test="room.roomId!=null">
+                #{room.roomId},
+            </if>
+            <if test="startTime!=null">
+                #{startTime},
+            </if>
+            <if test="endTime!=null">
+                #{endTime},
+            </if>
+            <if test="host.userId!=null">
+                #{host.userId},
+            </if>
+            <if test="recorder.userId!=null">
+                #{recorder.userId},
+            </if>
+            <if test="topic!=null">
+                #{topic},
+            </if>
+            <if test="meetingAbstract!=null">
+                #{meetingAbstract},
+            </if>
+            <if test="remark!=null">
+                #{remark},
+            </if>
+            <if test="meetingState!=null">
+                #{meetingState},
+            </if>
+        </trim>
+    </sql>
+
+    <!-- 对应的插入字段的值 -->
+    <sql id="key">
+        <trim suffixOverrides=",">
+            <if test="meetingId!=null">
+                meeting_id,
+            </if>
+            <if test="meetingName!=null">
+                meeting_name,
+            </if>
+            <if test="room.roomId!=null">
+                room_id,
+            </if>
+            <if test="startTime!=null">
+                start_time,
+            </if>
+            <if test="endTime!=null">
+                end_time,
+            </if>
+            <if test="host.userId!=null">
+                host_id,
+            </if>
+            <if test="recorder.userId!=null">
+                recorder_id,
+            </if>
+            <if test="topic!=null">
+                topic,
+            </if>
+            <if test="meetingAbstract!=null">
+                meeting_abstract,
+            </if>
+            <if test="remark!=null">
+                remark,
+            </if>
+            <if test="meetingState!=null">
+                meeting_state,
+            </if>
+        </trim>
+    </sql>
+
+    <!-- key-value -->
+    <sql id="kv_comma">
+        <trim suffixOverrides=",">
+            <if test="room.roomId!=null">
+                room_id = #{room.roomId},
+            </if>
+            <if test="startTime!=null">
+                start_time = #{startTime},
+            </if>
+            <if test="endTime!=null">
+                end_time = #{endTime},
+            </if>
+            <if test="recorder.userId!=null">
+                recorder_id = #{recorder.userId},
+            </if>
+            <if test="topic!=null">
+                topic = #{topic},
+            </if>
+            <if test="meetingAbstract!=null">
+                meeting_abstract = #{meetingAbstract},
+            </if>
+            <if test="remark!=null">
+                remark = #{remark}
+            </if>
+        </trim>
+    </sql>
+</mapper>

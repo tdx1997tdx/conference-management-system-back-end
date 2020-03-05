@@ -26,7 +26,7 @@ public class User {
     @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
     @JSONField(format="yyyy-MM-dd HH:mm:ss")
     private Date modifyTime; //修改时间
-    private int state;//目前状态 参会状态0 缺席状态1 空闲状态2
+    private Integer state;//目前状态 参会状态0 缺席状态1 空闲状态2
     //过滤器。只保留userId，username，name,state
     public User userFilter(){
         User filterUser=new User();

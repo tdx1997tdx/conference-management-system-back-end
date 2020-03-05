@@ -9,6 +9,7 @@ import com.sustech.conferenceSystem.dto.UserAndMeeting;
 import com.sustech.conferenceSystem.mapper.MeetingMapper;
 import com.sustech.conferenceSystem.mapper.UserAndMeetingMapper;
 import com.sustech.conferenceSystem.mapper.UserMapper;
+import io.swagger.models.auth.In;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -26,13 +27,96 @@ public class MeetingManagerService {
     private UserAndMeetingMapper userAndMeetingMapper;
 
     /**
-     * 获取符合要求的会议
-     * @param meeting，其中有meetingName,roomName,meetingState，为空代表所有数据
-     * @return 符合要求会议集合
+     * 修改会议
+     * @param meeting 传入javabean的meeting对象
+     * @return map类型的结果state 0代表失败1代表成功
      */
-    public List<MeetingFull> meetingOrderService(MeetingFull meeting){
-        List<MeetingFull> meetings = meetingMapper.meetingOrder(meeting);
-        return meetings;
+    public Map<String,String> meetingModifyService(MeetingFull meeting){
+        Map<String,String> res = new HashMap<>();
+        if(meeting.getRecorder()!=null){
+            //判断recoder是否存在
+            List<User> recorder=userMapper.searchUser(meeting.getRecorder());
+            if(recorder.size()==0){
+                res.put("state","0");
+                res.put("message","recorder不存在");
+                return res;
+            }
+            meeting.setRecorder(recorder.get(0));
+        }
+        //通知相关人员(未完成)
+
+        //修改会议
+        meetingMapper.meetingModify(meeting);
+        res.put("state","1");
+        res.put("message","修改成功");
+        return res;
+    }
+
+    /**
+     * 添加会议成员
+     * @param meeting 传入javabean的meeting对象
+     * @return map类型的结果state 0代表失败1代表成功
+     */
+    public Map<String,String> meetingMembersAddService(MeetingFull meeting){
+        Map<String,String> res = new HashMap<>();
+        //判断member是否存在
+        List<User> members=meeting.getMembers();
+        for(int i=0;i<members.size();i++){
+            List<User> user=userMapper.searchUser(members.get(i));
+            if(user.size()==0){
+                res.put("state","1");
+                res.put("message","成员已不存在，请刷新页面后重试");
+                return res;
+            }else{
+                members.set(i,user.get(0));
+            }
+        }
+        //判断成员时间是否冲突(未完成)
+        for(int i=0;i<members.size();i++){
+            MeetingSimple meetingSimple=new MeetingSimple();
+            meetingSimple.setStartTime(meeting.getStartTime());
+            meetingSimple.setEndTime(meeting.getEndTime());
+            List<MeetingSimple> resList=meetingMapper.meetingIntervalSearch(members.get(i).getUserId(),meetingSimple);
+            if(resList.size()!=0){
+                res.put("state","2");
+                res.put("message","成员中在该时间段存在会议时间冲突:"+members.get(i).getName());
+                return res;
+            }
+        }
+        //添加成员
+        boolean isOk=meetingMapper.meetingMembersAdd(meeting);
+        if(!isOk){
+            res.put("state","0");
+            res.put("message","添加失败");
+            return res;
+        }
+        //通知相关人员(未完成)
+
+        res.put("state","1");
+        res.put("message","添加成功");
+        return res;
+    }
+
+
+    /**
+     * 删除会议成员
+     * @param meeting 传入javabean的meeting对象
+     * @return map类型的结果state 0代表失败1代表成功
+     */
+    public Map<String,String> meetingMembersDeleteService(MeetingFull meeting){
+        Map<String,String> res = new HashMap<>();
+        //删除成员
+        boolean isOk=meetingMapper.meetingMembersDelete(meeting);
+        if(!isOk){
+            res.put("state","0");
+            res.put("message","删除失败");
+            return res;
+        }
+        //通知相关人员(未完成)
+
+        res.put("state","1");
+        res.put("message","删除成功");
+        return res;
     }
 
 
@@ -49,7 +133,7 @@ public class MeetingManagerService {
         List<User> recorder=userMapper.searchUser(meeting.getRecorder());
         if(recorder.size()==0){
             res.put("state","0");
-            res.put("message","recorder不存在");
+            res.put("message","记录者不存在");
             return res;
         }
         meeting.setRecorder(recorder.get(0));
@@ -59,7 +143,7 @@ public class MeetingManagerService {
             List<User> user=userMapper.searchUser(members.get(i));
             if(user.size()==0){
                 res.put("state","1");
-                res.put("message","成员中存在姓名不合法的情况,不合法成员名字:"+members.get(i).getName());
+                res.put("message","成员已不存在，请刷新页面后重试");
                 return res;
             }else{
                 members.set(i,user.get(0));
@@ -70,9 +154,8 @@ public class MeetingManagerService {
             MeetingSimple meetingSimple=new MeetingSimple();
             meetingSimple.setStartTime(meeting.getStartTime());
             meetingSimple.setEndTime(meeting.getEndTime());
-            int count1=meetingMapper.meetingIntervalSearch(members.get(i).getUserId(),null);
-            int count2=meetingMapper.meetingIntervalSearch(members.get(i).getUserId(),meetingSimple);
-            if(count1-count2!=0){
+            List<MeetingSimple> resList=meetingMapper.meetingIntervalSearch(members.get(i).getUserId(),meetingSimple);
+            if(resList.size()!=0){
                 res.put("state","2");
                 res.put("message","成员中在该时间段存在会议时间冲突:"+members.get(i).getName());
                 return res;

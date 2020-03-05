@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sustech.conferenceSystem.mapper.UserAndMeetingMapper" >
+    <resultMap type="com.sustech.conferenceSystem.dto.MeetingFull" id="searchCertain">
+        <id column="meeting_id" property="meetingId"/>
+        <result column="meeting_name" property="meetingName"/>
+        <result column="start_time" property="startTime"/>
+        <result column="end_time" property="endTime"/>
+        <result column="remark" property="remark"/>
+        <result column="meeting_state" property="meetingState"/>
+        <result column="topic" property="topic"/>
+        <result column="meeting_abstract" property="meetingAbstract"/>
+        <!--查询room信息-->
+        <association property="room" javaType="com.sustech.conferenceSystem.dto.Room"
+                     column="room_id" select="com.sustech.conferenceSystem.mapper.RoomMapper.findRoomById">
+        </association>
+        <!--查询host信息-->
+        <association property="host" javaType="com.sustech.conferenceSystem.dto.User"
+                     column="host_id" select="com.sustech.conferenceSystem.mapper.UserMapper.findUserById">
+        </association>
+        <!--查询recorder信息-->
+        <association property="recorder" javaType="com.sustech.conferenceSystem.dto.User"
+                     column="recorder_id" select="com.sustech.conferenceSystem.mapper.UserMapper.findUserById">
+        </association>
+        <!--查询members信息-->
+        <association property="members" javaType="java.util.ArrayList"
+                     column="meeting_id" select="com.sustech.conferenceSystem.mapper.MeetingMapper.findMeetingMembers">
+        </association>
+        <!--查询absent信息-->
+        <association property="absent" javaType="java.util.ArrayList"
+                     column="meeting_id" select="com.sustech.conferenceSystem.mapper.MeetingMapper.findMeetingAbsent">
+        </association>
+        <!--查询attendance信息-->
+        <association property="attendance" javaType="java.util.ArrayList"
+                     column="meeting_id" select="com.sustech.conferenceSystem.mapper.MeetingMapper.findMeetingAttend">
+        </association>
+    </resultMap>
+
+    <insert id="addUserAndMeeting" parameterType="com.sustech.conferenceSystem.dto.UserAndMeeting">
+        insert into user_and_meeting(user_id,meeting_id,state,message)
+          values (#{userId},#{meetingId},#{state},#{message})
+    </insert>
+</mapper>

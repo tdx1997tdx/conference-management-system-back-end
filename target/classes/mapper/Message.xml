@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sustech.conferenceSystem.mapper.MessageMapper" >
+
+    <select id="getAllMessage" resultType ="com.sustech.conferenceSystem.dto.Message">
+        select * from message
+    </select>
+
+    <select id="searchMessage" resultType ="com.sustech.conferenceSystem.dto.Message">
+        select * from message
+        <where>
+            <include refid="kv_and"/>
+        </where>
+    </select>
+
+    <select id="fuzzySearchMessage" resultType ="com.sustech.conferenceSystem.dto.Message">
+        select * from message where message_topic like "%"#{messageTopic}"%"
+    </select>
+
+    <insert id="addMessage" parameterType ="com.sustech.conferenceSystem.dto.Message">
+        insert into message(<include refid="key"/>) values(<include refid="values"/>)
+    </insert>
+
+    <update id="updateMessage" parameterType ="com.sustech.conferenceSystem.dto.Message">
+        update message
+        <set>
+            <include refid="kv_comma"/>
+        </set>
+        where message_id=#{messageId}
+    </update>
+
+    <delete id="deleteMessage">
+        delete from message where message_id=#{messageId}
+    </delete>
+
+    <select id="findMessageById" resultType="com.sustech.conferenceSystem.dto.Message">
+        select message_id,message_topic from message where message_id = #{messageId}
+    </select>
+
+    <!-- 对应的插入字段的名字 -->
+    <sql id="key">
+        <trim suffixOverrides=",">
+            <if test="messageTopic!=null">
+                message_topic,
+            </if>
+            <if test="messageBody!=null">
+                message_body,
+            </if>
+            <if test="sendTime!=null">
+                send_time,
+            </if>
+            <if test="senderName!=null">
+                sender_name,
+            </if>
+            <if test="receiverName!=null">
+                receiver_name
+            </if>
+        </trim>
+    </sql>
+
+    <!-- 对应的插入字段的值 -->
+    <sql id="values">
+        <trim suffixOverrides=",">
+            <if test="messageTopic!=null">
+                #{messageTopic},
+            </if>
+            <if test="messageBody!=null">
+                #{messageBody},
+            </if>
+            <if test="sendTime!=null">
+                #{sendTime},
+            </if>
+            <if test="senderName!=null">
+                #{senderName},
+            </if>
+            <if test="receiverName!=null">
+                #{receiverName}
+            </if>
+        </trim>
+    </sql>
+
+    <!-- key-value -->
+    <sql id="kv_comma">
+        <trim suffixOverrides=",">
+            <if test="messageTopic!=null">
+                message_topic = #{messageTopic},
+            </if>
+            <if test="senderName!=null">
+                sender_name = #{senderName},
+            </if>
+            <if test="receiverName!=null">
+                receiver_name = #{receiverName},
+            </if>
+            <if test="messageBody!=null">
+                message_body = #{messageBody}
+            </if>
+        </trim>
+    </sql>
+
+    <!-- key-value -->
+    <sql id="kv_and">
+        <trim suffixOverrides="and">
+            <if test="messageTopic!=null">
+                message_topic = #{messageTopic} and
+            </if>
+            <if test="senderName!=null">
+                sender_name = #{senderName} and
+            </if>
+            <if test="receiverName!=null">
+                receiver_name = #{receiverName}
+            </if>
+        </trim>
+    </sql>
+
+</mapper>

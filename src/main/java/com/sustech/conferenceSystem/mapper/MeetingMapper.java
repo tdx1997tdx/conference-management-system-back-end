@@ -33,7 +33,7 @@ public interface MeetingMapper {
      * 检查数据库中查询某个user在某个时间段是否有会议
      * @return 符合要求会议集合
      */
-    Integer meetingIntervalSearch(@Param("userId")Integer userId,@Param("meetingSimple")MeetingSimple meetingSimple);
+    List<MeetingSimple> meetingIntervalSearch(@Param("userId")Integer userId,@Param("meetingSimple")MeetingSimple meetingSimple);
 
     /**
      * 查找指定id会议
@@ -85,5 +85,23 @@ public interface MeetingMapper {
      * @param meetingId
      */
     boolean meetingDelete (Integer meetingId);
+
+    /**
+     * 修改一个会议
+     * @param meeting 其中有meeting所需所有信息
+     */
+    boolean meetingModify (MeetingFull meeting);
+
+    /**
+     * 往会议中添加成员
+     * @param meeting 其中有meeting所需所有信息
+     */
+    boolean meetingMembersAdd(MeetingFull meeting);
+
+    /**
+     * 往会议中删除成员
+     * @param meeting 其中有meeting所需所有信息
+     */
+    boolean meetingMembersDelete(MeetingFull meeting);
 
 }

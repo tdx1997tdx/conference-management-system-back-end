@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sustech.conferenceSystem.mapper.FormMapper" >
+
+    <resultMap type="com.sustech.conferenceSystem.dto.Form" id="form">
+        <id column="form_id" property="formId"/>
+        <result column="form_name" property="formName"/>
+        <result column="repair_man" property="repairMan"/>
+        <result column="service_man" property="serviceMan"/>
+        <result column="verify_man" property="verifyMan"/>
+        <result column="reason" property="reason"/>
+        <result column="service_time" property="serviceTime"/>
+        <result column="repair_time" property="repairTime"/>
+        <result column="finish_time" property="finishTime"/>
+        <result column="measure" property="measure"/>
+        <!--查询room信息-->
+        <association property="room" javaType="com.sustech.conferenceSystem.dto.Room"
+                     column="room_id" select="com.sustech.conferenceSystem.mapper.RoomMapper.findRoomById">
+        </association>
+        <!--查询设备信息-->
+        <association property="device" javaType="com.sustech.conferenceSystem.dto.Device"
+                     column="device_id" select="com.sustech.conferenceSystem.mapper.DeviceMapper.findDeviceById">
+        </association>
+    </resultMap>
+
+    <select id="getAllForm" resultMap="form">
+        select * from device
+    </select>
+
+    <select id="searchForm" resultMap="form">
+        select * from form
+        <where>
+            <include refid="kv_and"/>
+        </where>
+    </select>
+
+    <select id="fuzzySearchForm" resultMap="form">
+        select * from form where form_name like "%"#{deviceName}"%"
+    </select>
+
+    <insert id="addForm" parameterType="com.sustech.conferenceSystem.dto.Form">
+        insert into form(<include refid="key"/>) values(<include refid="values"/>)
+    </insert>
+
+    <update id="updateForm" parameterType="com.sustech.conferenceSystem.dto.Form">
+        update form
+        <set>
+            <include refid="kv_comma"/>
+        </set>
+        where form_id=#{formId}
+    </update>
+
+    <delete id="deleteForm">
+        delete from form where form_id=#{formId}
+    </delete>
+
+    <select id="findFormById" resultType="com.sustech.conferenceSystem.dto.Form">
+        select form_id,form_name from form where form_id = #{formId}
+    </select>
+
+    <!-- 对应的插入字段的名字 -->
+    <sql id="key">
+        <trim suffixOverrides=",">
+            <if test="formName!=null">
+                form_name,
+            </if>
+            <if test="deviceId!=null">
+                device_id,
+            </if>
+            <if test="roomId!=null">
+                room_id,
+            </if>
+            <if test="repairMan!=null">
+                repair_man,
+            </if>
+            <if test="serviceMan!=null">
+                service_man,
+            </if>
+            <if test="verifyMan!=null">
+                verify_man,
+            </if>
+            <if test="reason!=null">
+                reason,
+            </if>
+            <if test="serviceTime!=null">
+                service_time,
+            </if>
+            <if test="repairTime!=null">
+                repair_time,
+            </if>
+            <if test="finishTime!=null">
+                finish_time,
+            </if>
+            <if test="measure!=null">
+                measure,
+            </if>
+        </trim>
+    </sql>
+
+    <!-- 对应的插入字段的值 -->
+    <sql id="values">
+        <trim suffixOverrides=",">
+            <if test="formName!=null">
+                #{formName},
+            </if>
+            <if test="deviceId!=null">
+                #{deviceId},
+            </if>
+            <if test="roomId!=null">
+                #{roomId},
+            </if>
+            <if test="repairMan!=null">
+                #{repairMan},
+            </if>
+            <if test="serviceMan!=null">
+                #{serviceMan},
+            </if>
+            <if test="verifyMan!=null">
+                #{verifyMan},
+            </if>
+            <if test="reason!=null">
+                #{reason},
+            </if>
+            <if test="serviceTime!=null">
+                #{serviceTime},
+            </if>
+            <if test="repairTime!=null">
+                #{repairTime},
+            </if>
+            <if test="finishTime!=null">
+                #{finishTime},
+            </if>
+            <if test="measure!=null">
+                #{measure},
+            </if>
+        </trim>
+    </sql>
+
+    <!-- key-value -->
+    <sql id="kv_comma">
+        <trim suffixOverrides=",">
+            <if test="formName!=null">
+                form_name = #{formName},
+            </if>
+            <if test="deviceId!=null">
+                device_id = #{deviceId},
+            </if>
+            <if test="roomId!=null">
+                room_id = #{roomId},
+            </if>
+            <if test="repairMan!=null">
+                repair_man = #{repairMan},
+            </if>
+            <if test="serviceMan!=null">
+                service_man = #{serviceMan},
+            </if>
+            <if test="verifyMan!=null">
+                verify_man = #{verifyMan},
+            </if>
+            <if test="reason!=null">
+                reason = #{reason},
+            </if>
+            <if test="serviceTime!=null">
+                service_time = #{serviceTime},
+            </if>
+            <if test="repairTime!=null">
+                repair_time = #{repairTime},
+            </if>
+            <if test="finishTime!=null">
+                finish_time = #{finishTime},
+            </if>
+            <if test="measure!=null">
+                measure = #{measure},
+            </if>
+        </trim>
+    </sql>
+
+    <!-- key-value -->
+    <sql id="kv_and">
+        <trim suffixOverrides="and">
+            <if test="formName!=null">
+                form_name = #{formName} and
+            </if>
+            <if test="deviceId!=null">
+                device_id = #{deviceId} and
+            </if>
+            <if test="roomId!=null">
+                room_id = #{roomId} and
+            </if>
+            <if test="repairMan!=null">
+                repair_man = #{repairMan} and
+            </if>
+            <if test="serviceMan!=null">
+                service_man = #{serviceMan} and
+            </if>
+            <if test="verifyMan!=null">
+                verify_man = #{verifyMan} and
+            </if>
+            <if test="reason!=null">
+                reason = #{reason} and
+            </if>
+            <if test="serviceTime!=null">
+                service_time = #{serviceTime} and
+            </if>
+            <if test="repairTime!=null">
+                repair_time = #{repairTime} and
+            </if>
+            <if test="finishTime!=null">
+                finish_time = #{finishTime} and
+            </if>
+            <if test="measure!=null">
+                measure = #{measure}
+            </if>
+        </trim>
+    </sql>
+
+</mapper>

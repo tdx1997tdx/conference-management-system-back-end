@@ -31,7 +31,7 @@ public class MeetingManagerControler {
             produces = "application/json;charset=UTF-8")
     public String meetingModify (@RequestBody JSONObject jsonParam){
         MeetingFull meeting = JSON.parseObject(jsonParam.toString(), MeetingFull.class);
-        List<MeetingFull> result = meetingManagerService.meetingOrderService(meeting);
+        Map<String, String> result = meetingManagerService.meetingModifyService(meeting);
         return JSON.toJSONString(result);
     }
 
@@ -44,7 +44,6 @@ public class MeetingManagerControler {
             produces = "application/json;charset=UTF-8")
     public String meetingAdd(@RequestBody JSONObject jsonParam){
         MeetingFull meeting = JSON.parseObject(jsonParam.toString(), MeetingFull.class);
-        Filter.attributeFilter(meeting);
         Map<String, String> result = meetingManagerService.meetingAddService(meeting);
         return JSON.toJSONString(result);
     }
@@ -59,6 +58,32 @@ public class MeetingManagerControler {
     public String meetingDelete(@RequestBody JSONObject jsonParam){
         int meetingId=jsonParam.getInteger("meeting_id");
         Map<String, String> result = meetingManagerService.meetingDeleteService(meetingId);
+        return JSON.toJSONString(result);
+    }
+
+    /**
+     * /meeting/meeting_members_add 接口，用于添加会议成员
+     * @return
+     */
+    @RequestMapping(value = "/meeting_members_add",
+            method = RequestMethod.POST,
+            produces = "application/json;charset=UTF-8")
+    public String meetingMembersAdd(@RequestBody JSONObject jsonParam){
+        MeetingFull meeting = JSON.parseObject(jsonParam.toString(), MeetingFull.class);
+        Map<String, String> result = meetingManagerService.meetingMembersAddService(meeting);
+        return JSON.toJSONString(result);
+    }
+
+    /**
+     * /meeting/meeting_members_delete 接口，用于删除会议成员
+     * @return
+     */
+    @RequestMapping(value = "/meeting_members_delete",
+            method = RequestMethod.POST,
+            produces = "application/json;charset=UTF-8")
+    public String meetingMembersDelete(@RequestBody JSONObject jsonParam){
+        MeetingFull meeting = JSON.parseObject(jsonParam.toString(), MeetingFull.class);
+        Map<String, String> result = meetingManagerService.meetingMembersDeleteService(meeting);
         return JSON.toJSONString(result);
     }
 }

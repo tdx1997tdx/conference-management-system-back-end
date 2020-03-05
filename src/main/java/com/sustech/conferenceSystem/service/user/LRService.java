@@ -33,8 +33,8 @@ public class LRService {
         }else {
             String token= UUID.randomUUID().toString();
             Map<String,Object> map=new HashMap<>();
-            map.put("username",user.getUsername());
-            map.put("user_id",user.getUserId());
+            map.put("userId",users.get(0).getUserId());
+            map.put("username",users.get(0).getUsername());
             redisUtil.hmset(token,map,432000);
             res.put("state","1");
             res.put("set_cookie",token);
@@ -74,10 +74,11 @@ public class LRService {
     public Map<String,String> loginVerificationService(String cookie){
         Map<String,String> res=new HashMap<>();
         Map<Object,Object> map=redisUtil.hmget(cookie);
-        if(map!=null){
+        System.out.println(map.get("username")+" "+map.get("userId"));
+        if(map.get("userId")!=null){
             res.put("state","1");
             res.put("username",(String)map.get("username"));
-            res.put("user_id",(String)map.get("user_id"));
+            res.put("user_id",String.valueOf(map.get("userId")));
             res.put("message","验证成功");
         }else {
             res.put("state","0");

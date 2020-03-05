@@ -33,6 +33,19 @@
     <select id="findUserById" resultType="com.sustech.conferenceSystem.dto.User">
         select * from user where user_id = #{userId}
     </select>
+
+    <select id="searchUserByTime" resultType="com.sustech.conferenceSystem.dto.User">
+        select user_id,name,username from user where user_id not in
+        (select user.user_id uid from user
+        inner join user_and_meeting uam on user.user_id = uam.user_id
+        inner join meeting m on uam.meeting_id = m.meeting_id
+        where
+        (<![CDATA[start_time>#{startTime,jdbcType=TIMESTAMP}]]> and <![CDATA[start_time<#{endTime,jdbcType=TIMESTAMP}]]>) or
+        (<![CDATA[start_time<#{startTime,jdbcType=TIMESTAMP}]]> and <![CDATA[end_time>#{endTime,jdbcType=TIMESTAMP}]]>) or
+        (<![CDATA[end_time>#{startTime,jdbcType=TIMESTAMP}]]> and <![CDATA[end_time<#{endTime,jdbcType=TIMESTAMP}]]>) or
+        (<![CDATA[start_time>#{startTime,jdbcType=TIMESTAMP}]]> and <![CDATA[end_time<#{endTime,jdbcType=TIMESTAMP}]]>) group by user.user_id)
+        and name like "%"#{name}"%"
+    </select>
     <!-- 对应的插入字段的名字 -->
     <sql id="key">
         <trim suffixOverrides=",">
@@ -141,6 +154,9 @@
     <!-- key-value -->
     <sql id="kv2">
         <trim suffixOverrides="and">
+            <if test="userId!=null">
+                user_id=#{userId} and
+            </if>
             <if test="username!=null">
                 username=#{username} and
             </if>
