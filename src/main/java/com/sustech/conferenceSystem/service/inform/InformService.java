@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Date;
 
+import com.sustech.conferenceSystem.controler.inform.WebSocketServer;
 import com.sustech.conferenceSystem.dto.MeetingFull;
 import com.sustech.conferenceSystem.dto.Message;
 import com.sustech.conferenceSystem.dto.User;
@@ -16,7 +17,7 @@ import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 
 import static com.sustech.conferenceSystem.service.inform.InformConstants.*;
-import static com.sustech.conferenceSystem.service.inform.WebSocketServer.webSocketServerMAP;
+import static com.sustech.conferenceSystem.controler.inform.WebSocketServer.webSocketServerMAP;
 
 
 @Component
@@ -173,7 +174,7 @@ public class InformService {
      * @throws IOException
      */
     private static final String FIRST_USER_ID = "001";
-    private static final String FIRST_USER_NAME = "yyj";
+    private static final String FIRST_USER_NAME = "YYJ";
 //    @Scheduled(cron="0/5 * *  * * ? ")
 //    public void informFirstUser() throws IOException{
 //        if (!INFORM_TEST_ON) {

@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>WebSocket</title>
-    </head>
-    <body>
-        id: <input id="id" type="text" size="30" value="001" /><br>
-        name: <input id="name" type="text" size="30" value="yyj" /><br>
-        <!-- <input id="url" type="text" size="30" value="ws://localhost:8080/001/yyj" /> -->
-        <button onclick="openWebSocket()">打开WebSocket连接</button>
-        <button onclick="closeWebSocket()">关闭WebSocket连接</button>
-        <hr/>
+<head>
+    <meta charset="UTF-8">
+    <title>WebSocket</title>
+</head>
+<body>
+id: <input id="id" type="text" size="30" value="001" /><br>
+name: <input id="name" type="text" size="30" value="YYJ" /><br>
+
+<div>
+    <form name="form">
+        <input class="button" type="button" value="进行连接" onclick="openWebSocket()"/>
+        <input class="button" type="button" value="断开连接" onclick="closeWebSocket()"/>
         <div id="message"></div>
-    </body>
-    <script type="text/javascript">
+    </form>
+</div>
+
+</body>
+<script type="text/javascript">
     var websocket = null;
     function openWebSocket() {
-        var url = "ws://localhost:8080/" + document.getElementById('id').value.trim() + 
-                    "/" + document.getElementById('name').value.trim();
-        // var url = document.getElementById('url').value.trim();
+        var url = "ws://localhost:8080/" + document.getElementById('id').value.trim() +
+            "/" + document.getElementById('name').value.trim();
         console.log(url);
         //判断当前浏览器是否支持WebSocket
         if ('WebSocket' in window) {
@@ -60,5 +63,27 @@
         var message = document.getElementById('text').value;
         websocket.send(message);
     }
-  </script>
+</script>
 </html>
+<style type="text/css">
+    .button{
+        width: 100px;
+        height: 29px;
+        font-size: 16px;
+        color: white;
+        background-color: black;
+        padding: 0;
+        vertical-align: top;
+        border: 0;
+    }
+    .textbox{
+        height: 25px;
+        padding: 0;
+        vertical-align: top;
+    }
+    span{
+        font-size: 16px;
+        height: 29px;
+        line-height: 29px;
+    }
+</style>

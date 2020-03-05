@@ -1,4 +1,4 @@
-package com.sustech.conferenceSystem.service.inform;
+package com.sustech.conferenceSystem.controler.inform;
 
 import com.alibaba.fastjson.JSON;
 import com.sustech.conferenceSystem.dto.Message;
@@ -23,7 +23,7 @@ public class WebSocketServer {
     /** 用来记录当前在线连接数。设计成线程安全的，原子计数。*/
     private static AtomicInteger onlineCount = new AtomicInteger(0);
     /** 用于保存uri对应的连接服务，{uri:WebSocketServer}，设计成线程安全的 */
-    static ConcurrentHashMap<String, WebSocketServer> webSocketServerMAP = new ConcurrentHashMap<>();
+    public static ConcurrentHashMap<String, WebSocketServer> webSocketServerMAP = new ConcurrentHashMap<>();
     // 存储各个客户端连接情况，包含uri，session等，package-private
     private Session session;// 与某个客户端的连接会话，需要通过它来给客户端发送数据
     private String id;   //客户端用户ID，验证客户身份
