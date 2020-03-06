@@ -12,6 +12,7 @@ public class InformConstants {
     public static final long BEFORE_MEETING_OPEN = 10;
     public static final long BEFORE_MEETING_CLOSE_INFORM = 20;
     public static final String WEBSOCKET_URI = "ws://localhost:8080/";
+    public static final String Long_Polling_URI = "http://localhost:8080/";
 
     public static final boolean INFORM_TEST_ON = false;
     public static final String CREATE_MESSAGE_BODY = "您在%s有一场主题为%s的会议需要出席，请留意时间提前准备\n";

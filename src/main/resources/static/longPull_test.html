@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Long Pulling</title>
+</head>
+<body>
+    <div>
+        id: <input id="id" type="text" size="30" value="001" /><br>
+        name: <input id="name" type="text" size="30" value="YYJ" /><br>
+
+        <form name="form">
+            <input class="button" type="button" value="进行连接" onclick="beginConnect()"/>
+            <input class="button" type="button" value="断开连接" onclick="disconnect()"/>
+            <div id="message"></div>
+        </form>
+    </div>
+</body>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript">
+    var test = true;
+
+    function beginConnect()
+    {
+        test = true;
+        console.log("beginConnect");
+        $.ajax
+        ({
+            url:"http://localhost:8080/watch/001/YYJ",
+            type:"get",
+            data:{},
+            success:function(data)
+            {
+                console.log("\ndata\n");
+                console.log(data);
+                console.log("\ndata\n");
+                if(data != null && data != "") {
+                    document.getElementById("myDiv").innerHTML = JSON.stringify(data);
+                }
+                if (test) {
+                    beginConnect();
+                }
+            },
+            error:function(err){
+                console.log("\ndata error\n");
+                console.log(JSON.stringify(err));
+                if (test) {
+                    setTimeout(beginConnect, 2000);
+                }
+            }
+        });
+    }
+
+    function disconnect() {
+        test = false;
+        console.log("disconnect");
+        console.log(test);
+    }
+
+</script>
+
+</html>
+<style type="text/css">
+    .button{
+        width: 100px;
+        height: 29px;
+        font-size: 16px;
+        color: white;
+        background-color: black;
+        padding: 0;
+        vertical-align: top;
+        border: 0;
+    }
+    .textbox{
+        height: 25px;
+        padding: 0;
+        vertical-align: top;
+    }
+    span{
+        font-size: 16px;
+        height: 29px;
+        line-height: 29px;
+    }
+</style>
