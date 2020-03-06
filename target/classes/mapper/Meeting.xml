@@ -76,7 +76,7 @@
 
     <!--查询指定用户在某一区间段内存在冲突会议的个数-->
     <select id="meetingIntervalSearch" resultType="com.sustech.conferenceSystem.dto.MeetingSimple">
-      select * from meeting m inner join user_and_meeting uam on m.meeting_id = uam.meeting_id
+      select meeting_id,meeting_name,start_time,end_time from meeting m inner join user_and_meeting uam on m.meeting_id = uam.meeting_id
       where
       user_id = #{userId} and
       ((<![CDATA[start_time>#{meetingSimple.startTime,jdbcType=TIMESTAMP}]]> and <![CDATA[start_time<#{meetingSimple.endTime,jdbcType=TIMESTAMP}]]>) or

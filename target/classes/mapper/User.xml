@@ -35,7 +35,7 @@
     </select>
 
     <select id="searchUserByTime" resultType="com.sustech.conferenceSystem.dto.User">
-        select user_id,name,username,email,phone from user where user_id not in
+        select user_id,name,username from user where user_id not in
         (select user.user_id uid from user
         inner join user_and_meeting uam on user.user_id = uam.user_id
         inner join meeting m on uam.meeting_id = m.meeting_id
