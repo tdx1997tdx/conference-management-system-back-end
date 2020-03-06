@@ -1,4 +1,4 @@
-package com.sustech.conferenceSystem.service.inform;
+package com.sustech.conferenceSystem.controler.inform;
 
 import com.alibaba.fastjson.JSON;
 import com.sustech.conferenceSystem.dto.Message;
@@ -19,11 +19,11 @@ import java.util.concurrent.atomic.AtomicInteger;
 @Component
 @ServerEndpoint("/{id}/{name}")
 @Getter
-public class WebSocketServer {
+public class WebSocketControler {
     /** 用来记录当前在线连接数。设计成线程安全的，原子计数。*/
     private static AtomicInteger onlineCount = new AtomicInteger(0);
     /** 用于保存uri对应的连接服务，{uri:WebSocketServer}，设计成线程安全的 */
-    static ConcurrentHashMap<String, WebSocketServer> webSocketServerMAP = new ConcurrentHashMap<>();
+    public static ConcurrentHashMap<String, WebSocketControler> webSocketServerMAP = new ConcurrentHashMap<>();
     // 存储各个客户端连接情况，包含uri，session等，package-private
     private Session session;// 与某个客户端的连接会话，需要通过它来给客户端发送数据
     private String id;   //客户端用户ID，验证客户身份
@@ -47,12 +47,12 @@ public class WebSocketServer {
 
         Message message = new Message();
         message.setMessageTopic("onOpen");
-        WebSocketServer webSocketServer = webSocketServerMAP.get(uri);
-        if(webSocketServer != null){ //同样业务的连接已经在线，则把原来的挤下线。
+        WebSocketControler webSocketControler = webSocketServerMAP.get(uri);
+        if(webSocketControler != null){ //同样业务的连接已经在线，则把原来的挤下线。
             // 需要添加cookie认证（未实现）
             message.setMessageBody(uri + "重复连接被挤下线了");
-            webSocketServer.sendMessage(message);
-            webSocketServer.onClose();//关闭连接，触发关闭连接方法onClose()
+            webSocketControler.sendMessage(message);
+            webSocketControler.onClose();//关闭连接，触发关闭连接方法onClose()
         }
         webSocketServerMAP.put(uri, this);//保存uri对应的连接服务
         addOnlineCount(); // 在线数加1
