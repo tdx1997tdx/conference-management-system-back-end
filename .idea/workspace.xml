@@ -2,64 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="68f46c33-7d16-429f-9772-f6b143785f8e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/target/classes/META-INF/conference-management-system-back-end.kotlin_module" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/sustech/conferenceSystem/config/Swagger2Config.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/sustech/conferenceSystem/config/WebSocketConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/sustech/conferenceSystem/controler/device/DeviceManagementControler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/sustech/conferenceSystem/controler/device/DeviceQueryControler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/sustech/conferenceSystem/controler/form/FormManagementControler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/sustech/conferenceSystem/controler/form/FormQueryControler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/sustech/conferenceSystem/controler/inform/InformTestControler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/sustech/conferenceSystem/controler/meeting/MeetingManagerControler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/sustech/conferenceSystem/controler/meeting/MeetingQueryControler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/sustech/conferenceSystem/controler/message/MessageManagementControler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/sustech/conferenceSystem/controler/message/MessageQueryControler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/sustech/conferenceSystem/controler/user/UserSearchControler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/sustech/conferenceSystem/dto/Device.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/sustech/conferenceSystem/dto/Form.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/sustech/conferenceSystem/dto/MeetingFull.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/sustech/conferenceSystem/dto/MeetingSimple.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/sustech/conferenceSystem/dto/Message.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/sustech/conferenceSystem/dto/UserAndMeeting.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/sustech/conferenceSystem/mapper/DeviceMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/sustech/conferenceSystem/mapper/FormMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/sustech/conferenceSystem/mapper/MeetingMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/sustech/conferenceSystem/mapper/MessageMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/sustech/conferenceSystem/mapper/UserAndMeetingMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/sustech/conferenceSystem/service/device/DeviceManagementService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/sustech/conferenceSystem/service/device/DeviceQueryService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/sustech/conferenceSystem/service/form/FormManagementService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/sustech/conferenceSystem/service/form/FormQueryService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/sustech/conferenceSystem/service/inform/InformConstants$InformReason.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/sustech/conferenceSystem/service/inform/InformConstants$MeetingRole.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/sustech/conferenceSystem/service/inform/InformConstants.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/sustech/conferenceSystem/service/inform/InformService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/sustech/conferenceSystem/service/inform/WebSocketServer.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/sustech/conferenceSystem/service/meeting/MeetingManagerService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/sustech/conferenceSystem/service/meeting/MeetingQueryService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/sustech/conferenceSystem/service/message/MessageManagementService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/sustech/conferenceSystem/service/message/MessageQueryService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/sustech/conferenceSystem/service/user/UserService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mapper/Device.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mapper/Form.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mapper/Meeting.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mapper/Message.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mapper/UserAndMeeting.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/websocket_test.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/conference_system-1.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/conference_system-1.0.jar.original" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.sustech.conferenceSystem.util.UtilTest.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/surefire-reports/com.sustech.conferenceSystem.util.UtilTest.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/会议室前后端接口/5.表单模块.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/会议室前后端接口/6. 剩余接口.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/会议室前后端接口/7. 信息模块.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/mapper/MeetingMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/mapper/MeetingMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/service/meeting/MeetingManagerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/service/meeting/MeetingManagerService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/Meeting.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/Meeting.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/User.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/User.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/会议室前后端接口/1.用户管理模块.md" beforeDir="false" afterPath="$PROJECT_DIR$/会议室前后端接口/1.用户管理模块.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/会议室前后端接口/2.会议管理模块.md" beforeDir="false" afterPath="$PROJECT_DIR$/会议室前后端接口/2.会议管理模块.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sustech/conferenceSystem/service/meeting/MeetingManagerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sustech/conferenceSystem/service/meeting/MeetingManagerService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/Meeting.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/Meeting.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/User.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/User.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -99,26 +47,29 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/Meeting.xml">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/service/meeting/MeetingManagerService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="78" column="56" selection-start-line="78" selection-start-column="56" selection-end-line="78" selection-end-column="56" />
-              <folding>
-                <element signature="n#resultMap#0;n#mapper#0;n#!!top" />
-                <element signature="n#select#0;n#mapper#0;n#!!top" />
-                <element signature="n#select#1;n#mapper#0;n#!!top" />
-                <element signature="n#select#2;n#mapper#0;n#!!top" />
-                <element signature="n#select#4;n#mapper#0;n#!!top" />
-                <element signature="n#select#5;n#mapper#0;n#!!top" />
-                <element signature="n#select#6;n#mapper#0;n#!!top" />
-                <element signature="n#select#7;n#mapper#0;n#!!top" />
-                <element signature="n#insert#0;n#mapper#0;n#!!top" />
-                <element signature="n#insert#1;n#mapper#0;n#!!top" />
-                <element signature="n#sql#0;n#mapper#0;n#!!top" />
-                <element signature="n#sql#1;n#mapper#0;n#!!top" />
-                <element signature="n#sql#2;n#mapper#0;n#!!top" />
-                <element signature="n#sql#3;n#mapper#0;n#!!top" />
-              </folding>
+            <state relative-caret-position="114">
+              <caret line="6" column="44" selection-start-line="6" selection-start-column="44" selection-end-line="6" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="171">
+              <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/会议室前后端接口/7. 信息模块.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor />
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -164,29 +115,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/Device.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="137">
-              <caret line="106" column="4" selection-start-line="106" selection-start-column="4" selection-end-line="131" selection-end-column="10" />
-              <folding>
-                <element signature="n#resultMap#0;n#mapper#0;n#!!top" />
-                <element signature="n#association#0;n#resultMap#0;n#mapper#0;n#!!top" />
-                <element signature="n#select#0;n#mapper#0;n#!!top" />
-                <element signature="n#select#1;n#mapper#0;n#!!top" />
-                <element signature="n#where#0;n#select#1;n#mapper#0;n#!!top" />
-                <element signature="n#select#2;n#mapper#0;n#!!top" />
-                <element signature="n#insert#0;n#mapper#0;n#!!top" />
-                <element signature="n#delete#0;n#mapper#0;n#!!top" />
-                <element signature="n#select#3;n#mapper#0;n#!!top" />
-                <element signature="n#sql#0;n#mapper#0;n#!!top" />
-                <element signature="n#sql#1;n#mapper#0;n#!!top" />
-                <element signature="n#sql#2;n#mapper#0;n#!!top" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/User.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="266">
@@ -203,24 +131,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/controler/meeting/MeetingManagerControler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="85" column="86" selection-start-line="85" selection-start-column="86" selection-end-line="85" selection-end-column="86" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/service/meeting/MeetingManagerService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1140">
-              <caret line="84" column="9" selection-start-line="84" selection-start-column="9" selection-end-line="84" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/dto/MeetingSimple.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-18">
@@ -232,8 +142,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/mapper/MeetingMapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
-              <caret line="35" column="22" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
+            <state relative-caret-position="146">
+              <caret line="104" column="33" selection-start-line="104" selection-start-column="33" selection-end-line="104" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/Meeting.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="190">
+              <caret line="78" column="15" selection-start-line="78" selection-start-column="15" selection-end-line="78" selection-end-column="15" />
             </state>
           </provider>
         </entry>
@@ -269,7 +188,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/controler/room/RoomManagementControler.java" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/dto/Room.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/dto/Meeting.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/Meeting_copy.xml" />
@@ -317,8 +235,9 @@
         <option value="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/controler/meeting/MeetingManagerControler.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/User.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/mapper/MeetingMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/Meeting.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/service/meeting/MeetingManagerService.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/Meeting.xml" />
       </list>
     </option>
   </component>
@@ -353,8 +272,8 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-12" />
-    <option name="y" value="-12" />
+    <option name="x" value="864" />
+    <option name="y" value="168" />
     <option name="width" value="2520" />
     <option name="height" value="1300" />
   </component>
@@ -605,6 +524,11 @@
               <item name="conference-management-system-back-end" type="462c0819:PsiDirectoryNode" />
               <item name="会议室前后端接口" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="conference_management_system" type="b2602c69:ProjectViewProjectNode" />
+              <item name="conference-management-system-back-end" type="462c0819:PsiDirectoryNode" />
+              <item name="架构图与流程图" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -621,7 +545,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1583382720095" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1583472444626" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -630,15 +554,13 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\dev\conference-management-system-back-end\src\main\resources" />
+      <recent name="F:\dev\conference-management-system-back-end\src\main\resources\db" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.sustech.conferenceSystem" />
       <recent name="com.sustech.conferenceSystem.user.service" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="F:\dev\conference-management-system-back-end\src\main\resources\mapper" />
-      <recent name="F:\dev\conference-management-system-back-end\src\main\java\com\sustech\conferenceSystem\controler" />
-      <recent name="F:\dev\conference-management-system-back-end\src\main\java\com\sustech\conferenceSystem\service" />
-      <recent name="F:\dev\conference-management-system-back-end\src\main\resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.sustech.conferenceSystem.service.user" />
@@ -647,9 +569,11 @@
       <recent name="com.sustech.conferenceSystem.controler.meeting" />
       <recent name="com.sustech.conferenceSystem.controler.form" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\dev\conference-management-system-back-end\src\main\resources\mapper" />
+      <recent name="F:\dev\conference-management-system-back-end\src\main\java\com\sustech\conferenceSystem\controler" />
+      <recent name="F:\dev\conference-management-system-back-end\src\main\java\com\sustech\conferenceSystem\service" />
       <recent name="F:\dev\conference-management-system-back-end\src\main\resources" />
-      <recent name="F:\dev\conference-management-system-back-end\src\main\resources\db" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -1203,7 +1127,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="271700000" />
+    <option name="totallyTimeSpent" value="273576000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1293" height="703" extended-state="6" />
@@ -1223,7 +1147,7 @@
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" weight="0.32867134" />
       <window_info anchor="bottom" id="Structure" order="6" weight="0.25" />
-      <window_info anchor="bottom" id="Run" order="7" visible="true" weight="0.26223776" />
+      <window_info anchor="bottom" id="Run" order="7" weight="0.46853146" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.3986014" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
@@ -1317,13 +1241,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="添加了/meeting/meeting_members_add接口和/meeting/meeting_members_delete接口" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/controler/device/DeviceQueryControler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="37" column="4" selection-start-line="37" selection-start-column="4" selection-end-line="48" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/service/form/FormQueryService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="969">
@@ -1396,13 +1313,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/service/inform/Inform.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-645">
-          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/service/inform/Inform.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/config/Swagger2.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/mapper/DeviceMapper.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1594,9 +1505,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/controler/user/LRControler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="166">
@@ -1723,38 +1631,37 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/mapper/MeetingMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="35" column="22" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/Meeting.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="78" column="56" selection-start-line="78" selection-start-column="56" selection-end-line="78" selection-end-column="56" />
-          <folding>
-            <element signature="n#resultMap#0;n#mapper#0;n#!!top" />
-            <element signature="n#select#0;n#mapper#0;n#!!top" />
-            <element signature="n#select#1;n#mapper#0;n#!!top" />
-            <element signature="n#select#2;n#mapper#0;n#!!top" />
-            <element signature="n#select#4;n#mapper#0;n#!!top" />
-            <element signature="n#select#5;n#mapper#0;n#!!top" />
-            <element signature="n#select#6;n#mapper#0;n#!!top" />
-            <element signature="n#select#7;n#mapper#0;n#!!top" />
-            <element signature="n#insert#0;n#mapper#0;n#!!top" />
-            <element signature="n#insert#1;n#mapper#0;n#!!top" />
-            <element signature="n#sql#0;n#mapper#0;n#!!top" />
-            <element signature="n#sql#1;n#mapper#0;n#!!top" />
-            <element signature="n#sql#2;n#mapper#0;n#!!top" />
-            <element signature="n#sql#3;n#mapper#0;n#!!top" />
-          </folding>
+        <state relative-caret-position="146">
+          <caret line="104" column="33" selection-start-line="104" selection-start-column="33" selection-end-line="104" selection-end-column="33" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/service/meeting/MeetingManagerService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1140">
-          <caret line="84" column="9" selection-start-line="84" selection-start-column="9" selection-end-line="84" selection-end-column="9" />
+        <state relative-caret-position="114">
+          <caret line="6" column="44" selection-start-line="6" selection-start-column="44" selection-end-line="6" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/会议室前后端接口/7. 信息模块.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/Meeting.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="78" column="15" selection-start-line="78" selection-start-column="15" selection-end-line="78" selection-end-column="15" />
         </state>
       </provider>
     </entry>
