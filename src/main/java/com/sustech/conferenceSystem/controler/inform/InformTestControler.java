@@ -26,12 +26,7 @@ public class InformTestControler {
             method = RequestMethod.GET,
             produces = "application/json;charset=UTF-8")
     public String informAll(){
-        try {
-            informService.informAll();
-        } catch (IOException e) {
-            e.printStackTrace();
-            return "error";
-        }
+        informService.informAll();
         return "success";
     }
 

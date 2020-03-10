@@ -152,7 +152,7 @@ public class InformService {
      * 模拟向多人推送消息
      */
 //    @Scheduled(cron="0/5 * *  * * ? ")
-    public void informAll() throws IOException{
+    public void informAll(){
 //        if (!INFORM_TEST_ON) {
 //            return;
 //        }

@@ -5,28 +5,33 @@
     <title>Long Pulling</title>
 </head>
 <body>
-    <div>
-        id: <input id="id" type="text" size="30" value="001" /><br>
-        name: <input id="name" type="text" size="30" value="YYJ" /><br>
+<div>
+    id: <input id="id" type="text" size="30" value="001" /><br>
+    name: <input id="name" type="text" size="30" value="YYJ" /><br>
 
-        <form name="form">
-            <input class="button" type="button" value="进行连接" onclick="beginConnect()"/>
-            <input class="button" type="button" value="断开连接" onclick="disconnect()"/>
-            <div id="message"></div>
-        </form>
-    </div>
+    <form name="form">
+        <input class="button" type="button" value="进行连接" onclick="beginConnect()"/>
+        <input class="button" type="button" value="断开连接" onclick="disconnect()"/>
+        <div id="message"></div>
+    </form>
+</div>
 </body>
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript">
+    jQuery.support.cors = true;
     var test = true;
-
     function beginConnect()
     {
+        setMessageInnerHTML("连接中");
+        var url = "http://localhost:8080/watch/" + document.getElementById('id').value.trim() +
+            "/" + document.getElementById('name').value.trim();
+        console.log(url);
+
         test = true;
         console.log("beginConnect");
         $.ajax
         ({
-            url:"http://localhost:8080/watch/001/YYJ",
+            url:url,
             type:"get",
             data:{},
             success:function(data)
@@ -34,8 +39,9 @@
                 console.log("\ndata\n");
                 console.log(data);
                 console.log("\ndata\n");
-                if(data != null && data != "") {
-                    document.getElementById("myDiv").innerHTML = JSON.stringify(data);
+                if(data != null && data!="") {
+                    var msg = JSON.stringify(data);
+                    setMessageInnerHTML(msg);
                 }
                 if (test) {
                     beginConnect();
@@ -52,13 +58,16 @@
     }
 
     function disconnect() {
+        setMessageInnerHTML("断开连接");
         test = false;
         console.log("disconnect");
         console.log(test);
     }
-
+    //将消息显示在网页上
+    function setMessageInnerHTML(innerHTML) {
+        document.getElementById('message').innerHTML += innerHTML + '<br/>';
+    }
 </script>
-
 </html>
 <style type="text/css">
     .button{
