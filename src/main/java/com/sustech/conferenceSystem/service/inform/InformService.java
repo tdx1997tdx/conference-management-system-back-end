@@ -166,14 +166,19 @@ public class InformService {
         message.setMessageTopic("测试发送消息");
         message.setMessageBody(msg);
 
-        Collection<WebSocketControler> collection = webSocketServerMAP.values();
-        for (WebSocketControler item : collection) {
+        Collection<WebSocketControler> websocketCollection = webSocketServerMAP.values();
+        for (WebSocketControler item : websocketCollection) {
             try {
                 messageInform(item.getId(), item.getName(), message);
             } catch (IOException e) {
                 e.printStackTrace();
                 continue;
             }
+        }
+
+        Collection<DeferredResult<Message>> longPullingCollection = watchRequests.values();
+        for (DeferredResult<Message> deferredResult : longPullingCollection) {
+            deferredResult.setResult(message);
         }
     }
 
