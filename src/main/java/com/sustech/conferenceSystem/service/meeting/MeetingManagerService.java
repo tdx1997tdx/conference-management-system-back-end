@@ -105,6 +105,7 @@ public class MeetingManagerService {
      */
     public Map<String,String> meetingMembersDeleteService(MeetingFull meeting){
         Map<String,String> res = new HashMap<>();
+        MeetingFull m=meetingMapper.meetingSearchCertain(meeting.getMeetingId());
         //删除成员
         boolean isOk=meetingMapper.meetingMembersDelete(meeting);
         if(!isOk){

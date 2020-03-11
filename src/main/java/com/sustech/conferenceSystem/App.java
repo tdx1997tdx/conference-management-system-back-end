@@ -1,8 +1,9 @@
 package com.sustech.conferenceSystem;
-
+import com.sustech.conferenceSystem.initMqtt.InitMqtt;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 @EnableScheduling
@@ -11,7 +12,9 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 public class App {
 
     public static void main(String[] args) {
-        SpringApplication.run(App.class, args);
+        ApplicationContext applicationContext = SpringApplication.run(App.class, args);
+        InitMqtt initMqtt =applicationContext.getBean(InitMqtt.class);
+        initMqtt.initMqtt();
     }
 
 }
