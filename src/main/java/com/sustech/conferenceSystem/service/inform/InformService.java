@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Date;
 
+import com.sustech.conferenceSystem.controler.inform.LongPullingController;
 import com.sustech.conferenceSystem.controler.inform.WebSocketControler;
 import com.sustech.conferenceSystem.dto.MeetingFull;
 import com.sustech.conferenceSystem.dto.Message;
@@ -13,11 +14,14 @@ import com.sustech.conferenceSystem.mapper.MeetingMapper;
 import com.sustech.conferenceSystem.service.message.MessageManagementService;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.request.async.DeferredResult;
 
 import javax.annotation.Resource;
 
 import static com.sustech.conferenceSystem.service.inform.InformConstants.*;
 import static com.sustech.conferenceSystem.controler.inform.WebSocketControler.webSocketServerMAP;
+import static com.sustech.conferenceSystem.controler.inform.LongPullingController.watchRequests;
+import static com.sustech.conferenceSystem.controler.inform.LongPullingController.*;
 
 
 @Component
@@ -86,13 +90,19 @@ public class InformService {
             return;
         }
         WebSocketControler webSocketControler = webSocketServerMAP.get(receiverUri.toString());
-        if(webSocketControler == null){
-            System.out.println("该用户未与服务器建立连接 id:" + id + " name: " + name);
+        if(webSocketControler != null){
+            webSocketControler.sendMessage(message);
             return;
         }
-        webSocketControler.sendMessage(message);
+        System.out.println("该用户未与服务器建立websocket连接 id:" + id + " name: " + name);
+        String namespace = id + name;
+        if (watchRequests.containsKey(namespace)) {
+            Collection<DeferredResult<Message>> deferredResults = watchRequests.get(namespace);
+            LongPullingController.sendMessage(message, deferredResults);
+            return;
+        }
+        System.out.println("该用户未与服务器建立long pulling连接 id:" + id + " name: " + name);
 //        webSocketServer.session.getBasicRemote().sendText(message);
-
     }
     /**
      * 每1分钟执行一次
@@ -142,7 +152,7 @@ public class InformService {
      * 模拟向多人推送消息
      */
 //    @Scheduled(cron="0/5 * *  * * ? ")
-    public void informAll() throws IOException{
+    public void informAll(){
 //        if (!INFORM_TEST_ON) {
 //            return;
 //        }
@@ -156,14 +166,19 @@ public class InformService {
         message.setMessageTopic("测试发送消息");
         message.setMessageBody(msg);
 
-        Collection<WebSocketControler> collection = webSocketServerMAP.values();
-        for (WebSocketControler item : collection) {
+        Collection<WebSocketControler> websocketCollection = webSocketServerMAP.values();
+        for (WebSocketControler item : websocketCollection) {
             try {
                 messageInform(item.getId(), item.getName(), message);
             } catch (IOException e) {
                 e.printStackTrace();
                 continue;
             }
+        }
+
+        Collection<DeferredResult<Message>> longPullingCollection = watchRequests.values();
+        for (DeferredResult<Message> deferredResult : longPullingCollection) {
+            deferredResult.setResult(message);
         }
     }
 
