@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
+import java.util.UUID;
 
 @Component
 @Configuration
@@ -14,8 +15,6 @@ import javax.annotation.Resource;
 public class MqttConfiguration {
     @Value("${mqtt.host}")
     private String host;
-    @Value("${mqtt.clientid}")
-    private String clientid;
     @Value("${mqtt.username}")
     private String username;
     @Value("${mqtt.password}")
@@ -28,6 +27,7 @@ public class MqttConfiguration {
     MqttPushClient mqttPushClient;
     @Bean
     public MqttPushClient getMqttPushClient(){
+        String clientid= UUID.randomUUID().toString();
         mqttPushClient.connect(host, clientid, username, password,keepalive);
         return mqttPushClient;
     }
