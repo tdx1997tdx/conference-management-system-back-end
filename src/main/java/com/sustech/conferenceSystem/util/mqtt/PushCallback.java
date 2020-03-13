@@ -1,5 +1,6 @@
 package com.sustech.conferenceSystem.util.mqtt;
 
+import com.sustech.conferenceSystem.initMqtt.InitMqtt;
 import com.sustech.conferenceSystem.initMqtt.Listener;
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
 import org.eclipse.paho.client.mqttv3.MqttCallback;
@@ -12,10 +13,13 @@ import javax.annotation.Resource;
 public class PushCallback implements MqttCallback {
     @Resource
     Listener listener;
+    @Resource
+    InitMqtt initMqtt;
     @Override
     public void connectionLost(Throwable cause) {
         // 连接丢失后，一般在这里面进行重连
         System.out.println("连接断开重新连接");
+        initMqtt.initMqtt();
     }
 
     @Override
