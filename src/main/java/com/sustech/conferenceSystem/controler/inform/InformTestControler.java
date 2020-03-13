@@ -26,8 +26,7 @@ public class InformTestControler {
             method = RequestMethod.GET,
             produces = "application/json;charset=UTF-8")
     public String informAll(){
-        informService.informAll();
-        return "success";
+        return informService.informAll();
     }
 
     /**
@@ -37,13 +36,7 @@ public class InformTestControler {
     @RequestMapping(value = "/inform_first",
             method = RequestMethod.GET,
             produces = "application/json;charset=UTF-8")
-    public String informFirstUser(){
-        try {
-            informService.informFirstUser();
-        } catch (IOException e) {
-            e.printStackTrace();
-            return "error";
-        }
-        return "success";
+    public String informFirstUser() throws IOException {
+        return informService.informFirstUser();
     }
 }

@@ -44,17 +44,18 @@ public class WebSocketControler {
         this.id = id;
         this.name = name;
         this.uri = session.getRequestURI().toString();
+        String namespace = id + name;
 
         Message message = new Message();
         message.setMessageTopic("onOpen");
-        WebSocketControler webSocketControler = webSocketServerMAP.get(uri);
+        WebSocketControler webSocketControler = webSocketServerMAP.get(namespace);
         if(webSocketControler != null){ //同样业务的连接已经在线，则把原来的挤下线。
             // 需要添加cookie认证（未实现）
             message.setMessageBody(uri + "重复连接被挤下线了");
             webSocketControler.sendMessage(message);
             webSocketControler.onClose();//关闭连接，触发关闭连接方法onClose()
         }
-        webSocketServerMAP.put(uri, this);//保存uri对应的连接服务
+        webSocketServerMAP.put(namespace, this);//保存uri对应的连接服务
         addOnlineCount(); // 在线数加1
         message.setMessageBody("新用户登录， id:"+ id + " name: " + name + "当前在线连接数:" + getOnlineCount());
         sendMessage(message);
@@ -68,7 +69,8 @@ public class WebSocketControler {
      */
     @OnClose
     public void onClose() throws IOException {
-        webSocketServerMAP.remove(uri);//删除uri对应的连接服务
+        String namespace = id + name;
+        webSocketServerMAP.remove(namespace);//删除uri对应的连接服务
         reduceOnlineCount(); // 在线数减1
         System.out.println("onClose: " + uri);
         System.out.println("有一连接关闭！当前在线连接数" + getOnlineCount());

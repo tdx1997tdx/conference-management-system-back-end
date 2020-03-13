@@ -78,30 +78,32 @@ public class InformService {
      * @param message 会议提醒理由（创建，修改等）
      * @throws IOException
      */
-    public void messageInform(String id, String name, Message message) throws IOException{
+    public String messageInform(String id, String name, Message message) throws IOException{
         message.setReceiverName(name);
 
-        StringBuilder receiverUri = new StringBuilder(WEBSOCKET_URI);
-        receiverUri.append(id)
-                .append("/")
-                .append(name);
+//        StringBuilder receiverUri = new StringBuilder(WEBSOCKET_URI);
+//        receiverUri.append(id)
+//                .append("/")
+//                .append(name);
+        String namespace = id + name;
+
         if (!messageManagementService.messageAddService(message)) {
             System.out.println("写入数据库失败");
-            return;
+            return "写入数据库失败";
         }
-        WebSocketControler webSocketControler = webSocketServerMAP.get(receiverUri.toString());
+        WebSocketControler webSocketControler = webSocketServerMAP.get(namespace);
         if(webSocketControler != null){
             webSocketControler.sendMessage(message);
-            return;
+            return "Websocket success";
         }
         System.out.println("该用户未与服务器建立websocket连接 id:" + id + " name: " + name);
-        String namespace = id + name;
         if (watchRequests.containsKey(namespace)) {
             Collection<DeferredResult<Message>> deferredResults = watchRequests.get(namespace);
             LongPullingController.sendMessage(message, deferredResults);
-            return;
+            return "LongPulling success";
         }
         System.out.println("该用户未与服务器建立long pulling连接 id:" + id + " name: " + name);
+        return "未建立连接 id:" + id + " name: " + name + " namespace: " + namespace;
 //        webSocketServer.session.getBasicRemote().sendText(message);
     }
     /**
@@ -152,7 +154,7 @@ public class InformService {
      * 模拟向多人推送消息
      */
 //    @Scheduled(cron="0/5 * *  * * ? ")
-    public void informAll(){
+    public String informAll(){
 //        if (!INFORM_TEST_ON) {
 //            return;
 //        }
@@ -165,21 +167,28 @@ public class InformService {
         message.setReceiverName(FIRST_USER_NAME);
         message.setMessageTopic("测试发送消息");
         message.setMessageBody(msg);
-
+        int websocketNum = 0;
+        StringBuilder websocketString = new StringBuilder("");
         Collection<WebSocketControler> websocketCollection = webSocketServerMAP.values();
         for (WebSocketControler item : websocketCollection) {
             try {
                 messageInform(item.getId(), item.getName(), message);
+                websocketNum++;
+                websocketString.append("uri: " + item.getUri() + "\n");
             } catch (IOException e) {
                 e.printStackTrace();
                 continue;
             }
         }
 
+        int longPullingNum = 0;
         Collection<DeferredResult<Message>> longPullingCollection = watchRequests.values();
         for (DeferredResult<Message> deferredResult : longPullingCollection) {
             deferredResult.setResult(message);
+            longPullingNum++;
         }
+        String res = "websocketNum: " + websocketNum + " longPullingNum: " + longPullingNum + "\n" + websocketString;
+        return res;
     }
 
     /**
@@ -195,7 +204,7 @@ public class InformService {
 //        if (!INFORM_TEST_ON) {
 //            return;
 //        }
-    public void informFirstUser() throws IOException{
+    public String informFirstUser() throws IOException{
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date dateNow = new Date();
         System.out.println("当前时间为：" + sdf.format(dateNow));
@@ -205,7 +214,7 @@ public class InformService {
         message.setReceiverName(FIRST_USER_NAME);
         message.setMessageTopic("测试发送消息");
         message.setMessageBody(msg);
-        messageInform(FIRST_USER_ID, FIRST_USER_NAME, message);
+        return messageInform(FIRST_USER_ID, FIRST_USER_NAME, message);
     }
 
 }
