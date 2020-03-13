@@ -17,7 +17,7 @@
         update user
         <set>
             <include refid="kv"/>
-            modify_time=now()
+            ,modify_time=now()
         </set>
         where user_id=#{userId}
     </update>

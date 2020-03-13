@@ -20,7 +20,7 @@ public class MqttPushClient {
         MqttPushClient.client = client;
     }
 
-    public void connect(String host, String clientID, String username, String password){
+    public void connect(String host, String clientID, String username, String password,int keepalive){
         MqttClient client;
         try {
             client = new MqttClient(host, clientID, new MemoryPersistence());
@@ -28,6 +28,7 @@ public class MqttPushClient {
             options.setCleanSession(true);
             options.setUserName(username);
             options.setPassword(password.toCharArray());
+            options.setKeepAliveInterval(keepalive);
             options.setAutomaticReconnect(true);
             MqttPushClient.setClient(client);
             try {

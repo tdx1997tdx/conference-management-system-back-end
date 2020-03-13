@@ -28,7 +28,7 @@ public class MqttConfiguration {
     MqttPushClient mqttPushClient;
     @Bean
     public MqttPushClient getMqttPushClient(){
-        mqttPushClient.connect(host, clientid, username, password);
+        mqttPushClient.connect(host, clientid, username, password,keepalive);
         return mqttPushClient;
     }
 }
