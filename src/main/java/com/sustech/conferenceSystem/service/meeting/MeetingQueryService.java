@@ -8,14 +8,10 @@ import com.sustech.conferenceSystem.dto.Room;
 import com.sustech.conferenceSystem.dto.User;
 import com.sustech.conferenceSystem.mapper.MeetingMapper;
 import com.sustech.conferenceSystem.mapper.RoomMapper;
-import com.sustech.conferenceSystem.mapper.UserMapper;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 public class MeetingQueryService {
@@ -23,6 +19,22 @@ public class MeetingQueryService {
     private MeetingMapper meetingMapper;
     @Resource
     private RoomMapper roomMapper;
+
+    /**
+     * 获取指定用户的id
+     * @param userId 会议id名称
+     * @return 符合要求会议集合
+     */
+    public Map<String,Object> userMeeting7SearchService(Integer userId){
+        Map<String,Object> res=new HashMap<>();
+        Date nowDate=new Date(System.currentTimeMillis());
+        //7天后的日期
+        Date endDate=new Date(nowDate.getTime() + 7 * 24 * 60 * 60 * 1000);
+        List<MeetingSimple> list=meetingMapper.userMeeting7Search(userId,nowDate,endDate);
+        res.put("list",list);
+        res.put("total",list.size());
+        return res;
+    }
 
     /**
      * 获取会议

@@ -6,6 +6,7 @@ import com.sustech.conferenceSystem.dto.User;
 import io.swagger.models.auth.In;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.Date;
 import java.util.List;
 
 public interface MeetingMapper {
@@ -21,6 +22,13 @@ public interface MeetingMapper {
      * @return 符合要求会议集合
      */
     List<MeetingSimple> meetingSearch (@Param("userId")Integer userId, @Param("roomName")String roomName, @Param("meetingSimple")MeetingSimple meetingSimple);
+
+
+    /**
+     * 检查指定id用户未来7天内的所有会议。
+     * @return 符合要求会议集合
+     */
+    List<MeetingSimple> userMeeting7Search (@Param("userId")Integer userId, @Param("dateNow") Date dateNow,@Param("dateEnd") Date dateEnd);
 
     /**
      * 检查数据库中是否有符合要求的会议

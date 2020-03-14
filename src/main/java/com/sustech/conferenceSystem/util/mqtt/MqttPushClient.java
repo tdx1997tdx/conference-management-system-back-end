@@ -83,7 +83,7 @@ public class MqttPushClient {
      * @param topic
      */
     public void subscribe(String topic){
-        subscribe(topic,0);
+        subscribe(topic,2);
     }
 
     /**

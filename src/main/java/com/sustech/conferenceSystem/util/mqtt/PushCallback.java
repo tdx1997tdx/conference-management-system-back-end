@@ -1,6 +1,5 @@
 package com.sustech.conferenceSystem.util.mqtt;
 
-import com.sustech.conferenceSystem.initMqtt.InitMqtt;
 import com.sustech.conferenceSystem.initMqtt.Listener;
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
 import org.eclipse.paho.client.mqttv3.MqttCallback;

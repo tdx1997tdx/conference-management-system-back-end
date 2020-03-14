@@ -55,6 +55,20 @@ public class MeetingQueryControler {
     }
 
     /**
+     * /meeting/user_meeting7_search 接口，获取用户7天内的会议
+     * @param jsonParam
+     * @return
+     */
+    @RequestMapping(value = "/user_meeting7_search",
+            method = RequestMethod.POST,
+            produces = "application/json;charset=UTF-8")
+    public String userMeeting7Search(@RequestBody JSONObject jsonParam){
+        Integer userId=jsonParam.getInteger("user_id");
+        Map<String,Object> result = meetingQueryService.userMeeting7SearchService(userId);
+        return JSON.toJSONString(result);
+    }
+
+    /**
      * /meeting/meeting_search_certain 接口，用于查找会议具体信息
      * @param jsonParam
      * @return
