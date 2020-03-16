@@ -226,4 +226,28 @@ public class MeetingManagerService {
         res.put("message","签到成功");
         return res;
     }
+
+    /**
+     * 接受
+     * @return map类型的结果state 0代表失败1代表成功
+     */
+    public Map<String,String> acceptService(Integer userId,Integer meetingId){
+        Map<String,String> res = new HashMap<>();
+        meetingMapper.updateJoin(userId,meetingId,0);
+        res.put("state","1");
+        res.put("message","接受成功");
+        return res;
+    }
+
+    /**
+     * 拒绝
+     * @return map类型的结果state 0代表失败1代表成功
+     */
+    public Map<String,String> rejectService(Integer userId,Integer meetingId){
+        Map<String,String> res = new HashMap<>();
+        meetingMapper.updateJoin(userId,meetingId,3);
+        res.put("state","1");
+        res.put("message","拒绝成功");
+        return res;
+    }
 }

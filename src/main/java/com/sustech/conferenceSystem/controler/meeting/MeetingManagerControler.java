@@ -100,4 +100,32 @@ public class MeetingManagerControler {
         Map<String, String> result = meetingManagerService.signInService(userId,meetingId);
         return JSON.toJSONString(result);
     }
+
+    /**
+     * /meeting/accept 接口，用于接受会议请求
+     * @return
+     */
+    @RequestMapping(value = "/accept",
+            method = RequestMethod.POST,
+            produces = "application/json;charset=UTF-8")
+    public String accept(@RequestBody JSONObject jsonParam){
+        int userId=jsonParam.getInteger("meeting_id");
+        int meetingId=jsonParam.getInteger("meeting_id");
+        Map<String, String> result = meetingManagerService.acceptService(userId,meetingId);
+        return JSON.toJSONString(result);
+    }
+
+    /**
+     * /meeting/reject 接口，用于拒绝会议请求
+     * @return
+     */
+    @RequestMapping(value = "/reject",
+            method = RequestMethod.POST,
+            produces = "application/json;charset=UTF-8")
+    public String reject(@RequestBody JSONObject jsonParam){
+        int userId=jsonParam.getInteger("meeting_id");
+        int meetingId=jsonParam.getInteger("meeting_id");
+        Map<String, String> result = meetingManagerService.rejectService(userId,meetingId);
+        return JSON.toJSONString(result);
+    }
 }
