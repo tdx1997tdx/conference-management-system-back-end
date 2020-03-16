@@ -86,4 +86,18 @@ public class MeetingManagerControler {
         Map<String, String> result = meetingManagerService.meetingMembersDeleteService(meeting);
         return JSON.toJSONString(result);
     }
+
+    /**
+     * /meeting/sign_in 接口，用于签到模块
+     * @return
+     */
+    @RequestMapping(value = "/sign_in",
+            method = RequestMethod.POST,
+            produces = "application/json;charset=UTF-8")
+    public String signIn(@RequestBody JSONObject jsonParam){
+        int userId=jsonParam.getInteger("meeting_id");
+        int meetingId=jsonParam.getInteger("meeting_id");
+        Map<String, String> result = meetingManagerService.signInService(userId,meetingId);
+        return JSON.toJSONString(result);
+    }
 }

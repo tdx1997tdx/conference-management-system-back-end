@@ -112,4 +112,16 @@ public interface MeetingMapper {
      */
     boolean meetingMembersDelete(MeetingFull meeting);
 
+    /**
+     * 判断会议是否开始
+     * @param meetingId 其中有meeting所需所有信息
+     */
+    List<MeetingSimple> isBegin(Integer meetingId);
+
+    /**
+     * 某人参加会议
+     * @param meetingId 其中有meeting所需所有信息
+     */
+    void updateJoin(@Param("userId")Integer userId,@Param("meetingId")Integer meetingId,@Param("state")Integer state);
+
 }

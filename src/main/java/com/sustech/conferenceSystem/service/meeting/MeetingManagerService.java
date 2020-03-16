@@ -198,4 +198,22 @@ public class MeetingManagerService {
         res.put("message","会议删除成功");
         return res;
     }
+
+    /**
+     * 签到
+     * @return map类型的结果state 0代表失败1代表成功
+     */
+    public Map<String,String> signInService(Integer userId,Integer meetingId){
+        Map<String,String> res = new HashMap<>();
+        List<MeetingSimple> l=meetingMapper.isBegin(meetingId);
+        if(l.size()==0){
+            res.put("state","0");
+            res.put("message","会议未开始");
+            return res;
+        }
+        meetingMapper.updateJoin(userId,meetingId,1);
+        res.put("state","1");
+        res.put("message","签到成功");
+        return res;
+    }
 }
