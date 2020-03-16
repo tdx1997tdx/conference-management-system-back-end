@@ -129,7 +129,14 @@ public class MeetingManagerService {
      */
     public Map<String,String> meetingAddService(MeetingFull meeting){
         Map<String,String> res = new HashMap<>();
-
+        //判断host是否存在
+        List<User> host=userMapper.searchUser(meeting.getHost());
+        if(host.size()==0){
+            res.put("state","0");
+            res.put("message","host不存在");
+            return res;
+        }
+        meeting.setHost(host.get(0));
         //判断recoder是否存在
         List<User> recorder=userMapper.searchUser(meeting.getRecorder());
         if(recorder.size()==0){
@@ -140,6 +147,9 @@ public class MeetingManagerService {
         meeting.setRecorder(recorder.get(0));
         //判断member是否存在
         List<User> members=meeting.getMembers();
+        //将host和recorder也加入成员中
+        members.add(meeting.getHost());
+        members.add(meeting.getRecorder());
         for(int i=0;i<members.size();i++){
             List<User> user=userMapper.searchUser(members.get(i));
             if(user.size()==0){
