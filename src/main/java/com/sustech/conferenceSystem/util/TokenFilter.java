@@ -27,16 +27,8 @@ public class TokenFilter implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response,
                          FilterChain chain) throws IOException, ServletException {
-        System.out.println("进入过滤器");
         HttpServletRequest req=(HttpServletRequest)request;
         HttpServletResponse res=(HttpServletResponse) response;
-        //预检请求放行
-        if(req.getMethod().equals("OPTIONS")){
-            res.setHeader("Access-Control-Allow-Origin", "*");
-            res.setHeader("Access-Control-Allow-Headers",req.getHeader("Access-Control-Request-Headers"));
-            chain.doFilter(request, response);
-            return;
-        }
         // 获取请求url地址，不拦截excludePathPatterns中的url
         String url = req.getRequestURI();
         if (Arrays.asList(excludePathPatterns).contains(url)) {
@@ -49,7 +41,6 @@ public class TokenFilter implements Filter {
             res.sendError(407);
             return;
         }
-        System.out.println(cookies);
         Authorization au=new Authorization();
         if(au.setAuthorization(cookies)){
             res.sendError(407);

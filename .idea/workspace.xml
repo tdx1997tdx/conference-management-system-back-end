@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="68f46c33-7d16-429f-9772-f6b143785f8e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/util/PrecheckFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/util/TokenFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/util/TokenFilter.java" afterDir="false" />
     </list>
@@ -72,16 +73,25 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/util/TokenFilter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="35" column="104" selection-start-line="35" selection-start-column="104" selection-end-line="35" selection-end-column="104" />
+            <state relative-caret-position="342">
+              <caret line="42" column="9" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#111#112#0" expanded="true" />
                 <element signature="e#180#181#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/util/PrecheckFilter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="34" column="42" lean-forward="true" selection-start-line="34" selection-start-column="42" selection-end-line="34" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -138,15 +148,6 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/mapper/MeetingMapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="37" column="4" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -177,7 +178,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/controler/form/FormManagementControler.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/mapper/DeviceMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/service/form/FormManagementService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/mapper/FormMapper.java" />
@@ -227,6 +227,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/service/user/LRService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/controler/user/LRControler.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/bean/Authorization.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/util/PrecheckFilter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/util/TokenFilter.java" />
       </list>
     </option>
@@ -412,7 +413,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1584460549489" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1584461190160" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -421,26 +422,26 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="F:\dev\conference-management-system-back-end\src\main\resources" />
-      <recent name="F:\dev\conference-management-system-back-end\src\main\resources\db" />
-    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.sustech.conferenceSystem" />
       <recent name="com.sustech.conferenceSystem.user.service" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.sustech.conferenceSystem.service.user" />
-      <recent name="com.sustech.conferenceSystem.controler.user" />
-      <recent name="com.sustech.conferenceSystem.service.meeting" />
-      <recent name="com.sustech.conferenceSystem.controler.meeting" />
-      <recent name="com.sustech.conferenceSystem.controler.form" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="F:\dev\conference-management-system-back-end\src\main\resources\mapper" />
       <recent name="F:\dev\conference-management-system-back-end\src\main\java\com\sustech\conferenceSystem\controler" />
       <recent name="F:\dev\conference-management-system-back-end\src\main\java\com\sustech\conferenceSystem\service" />
       <recent name="F:\dev\conference-management-system-back-end\src\main\resources" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.sustech.conferenceSystem.util" />
+      <recent name="com.sustech.conferenceSystem.service.user" />
+      <recent name="com.sustech.conferenceSystem.controler.user" />
+      <recent name="com.sustech.conferenceSystem.service.meeting" />
+      <recent name="com.sustech.conferenceSystem.controler.meeting" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\dev\conference-management-system-back-end\src\main\resources" />
+      <recent name="F:\dev\conference-management-system-back-end\src\main\resources\db" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -616,14 +617,7 @@
       <workItem from="1582859976989" duration="19441000" />
       <workItem from="1583306864384" duration="24424000" />
       <workItem from="1583889113740" duration="32617000" />
-      <workItem from="1584345517491" duration="26541000" />
-    </task>
-    <task id="LOCAL-00038" summary="修改了登录接口">
-      <created>1582266732136</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1582266732136</updated>
+      <workItem from="1584345517491" duration="27181000" />
     </task>
     <task id="LOCAL-00039" summary="修改了/meeting/meeting_search 接口">
       <created>1582273425509</created>
@@ -961,7 +955,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584459422003</updated>
     </task>
-    <option name="localTasksCounter" value="87" />
+    <task id="LOCAL-00087" summary="预检请求bug修复2">
+      <created>1584460565520</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1584460565521</updated>
+    </task>
+    <option name="localTasksCounter" value="88" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -997,7 +998,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="333392000" />
+    <option name="totallyTimeSpent" value="334032000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -1026,7 +1027,7 @@
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" weight="0.32867134" />
       <window_info anchor="bottom" id="Structure" order="6" weight="0.25" />
-      <window_info anchor="bottom" id="Run" order="7" sideWeight="0.49878544" weight="0.37062937" />
+      <window_info anchor="bottom" id="Run" order="7" sideWeight="0.49878544" visible="true" weight="0.37062937" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.3986014" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
@@ -1092,7 +1093,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="修改了登陆验证的bug2" />
     <MESSAGE value="修改了/meeting/meeting_add接口" />
     <MESSAGE value="添加了/meeting/meeting_modify接口" />
     <MESSAGE value="添加了/meeting/meeting_members_add接口和/meeting/meeting_members_delete接口" />
@@ -1117,16 +1117,10 @@
     <MESSAGE value="修改了过滤器中预检请求放行" />
     <MESSAGE value="bugTest" />
     <MESSAGE value="预检请求bug修复" />
-    <option name="LAST_COMMIT_MESSAGE" value="预检请求bug修复" />
+    <MESSAGE value="预检请求bug修复2" />
+    <option name="LAST_COMMIT_MESSAGE" value="预检请求bug修复2" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/controler/user/AdminControler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-502">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/service/user/AdminService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
@@ -1564,13 +1558,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/util/TokenFilter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="35" column="104" selection-start-line="35" selection-start-column="104" selection-end-line="35" selection-end-column="104" />
+        <state relative-caret-position="342">
+          <caret line="42" column="9" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#111#112#0" expanded="true" />
             <element signature="e#180#181#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/util/PrecheckFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="34" column="42" lean-forward="true" selection-start-line="34" selection-start-column="42" selection-end-line="34" selection-end-column="42" />
         </state>
       </provider>
     </entry>
