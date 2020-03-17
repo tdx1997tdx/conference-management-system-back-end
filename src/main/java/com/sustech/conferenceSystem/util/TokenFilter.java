@@ -33,6 +33,8 @@ public class TokenFilter implements Filter {
         //预检请求放行
         if(req.getMethod().equals("OPTIONS")){
             res.setHeader("Access-Control-Allow-Origin", "*");
+            res.setHeader("Access-Control-Allow-Headers",req.getHeader("Access-Control-Request-Headers"));
+            chain.doFilter(request, response);
             return;
         }
         // 获取请求url地址，不拦截excludePathPatterns中的url

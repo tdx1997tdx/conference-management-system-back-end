@@ -75,8 +75,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/util/TokenFilter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="34" column="15" selection-start-line="34" selection-start-column="15" selection-end-line="34" selection-end-column="15" />
+            <state relative-caret-position="266">
+              <caret line="35" column="104" selection-start-line="35" selection-start-column="104" selection-end-line="35" selection-end-column="104" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#111#112#0" expanded="true" />
@@ -412,7 +412,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1584459388827" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1584460549489" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -616,14 +616,7 @@
       <workItem from="1582859976989" duration="19441000" />
       <workItem from="1583306864384" duration="24424000" />
       <workItem from="1583889113740" duration="32617000" />
-      <workItem from="1584345517491" duration="25377000" />
-    </task>
-    <task id="LOCAL-00037" summary="修复device_add的bug">
-      <created>1582085946399</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1582085946399</updated>
+      <workItem from="1584345517491" duration="26541000" />
     </task>
     <task id="LOCAL-00038" summary="修改了登录接口">
       <created>1582266732136</created>
@@ -961,7 +954,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584457672841</updated>
     </task>
-    <option name="localTasksCounter" value="86" />
+    <task id="LOCAL-00086" summary="预检请求bug修复">
+      <created>1584459422003</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1584459422003</updated>
+    </task>
+    <option name="localTasksCounter" value="87" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -997,7 +997,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="332228000" />
+    <option name="totallyTimeSpent" value="333392000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -1092,7 +1092,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="修改了登陆验证的bug" />
     <MESSAGE value="修改了登陆验证的bug2" />
     <MESSAGE value="修改了/meeting/meeting_add接口" />
     <MESSAGE value="添加了/meeting/meeting_modify接口" />
@@ -1117,7 +1116,8 @@
     <MESSAGE value="修改了cookie成authorization" />
     <MESSAGE value="修改了过滤器中预检请求放行" />
     <MESSAGE value="bugTest" />
-    <option name="LAST_COMMIT_MESSAGE" value="bugTest" />
+    <MESSAGE value="预检请求bug修复" />
+    <option name="LAST_COMMIT_MESSAGE" value="预检请求bug修复" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/controler/user/AdminControler.java">
@@ -1564,8 +1564,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/util/TokenFilter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="34" column="15" selection-start-line="34" selection-start-column="15" selection-end-line="34" selection-end-column="15" />
+        <state relative-caret-position="266">
+          <caret line="35" column="104" selection-start-line="35" selection-start-column="104" selection-end-line="35" selection-end-column="104" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#111#112#0" expanded="true" />
