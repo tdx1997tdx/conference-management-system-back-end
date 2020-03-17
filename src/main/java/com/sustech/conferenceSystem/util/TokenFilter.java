@@ -32,7 +32,7 @@ public class TokenFilter implements Filter {
         HttpServletResponse res=(HttpServletResponse) response;
         //预检请求放行
         if(req.getMethod().equals("OPTIONS")){
-            chain.doFilter(request, response);
+            res.setHeader("Access-Control-Allow-Origin", "*");
             return;
         }
         // 获取请求url地址，不拦截excludePathPatterns中的url
