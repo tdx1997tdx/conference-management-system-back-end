@@ -36,7 +36,7 @@ public class MeetingManagerControler {
     }
 
     /**
-     * /meeting/meeting_add 接口，用于创建会议 (未实现)
+     * /meeting/meeting_add 接口，用于创建会议
      * @return
      */
     @RequestMapping(value = "/meeting_add",

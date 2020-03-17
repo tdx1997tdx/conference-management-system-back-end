@@ -13,6 +13,7 @@ import io.swagger.models.auth.In;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -33,6 +34,16 @@ public class MeetingManagerService {
      */
     public Map<String,String> meetingModifyService(MeetingFull meeting){
         Map<String,String> res = new HashMap<>();
+        //判断会议是否20分钟开始，如果是则不能创建
+        if(meeting.getStartTime()!=null){
+            long beginTime=meeting.getStartTime().getTime();
+            long nowTime = System.currentTimeMillis();
+            if(beginTime<nowTime+20 * 60 * 1000){
+                res.put("state","0");
+                res.put("message","修改失败,会议在20分钟内开始");
+                return res;
+            }
+        }
         if(meeting.getRecorder()!=null){
             //判断recoder是否存在
             List<User> recorder=userMapper.searchUser(meeting.getRecorder());
@@ -59,6 +70,14 @@ public class MeetingManagerService {
      */
     public Map<String,String> meetingMembersAddService(MeetingFull meeting){
         Map<String,String> res = new HashMap<>();
+        //判断会议是否20分钟开始，如果是则不能创建
+        long beginTime=meeting.getStartTime().getTime();
+        long nowTime = System.currentTimeMillis();
+        if(beginTime<nowTime+20 * 60 * 1000){
+            res.put("state","0");
+            res.put("message","添加失败,会议在20分钟内开始");
+            return res;
+        }
         //判断member是否存在
         List<User> members=meeting.getMembers();
         for(int i=0;i<members.size();i++){
@@ -198,10 +217,19 @@ public class MeetingManagerService {
      */
     public Map<String,String> meetingDeleteService(Integer meetingId){
         Map<String,String> res = new HashMap<>();
+        MeetingFull m=meetingMapper.meetingSearchCertain(meetingId);
+        //判断是否是会议前20分钟，如果在20分钟时，不能删除
+        long beginTime=m.getStartTime().getTime();
+        long nowTime = System.currentTimeMillis();
+        if(beginTime<nowTime+20 * 60 * 1000){
+            res.put("state","0");
+            res.put("message","删除失败,会议在20分钟内开始");
+            return res;
+        }
         boolean delRes=meetingMapper.meetingDelete(meetingId);
         if(!delRes){
             res.put("state","0");
-            res.put("message","会议删除失败");
+            res.put("message","会议删除失败,无指定id会议");
             return res;
         }
         res.put("state","1");
