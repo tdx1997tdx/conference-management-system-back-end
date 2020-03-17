@@ -27,6 +27,7 @@ public class TokenFilter implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response,
                          FilterChain chain) throws IOException, ServletException {
+        System.out.println("token过滤器初始化");
         HttpServletRequest req=(HttpServletRequest)request;
         HttpServletResponse res=(HttpServletResponse) response;
         // 获取请求url地址，不拦截excludePathPatterns中的url
@@ -59,6 +60,6 @@ public class TokenFilter implements Filter {
     }
     @Override
     public void init(FilterConfig arg0) throws ServletException {
-        System.out.println("--------------过滤器初始化------------");
+        System.out.println("--------------token过滤器初始化------------");
     }
 }
