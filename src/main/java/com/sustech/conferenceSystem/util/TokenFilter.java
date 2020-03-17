@@ -1,11 +1,11 @@
 package com.sustech.conferenceSystem.util;
 
+import com.sustech.conferenceSystem.bean.Authorization;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -36,20 +36,18 @@ public class TokenFilter implements Filter {
             //放行，相当于第一种方法中LoginInterceptor返回值为true
             chain.doFilter(request, response);
         }
-        Cookie[] cookies=req.getCookies();
+        String cookies=req.getHeader("Authorization");
         if (cookies==null){
             res.sendError(407);
             return;
         }
-
-        if(!cookies[0].getName().equals("user_id")||!cookies[1].getName().equals("token")){
+        Authorization au=new Authorization();
+        if(au.setAuthorization(cookies)){
             res.sendError(407);
             return;
         }
-        String userId=cookies[0].getValue();
-        String token=cookies[1].getValue();
-        String CheckToken=(String) redisUtil.get(userId);
-        if(!token.equals(CheckToken)){
+        String CheckToken=(String) redisUtil.get(au.getUserId());
+        if(!au.getToken().equals(CheckToken)){
             res.sendError(407);
             return;
         }
