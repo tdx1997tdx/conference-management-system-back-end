@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.Arrays;
 
 @Component
-@WebFilter(filterName="TokenFilter",urlPatterns={"/*"})// TODO 多个用逗号分隔
+@WebFilter(filterName="TokenFilter",urlPatterns={"/*"})
 public class TokenFilter implements Filter {
     //排除不拦截的url
     private static final String[] excludePathPatterns = { "/user/login","/user/regist"};
