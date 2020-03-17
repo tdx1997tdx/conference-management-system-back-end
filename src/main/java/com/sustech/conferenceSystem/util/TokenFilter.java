@@ -47,12 +47,17 @@ public class TokenFilter implements Filter {
             res.sendError(407);
             return;
         }
+        System.out.println(cookies);
         Authorization au=new Authorization();
         if(au.setAuthorization(cookies)){
             res.sendError(407);
             return;
         }
         String CheckToken=(String) redisUtil.get(au.getUserId());
+        if(CheckToken==null){
+            res.sendError(407);
+            return;
+        }
         if(!au.getToken().equals(CheckToken)){
             res.sendError(407);
             return;
