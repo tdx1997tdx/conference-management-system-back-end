@@ -30,11 +30,17 @@ public class TokenFilter implements Filter {
         System.out.println("进入过滤器");
         HttpServletRequest req=(HttpServletRequest)request;
         HttpServletResponse res=(HttpServletResponse) response;
+        //预检请求放行
+        if(req.getMethod().equals("OPTIONS")){
+            chain.doFilter(request, response);
+            return;
+        }
         // 获取请求url地址，不拦截excludePathPatterns中的url
         String url = req.getRequestURI();
         if (Arrays.asList(excludePathPatterns).contains(url)) {
             //放行，相当于第一种方法中LoginInterceptor返回值为true
             chain.doFilter(request, response);
+            return;
         }
         String cookies=req.getHeader("Authorization");
         if (cookies==null){

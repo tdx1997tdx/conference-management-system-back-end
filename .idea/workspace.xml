@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="68f46c33-7d16-429f-9772-f6b143785f8e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/bean/Authorization.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/controler/user/LRControler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/controler/user/LRControler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/util/TokenFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/util/TokenFilter.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -74,11 +72,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/util/TokenFilter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="141">
-              <caret line="38" column="54" lean-forward="true" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="54" />
+            <state relative-caret-position="160">
+              <caret line="33" column="46" selection-start-line="33" selection-start-column="46" selection-end-line="33" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#111#112#0" expanded="true" />
@@ -97,10 +95,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/controler/user/LRControler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
+            <state relative-caret-position="-133">
               <caret line="11" column="45" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
             </state>
           </provider>
@@ -228,8 +226,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/util/WebConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/service/user/LRService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/bean/Authorization.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/util/TokenFilter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/controler/user/LRControler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/util/TokenFilter.java" />
       </list>
     </option>
   </component>
@@ -414,7 +412,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1584449779240" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1584454727024" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -618,14 +616,7 @@
       <workItem from="1582859976989" duration="19441000" />
       <workItem from="1583306864384" duration="24424000" />
       <workItem from="1583889113740" duration="32617000" />
-      <workItem from="1584345517491" duration="22796000" />
-    </task>
-    <task id="LOCAL-00034" summary="添加了表单模块">
-      <created>1581857172884</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1581857172884</updated>
+      <workItem from="1584345517491" duration="23667000" />
     </task>
     <task id="LOCAL-00035" summary="修复modify_room的bug">
       <created>1581865145952</created>
@@ -963,7 +954,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584448213501</updated>
     </task>
-    <option name="localTasksCounter" value="83" />
+    <task id="LOCAL-00083" summary="修改了cookie成authorization">
+      <created>1584449834463</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1584449834463</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -999,7 +997,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="329647000" />
+    <option name="totallyTimeSpent" value="330518000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -1032,7 +1030,7 @@
       <window_info anchor="bottom" id="Debug" order="8" weight="0.3986014" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="11" visible="true" weight="0.32867134" />
+      <window_info anchor="bottom" id="TODO" order="11" weight="0.32867134" />
       <window_info anchor="bottom" id="Spring" order="12" weight="0.32867134" />
       <window_info anchor="bottom" id="Terminal" order="13" weight="0.32867134" />
       <window_info anchor="bottom" id="Docker" order="14" show_stripe_button="false" />
@@ -1094,7 +1092,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="测试登陆验证模块2" />
     <MESSAGE value="测试登陆验证模块3" />
     <MESSAGE value="测试登陆验证模块4" />
     <MESSAGE value="修改了登陆验证的bug" />
@@ -1119,7 +1116,8 @@
     <MESSAGE value="7天内指定用户会议接口加了hostId" />
     <MESSAGE value="添加在会议开始前20分钟不得修改，添加，删除会议" />
     <MESSAGE value="登陆注册部分大改，添加拦截器" />
-    <option name="LAST_COMMIT_MESSAGE" value="登陆注册部分大改，添加拦截器" />
+    <MESSAGE value="修改了cookie成authorization" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改了cookie成authorization" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/controler/user/AdminControler.java">
@@ -1557,22 +1555,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/controler/user/LRControler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-133">
+          <caret line="11" column="45" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/util/TokenFilter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="38" column="54" lean-forward="true" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="54" />
+        <state relative-caret-position="160">
+          <caret line="33" column="46" selection-start-line="33" selection-start-column="46" selection-end-line="33" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#111#112#0" expanded="true" />
             <element signature="e#180#181#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/controler/user/LRControler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="11" column="45" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
         </state>
       </provider>
     </entry>
