@@ -21,15 +21,20 @@ public class TokenFilter implements Filter {
 
     @Override
     public void destroy() {
-        System.out.println("--------------过滤器销毁------------");
+        System.out.println("--------------token过滤器销毁------------");
     }
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response,
                          FilterChain chain) throws IOException, ServletException {
-        System.out.println("token过滤器初始化");
+        System.out.println("进入token过滤器");
         HttpServletRequest req=(HttpServletRequest)request;
         HttpServletResponse res=(HttpServletResponse) response;
+        //忽略预检请求
+        if(!(req.getMethod().equals("GET")||req.getMethod().equals("POST"))){
+            chain.doFilter(request, response);
+            return;
+        }
         // 获取请求url地址，不拦截excludePathPatterns中的url
         String url = req.getRequestURI();
         if (Arrays.asList(excludePathPatterns).contains(url)) {

@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="68f46c33-7d16-429f-9772-f6b143785f8e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/config/WebMvcConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/util/PrecheckFilter.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/util/TokenFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/util/TokenFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/sustech/conferenceSystem/controler/user/LRControler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sustech/conferenceSystem/controler/user/LRControler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/sustech/conferenceSystem/service/user/LRService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sustech/conferenceSystem/service/user/LRService.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -98,11 +94,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/util/TokenFilter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="21" column="13" lean-forward="true" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+            <state relative-caret-position="133">
+              <caret line="33" column="75" selection-start-line="33" selection-start-column="75" selection-end-line="33" selection-end-column="75" />
             </state>
           </provider>
         </entry>
@@ -110,17 +106,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/config/CorsConfig.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
+            <state relative-caret-position="-111">
               <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/config/WebMvcConfig.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="10" column="39" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
+            <state relative-caret-position="212">
+              <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -131,7 +127,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/config/Swagger2Config.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="79">
+            <state relative-caret-position="-35">
               <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
             </state>
           </provider>
@@ -140,7 +136,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/config/WebSocketConfig.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
+            <state relative-caret-position="171">
               <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
             </state>
           </provider>
@@ -224,9 +220,9 @@
         <option value="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/controler/user/LRControler.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/bean/Authorization.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/util/PrecheckFilter.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/util/TokenFilter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/config/CorsConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/config/WebMvcConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/util/TokenFilter.java" />
       </list>
     </option>
   </component>
@@ -422,7 +418,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1584462034844" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1584462891417" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -626,14 +622,7 @@
       <workItem from="1582859976989" duration="19441000" />
       <workItem from="1583306864384" duration="24424000" />
       <workItem from="1583889113740" duration="32617000" />
-      <workItem from="1584345517491" duration="28025000" />
-    </task>
-    <task id="LOCAL-00040" summary="修改了/meeting/meeting_search 接口">
-      <created>1582273808506</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1582273808506</updated>
+      <workItem from="1584345517491" duration="28880000" />
     </task>
     <task id="LOCAL-00041" summary="修改了/meeting/meeting_search 接口">
       <created>1582273830445</created>
@@ -971,7 +960,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584461221433</updated>
     </task>
-    <option name="localTasksCounter" value="89" />
+    <task id="LOCAL-00089" summary="预检请求bug修复4">
+      <created>1584462057580</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1584462057580</updated>
+    </task>
+    <option name="localTasksCounter" value="90" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1007,7 +1003,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="334876000" />
+    <option name="totallyTimeSpent" value="335731000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -1102,7 +1098,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="添加了/meeting/meeting_modify接口" />
     <MESSAGE value="添加了/meeting/meeting_members_add接口和/meeting/meeting_members_delete接口" />
     <MESSAGE value="修改会议区间搜索小bug" />
     <MESSAGE value="添加mqtt和Register和AssignRoom接口" />
@@ -1127,7 +1122,8 @@
     <MESSAGE value="预检请求bug修复" />
     <MESSAGE value="预检请求bug修复2" />
     <MESSAGE value="预检请求bug修复3" />
-    <option name="LAST_COMMIT_MESSAGE" value="预检请求bug修复3" />
+    <MESSAGE value="预检请求bug修复4" />
+    <option name="LAST_COMMIT_MESSAGE" value="预检请求bug修复4" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/controler/user/UserSearchControler.java">
@@ -1541,41 +1537,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/util/TokenFilter.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/config/CorsConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="21" column="13" lean-forward="true" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/config/WebSocketConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        <state relative-caret-position="-111">
+          <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/config/Swagger2Config.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="79">
+        <state relative-caret-position="-35">
           <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/config/CorsConfig.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/config/WebSocketConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+        <state relative-caret-position="171">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/config/WebMvcConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="10" column="39" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
+        <state relative-caret-position="212">
+          <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/util/TokenFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="33" column="75" selection-start-line="33" selection-start-column="75" selection-end-line="33" selection-end-column="75" />
         </state>
       </provider>
     </entry>
