@@ -26,4 +26,5 @@ public class MeetingSimple {
     private String hostName;
     private String topic;
     private Integer meetingState;
+    private Integer userState;
 }
