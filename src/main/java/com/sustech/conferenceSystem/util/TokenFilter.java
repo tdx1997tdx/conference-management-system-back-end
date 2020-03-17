@@ -44,21 +44,21 @@ public class TokenFilter implements Filter {
         }
         String cookies=req.getHeader("Authorization");
         if (cookies==null){
-            res.sendError(407);
+            res.sendError(407,"Authorization中未检测到信息");
             return;
         }
         Authorization au=new Authorization();
         if(au.setAuthorization(cookies)){
-            res.sendError(407);
+            res.sendError(407,"Authorization中cookie信息格式不正确");
             return;
         }
         String CheckToken=(String) redisUtil.get(au.getUserId());
         if(CheckToken==null){
-            res.sendError(407);
+            res.sendError(407,"redis中找不到对应人物id的token数据");
             return;
         }
         if(!au.getToken().equals(CheckToken)){
-            res.sendError(407);
+            res.sendError(407,"token输入错误");
             return;
         }
         chain.doFilter(request, response);
