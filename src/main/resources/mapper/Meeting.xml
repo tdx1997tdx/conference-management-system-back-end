@@ -68,7 +68,7 @@
     </select>
 
     <select id="userMeeting7Search" resultType="com.sustech.conferenceSystem.dto.MeetingSimple">
-        select m.meeting_id,meeting_name,room_name,start_time,end_time,name host_name,topic,meeting_state,state user_state from user_and_meeting
+        select m.meeting_id,meeting_name,room_name,start_time,end_time,name host_name,host_id,topic,meeting_state,state user_state from user_and_meeting
         inner join meeting m on user_and_meeting.meeting_id = m.meeting_id
         inner join room on m.room_id=room.room_id
         inner join user on m.host_id=user.user_id
