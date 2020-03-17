@@ -2,7 +2,7 @@ package com.sustech.conferenceSystem.util;
 import com.alibaba.fastjson.serializer.ValueFilter;
 import java.lang.reflect.Field;
 
-public class Filter {
+public class JsonFilter {
 
     //fastjson用的过滤器，如果对象属性值为空，用字符串"null"代替
     private static ValueFilter filter = new ValueFilter() {

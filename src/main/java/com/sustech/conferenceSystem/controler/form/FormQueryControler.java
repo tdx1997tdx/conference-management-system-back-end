@@ -3,15 +3,12 @@ package com.sustech.conferenceSystem.controler.form;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.serializer.SerializerFeature;
-import com.sustech.conferenceSystem.dto.Device;
 import com.sustech.conferenceSystem.dto.Form;
-import com.sustech.conferenceSystem.service.device.DeviceQueryService;
 import com.sustech.conferenceSystem.service.form.FormQueryService;
-import com.sustech.conferenceSystem.util.Filter;
+import com.sustech.conferenceSystem.util.JsonFilter;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -60,7 +57,7 @@ public class FormQueryControler {
     @RequestMapping(value = "/form_detail", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
     public String deviceDetail(@RequestBody JSONObject jsonParam){
         Form form = JSON.parseObject(jsonParam.toString(), Form.class);
-        Filter.attributeFilter(form);
+        JsonFilter.attributeFilter(form);
         Form result=formQueryService.formDetailService(form);
         return JSON.toJSONString(result, SerializerFeature.DisableCircularReferenceDetect);
     }

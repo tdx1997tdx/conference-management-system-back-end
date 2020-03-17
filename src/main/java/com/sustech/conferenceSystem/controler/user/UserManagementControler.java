@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.sustech.conferenceSystem.dto.User;
 import com.sustech.conferenceSystem.service.user.UserManagementService;
-import com.sustech.conferenceSystem.util.Filter;
+import com.sustech.conferenceSystem.util.JsonFilter;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -29,7 +29,7 @@ public class UserManagementControler {
     @RequestMapping(value = "/modify_info", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
     public String modifyInfo(@RequestBody JSONObject jsonParam){
         User user = JSON.parseObject(jsonParam.toString(), User.class);
-        Filter.attributeFilter(user);
+        JsonFilter.attributeFilter(user);
         Map result=userManagementService.modifyInfoService(user);
         return JSON.toJSONString(result);
     }
@@ -43,7 +43,7 @@ public class UserManagementControler {
     public String showInfo(@RequestBody JSONObject jsonParam){
         User user = JSON.parseObject(jsonParam.toString(), User.class);
         User u=userManagementService.showInfoService(user);
-        return JSON.toJSONString(u,Filter.getFilter());
+        return JSON.toJSONString(u, JsonFilter.getFilter());
     }
 
 

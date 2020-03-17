@@ -4,10 +4,14 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.sustech.conferenceSystem.dto.User;
 import com.sustech.conferenceSystem.service.user.LRService;
-import com.sustech.conferenceSystem.util.Filter;
+import com.sustech.conferenceSystem.util.JsonFilter;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.servlet.ServletRequest;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
 
 /**
@@ -41,32 +45,34 @@ public class LRControler {
     @RequestMapping(value = "/regist", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
     public String regist(@RequestBody JSONObject jsonParam){
         User user = JSON.parseObject(jsonParam.toString(), User.class);
-        Filter.attributeFilter(user);
+        JsonFilter.attributeFilter(user);
         Map result=lrService.registService(user);
         return JSON.toJSONString(result);
     }
 
     /**
      * /user/login_verification 接口，用于登陆验证
-     * @param jsonParam
      * @return
      */
-    @RequestMapping(value = "/login_verification", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
-    public String loginVerification(@RequestBody JSONObject jsonParam){
-        String cookie=jsonParam.getString("cookie");
-        Map result=lrService.loginVerificationService(cookie);
+    @GetMapping(value = "/login_verification")
+    public String loginVerification(HttpServletRequest request){
+        Cookie[] cookies=request.getCookies();
+        String userId=cookies[0].getValue();
+        String token=cookies[1].getValue();
+        Map result=lrService.loginVerificationService(userId,token);
         return JSON.toJSONString(result);
     }
 
     /**
      * /user/login_exit 接口，用于退出登陆
-     * @param jsonParam
      * @return
      */
-    @RequestMapping(value = "/login_exit", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
-    public String loginExit(@RequestBody JSONObject jsonParam){
-        String token=jsonParam.getString("token");
-        Map result=lrService.loginExitService(token);
+    @GetMapping(value = "/login_exit")
+    public String loginExit(HttpServletRequest request){
+        Cookie[] cookies=request.getCookies();
+        String userId=cookies[0].getValue();
+        String token=cookies[1].getValue();
+        Map result=lrService.loginExitService(userId,token);
         return JSON.toJSONString(result);
     }
 }

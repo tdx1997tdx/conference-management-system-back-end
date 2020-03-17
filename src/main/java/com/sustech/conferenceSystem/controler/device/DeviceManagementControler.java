@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.sustech.conferenceSystem.dto.Device;
 import com.sustech.conferenceSystem.service.device.DeviceManagementService;
-import com.sustech.conferenceSystem.util.Filter;
+import com.sustech.conferenceSystem.util.JsonFilter;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -29,7 +29,7 @@ public class DeviceManagementControler {
     @RequestMapping(value = "/device_add", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
     public String deviceAdd(@RequestBody JSONObject jsonParam){
         Device device = JSON.parseObject(jsonParam.toString(), Device.class);
-        Filter.attributeFilter(device);
+        JsonFilter.attributeFilter(device);
         Map result=deviceManagementService.deviceAddService(device);
         return JSON.toJSONString(result);
     }
@@ -54,7 +54,7 @@ public class DeviceManagementControler {
     @RequestMapping(value = "/device_modify", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
     public String deviceModify(@RequestBody JSONObject jsonParam){
         Device device = JSON.parseObject(jsonParam.toString(), Device.class);
-        Filter.attributeFilter(device);
+        JsonFilter.attributeFilter(device);
         Map result=deviceManagementService.deviceModifyService(device);
         return JSON.toJSONString(result);
     }

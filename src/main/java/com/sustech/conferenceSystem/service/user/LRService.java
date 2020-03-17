@@ -24,20 +24,26 @@ public class LRService {
      * @param user 传入javabean的user对象
      * @return map类型的结果state 0代表失败1代表成功
      */
-    public Map<String,String> loginService(User user){
-        Map<String,String> res=new HashMap<>();
+    public Map<String,Object> loginService(User user){
+        Map<String,Object> res=new HashMap<>();
         List<User> users=userMapper.searchUser(user);
         if(users.size()==0){
             res.put("state","0");
             res.put("message","用户名或密码错误,或者权限选择错误");
         }else {
-            String token= UUID.randomUUID().toString();
+            String token;
+            token = UUID.randomUUID().toString().replaceAll(";","").replaceAll("=","");
             Map<String,Object> map=new HashMap<>();
             map.put("userId",users.get(0).getUserId());
             map.put("username",users.get(0).getUsername());
-            redisUtil.hmset(token,map,432000);
+            synchronized(users){
+                redisUtil.hmset(token,map,432000);
+                redisUtil.set(String.valueOf(users.get(0).getUserId()),token,432000);
+            }
             res.put("state","1");
-            res.put("set_cookie",token);
+            res.put("user_id",users.get(0).getUserId());
+            res.put("username",users.get(0).getUsername());
+            res.put("token",token);
             res.put("message","登陆成功");
         }
         return res;
@@ -68,20 +74,18 @@ public class LRService {
 
     /**
      * 处理验证的业务逻辑
-     * @param cookie 传入待验证的cookie
+     * @param token 传入待验证的token
      * @return map类型的结果state 0代表失败1代表成功
      */
-    public Map<String,String> loginVerificationService(String cookie){
+    public Map<String,String> loginVerificationService(String userId,String token){
         Map<String,String> res=new HashMap<>();
-        Map<Object,Object> map=redisUtil.hmget(cookie);
+        Map<Object,Object> map=redisUtil.hmget(token);
         System.out.println(map.get("username")+" "+map.get("userId"));
         if(map.get("userId")!=null){
-            res.put("state","1");
             res.put("username",(String)map.get("username"));
             res.put("user_id",String.valueOf(map.get("userId")));
             res.put("message","验证成功");
         }else {
-            res.put("state","0");
             res.put("message","验证失败");
         }
         return res;
@@ -92,10 +96,13 @@ public class LRService {
      * @param token 要删除的token
      * @return map类型的结果state 0代表失败1代表成功
      */
-    public Map<String,String> loginExitService(String token){
+    public Map<String,String> loginExitService(String userId,String token){
         Map<String,String> res=new HashMap<>();
         try {
-            redisUtil.delete(token);
+            synchronized (res){
+                redisUtil.delete(token);
+                redisUtil.delete(userId);
+            }
             res.put("state","1");
             res.put("message","删除成功");
         }catch (Exception e){
