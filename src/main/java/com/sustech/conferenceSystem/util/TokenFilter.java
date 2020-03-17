@@ -54,6 +54,8 @@ public class TokenFilter implements Filter {
             System.out.println("Authorization中cookie信息格式不正确");
             return;
         }
+        System.out.println("id:"+au.getUserId());
+        System.out.println("token:"+au.getToken());
         String CheckToken=(String) redisUtil.get(au.getUserId());
         if(CheckToken==null){
             res.sendError(407,"redis中找不到对应人物id的token数据");
