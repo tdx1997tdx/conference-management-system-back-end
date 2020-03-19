@@ -2,9 +2,11 @@ package com.sustech.conferenceSystem.controler.inform;
 
 import com.alibaba.fastjson.JSON;
 import com.sustech.conferenceSystem.dto.Message;
+import com.sustech.conferenceSystem.util.RedisUtil;
 import lombok.Getter;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.Resource;
 import javax.websocket.*;
 import javax.websocket.server.PathParam;
 import javax.websocket.server.ServerEndpoint;
@@ -17,7 +19,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  *  @ServerEndpoint 注解的值为URI,映射客户端输入的URL来连接到WebSocket服务器端
  */
 @Component
-@ServerEndpoint("/{id}/{name}")
+@ServerEndpoint("/{id}/{token}/{name}")
 @Getter
 public class WebSocketControler {
     /** 用来记录当前在线连接数。设计成线程安全的，原子计数。*/
@@ -25,6 +27,8 @@ public class WebSocketControler {
     /** 用于保存uri对应的连接服务，{uri:WebSocketServer}，设计成线程安全的 */
     public static ConcurrentHashMap<String, WebSocketControler> webSocketServerMAP = new ConcurrentHashMap<>();
     // 存储各个客户端连接情况，包含uri，session等，package-private
+    @Resource
+    private RedisUtil redisUtil;
     private Session session;// 与某个客户端的连接会话，需要通过它来给客户端发送数据
     private String id;   //客户端用户ID，验证客户身份
     private String name; //客户端用户名字，验证客户身份
@@ -39,21 +43,32 @@ public class WebSocketControler {
      * @throws IOException
      */
     @OnOpen
-    public void onOpen(Session session, @PathParam("id") String id, @PathParam("name") String name) throws IOException {
+    public void onOpen(Session session, @PathParam("id") String id, @PathParam("token") String token, @PathParam("name") String name) throws IOException {
         this.session = session;
         this.id = id;
         this.name = name;
         this.uri = session.getRequestURI().toString();
         String namespace = id + name;
 
+        System.out.println("onOpen token: " + token);
+        String CheckToken=(String) redisUtil.get(id);
+        if(!token.equals(CheckToken)){
+//        if (!token.equals("abc123")) {
+            System.out.println("onOpen: return");
+            addOnlineCount(); // 在线数加1
+            this.id = "";
+            this.name = "";
+            session.close();
+            return;
+        }
+
         Message message = new Message();
         message.setMessageTopic("onOpen");
         WebSocketControler webSocketControler = webSocketServerMAP.get(namespace);
         if(webSocketControler != null){ //同样业务的连接已经在线，则把原来的挤下线。
-            // 需要添加cookie认证（未实现）
             message.setMessageBody(uri + "重复连接被挤下线了");
             webSocketControler.sendMessage(message);
-            webSocketControler.onClose();//关闭连接，触发关闭连接方法onClose()
+            webSocketControler.session.close();//关闭连接，触发关闭连接方法onClose()
         }
         webSocketServerMAP.put(namespace, this);//保存uri对应的连接服务
         addOnlineCount(); // 在线数加1
@@ -73,6 +88,7 @@ public class WebSocketControler {
         webSocketServerMAP.remove(namespace);//删除uri对应的连接服务
         reduceOnlineCount(); // 在线数减1
         System.out.println("onClose: " + uri);
+        System.out.println("onClose: " + namespace);
         System.out.println("有一连接关闭！当前在线连接数" + getOnlineCount());
     }
 
