@@ -36,6 +36,7 @@ public class LRService {
             Map<String,Object> map=new HashMap<>();
             map.put("userId",users.get(0).getUserId());
             map.put("username",users.get(0).getUsername());
+            map.put("name",users.get(0).getName());
             synchronized(users){
                 redisUtil.hmset(token,map,432000);
                 redisUtil.set(String.valueOf(users.get(0).getUserId()),token,432000);
@@ -43,6 +44,7 @@ public class LRService {
             res.put("state","1");
             res.put("user_id",users.get(0).getUserId());
             res.put("username",users.get(0).getUsername());
+            map.put("name",users.get(0).getName());
             res.put("token",token);
             res.put("message","登陆成功");
         }
@@ -80,9 +82,9 @@ public class LRService {
     public Map<String,String> loginVerificationService(String userId,String token){
         Map<String,String> res=new HashMap<>();
         Map<Object,Object> map=redisUtil.hmget(token);
-        System.out.println(map.get("username")+" "+map.get("userId"));
         if(map.get("userId")!=null){
             res.put("username",(String)map.get("username"));
+            res.put("name",(String)map.get("name"));
             res.put("user_id",String.valueOf(map.get("userId")));
             res.put("message","验证成功");
         }else {

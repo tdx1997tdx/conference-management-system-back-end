@@ -37,7 +37,16 @@
     </resultMap>
 
     <insert id="addUserAndMeeting" parameterType="com.sustech.conferenceSystem.dto.UserAndMeeting">
-        insert into user_and_meeting(user_id,meeting_id,state,message)
-          values (#{userId},#{meetingId},#{state},#{message})
+        insert into user_and_meeting(user_id,meeting_id)
+          values (#{userId},#{meetingId})
     </insert>
+    <!--判断相关会议是否开始-->
+    <select id="isBegin" resultType="com.sustech.conferenceSystem.dto.MeetingSimple">
+        select meeting_id from meeting where meeting_id=#{meetingId} and <![CDATA[now()>=start_time]]>
+    </select>
+
+    <!--某人参加会议-->
+    <update id="updateJoin">
+        update user_and_meeting set state=#{state} where meeting_id=#{meetingId} and user_id=#{userId}
+    </update>
 </mapper>
