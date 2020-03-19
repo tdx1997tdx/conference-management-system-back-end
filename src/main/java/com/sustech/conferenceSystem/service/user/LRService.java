@@ -44,6 +44,7 @@ public class LRService {
             res.put("state","1");
             res.put("user_id",users.get(0).getUserId());
             res.put("username",users.get(0).getUsername());
+            map.put("name",users.get(0).getName());
             res.put("token",token);
             res.put("message","登陆成功");
         }
