@@ -149,16 +149,6 @@
         </foreach>
     </delete>
 
-    <!--判断相关会议是否开始-->
-    <select id="isBegin" resultType="com.sustech.conferenceSystem.dto.MeetingSimple">
-        select meeting_id from meeting where meeting_id=#{meetingId} and <![CDATA[now()>=start_time]]>
-    </select>
-
-    <!--某人参加会议-->
-    <update id="updateJoin">
-        update user_and_meeting set state=#{state} where meeting_id=#{meetingId} and user_id=#{userId}
-    </update>
-
 
     <!-- key-value -->
     <sql id="kv_and">

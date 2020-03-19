@@ -239,13 +239,13 @@ public class MeetingManagerService {
      */
     public Map<String,String> signInService(Integer userId,Integer meetingId){
         Map<String,String> res = new HashMap<>();
-        List<MeetingSimple> l=meetingMapper.isBegin(meetingId);
+        List<MeetingSimple> l=userAndMeetingMapper.isBegin(meetingId);
         if(l.size()==0){
             res.put("state","0");
             res.put("message","会议未开始");
             return res;
         }
-        meetingMapper.updateJoin(userId,meetingId,1);
+        userAndMeetingMapper.updateJoin(userId,meetingId,1);
         res.put("state","1");
         res.put("message","签到成功");
         return res;
@@ -257,7 +257,7 @@ public class MeetingManagerService {
      */
     public Map<String,String> acceptService(Integer userId,Integer meetingId){
         Map<String,String> res = new HashMap<>();
-        meetingMapper.updateJoin(userId,meetingId,0);
+        userAndMeetingMapper.updateJoin(userId,meetingId,0);
         res.put("state","1");
         res.put("message","接受成功");
         return res;
@@ -269,7 +269,7 @@ public class MeetingManagerService {
      */
     public Map<String,String> rejectService(Integer userId,Integer meetingId){
         Map<String,String> res = new HashMap<>();
-        meetingMapper.updateJoin(userId,meetingId,3);
+        userAndMeetingMapper.updateJoin(userId,meetingId,3);
         res.put("state","1");
         res.put("message","拒绝成功");
         return res;
