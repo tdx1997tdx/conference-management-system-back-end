@@ -20,7 +20,8 @@ public class InitMqtt {
         mqttPushClient.subscribe("Register");
         List<Room> rooms=roomMapper.searchRoom(new Room());
         for(Room r:rooms){
-            mqttPushClient.subscribe(r.getRoomName());
+            mqttPushClient.subscribe(r.getRoomId()+"_feedback");
+            mqttPushClient.subscribe(r.getRoomId()+"_touch_pad_fb");
         }
     }
 }

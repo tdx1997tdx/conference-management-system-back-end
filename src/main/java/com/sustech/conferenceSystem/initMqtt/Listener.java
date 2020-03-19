@@ -22,7 +22,24 @@ public class Listener {
         if(topic.equals("Register")){
             String res=registerProcessor(message);
             mqttConfiguration.getMqttPushClient().publish(2,false,"AssignRoom",res);
+            return;
         }
+        String roomId=topic.split("_")[0];
+        Map<String,String> mess = JSON.parseObject(message,Map.class);
+        Device device=new Device();
+        device.setDeviceId(Integer.parseInt(mess.get("device_id")));
+        device.setState(fliter(mess.get("device_status")));
+        deviceMapper.updateDevice(device);
+    }
+    private Integer fliter(String staus){
+        if(staus.equals("off")){
+            return 0;
+        }else if(staus.equals("on")){
+            return 1;
+        }else if(staus.equals("tv_notify")){
+            return 2;
+        }
+        return null;
     }
     private String registerProcessor(String message){
         Map<String,String> res=new HashMap<>();
@@ -33,7 +50,7 @@ public class Listener {
         if(devices.size()!=0){
             d=devices.get(0);
             res.put("device_id",String.valueOf(d.getDeviceId()));
-            res.put("room_name",d.getRoom().getRoomName());
+            res.put("room_id",d.getRoom().getRoomId()+"");
         }
         return JSON.toJSONString(res);
     }
