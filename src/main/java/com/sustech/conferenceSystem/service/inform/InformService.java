@@ -8,6 +8,7 @@ import java.util.Date;
 import com.sustech.conferenceSystem.controler.inform.LongPullingController;
 import com.sustech.conferenceSystem.controler.inform.WebSocketControler;
 import com.sustech.conferenceSystem.dto.MeetingFull;
+import com.sustech.conferenceSystem.dto.MeetingSimple;
 import com.sustech.conferenceSystem.dto.Message;
 import com.sustech.conferenceSystem.dto.User;
 import com.sustech.conferenceSystem.mapper.MeetingMapper;
@@ -107,24 +108,24 @@ public class InformService {
      */
     @Scheduled(cron="0 * *  * * ? ")
     public void meetingCheck(){
-        if (!INFORM_TEST_ON) {
+        if (INFORM_TEST_ON) {
             return;
         }
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date dateNow = new Date();
-        System.out.println("当前时间为："+sdf.format(dateNow));
-//        for (MeetingSimple meetingSimple: meetingMapper.meetingGetAll()) {
-//            // 需要在sql级别进行优化，减少检索范围（未完成）
-//            if (isDateDiffMin(meetingSimple.getStartTime(), dateNow, BEFORE_MEETING_OPEN_INFORM)) {
-//                // 会议开始前20分钟，不可更改会议信息，通知与会人员
-//                MeetingFull meetingFull = meetingMapper.meetingSearchCertain(meetingSimple.getMeetingId());
-//                meetingInform(meetingFull, Reason.OPENBEFORE);
-//            } else if (isDateDiffMin(meetingSimple.getStartTime(), dateNow, BEFORE_MEETING_OPEN)) {
-//                // 会议开始前10分钟，自动开灯，电视机，空调，音响等设备（未完成）
-//            } else if (isDateDiffMin(dateNow, meetingSimple.getStartTime(), BEFORE_MEETING_CLOSE_INFORM)) {
-//                // 会议结束之前10分钟，在会议平板（电视机）上显示提示信息（未完成）
-//            }
-//        }
+        System.out.println("meetingCheck: 当前时间为："+sdf.format(dateNow));
+        for (MeetingSimple meetingSimple: meetingMapper.meetingGetAll()) {
+            // 需要在sql级别进行优化，减少检索范围（未完成）
+            if (isDateDiffMin(meetingSimple.getStartTime(), dateNow, BEFORE_MEETING_OPEN_INFORM)) {
+                // 会议开始前20分钟，不可更改会议信息，通知与会人员
+                MeetingFull meetingFull = meetingMapper.meetingSearchCertain(meetingSimple.getMeetingId());
+                meetingInform(meetingFull, InformReason.OPENBEFORE);
+            } else if (isDateDiffMin(meetingSimple.getStartTime(), dateNow, BEFORE_MEETING_OPEN)) {
+                // 会议开始前10分钟，自动开灯，电视机，空调，音响等设备（未完成）
+            } else if (isDateDiffMin(dateNow, meetingSimple.getStartTime(), BEFORE_MEETING_CLOSE_INFORM)) {
+                // 会议结束之前10分钟，在会议平板（电视机）上显示提示信息（未完成）
+            }
+        }
     }
 
     /**
@@ -150,7 +151,7 @@ public class InformService {
      */
 //    @Scheduled(cron="0/5 * *  * * ? ")
     public String informAll(){
-//        if (!INFORM_TEST_ON) {
+//        if (INFORM_TEST_ON) {
 //            return;
 //        }
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -196,7 +197,7 @@ public class InformService {
     private static final String FIRST_USER_NAME = "YYJ";
 //    @Scheduled(cron="0/5 * *  * * ? ")
 //    public void informFirstUser() throws IOException{
-//        if (!INFORM_TEST_ON) {
+//        if (INFORM_TEST_ON) {
 //            return;
 //        }
     public String informFirstUser() throws IOException{

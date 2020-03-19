@@ -192,7 +192,7 @@ public class MeetingManagerService {
                 return res;
             }
         }
-        //通知相关人员(未完成)
+        //通知相关人员
         informService.meetingInform(meeting, InformReason.CREATE);
 
         //添加会议
