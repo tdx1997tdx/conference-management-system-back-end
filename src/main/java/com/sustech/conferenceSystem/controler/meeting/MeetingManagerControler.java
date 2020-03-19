@@ -93,7 +93,7 @@ public class MeetingManagerControler {
             method = RequestMethod.POST,
             produces = "application/json;charset=UTF-8")
     public String signIn(@RequestBody JSONObject jsonParam){
-        int userId=jsonParam.getInteger("meeting_id");
+        int userId=jsonParam.getInteger("user_id");
         int meetingId=jsonParam.getInteger("meeting_id");
         Map<String, String> result = meetingManagerService.signInService(userId,meetingId);
         return JSON.toJSONString(result);
@@ -107,7 +107,7 @@ public class MeetingManagerControler {
             method = RequestMethod.POST,
             produces = "application/json;charset=UTF-8")
     public String accept(@RequestBody JSONObject jsonParam){
-        int userId=jsonParam.getInteger("meeting_id");
+        int userId=jsonParam.getInteger("user_id");
         int meetingId=jsonParam.getInteger("meeting_id");
         Map<String, String> result = meetingManagerService.acceptService(userId,meetingId);
         return JSON.toJSONString(result);
@@ -121,7 +121,7 @@ public class MeetingManagerControler {
             method = RequestMethod.POST,
             produces = "application/json;charset=UTF-8")
     public String reject(@RequestBody JSONObject jsonParam){
-        int userId=jsonParam.getInteger("meeting_id");
+        int userId=jsonParam.getInteger("user_id");
         int meetingId=jsonParam.getInteger("meeting_id");
         Map<String, String> result = meetingManagerService.rejectService(userId,meetingId);
         return JSON.toJSONString(result);
