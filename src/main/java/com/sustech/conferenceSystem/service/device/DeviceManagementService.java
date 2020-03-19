@@ -25,19 +25,14 @@ public class DeviceManagementService {
      */
     public Map<String,String> deviceAddService(Device device){
         Map<String,String> res=new HashMap<>();
-        List<Device> devices = null;
-//        List<Device> devices = deviceMapper.isDeviceExist(device);
-        // 检测是否有重复的设备，未完成
-        boolean isSuccess = false;
-        if(devices == null || devices.size() == 0) {
-            isSuccess = deviceMapper.addDevice(device);
-        }
-        if(isSuccess){
+        try{
+            deviceMapper.addDevice(device);
             res.put("state","1");
             res.put("message","添加设备成功");
-        }else {
+        }catch (Exception e){
+            e.printStackTrace();
             res.put("state","0");
-            res.put("message","添加设备失败");
+            res.put("message","添加设备失败，设备重复");
         }
         return res;
     }
@@ -67,16 +62,14 @@ public class DeviceManagementService {
      */
     public Map<String,String> deviceModifyService(Device device){
         Map<String,String> res=new HashMap<>();
-        boolean isSuccess = false;
-        if(deviceMapper.findDeviceById(device.getDeviceId()) != null) {
-            isSuccess = deviceMapper.updateDevice(device);
-        }
-        if(isSuccess){
+        try{
+            deviceMapper.updateDevice(device);
             res.put("state","1");
             res.put("message","更改设备成功");
-        }else {
+        }catch (Exception e){
+            e.printStackTrace();
             res.put("state","0");
-            res.put("message","更改设备失败");
+            res.put("message","更改设备失败,重名");
         }
         return res;
     }

@@ -1,7 +1,5 @@
 package com.sustech.conferenceSystem.service.meeting;
 
-import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
 import com.sustech.conferenceSystem.dto.MeetingFull;
 import com.sustech.conferenceSystem.dto.MeetingSimple;
 import com.sustech.conferenceSystem.dto.User;
@@ -9,11 +7,9 @@ import com.sustech.conferenceSystem.dto.UserAndMeeting;
 import com.sustech.conferenceSystem.mapper.MeetingMapper;
 import com.sustech.conferenceSystem.mapper.UserAndMeetingMapper;
 import com.sustech.conferenceSystem.mapper.UserMapper;
-import io.swagger.models.auth.In;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

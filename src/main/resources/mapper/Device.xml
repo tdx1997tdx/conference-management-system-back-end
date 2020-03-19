@@ -65,12 +65,6 @@
             <if test="repairTime!=null">
                 repair_time,
             </if>
-            <if test="mttr!=null">
-                mttr,
-            </if>
-            <if test="mtbf!=null">
-                mtbf,
-            </if>
             <if test="roomId!=null">
                 room_id
             </if>
@@ -91,12 +85,6 @@
             </if>
             <if test="repairTime!=null">
                 #{repairTime},
-            </if>
-            <if test="mttr!=null">
-                #{mttr},
-            </if>
-            <if test="mtbf!=null">
-                #{mtbf},
             </if>
             <if test="roomId!=null">
                 #{roomId}
@@ -119,11 +107,8 @@
             <if test="repairTime!=null">
                 repair_time = #{repairTime},
             </if>
-            <if test="mttr!=null">
-                mttr = #{mttr},
-            </if>
-            <if test="mtbf!=null">
-                mttr = #{mtbf},
+            <if test="state!=null">
+                state = #{state},
             </if>
             <if test="room!=null">
                 room_id = #{room.roomId}
@@ -146,14 +131,11 @@
             <if test="repairTime!=null">
                 repair_time = #{repairTime} and
             </if>
-            <if test="mttr!=null">
-                mttr = #{mttr} and
+            <if test="state!=null">
+                state = #{state} and
             </if>
-            <if test="mtbf!=null">
-                mttr = #{mtbf} and
-            </if>
-            <if test="room!=null">
-                room_id = #{room.roomId}
+            <if test="roomId!=null">
+                room_id = #{roomId}
             </if>
         </trim>
     </sql>
