@@ -98,8 +98,8 @@ public class InformService {
         }
         System.out.println("该用户未与服务器建立websocket连接 id:" + id + " name: " + name);
         if (watchRequests.containsKey(namespace)) {
-            Collection<DeferredResult<Message>> deferredResults = watchRequests.get(namespace);
-            LongPullingController.sendMessage(message, deferredResults);
+            DeferredResult<Message> deferredResult = watchRequests.get(namespace);
+            LongPullingController.sendMessage(message, deferredResult);
             return "LongPulling success";
         }
         System.out.println("该用户未与服务器建立long pulling连接 id:" + id + " name: " + name);

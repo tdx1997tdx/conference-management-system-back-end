@@ -14,20 +14,29 @@ import org.springframework.web.context.request.async.DeferredResult;
 
 import java.io.IOException;
 import java.util.Collection;
+import java.util.concurrent.ConcurrentHashMap;
 
 @RestController
 public class LongPullingController {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     //guava中的Multimap，多值map,对map的增强，一个key可以保持多个value
-    public static Multimap<String, DeferredResult<Message>> watchRequests = Multimaps.synchronizedSetMultimap(HashMultimap.create());
+    public static ConcurrentHashMap<String, DeferredResult<Message>> watchRequests = new ConcurrentHashMap<>();
 
     //模拟长轮询
-    @RequestMapping(value = "/watch/{id}/{name}", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
+    @RequestMapping(value = "/connect/{id}/{name}", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
     public DeferredResult<Message> watch(@PathVariable("id") String id, @PathVariable("name") String name) {
         String namespace = id + name;
         System.out.println("-------------------------");
         System.out.println("namespace:" + namespace);
+        if (watchRequests.containsKey(namespace)) {
+            System.out.println("containsKey");
+            disconnect(id, name);
+        }
+        return getMessageDeferredResult(namespace);
+    }
+
+    public DeferredResult<Message> getMessageDeferredResult(String namespace) {
         DeferredResult<Message> deferredResult = new DeferredResult<>();
 
         //当deferredResult完成时（不论是超时还是异常还是正常完成），移除watchRequests中相应的watch key
@@ -44,27 +53,24 @@ public class LongPullingController {
     }
 
     //模拟发布namespace配置
-    @RequestMapping(value = "/publish/{namespace}", method = RequestMethod.GET, produces = "text/html")
-    public Object publishConfig(@PathVariable("namespace") String namespace) {
+    @RequestMapping(value = "/disconnect/{id}/{name}", method = RequestMethod.GET, produces = "text/html")
+    public Object disconnect(@PathVariable("id") String id, @PathVariable("name") String name) {
+        String namespace = id + name;
         if (watchRequests.containsKey(namespace)) {
-            Collection<DeferredResult<Message>> deferredResults = watchRequests.get(namespace);
-            Long time = System.currentTimeMillis();
-            //通知所有watch这个namespace变更的长轮训配置变更结果
-            for (DeferredResult<Message> deferredResult : deferredResults) {
-                Message msg = new Message();
-                msg.setMessageBody(namespace + " changed:" + time);
-                deferredResult.setResult(msg);
-            }
-            return "success";
+            DeferredResult<Message> deferredResult = watchRequests.get(namespace);
+            Message msg = new Message();
+            msg.setMessageBody("连接已断开");
+            msg.setSenderName(name);
+            msg.setMessageTopic("disconnect success");
+            deferredResult.setResult(msg);
+            return "disconnect success";
         } else {
-            return "failed";
+            return "disconnect failed";
         }
     }
 
-    public static void sendMessage(Message message, Collection<DeferredResult<Message>> deferredResults) {
+    public static void sendMessage(Message message, DeferredResult<Message> deferredResult) {
         //通知所有watch这个namespace变更的长轮训配置变更结果
-        for (DeferredResult<Message> deferredResult : deferredResults) {
-            deferredResult.setResult(message);
-        }
+        deferredResult.setResult(message);
     }
 }
