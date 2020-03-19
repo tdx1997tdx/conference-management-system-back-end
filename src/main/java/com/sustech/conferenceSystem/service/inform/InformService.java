@@ -69,8 +69,6 @@ public class InformService {
         }
     }
 
-
-
     /**
      * 向指定ID，指定name的用户推送消息message
      * @param id 人员对象
@@ -81,10 +79,6 @@ public class InformService {
     public String messageInform(String id, String name, Message message) throws IOException{
         message.setReceiverName(name);
 
-//        StringBuilder receiverUri = new StringBuilder(WEBSOCKET_URI);
-//        receiverUri.append(id)
-//                .append("/")
-//                .append(name);
         String namespace = id + name;
 
         if (!messageManagementService.messageAddService(message)) {
@@ -106,6 +100,7 @@ public class InformService {
         return "未建立连接 id:" + id + " name: " + name + " namespace: " + namespace;
 //        webSocketServer.session.getBasicRemote().sendText(message);
     }
+
     /**
      * 每1分钟执行一次
      * 检查每个会议，是否到需要通知与会人员 / 操作会议设备 （未实现）
