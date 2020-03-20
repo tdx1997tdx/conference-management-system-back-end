@@ -52,18 +52,18 @@ public class WebSocketControler {
 
         System.out.println("onOpen token: " + token);
         String CheckToken=(String) redisUtil.get(id);
-        if(!token.equals(CheckToken)){
-//        if (!token.equals("abc123")) {
-            System.out.println("onOpen: return");
-            session.getBasicRemote().sendText("\nCheckToken " + CheckToken);
-            session.getBasicRemote().sendText("\nid" + id);
-            session.getBasicRemote().sendText("\ntoken" + token);
-            addOnlineCount(); // 在线数加1
-            this.id = "";
-            this.name = "";
-            session.close();
-            return;
-        }
+//        if(!token.equals(CheckToken)){
+////        if (!token.equals("abc123")) {
+//            System.out.println("onOpen: return");
+//            session.getBasicRemote().sendText("\nCheckToken " + CheckToken);
+//            session.getBasicRemote().sendText("\nid" + id);
+//            session.getBasicRemote().sendText("\ntoken" + token);
+//            addOnlineCount(); // 在线数加1
+//            this.id = "";
+//            this.name = "";
+//            session.close();
+//            return;
+//        }
 
         Message message = new Message();
         message.setMessageTopic("onOpen");
