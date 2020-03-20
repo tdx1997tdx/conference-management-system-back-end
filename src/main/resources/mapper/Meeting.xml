@@ -26,9 +26,17 @@
         <association property="members" javaType="java.util.ArrayList"
                      column="meeting_id" select="com.sustech.conferenceSystem.mapper.MeetingMapper.findMeetingMembers">
         </association>
-        <!--查询absent信息-->
-        <association property="absent" javaType="java.util.ArrayList"
-                     column="meeting_id" select="com.sustech.conferenceSystem.mapper.MeetingMapper.findMeetingAbsent">
+        <!--查询noAccept信息-->
+        <association property="noAccept" javaType="java.util.ArrayList"
+                     column="meeting_id" select="com.sustech.conferenceSystem.mapper.MeetingMapper.findMeetingNoAccept">
+        </association>
+        <!--查询reject信息-->
+        <association property="reject" javaType="java.util.ArrayList"
+                     column="meeting_id" select="com.sustech.conferenceSystem.mapper.MeetingMapper.findMeetingReject">
+        </association>
+        <!--查询Unsign信息-->
+        <association property="unSign" javaType="java.util.ArrayList"
+                     column="meeting_id" select="com.sustech.conferenceSystem.mapper.MeetingMapper.findMeetingUnsign">
         </association>
         <!--查询attendance信息-->
         <association property="attendance" javaType="java.util.ArrayList"
@@ -120,18 +128,34 @@
                 meeting_id = #{meetingId}
         </where>
     </select>
-    <!--查询会议参加成员-->
-    <select id="findMeetingAttend" resultType="com.sustech.conferenceSystem.dto.User">
+    <!--查询会议未签到-->
+    <select id="findMeetingUnsign" resultType="com.sustech.conferenceSystem.dto.User">
         select u.user_id,name,state from user_and_meeting uam inner join user u on uam.user_id = u.user_id
         <where>
             meeting_id = #{meetingId} and state=0
         </where>
     </select>
-    <!--查询会议缺席成员-->
-    <select id="findMeetingAbsent" resultType="com.sustech.conferenceSystem.dto.User">
+    <!--查询参会成员-->
+    <select id="findMeetingAttend" resultType="com.sustech.conferenceSystem.dto.User">
         select u.user_id,name,state from user_and_meeting uam inner join user u on uam.user_id = u.user_id
         <where>
             meeting_id = #{meetingId} and state=1
+        </where>
+    </select>
+
+    <!--查询会议已拒绝成员-->
+    <select id="findMeetingReject" resultType="com.sustech.conferenceSystem.dto.User">
+        select u.user_id,name,state from user_and_meeting uam inner join user u on uam.user_id = u.user_id
+        <where>
+            meeting_id = #{meetingId} and state=3
+        </where>
+    </select>
+
+    <!--查询会议未接受成员-->
+    <select id="findMeetingNoAccept" resultType="com.sustech.conferenceSystem.dto.User">
+        select u.user_id,name,state from user_and_meeting uam inner join user u on uam.user_id = u.user_id
+        <where>
+            meeting_id = #{meetingId} and state=2
         </where>
     </select>
 

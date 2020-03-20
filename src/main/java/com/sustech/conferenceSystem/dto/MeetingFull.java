@@ -26,8 +26,10 @@ public class MeetingFull {
     private List<User> members;
     private String topic;
     private String meetingAbstract;
-    private List<User> absent;
-    private List<User> attendance;
+    private List<User> noAccept;//等待接受成员
+    private List<User> reject;//已拒绝成员
+    private List<User> unSign;//未签到成员
+    private List<User> attendance;//签到成员
     private String remark;
     private Integer meetingState;
 }
