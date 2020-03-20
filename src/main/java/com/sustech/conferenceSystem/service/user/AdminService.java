@@ -28,6 +28,10 @@ public class AdminService {
         PageHelper.startPage(page, volume);
         List<User> list=userMapper.fuzzySearchUser(username);
         PageInfo<User> pageInfo=new PageInfo<>(list);
+        //消除密码
+        for(User u:list){
+            u.setPassword(null);
+        }
         res.put("list",list);
         res.put("total",pageInfo.getTotal());
         return res;

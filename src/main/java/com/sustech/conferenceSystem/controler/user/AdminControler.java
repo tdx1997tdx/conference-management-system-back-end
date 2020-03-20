@@ -32,7 +32,7 @@ public class AdminControler {
         int page=Integer.parseInt(jsonParam.getString("page"));
         int volume=Integer.parseInt(jsonParam.getString("volume"));
         Map<String,Object> result= adminService.adminSearchService(username,page,volume);
-        return JSON.toJSONString(result, JsonFilter.getFilter());
+        return JSON.toJSONString(result);
     }
 
     /**
@@ -53,7 +53,7 @@ public class AdminControler {
     public String adminSearchCertain(@RequestBody JSONObject jsonParam){
         int userId=Integer.parseInt(jsonParam.getString("user_id"));
         User result=adminService.adminSearchCertainService(userId);
-        return JSON.toJSONString(result, JsonFilter.getFilter());
+        return JSON.toJSONString(result);
     }
 
     /**

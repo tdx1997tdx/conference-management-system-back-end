@@ -36,6 +36,13 @@
         </association>
     </resultMap>
 
+    <resultMap type="com.sustech.conferenceSystem.dto.MeetingSimple" id="searchCertain2">
+        <!--查询room信息-->
+        <association property="room" javaType="com.sustech.conferenceSystem.dto.Room"
+                     column="room_id" select="com.sustech.conferenceSystem.mapper.RoomMapper.findRoomById">
+        </association>
+    </resultMap>
+
     <select id="meetingGetAll" resultType="com.sustech.conferenceSystem.dto.MeetingSimple">
         select * from meeting
     </select>
@@ -67,8 +74,8 @@
         </where>
     </select>
 
-    <select id="userMeeting7Search" resultType="com.sustech.conferenceSystem.dto.MeetingSimple">
-        select m.meeting_id,meeting_name,room_name,start_time,end_time,name host_name,host_id,topic,meeting_state,state user_state from user_and_meeting
+    <select id="userMeeting7Search" resultMap="searchCertain2">
+        select m.meeting_id,meeting_name,room_name,start_time,end_time,name host_name,host_id,topic,meeting_state,state user_state,room.room_id room_id from user_and_meeting
         inner join meeting m on user_and_meeting.meeting_id = m.meeting_id
         inner join room on m.room_id=room.room_id
         inner join user on m.host_id=user.user_id
@@ -108,7 +115,7 @@
 
     <!--查询会议所有成员-->
     <select id="findMeetingMembers" resultType="com.sustech.conferenceSystem.dto.User">
-        select u.user_id,name,state from user_and_meeting uam inner join user u on uam.user_id = u.user_id
+        select u.user_id,name,state,username from user_and_meeting uam inner join user u on uam.user_id = u.user_id
         <where>
                 meeting_id = #{meetingId}
         </where>

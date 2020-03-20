@@ -62,7 +62,7 @@
     </select>
 
     <select id="findRoomById" resultType="com.sustech.conferenceSystem.dto.Room">
-        select room_id,room_name from room where room_id = #{roomId}
+        select * from room where room_id = #{roomId}
     </select>
 
     <select id="buildingSearch" resultType="java.lang.String">
