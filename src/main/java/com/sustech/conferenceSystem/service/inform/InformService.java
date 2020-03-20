@@ -22,7 +22,6 @@ import javax.annotation.Resource;
 import static com.sustech.conferenceSystem.service.inform.InformConstants.*;
 import static com.sustech.conferenceSystem.controler.inform.WebSocketControler.webSocketServerMAP;
 import static com.sustech.conferenceSystem.controler.inform.LongPullingController.watchRequests;
-import static com.sustech.conferenceSystem.controler.inform.LongPullingController.*;
 
 
 @Component
@@ -150,7 +149,7 @@ public class InformService {
      * 模拟向多人推送消息
      */
 //    @Scheduled(cron="0/5 * *  * * ? ")
-    public String informAll(){
+    public String informAllTest(){
 //        if (INFORM_TEST_ON) {
 //            return;
 //        }
@@ -160,9 +159,12 @@ public class InformService {
         String msg = "收到群发消息:" + "当前时间为：" + sdf.format(dateNow);
 
         Message message = new Message();
-        message.setReceiverName(FIRST_USER_NAME);
         message.setMessageTopic("测试发送消息");
         message.setMessageBody(msg);
+        return informAll(message);
+    }
+
+    public String informAll(Message message) {
         int websocketNum = 0;
         StringBuilder websocketString = new StringBuilder("");
         Collection<WebSocketControler> websocketCollection = webSocketServerMAP.values();
@@ -180,6 +182,7 @@ public class InformService {
         int longPullingNum = 0;
         Collection<DeferredResult<Message>> longPullingCollection = watchRequests.values();
         for (DeferredResult<Message> deferredResult : longPullingCollection) {
+            // 设定收信人（未实现）
             deferredResult.setResult(message);
             longPullingNum++;
         }

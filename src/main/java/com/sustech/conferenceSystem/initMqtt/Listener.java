@@ -2,7 +2,9 @@ package com.sustech.conferenceSystem.initMqtt;
 
 import com.alibaba.fastjson.JSON;
 import com.sustech.conferenceSystem.dto.Device;
+import com.sustech.conferenceSystem.dto.Message;
 import com.sustech.conferenceSystem.mapper.DeviceMapper;
+import com.sustech.conferenceSystem.service.inform.InformService;
 import com.sustech.conferenceSystem.util.mqtt.MqttConfiguration;
 import io.swagger.models.auth.In;
 import org.springframework.stereotype.Component;
@@ -17,6 +19,9 @@ public class Listener {
     @Resource
     private DeviceMapper deviceMapper;
     @Resource
+    private InformService informService;
+
+    @Resource
     private MqttConfiguration mqttConfiguration;
     public void dealWithMessage(String topic,int qos,String message){
         if(topic.equals("Register")){
@@ -30,6 +35,11 @@ public class Listener {
         device.setDeviceId(Integer.parseInt(mess.get("device_id")));
         device.setState(fliter(mess.get("device_status")));
         deviceMapper.updateDevice(device);
+
+        Message msg = new Message();
+        msg.setMessageTopic("device state change");
+        msg.setMessageBody(JSON.toJSONString(device));
+        informService.informAll(msg);
     }
     private Integer fliter(String staus){
         if(staus.equals("off")){
