@@ -23,10 +23,19 @@
     function beginConnect()
     {
         setMessageInnerHTML("连接中");
-        var url = "http://localhost:8080/watch/" + document.getElementById('id').value.trim() +
+        var url = "http://localhost:8080/connect/" + document.getElementById('id').value.trim() +
             "/" + document.getElementById('name').value.trim();
-        console.log(url);
 
+        var disconnectUrl = "http://localhost:8080/disconnect/" + document.getElementById('id').value.trim() +
+            "/" + document.getElementById('name').value.trim();
+        $.ajax
+        ({
+            url:disconnectUrl,
+            type:"get",
+            data:{},
+        });
+
+        console.log(url);
         test = true;
         console.log("beginConnect");
         $.ajax
@@ -42,6 +51,10 @@
                 if(data != null && data!="") {
                     var msg = JSON.stringify(data);
                     setMessageInnerHTML(msg);
+                    if (data.messageTopic == "disconnect success") {
+                        test = false;
+                        setMessageInnerHTML("断开连接");
+                    }
                 }
                 if (test) {
                     beginConnect();
@@ -50,6 +63,7 @@
             error:function(err){
                 console.log("\ndata error\n");
                 console.log(JSON.stringify(err));
+                setMessageInnerHTML("连接超时");
                 if (test) {
                     setTimeout(beginConnect, 2000);
                 }
@@ -62,6 +76,32 @@
         test = false;
         console.log("disconnect");
         console.log(test);
+        var url = "http://localhost:8080/disconnect/" + document.getElementById('id').value.trim() +
+            "/" + document.getElementById('name').value.trim();
+        $.ajax
+        ({
+            url:url,
+            type:"get",
+            data:{},
+            success:function(data)
+            {
+                console.log("\ndisconnect\n");
+                console.log(data);
+                console.log("\ndisconnect\n");
+                if(data != null && data!="") {
+                    var msg = JSON.stringify(data);
+                    setMessageInnerHTML(msg);
+                }
+            },
+            error:function(err){
+                console.log("\ndisconnect error\n");
+                console.log(JSON.stringify(err));
+            }
+        });
+    }
+    //监听窗口关闭事件，当窗口关闭时，主动去关闭websocket连接，防止连接还没断开就关闭窗口，server端会抛异常。
+    window.onbeforeunload = function() {
+        disconnect();
     }
     //将消息显示在网页上
     function setMessageInnerHTML(innerHTML) {

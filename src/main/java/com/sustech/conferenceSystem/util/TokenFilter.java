@@ -42,7 +42,14 @@ public class TokenFilter implements Filter {
             chain.doFilter(request, response);
             return;
         }
-        String cookies=req.getHeader("Authorization");
+        String SecWebSocketVersion = req.getHeader("Sec-WebSocket-Version");
+        String cookies = req.getHeader("Authorization");
+        if (SecWebSocketVersion != null){
+            System.out.println("Sec-WebSocket-Version: " + SecWebSocketVersion);
+            chain.doFilter(request, response);
+            return;
+        }
+
         if (cookies==null){
             res.sendError(407,"Authorization中未检测到信息");
             System.out.println("Authorization中未检测到信息");
@@ -58,6 +65,10 @@ public class TokenFilter implements Filter {
             return;
         }
 
+//        if (!au.getToken().equals("abc123")) {
+//            res.sendError(407,"token数据" + au.getToken());
+//            return;
+//        }
         String CheckToken=(String) redisUtil.get(au.getUserId());
         if(CheckToken==null){
             res.sendError(407,"redis中找不到对应人物id的token数据");

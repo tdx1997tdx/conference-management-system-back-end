@@ -7,6 +7,8 @@ import com.sustech.conferenceSystem.dto.UserAndMeeting;
 import com.sustech.conferenceSystem.mapper.MeetingMapper;
 import com.sustech.conferenceSystem.mapper.UserAndMeetingMapper;
 import com.sustech.conferenceSystem.mapper.UserMapper;
+import com.sustech.conferenceSystem.service.inform.InformConstants.InformReason;
+import com.sustech.conferenceSystem.service.inform.InformService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -22,7 +24,8 @@ public class MeetingManagerService {
     private UserMapper userMapper;
     @Resource
     private UserAndMeetingMapper userAndMeetingMapper;
-
+    @Resource
+    private InformService informService;
     /**
      * 修改会议
      * @param meeting 传入javabean的meeting对象
@@ -50,8 +53,8 @@ public class MeetingManagerService {
             }
             meeting.setRecorder(recorder.get(0));
         }
-        //通知相关人员(未完成)
-
+        //通知相关人员
+        informService.meetingInform(meeting, InformReason.MODIFY);
         //修改会议
         meetingMapper.meetingModify(meeting);
         res.put("state","1");
@@ -105,7 +108,8 @@ public class MeetingManagerService {
             res.put("message","添加失败");
             return res;
         }
-        //通知相关人员(未完成)
+        //通知相关人员
+        informService.meetingInform(meeting, InformReason.MODIFY);
 
         res.put("state","1");
         res.put("message","添加成功");
@@ -128,7 +132,8 @@ public class MeetingManagerService {
             res.put("message","删除失败");
             return res;
         }
-        //通知相关人员(未完成)
+        //通知相关人员
+        informService.meetingInform(meeting, InformReason.DELETE);
 
         res.put("state","1");
         res.put("message","删除成功");
@@ -187,7 +192,8 @@ public class MeetingManagerService {
                 return res;
             }
         }
-        //通知相关人员(未完成)
+        //通知相关人员
+        informService.meetingInform(meeting, InformReason.CREATE);
 
         //添加会议
         meeting.setMeetingState(2);
