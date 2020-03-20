@@ -25,7 +25,7 @@ public class LongPullingController {
 
     //模拟长轮询
     @RequestMapping(value = "/connect/{id}/{name}", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
-    public DeferredResult<Message> watch(@PathVariable("id") String id, @PathVariable("name") String name) {
+    public DeferredResult<Message> connect(@PathVariable("id") String id, @PathVariable("name") String name) {
         String namespace = id + name;
         System.out.println("-------------------------");
         System.out.println("namespace:" + namespace);
