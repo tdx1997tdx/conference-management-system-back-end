@@ -7,6 +7,7 @@
 <body>
 <div>
     id: <input id="id" type="text" size="30" value="001" /><br>
+    token: <input id="token" type="text" size="30" value="abc123" /><br>
     name: <input id="name" type="text" size="30" value="YYJ" /><br>
     <form name="form">
         <input class="button" type="button" value="进行连接" onclick="openWebSocket()"/>
@@ -20,7 +21,9 @@
     var websocket = null;
     function openWebSocket() {
         var url = "ws://localhost:8080/" + document.getElementById('id').value.trim() +
+            "/" + document.getElementById('token').value.trim() +
             "/" + document.getElementById('name').value.trim();
+
         console.log(url);
         //判断当前浏览器是否支持WebSocket
         if ('WebSocket' in window) {

@@ -61,5 +61,11 @@ public interface RoomMapper {
      */
     List<String> floorSearch(String building);
 
-
+    /**
+     * 根据大楼查询相关房间与设备
+     * @param floor
+     * @param building
+     * @return
+     */
+    List<Room> deviceFloorSearch(@Param("building") String building,@Param("floor")String floor);
 }

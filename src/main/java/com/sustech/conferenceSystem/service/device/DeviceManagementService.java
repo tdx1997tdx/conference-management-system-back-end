@@ -1,13 +1,11 @@
 package com.sustech.conferenceSystem.service.device;
 
 import com.sustech.conferenceSystem.dto.Device;
-import com.sustech.conferenceSystem.dto.MeetingFull;
 import com.sustech.conferenceSystem.mapper.DeviceMapper;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -73,5 +71,6 @@ public class DeviceManagementService {
         }
         return res;
     }
+
 
 }

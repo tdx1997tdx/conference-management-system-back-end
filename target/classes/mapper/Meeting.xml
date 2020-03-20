@@ -246,6 +246,9 @@
     <!-- key-value -->
     <sql id="kv_comma">
         <trim suffixOverrides=",">
+            <if test="meetingName!=null">
+                meeting_name = #{meetingName},
+            </if>
             <if test="room.roomId!=null">
                 room_id = #{room.roomId},
             </if>

@@ -5,6 +5,7 @@ import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * room类制定一个room对象
@@ -28,4 +29,5 @@ public class Room {
     @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
     @JSONField(format="yyyy-MM-dd HH:mm:ss")
     private Date modifyTime; //修改时间
+    List<Device> devices;
 }

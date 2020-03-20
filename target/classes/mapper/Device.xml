@@ -50,6 +50,10 @@
         select device_id,device_name from device where device_id = #{deviceId}
     </select>
 
+    <select id="findDevicesByRoomId" resultType="com.sustech.conferenceSystem.dto.Device">
+        select * from device where room_id = #{roomId}
+    </select>
+
     <!-- 对应的插入字段的名字 -->
     <sql id="key">
         <trim suffixOverrides=",">
