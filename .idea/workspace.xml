@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="68f46c33-7d16-429f-9772-f6b143785f8e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/Meeting.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/Meeting.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/initMqtt/Listener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/initMqtt/Listener.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -57,8 +57,56 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/controler/meeting/MeetingManagerControler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
+            <state relative-caret-position="234">
               <caret line="127" column="5" lean-forward="true" selection-start-line="127" selection-start-column="5" selection-end-line="127" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/initMqtt/InitMqtt.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="23" column="65" selection-start-line="23" selection-start-column="65" selection-end-line="23" selection-end-column="65" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/initMqtt/Listener.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="128">
+              <caret line="30" column="42" selection-start-line="30" selection-start-column="42" selection-end-line="30" selection-end-column="42" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/util/mqtt/MqttPushClient.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="19">
+              <caret line="85" column="25" selection-start-line="85" selection-start-column="25" selection-end-line="85" selection-end-column="25" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/util/mqtt/MqttConfiguration.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="280">
+              <caret line="32" column="5" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -85,49 +133,14 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/mapper/DeviceMapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="56" column="40" lean-forward="true" selection-start-line="56" selection-start-column="40" selection-end-line="56" selection-end-column="40" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/mapper/FormMapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/mapper/MeetingMapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="158">
-              <caret line="113" selection-start-line="113" selection-end-line="113" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/mapper/MessageMapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/Meeting.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="249" column="25" selection-start-line="249" selection-start-column="25" selection-end-line="249" selection-end-column="25" />
+            <state relative-caret-position="2410">
+              <caret line="244" lean-forward="true" selection-start-line="244" selection-end-line="244" />
               <folding>
                 <element signature="n#select#0;n#mapper#0;n#!!top" />
                 <element signature="n#select#1;n#mapper#0;n#!!top" />
+                <element signature="n#select#2;n#mapper#0;n#!!top" />
                 <element signature="n#select#3;n#mapper#0;n#!!top" />
                 <element signature="n#select#4;n#mapper#0;n#!!top" />
               </folding>
@@ -228,7 +241,6 @@
         <option value="$PROJECT_DIR$/src/main/resources/mapper/Device.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/service/device/DeviceManagementService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/initMqtt/InitMqtt.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/initMqtt/Listener.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/service/user/LRService.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/UserAndMeeting.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/mapper/MeetingMapper.java" />
@@ -237,6 +249,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/util/TokenFilter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/controler/meeting/MeetingManagerControler.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/Meeting.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/initMqtt/Listener.java" />
       </list>
     </option>
   </component>
@@ -454,6 +467,18 @@
               <item name="conference-management-system-back-end" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="sustech" type="462c0819:PsiDirectoryNode" />
+              <item name="conferenceSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
+              <item name="mqtt" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="conference_management_system" type="b2602c69:ProjectViewProjectNode" />
+              <item name="conference-management-system-back-end" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -501,7 +526,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1584621301869" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1584693769901" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../conference-management-system-mysqlscrip" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -705,14 +730,7 @@
       <workItem from="1582859976989" duration="19441000" />
       <workItem from="1583306864384" duration="24424000" />
       <workItem from="1583889113740" duration="32617000" />
-      <workItem from="1584345517491" duration="47480000" />
-    </task>
-    <task id="LOCAL-00054" summary="会议添加部分增加时间冲突判断">
-      <created>1582875509267</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1582875509267</updated>
+      <workItem from="1584345517491" duration="49932000" />
     </task>
     <task id="LOCAL-00055" summary="添加/user/user_name_search接口">
       <created>1583325313924</created>
@@ -1050,7 +1068,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584617681810</updated>
     </task>
-    <option name="localTasksCounter" value="103" />
+    <task id="LOCAL-00103" summary="修改了会议不能修改姓名的bug">
+      <created>1584621328986</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1584621328986</updated>
+    </task>
+    <option name="localTasksCounter" value="104" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1086,7 +1111,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="354331000" />
+    <option name="totallyTimeSpent" value="356783000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -1115,7 +1140,7 @@
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" weight="0.32867134" />
       <window_info anchor="bottom" id="Structure" order="6" weight="0.25" />
-      <window_info anchor="bottom" id="Run" order="7" sideWeight="0.49878544" visible="true" weight="0.33216783" />
+      <window_info anchor="bottom" id="Run" order="7" sideWeight="0.4979757" visible="true" weight="0.33216783" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.3986014" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
@@ -1123,7 +1148,7 @@
       <window_info anchor="bottom" id="Spring" order="12" weight="0.32867134" />
       <window_info anchor="bottom" id="Terminal" order="13" weight="0.32867134" />
       <window_info anchor="bottom" id="Docker" order="14" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="15" sideWeight="0.50121456" side_tool="true" weight="0.33566433" />
+      <window_info anchor="bottom" id="Event Log" order="15" sideWeight="0.5020243" side_tool="true" visible="true" weight="0.33216783" />
       <window_info anchor="bottom" id="Java Enterprise" order="16" weight="0.32867134" />
       <window_info anchor="bottom" id="Database Changes" order="17" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="18" sideWeight="0.49959514" weight="0.27972028" />
@@ -1181,7 +1206,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="cleanSession" />
     <MESSAGE value="添加 meeting/user_meeting7_search 接口" />
     <MESSAGE value="修改 meeting/user_meeting7_search 接口" />
     <MESSAGE value="添加 meeting/sign_in 接口" />
@@ -1206,7 +1230,8 @@
     <MESSAGE value="登陆验证接口添加姓名" />
     <MESSAGE value="修改了message出错的bug" />
     <MESSAGE value="修改了签到接受拒绝的bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改了签到接受拒绝的bug" />
+    <MESSAGE value="修改了会议不能修改姓名的bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改了会议不能修改姓名的bug" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/test/java/com/sustech/conferenceSystem/util/UtilTest.java">
@@ -1300,30 +1325,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="186">
           <caret line="25" column="35" selection-start-line="25" selection-start-column="35" selection-end-line="25" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/util/mqtt/MqttConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="32" column="5" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#514#532#1" expanded="true" />
-            <element signature="e#689#708#1" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/util/mqtt/MqttPushClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-91">
-          <caret line="85" column="25" selection-start-line="85" selection-start-column="25" selection-end-line="85" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2514#2515#0" expanded="true" />
-            <element signature="e#2548#2549#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1469,26 +1470,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/initMqtt/InitMqtt.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="23" column="65" selection-start-line="23" selection-start-column="65" selection-end-line="23" selection-end-column="65" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/initMqtt/Listener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="31" column="42" selection-start-line="31" selection-start-column="42" selection-end-line="31" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/service/user/LRService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-355">
@@ -1606,13 +1587,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/controler/meeting/MeetingManagerControler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="127" column="5" lean-forward="true" selection-start-line="127" selection-start-column="5" selection-end-line="127" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/Device.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="923">
@@ -1634,13 +1608,61 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/Meeting.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="249" column="25" selection-start-line="249" selection-start-column="25" selection-end-line="249" selection-end-column="25" />
+        <state relative-caret-position="2410">
+          <caret line="244" lean-forward="true" selection-start-line="244" selection-end-line="244" />
           <folding>
             <element signature="n#select#0;n#mapper#0;n#!!top" />
             <element signature="n#select#1;n#mapper#0;n#!!top" />
+            <element signature="n#select#2;n#mapper#0;n#!!top" />
             <element signature="n#select#3;n#mapper#0;n#!!top" />
             <element signature="n#select#4;n#mapper#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/controler/meeting/MeetingManagerControler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="127" column="5" lean-forward="true" selection-start-line="127" selection-start-column="5" selection-end-line="127" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/util/mqtt/MqttPushClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="85" column="25" selection-start-line="85" selection-start-column="25" selection-end-line="85" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/util/mqtt/MqttConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="32" column="5" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/initMqtt/InitMqtt.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="23" column="65" selection-start-line="23" selection-start-column="65" selection-end-line="23" selection-end-column="65" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/initMqtt/Listener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="30" column="42" selection-start-line="30" selection-start-column="42" selection-end-line="30" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

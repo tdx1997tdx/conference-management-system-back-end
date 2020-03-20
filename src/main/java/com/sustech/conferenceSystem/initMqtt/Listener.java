@@ -4,7 +4,6 @@ import com.alibaba.fastjson.JSON;
 import com.sustech.conferenceSystem.dto.Device;
 import com.sustech.conferenceSystem.mapper.DeviceMapper;
 import com.sustech.conferenceSystem.util.mqtt.MqttConfiguration;
-import io.swagger.models.auth.In;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
