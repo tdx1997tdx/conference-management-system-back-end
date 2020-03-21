@@ -29,14 +29,17 @@ public class WebSocketControler {
     /** 用于保存uri对应的连接服务，{uri:WebSocketServer}，设计成线程安全的 */
     public static ConcurrentHashMap<String, WebSocketControler> webSocketServerMAP = new ConcurrentHashMap<>();
     // 存储各个客户端连接情况，包含uri，session等，package-private
-    @Autowired
+
     private static RedisUtil redisUtil;
 
     private Session session;// 与某个客户端的连接会话，需要通过它来给客户端发送数据
     private String id;   //客户端用户ID，验证客户身份
     private String name; //客户端用户名字，验证客户身份
     private String uri; //连接的uri
-
+    @Autowired
+    public void setChatService(RedisUtil redisUtil) {
+        this.redisUtil = redisUtil;
+    }
      /**
      * 连接建立成功时触发，绑定参数
      * @param session
