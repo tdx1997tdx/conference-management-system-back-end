@@ -29,6 +29,7 @@ public class WebSocketControler {
     // 存储各个客户端连接情况，包含uri，session等，package-private
     @Resource
     private RedisUtil redisUtil;
+
     private Session session;// 与某个客户端的连接会话，需要通过它来给客户端发送数据
     private String id;   //客户端用户ID，验证客户身份
     private String name; //客户端用户名字，验证客户身份
@@ -49,16 +50,22 @@ public class WebSocketControler {
         this.name = name;
         this.uri = session.getRequestURI().toString();
         String namespace = id + name;
+        addOnlineCount(); // 在线数加1
 
         System.out.println("onOpen token: " + token);
-        String CheckToken=(String) redisUtil.get(id);
+//        redisUtil.set(id,token,432000);
+//        for (redisUtil.)
+        System.out.println("onOpen set token: " + token);
+//        String CheckToken=(String) redisUtil.get(id);
+//        System.out.println("onOpen CheckToken: " + CheckToken);
+
+
+        session.getBasicRemote().sendText("\nid " + id);
+        session.getBasicRemote().sendText("\ntoken " + token);
 //        if(!token.equals(CheckToken)){
 ////        if (!token.equals("abc123")) {
 //            System.out.println("onOpen: return");
-            session.getBasicRemote().sendText("\nCheckToken " + CheckToken);
-            session.getBasicRemote().sendText("\nid" + id);
-            session.getBasicRemote().sendText("\ntoken" + token);
-//            addOnlineCount(); // 在线数加1
+//            session.getBasicRemote().sendText("\nCheckToken " + CheckToken);
 //            this.id = "";
 //            this.name = "";
 //            session.close();
@@ -74,11 +81,10 @@ public class WebSocketControler {
             webSocketControler.session.close();//关闭连接，触发关闭连接方法onClose()
         }
         webSocketServerMAP.put(namespace, this);//保存uri对应的连接服务
-        addOnlineCount(); // 在线数加1
         message.setMessageBody("新用户登录， id:"+ id + " name: " + name + "当前在线连接数:" + getOnlineCount());
         sendMessage(message);
 
-        session.getBasicRemote().sendText("\nCheckToken " + CheckToken);
+//        session.getBasicRemote().sendText("\nCheckToken " + CheckToken);
         session.getBasicRemote().sendText("\nid" + id);
         session.getBasicRemote().sendText("\ntoken" + token);
 
