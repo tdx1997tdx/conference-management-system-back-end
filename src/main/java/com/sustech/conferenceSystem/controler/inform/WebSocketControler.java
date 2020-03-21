@@ -51,11 +51,11 @@ public class WebSocketControler {
         String namespace = id + name;
 
         System.out.println("onOpen token: " + token);
-        String CheckToken=(String) redisUtil.get(id);
+//        String CheckToken=(String) redisUtil.get(id);
 //        if(!token.equals(CheckToken)){
 ////        if (!token.equals("abc123")) {
 //            System.out.println("onOpen: return");
-            session.getBasicRemote().sendText("\nCheckToken " + CheckToken);
+//            session.getBasicRemote().sendText("\nCheckToken " + CheckToken);
             session.getBasicRemote().sendText("\nid" + id);
             session.getBasicRemote().sendText("\ntoken" + token);
 //            addOnlineCount(); // 在线数加1
@@ -78,7 +78,7 @@ public class WebSocketControler {
         message.setMessageBody("新用户登录， id:"+ id + " name: " + name + "当前在线连接数:" + getOnlineCount());
         sendMessage(message);
 
-        session.getBasicRemote().sendText("\nCheckToken " + CheckToken);
+//        session.getBasicRemote().sendText("\nCheckToken " + CheckToken);
         session.getBasicRemote().sendText("\nid" + id);
         session.getBasicRemote().sendText("\ntoken" + token);
 
