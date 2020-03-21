@@ -3,6 +3,7 @@ package com.sustech.conferenceSystem.controler.inform;
 import com.alibaba.fastjson.JSON;
 import com.sustech.conferenceSystem.dto.Message;
 import com.sustech.conferenceSystem.util.RedisUtil;
+import lombok.Data;
 import lombok.Getter;
 import org.springframework.stereotype.Component;
 
@@ -20,7 +21,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 @Component
 @ServerEndpoint("/{id}/{token}/{name}")
-@Getter
+@Data
 public class WebSocketControler {
     /** 用来记录当前在线连接数。设计成线程安全的，原子计数。*/
     private static AtomicInteger onlineCount = new AtomicInteger(0);
@@ -57,9 +58,9 @@ public class WebSocketControler {
 //        redisUtil.set(id,token,432000);
 //        for (redisUtil.)
         System.out.println("redis Util"+redisUtil);
-       //String CheckToken=(String) redisUtil.get(id);
+       String CheckToken=(String) redisUtil.get(id);
        //System.out.println("onOpen checkToken: " + CheckToken);
-//        System.out.println("onOpen CheckToken: " + CheckToken);
+        System.out.println("onOpen CheckToken: " + CheckToken);
 
 
         session.getBasicRemote().sendText("\nid " + id);
