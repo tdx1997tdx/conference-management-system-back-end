@@ -54,9 +54,10 @@ public class WebSocketControler {
 
         System.out.println("onOpen token: " + token);
 //        redisUtil.set(id,token,432000);
+//        for (redisUtil.)
         System.out.println("onOpen set token: " + token);
-        String CheckToken=(String) redisUtil.get(id);
-        System.out.println("onOpen CheckToken: " + CheckToken);
+//        String CheckToken=(String) redisUtil.get(id);
+//        System.out.println("onOpen CheckToken: " + CheckToken);
 
 
         session.getBasicRemote().sendText("\nid " + id);
