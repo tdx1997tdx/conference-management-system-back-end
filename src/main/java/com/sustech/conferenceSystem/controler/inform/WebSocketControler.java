@@ -5,6 +5,7 @@ import com.sustech.conferenceSystem.dto.Message;
 import com.sustech.conferenceSystem.util.RedisUtil;
 import lombok.Data;
 import lombok.Getter;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -28,7 +29,7 @@ public class WebSocketControler {
     /** 用于保存uri对应的连接服务，{uri:WebSocketServer}，设计成线程安全的 */
     public static ConcurrentHashMap<String, WebSocketControler> webSocketServerMAP = new ConcurrentHashMap<>();
     // 存储各个客户端连接情况，包含uri，session等，package-private
-    @Resource
+    @Autowired
     private RedisUtil redisUtil;
 
     private Session session;// 与某个客户端的连接会话，需要通过它来给客户端发送数据
