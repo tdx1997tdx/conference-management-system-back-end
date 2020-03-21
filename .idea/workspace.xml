@@ -81,8 +81,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/controler/inform/WebSocketControler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="40" column="34" selection-start-line="40" selection-start-column="34" selection-end-line="40" selection-end-column="34" />
+            <state relative-caret-position="190">
+              <caret line="24" column="7" selection-start-line="24" selection-start-column="7" selection-end-line="24" selection-end-column="7" />
               <folding>
                 <element signature="e#1443#1444#0" expanded="true" />
                 <element signature="e#1495#1496#0" expanded="true" />
@@ -442,7 +442,7 @@
     <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1584772688557" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1584772717547" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../conference-management-system-mysqlscrip" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -647,13 +647,6 @@
       <workItem from="1583306864384" duration="24424000" />
       <workItem from="1583889113740" duration="32617000" />
       <workItem from="1584345517491" duration="72650000" />
-    </task>
-    <task id="LOCAL-00072" summary="cleanSession">
-      <created>1584086942902</created>
-      <option name="number" value="00072" />
-      <option name="presentableId" value="LOCAL-00072" />
-      <option name="project" value="LOCAL" />
-      <updated>1584086942902</updated>
     </task>
     <task id="LOCAL-00073" summary="添加 meeting/user_meeting7_search 接口">
       <created>1584158891445</created>
@@ -991,7 +984,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584772496356</updated>
     </task>
-    <option name="localTasksCounter" value="121" />
+    <task id="LOCAL-00121" summary="new test7">
+      <created>1584772702323</created>
+      <option name="number" value="00121" />
+      <option name="presentableId" value="LOCAL-00121" />
+      <option name="project" value="LOCAL" />
+      <updated>1584772702323</updated>
+    </task>
+    <option name="localTasksCounter" value="122" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1027,7 +1027,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="383100000" />
+    <option name="totallyTimeSpent" value="383129000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -1148,7 +1148,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="预检请求bug修复5" />
     <MESSAGE value="添加407错误信息" />
     <MESSAGE value="添加断点" />
     <MESSAGE value="device修改" />
@@ -1173,7 +1172,8 @@
     <MESSAGE value="new test4" />
     <MESSAGE value="new test5" />
     <MESSAGE value="new test6" />
-    <option name="LAST_COMMIT_MESSAGE" value="new test6" />
+    <MESSAGE value="new test7" />
+    <option name="LAST_COMMIT_MESSAGE" value="new test7" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/service/device/DeviceManagementService.java">
@@ -1579,8 +1579,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/controler/inform/WebSocketControler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="40" column="34" selection-start-line="40" selection-start-column="34" selection-end-line="40" selection-end-column="34" />
+        <state relative-caret-position="190">
+          <caret line="24" column="7" selection-start-line="24" selection-start-column="7" selection-end-line="24" selection-end-column="7" />
           <folding>
             <element signature="e#1443#1444#0" expanded="true" />
             <element signature="e#1495#1496#0" expanded="true" />

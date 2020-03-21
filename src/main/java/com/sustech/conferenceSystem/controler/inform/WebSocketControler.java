@@ -22,7 +22,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 @Component
 @ServerEndpoint("/{id}/{token}/{name}")
-@Data
+@Getter
 public class WebSocketControler {
     /** 用来记录当前在线连接数。设计成线程安全的，原子计数。*/
     private static AtomicInteger onlineCount = new AtomicInteger(0);
@@ -37,7 +37,7 @@ public class WebSocketControler {
     private String name; //客户端用户名字，验证客户身份
     private String uri; //连接的uri
     @Autowired
-    public void setChatService(RedisUtil redisUtil) {
+    public void setRedisUtil(RedisUtil redisUtil) {
         this.redisUtil = redisUtil;
     }
      /**
