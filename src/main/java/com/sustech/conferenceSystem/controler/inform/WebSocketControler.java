@@ -53,10 +53,11 @@ public class WebSocketControler {
         addOnlineCount(); // 在线数加1
 
         System.out.println("onOpen id: " + id);
-        System.out.println("onOpen set token: " + token);
+        System.out.println("onOpen token: " + token);
 //        redisUtil.set(id,token,432000);
 //        for (redisUtil.)
-//        String CheckToken=(String) redisUtil.get(id);
+       String CheckToken=(String) redisUtil.get(id);
+       System.out.println("onOpen checkToken: " + CheckToken);
 //        System.out.println("onOpen CheckToken: " + CheckToken);
 
 
