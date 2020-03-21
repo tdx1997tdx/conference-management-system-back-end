@@ -39,14 +39,14 @@ public class InformService {
      */
     public void meetingInform(MeetingFull meetingFull, InformReason informReason){
         Message message = new Message();
-        message.setMessageBody(generateMesaageBody(meetingFull, informReason));
         message.setMessageTopic(generateMesaageTopic(informReason));
         message.setSendTime(new Date());
 
-        memberInform(meetingFull.getHost(), MeetingRole.HOST, message);
-        memberInform(meetingFull.getRecorder(), MeetingRole.RECORDER, message);
+        String msgBody = generateMesaageBody(meetingFull, informReason);
+        memberInform(meetingFull.getHost(), MeetingRole.HOST, message, msgBody);
+        memberInform(meetingFull.getRecorder(), MeetingRole.RECORDER, message, msgBody);
         for (User user: meetingFull.getMembers()) {
-            memberInform(user, MeetingRole.MEMBER, message);
+            memberInform(user, MeetingRole.MEMBER, message, msgBody);
         }
     }
 
@@ -56,9 +56,9 @@ public class InformService {
      * @param meetingRole 人员在会议中身份
      * @return
      */
-    public void memberInform(User user, MeetingRole meetingRole, Message message) {
+    public void memberInform(User user, MeetingRole meetingRole, Message message, String msgBody) {
         // 暂定，后续可能会修改，未完成
-        message.setMessageBody(generateMesaageHead(user, meetingRole) + message.getMessageBody());
+        message.setMessageBody(generateMesaageHead(user, meetingRole) + msgBody);
         if (true) {
             try {
                 messageInform(user.getUserId().toString(), user.getName(), message);

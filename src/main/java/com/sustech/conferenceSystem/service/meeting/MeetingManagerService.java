@@ -133,7 +133,7 @@ public class MeetingManagerService {
             return res;
         }
         //通知相关人员
-        informService.meetingInform(meeting, InformReason.DELETE);
+        informService.meetingInform(meeting, InformReason.MODIFY);
 
         res.put("state","1");
         res.put("message","删除成功");
