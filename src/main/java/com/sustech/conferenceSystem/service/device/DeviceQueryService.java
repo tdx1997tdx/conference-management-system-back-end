@@ -4,7 +4,9 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.sustech.conferenceSystem.dto.Device;
 import com.sustech.conferenceSystem.dto.MeetingSimple;
+import com.sustech.conferenceSystem.dto.Room;
 import com.sustech.conferenceSystem.mapper.DeviceMapper;
+import com.sustech.conferenceSystem.mapper.RoomMapper;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -19,6 +21,8 @@ import java.util.Map;
 public class DeviceQueryService {
     @Resource
     private DeviceMapper deviceMapper;
+    @Resource
+    private RoomMapper roomMapper;
 
 
     /**
@@ -72,5 +76,16 @@ public class DeviceQueryService {
         return res;
     }
 
+
+    /**
+     * 更改设备业务逻辑
+     * @param building 大楼信息
+     * @param floor 楼层信息
+     * @return 结果0或1
+     */
+    public List<Room> deviceFloorSearchService(String building,String floor){
+        List<Room> rooms=roomMapper.deviceFloorSearch(building,floor);
+        return rooms;
+    }
 
 }

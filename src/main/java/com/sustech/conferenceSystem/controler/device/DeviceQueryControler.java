@@ -4,8 +4,8 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.sustech.conferenceSystem.dto.Device;
+import com.sustech.conferenceSystem.dto.Room;
 import com.sustech.conferenceSystem.service.device.DeviceQueryService;
-import com.sustech.conferenceSystem.util.JsonFilter;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -43,7 +43,6 @@ public class DeviceQueryControler {
     @RequestMapping(value = "/device_detail", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
     public String deviceDetail(@RequestBody JSONObject jsonParam){
         Device device = JSON.parseObject(jsonParam.toString(), Device.class);
-        JsonFilter.attributeFilter(device);
         Device result=deviceQueryService.deviceDetailService(device);
         return JSON.toJSONString(result, SerializerFeature.DisableCircularReferenceDetect);
     }
@@ -72,6 +71,19 @@ public class DeviceQueryControler {
         int page=Integer.parseInt(jsonParam.getString("page"));
         int volume=Integer.parseInt(jsonParam.getString("volume"));
         Map<String,Object> result=deviceQueryService.deviceSearchPageService(page,volume);
+        return JSON.toJSONString(result, SerializerFeature.DisableCircularReferenceDetect);
+    }
+
+    /**
+     * /device/device_floor_search 接口，获取指定大楼楼层的设备信息
+     * @param jsonParam
+     * @return
+     */
+    @RequestMapping(value = "/device_floor_search", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    public String deviceFloorSearch(@RequestBody JSONObject jsonParam){
+        String building=jsonParam.getString("building");
+        String floor=jsonParam.getString("floor");
+        List<Room> result=deviceQueryService.deviceFloorSearchService(building,floor);
         return JSON.toJSONString(result, SerializerFeature.DisableCircularReferenceDetect);
     }
 }

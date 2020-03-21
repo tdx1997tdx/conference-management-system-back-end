@@ -6,7 +6,6 @@ import com.sustech.conferenceSystem.dto.Message;
 import com.sustech.conferenceSystem.mapper.DeviceMapper;
 import com.sustech.conferenceSystem.service.inform.InformService;
 import com.sustech.conferenceSystem.util.mqtt.MqttConfiguration;
-import io.swagger.models.auth.In;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;

@@ -60,13 +60,25 @@ public interface MeetingMapper {
      * @param meetingId 会议id
      * @return 到场的成员
      */
-    List<User> findMeetingAttend(Integer meetingId);
+    List<User> findMeetingUnsign(Integer meetingId);
 
     /**
      * @param meetingId 会议id
      * @return 缺席的成员
      */
-    List<User> findMeetingAbsent(Integer meetingId);
+    List<User> findMeetingAttend(Integer meetingId);
+
+    /**
+     * @param meetingId 会议id
+     * @return 到场的成员
+     */
+    List<User> findMeetingReject(Integer meetingId);
+
+    /**
+     * @param meetingId 会议id
+     * @return 缺席的成员
+     */
+    List<User> findMeetingNoAccept(Integer meetingId);
 
     /**
      * 预约一个会议

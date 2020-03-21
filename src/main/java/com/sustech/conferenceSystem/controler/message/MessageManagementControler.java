@@ -4,7 +4,6 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.sustech.conferenceSystem.dto.Message;
 import com.sustech.conferenceSystem.service.message.MessageManagementService;
-import com.sustech.conferenceSystem.util.JsonFilter;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -31,7 +30,6 @@ public class MessageManagementControler {
     @RequestMapping(value = "/message_add", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
     public String messageAdd(@RequestBody JSONObject jsonParam){
         Message message = JSON.parseObject(jsonParam.toString(), Message.class);
-        JsonFilter.attributeFilter(message);
         boolean isSuccess = messageManagementService.messageAddService(message);
 
         Map<String,String> res=new HashMap<>();
@@ -74,7 +72,6 @@ public class MessageManagementControler {
     @RequestMapping(value = "/message_modify", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
     public String messageModify(@RequestBody JSONObject jsonParam){
         Message message = JSON.parseObject(jsonParam.toString(), Message.class);
-        JsonFilter.attributeFilter(message);
         boolean isSuccess = messageManagementService.messageModifyService(message);
 
         Map<String,String> res=new HashMap<>();

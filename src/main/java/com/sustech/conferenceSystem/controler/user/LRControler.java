@@ -5,7 +5,6 @@ import com.alibaba.fastjson.JSONObject;
 import com.sustech.conferenceSystem.bean.Authorization;
 import com.sustech.conferenceSystem.dto.User;
 import com.sustech.conferenceSystem.service.user.LRService;
-import com.sustech.conferenceSystem.util.JsonFilter;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -43,7 +42,6 @@ public class LRControler {
     @RequestMapping(value = "/regist", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
     public String regist(@RequestBody JSONObject jsonParam){
         User user = JSON.parseObject(jsonParam.toString(), User.class);
-        JsonFilter.attributeFilter(user);
         Map result=lrService.registService(user);
         return JSON.toJSONString(result);
     }

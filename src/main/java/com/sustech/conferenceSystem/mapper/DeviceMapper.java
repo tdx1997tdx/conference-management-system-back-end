@@ -1,7 +1,10 @@
 package com.sustech.conferenceSystem.mapper;
 
 import com.sustech.conferenceSystem.dto.Device;
+import com.sustech.conferenceSystem.dto.Room;
+import org.apache.ibatis.annotations.Param;
 
+import java.util.Date;
 import java.util.List;
 
 public interface DeviceMapper {
@@ -55,4 +58,6 @@ public interface DeviceMapper {
      * @return
      */
     Device findDeviceById(int deviceId);
+
+
 }

@@ -3,7 +3,6 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.sustech.conferenceSystem.dto.Room;
 import com.sustech.conferenceSystem.service.room.RoomManagementService;
-import com.sustech.conferenceSystem.util.JsonFilter;
 import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import java.util.Map;
@@ -27,7 +26,6 @@ public class RoomManagementControler {
     @RequestMapping(value = "/room_add", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
     public String roomAdd(@RequestBody JSONObject jsonParam){
         Room room = JSON.parseObject(jsonParam.toString(), Room.class);
-        JsonFilter.attributeFilter(room);
         Map result=roomManagementService.roomAddService(room);
         return JSON.toJSONString(result);
     }
@@ -52,7 +50,6 @@ public class RoomManagementControler {
     @RequestMapping(value = "/room_modify", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
     public String roomModify(@RequestBody JSONObject jsonParam){
         Room room = JSON.parseObject(jsonParam.toString(), Room.class);
-        JsonFilter.attributeFilter(room);
         Map result=roomManagementService.roomModifyService(room);
         return JSON.toJSONString(result);
     }
