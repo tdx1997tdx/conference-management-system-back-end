@@ -28,7 +28,7 @@ public class WebSocketControler {
     public static ConcurrentHashMap<String, WebSocketControler> webSocketServerMAP = new ConcurrentHashMap<>();
     // 存储各个客户端连接情况，包含uri，session等，package-private
     @Resource
-    private RedisUtil redisUtil;
+    static RedisUtil redisUtil;
 
     private Session session;// 与某个客户端的连接会话，需要通过它来给客户端发送数据
     private String id;   //客户端用户ID，验证客户身份
