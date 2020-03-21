@@ -52,10 +52,10 @@ public class WebSocketControler {
         String namespace = id + name;
         addOnlineCount(); // 在线数加1
 
-        System.out.println("onOpen token: " + token);
+        System.out.println("onOpen id: " + id);
+        System.out.println("onOpen set token: " + token);
 //        redisUtil.set(id,token,432000);
 //        for (redisUtil.)
-        System.out.println("onOpen set token: " + token);
 //        String CheckToken=(String) redisUtil.get(id);
 //        System.out.println("onOpen CheckToken: " + CheckToken);
 
