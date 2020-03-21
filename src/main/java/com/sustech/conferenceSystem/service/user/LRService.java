@@ -37,6 +37,7 @@ public class LRService {
             map.put("userId",users.get(0).getUserId());
             map.put("username",users.get(0).getUsername());
             map.put("name",users.get(0).getName());
+            map.put("role",users.get(0).getRole());
             synchronized(users){
                 redisUtil.hmset(token,map,432000);
                 redisUtil.set(String.valueOf(users.get(0).getUserId()),token,432000);
@@ -46,6 +47,7 @@ public class LRService {
             res.put("username",users.get(0).getUsername());
             map.put("name",users.get(0).getName());
             res.put("token",token);
+            res.put("role",users.get(0).getRole());
             res.put("message","登陆成功");
         }
         return res;
@@ -85,6 +87,7 @@ public class LRService {
         if(map.get("userId")!=null){
             res.put("username",(String)map.get("username"));
             res.put("name",(String)map.get("name"));
+            res.put("role",(String)map.get("role"));
             res.put("user_id",String.valueOf(map.get("userId")));
             res.put("message","验证成功");
         }else {
