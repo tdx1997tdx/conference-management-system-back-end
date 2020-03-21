@@ -37,7 +37,7 @@ public class LRService {
             map.put("userId",users.get(0).getUserId());
             map.put("username",users.get(0).getUsername());
             map.put("name",users.get(0).getName());
-            map.put("role",users.get(0).getRole());
+            map.put("role",users.get(0).getRole()+"");
             synchronized(users){
                 redisUtil.hmset(token,map,432000);
                 redisUtil.set(String.valueOf(users.get(0).getUserId()),token,432000);
