@@ -20,7 +20,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * websocket服务端,多例的，一次websocket连接对应一个实例
  *  @ServerEndpoint 注解的值为URI,映射客户端输入的URL来连接到WebSocket服务器端
  */
-
+@Component
 @ServerEndpoint("/{id}/{token}/{name}")
 @Data
 public class WebSocketControler {
@@ -29,7 +29,7 @@ public class WebSocketControler {
     /** 用于保存uri对应的连接服务，{uri:WebSocketServer}，设计成线程安全的 */
     public static ConcurrentHashMap<String, WebSocketControler> webSocketServerMAP = new ConcurrentHashMap<>();
     // 存储各个客户端连接情况，包含uri，session等，package-private
-    @Resource(name="redisUtil")
+    @Autowired
     private static RedisUtil redisUtil;
 
     private Session session;// 与某个客户端的连接会话，需要通过它来给客户端发送数据
