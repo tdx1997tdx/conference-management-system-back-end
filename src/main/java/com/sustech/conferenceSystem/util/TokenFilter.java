@@ -17,7 +17,7 @@ public class TokenFilter implements Filter {
     //排除不拦截的url
     private static final String[] excludePathPatterns = { "/user/login","/user/regist"};
     @Resource
-    RedisUtil redisUtil;
+    private RedisUtil redisUtil;
 
     @Override
     public void destroy() {

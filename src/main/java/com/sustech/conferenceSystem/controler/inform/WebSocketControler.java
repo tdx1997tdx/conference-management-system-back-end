@@ -28,7 +28,7 @@ public class WebSocketControler {
     public static ConcurrentHashMap<String, WebSocketControler> webSocketServerMAP = new ConcurrentHashMap<>();
     // 存储各个客户端连接情况，包含uri，session等，package-private
     @Resource
-    static RedisUtil redisUtil;
+    private RedisUtil redisUtil;
 
     private Session session;// 与某个客户端的连接会话，需要通过它来给客户端发送数据
     private String id;   //客户端用户ID，验证客户身份
@@ -56,8 +56,9 @@ public class WebSocketControler {
         System.out.println("onOpen token: " + token);
 //        redisUtil.set(id,token,432000);
 //        for (redisUtil.)
-       String CheckToken=(String) redisUtil.get(id);
-       System.out.println("onOpen checkToken: " + CheckToken);
+        System.out.println("redis Util"+redisUtil);
+       //String CheckToken=(String) redisUtil.get(id);
+       //System.out.println("onOpen checkToken: " + CheckToken);
 //        System.out.println("onOpen CheckToken: " + CheckToken);
 
 
