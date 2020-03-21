@@ -2,7 +2,7 @@ package com.sustech.conferenceSystem.controler.user;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.sustech.conferenceSystem.bean.Authorization;
+import com.sustech.conferenceSystem.dto.Authorization;
 import com.sustech.conferenceSystem.dto.User;
 import com.sustech.conferenceSystem.service.user.LRService;
 import org.springframework.web.bind.annotation.*;

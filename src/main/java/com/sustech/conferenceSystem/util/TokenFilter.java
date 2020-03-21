@@ -1,6 +1,6 @@
 package com.sustech.conferenceSystem.util;
 
-import com.sustech.conferenceSystem.bean.Authorization;
+import com.sustech.conferenceSystem.dto.Authorization;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Arrays;
 
-
+@Component
 @WebFilter(filterName="TokenFilter",urlPatterns={"/*"})
 public class TokenFilter implements Filter {
     //排除不拦截的url
@@ -83,7 +83,7 @@ public class TokenFilter implements Filter {
         chain.doFilter(request, response);
     }
     @Override
-    public void init(FilterConfig arg0) throws ServletException {
+    public void init(FilterConfig arg0){
         System.out.println("--------------token过滤器初始化------------");
     }
 }

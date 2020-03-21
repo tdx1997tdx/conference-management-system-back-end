@@ -1,4 +1,4 @@
-package com.sustech.conferenceSystem.bean;
+package com.sustech.conferenceSystem.dto;
 
 import lombok.Data;
 

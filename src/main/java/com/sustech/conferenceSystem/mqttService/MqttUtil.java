@@ -1,28 +1,52 @@
-package com.sustech.conferenceSystem.util.mqtt;
+package com.sustech.conferenceSystem.mqttService;
 
+import com.sustech.conferenceSystem.dto.Room;
+import com.sustech.conferenceSystem.mapper.RoomMapper;
+import lombok.Data;
 import org.eclipse.paho.client.mqttv3.*;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
+import java.util.List;
+import java.util.UUID;
 
 @Component
-public class MqttPushClient {
-    private static MqttClient client;
+@Configuration
+@Data
+public class MqttUtil {
+    @Value("${mqtt.host}")
+    private String host;
+    @Value("${mqtt.username}")
+    private String username;
+    @Value("${mqtt.password}")
+    private String password;
+    @Value("${mqtt.timeout}")
+    private int timeout;
+    @Value("${mqtt.keepalive}")
+    private int keepalive;
+    private MqttClient client;
     @Resource
-    PushCallback pushCallback;
+    private Callback callback;
+    @Resource
+    private RoomMapper roomMapper;
 
-    public static MqttClient getClient() {
-        return client;
+    public void initMqtt(){
+        connect();
+        subscribe("Register");
+        List<Room> rooms=roomMapper.searchRoom(new Room());
+        for(Room r:rooms){
+            subscribe(r.getRoomId()+"_feedback");
+            subscribe(r.getRoomId()+"_touch_pad_fb");
+        }
     }
 
-    public static void setClient(MqttClient client) {
-        MqttPushClient.client = client;
-    }
-
-    public void connect(String host, String clientID, String username, String password,int keepalive){
-        MqttClient client;
+    public void connect(){
+        String clientID=UUID.randomUUID().toString();
         try {
+            System.out.println(host);
             client = new MqttClient(host, clientID, new MemoryPersistence());
             MqttConnectOptions options = new MqttConnectOptions();
             options.setCleanSession(true);
@@ -30,9 +54,8 @@ public class MqttPushClient {
             options.setPassword(password.toCharArray());
             options.setKeepAliveInterval(keepalive);
             options.setAutomaticReconnect(true);
-            MqttPushClient.setClient(client);
             try {
-                client.setCallback(pushCallback);
+                client.setCallback(callback);
                 client.connect(options);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -63,7 +86,7 @@ public class MqttPushClient {
         message.setQos(qos);
         message.setRetained(retained);
         message.setPayload(pushMessage.getBytes());
-        MqttTopic mTopic = MqttPushClient.getClient().getTopic(topic);
+        MqttTopic mTopic = client.getTopic(topic);
         if(null == mTopic){
             System.out.println("topic not exist");
         }
@@ -93,9 +116,14 @@ public class MqttPushClient {
      */
     public void subscribe(String topic,int qos){
         try {
-            MqttPushClient.getClient().subscribe(topic, qos);
+            client.subscribe(topic, qos);
         } catch (MqttException e) {
             e.printStackTrace();
         }
     }
+
+
 }
+
+
+

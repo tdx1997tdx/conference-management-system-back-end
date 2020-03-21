@@ -1,6 +1,5 @@
-package com.sustech.conferenceSystem.util.mqtt;
+package com.sustech.conferenceSystem.mqttService;
 
-import com.sustech.conferenceSystem.initMqtt.Listener;
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
 import org.eclipse.paho.client.mqttv3.MqttCallback;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
@@ -9,7 +8,7 @@ import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 
 @Component
-public class PushCallback implements MqttCallback {
+public class Callback implements MqttCallback {
     @Resource
     Listener listener;
     @Override
@@ -30,7 +29,6 @@ public class PushCallback implements MqttCallback {
         System.out.println("接收消息主题 : " + topic);
         System.out.println("接收消息Qos : " + message.getQos());
         System.out.println("接收消息内容 : " + new String(message.getPayload()));
-        System.out.println(listener);
         listener.dealWithMessage(topic,message.getQos(),new String(message.getPayload()));
     }
 }

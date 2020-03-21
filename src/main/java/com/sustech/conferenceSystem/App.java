@@ -1,5 +1,5 @@
 package com.sustech.conferenceSystem;
-import com.sustech.conferenceSystem.initMqtt.InitMqtt;
+import com.sustech.conferenceSystem.mqttService.MqttUtil;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,8 +13,8 @@ public class App {
 
     public static void main(String[] args) {
         ApplicationContext applicationContext = SpringApplication.run(App.class, args);
-        InitMqtt initMqtt =applicationContext.getBean(InitMqtt.class);
-        initMqtt.initMqtt();
+        MqttUtil mqttUtil =applicationContext.getBean(MqttUtil.class);
+        mqttUtil.initMqtt();
     }
 
 }

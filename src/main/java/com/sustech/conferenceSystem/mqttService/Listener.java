@@ -1,11 +1,10 @@
-package com.sustech.conferenceSystem.initMqtt;
+package com.sustech.conferenceSystem.mqttService;
 
 import com.alibaba.fastjson.JSON;
 import com.sustech.conferenceSystem.dto.Device;
 import com.sustech.conferenceSystem.dto.Message;
 import com.sustech.conferenceSystem.mapper.DeviceMapper;
 import com.sustech.conferenceSystem.service.inform.InformService;
-import com.sustech.conferenceSystem.util.mqtt.MqttConfiguration;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -19,13 +18,12 @@ public class Listener {
     private DeviceMapper deviceMapper;
     @Resource
     private InformService informService;
-
     @Resource
-    private MqttConfiguration mqttConfiguration;
+    private MqttUtil mqttUtil;
     public void dealWithMessage(String topic,int qos,String message){
         if(topic.equals("Register")){
             String res=registerProcessor(message);
-            mqttConfiguration.getMqttPushClient().publish(2,false,"AssignRoom",res);
+            mqttUtil.publish(2,false,"AssignRoom",res);
             return;
         }
         String roomId=topic.split("_")[0];
