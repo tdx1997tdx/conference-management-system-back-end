@@ -4,7 +4,6 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.sustech.conferenceSystem.service.user.AdminService;
 import com.sustech.conferenceSystem.dto.User;
-import com.sustech.conferenceSystem.util.JsonFilter;
 import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import java.util.Map;
@@ -43,7 +42,7 @@ public class AdminControler {
         int page=Integer.parseInt(jsonParam.getString("page"));
         int volume=Integer.parseInt(jsonParam.getString("volume"));
         Map result=adminService.adminSearchPageService(page,volume);
-        return JSON.toJSONString(result, JsonFilter.getFilter());
+        return JSON.toJSONString(result);
     }
 
     /**

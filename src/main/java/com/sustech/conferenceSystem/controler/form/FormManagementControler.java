@@ -4,7 +4,6 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.sustech.conferenceSystem.dto.Form;
 import com.sustech.conferenceSystem.service.form.FormManagementService;
-import com.sustech.conferenceSystem.util.JsonFilter;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -29,7 +28,6 @@ public class FormManagementControler {
     @RequestMapping(value = "/form_add", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
     public String formAdd(@RequestBody JSONObject jsonParam){
         Form form = JSON.parseObject(jsonParam.toString(), Form.class);
-        JsonFilter.attributeFilter(form);
         Map result=formManagementService.formAddService(form);
         return JSON.toJSONString(result);
     }
@@ -54,7 +52,6 @@ public class FormManagementControler {
     @RequestMapping(value = "/form_modify", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
     public String formModify(@RequestBody JSONObject jsonParam){
         Form form = JSON.parseObject(jsonParam.toString(), Form.class);
-        JsonFilter.attributeFilter(form);
         Map result=formManagementService.formModifyService(form);
         return JSON.toJSONString(result);
     }

@@ -4,7 +4,6 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.sustech.conferenceSystem.dto.Message;
 import com.sustech.conferenceSystem.service.message.MessageQueryService;
-import com.sustech.conferenceSystem.util.JsonFilter;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -42,7 +41,6 @@ public class MessageQueryControler {
     @RequestMapping(value = "/message_detail", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
     public String messageDetail(@RequestBody JSONObject jsonParam){
         Message message = JSON.parseObject(jsonParam.toString(), Message.class);
-        JsonFilter.attributeFilter(message);
         Message result = messageQueryService.messageDetailService(message);
         return JSON.toJSONString(result);
     }

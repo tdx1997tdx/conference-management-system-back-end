@@ -6,7 +6,6 @@ import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.sustech.conferenceSystem.dto.Device;
 import com.sustech.conferenceSystem.dto.Room;
 import com.sustech.conferenceSystem.service.device.DeviceQueryService;
-import com.sustech.conferenceSystem.util.JsonFilter;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -44,7 +43,6 @@ public class DeviceQueryControler {
     @RequestMapping(value = "/device_detail", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
     public String deviceDetail(@RequestBody JSONObject jsonParam){
         Device device = JSON.parseObject(jsonParam.toString(), Device.class);
-        JsonFilter.attributeFilter(device);
         Device result=deviceQueryService.deviceDetailService(device);
         return JSON.toJSONString(result, SerializerFeature.DisableCircularReferenceDetect);
     }

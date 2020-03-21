@@ -4,7 +4,6 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.sustech.conferenceSystem.dto.Room;
 import com.sustech.conferenceSystem.service.room.RoomQueryService;
-import com.sustech.conferenceSystem.util.JsonFilter;
 import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import java.util.List;
@@ -29,7 +28,6 @@ public class RoomQueryControler {
     @RequestMapping(value = "/room_detail", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
     public String roomDetail(@RequestBody JSONObject jsonParam){
         Room room = JSON.parseObject(jsonParam.toString(), Room.class);
-        JsonFilter.attributeFilter(room);
         Room result=roomQueryService.roomDetailService(room);
         return JSON.toJSONString(result);
     }
