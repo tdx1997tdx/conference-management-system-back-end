@@ -29,7 +29,7 @@ public class WebSocketControler {
     /** 用于保存uri对应的连接服务，{uri:WebSocketServer}，设计成线程安全的 */
     public static ConcurrentHashMap<String, WebSocketControler> webSocketServerMAP = new ConcurrentHashMap<>();
     // 存储各个客户端连接情况，包含uri，session等，package-private
-    @Autowired
+    @Resource(name="redisUtil")
     private RedisUtil redisUtil;
 
     private Session session;// 与某个客户端的连接会话，需要通过它来给客户端发送数据
@@ -58,7 +58,7 @@ public class WebSocketControler {
         System.out.println("onOpen token: " + token);
 //        redisUtil.set(id,token,432000);
 //        for (redisUtil.)
-        System.out.println("redis Util"+redisUtil);
+        System.out.println("redis Util:"+redisUtil);
        String CheckToken=(String) redisUtil.get(id);
        //System.out.println("onOpen checkToken: " + CheckToken);
         System.out.println("onOpen CheckToken: " + CheckToken);

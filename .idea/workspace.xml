@@ -81,24 +81,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/controler/inform/WebSocketControler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="31" column="14" selection-start-line="31" selection-start-column="14" selection-end-line="31" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/util/RedisUtil.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2261">
-              <caret line="136" column="18" selection-start-line="136" selection-start-column="18" selection-end-line="136" selection-end-column="18" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2221#2222#0" expanded="true" />
-                <element signature="e#2262#2263#0" expanded="true" />
-                <element signature="e#3118#3119#0" expanded="true" />
-                <element signature="e#3180#3181#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="266">
+              <caret line="34" column="37" selection-start-line="34" selection-start-column="37" selection-end-line="34" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -106,7 +90,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
+            <state relative-caret-position="513">
               <caret line="27" column="20" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
             </state>
           </provider>
@@ -127,8 +111,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/App.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="16" column="16" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
+            <state relative-caret-position="285">
+              <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
             </state>
           </provider>
         </entry>
@@ -171,6 +155,7 @@
       <find>repairTimes</find>
       <find>repair_times</find>
       <find>DATE</find>
+      <find>redisUtil</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -453,7 +438,7 @@
     <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1584770214430" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1584771780330" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../conference-management-system-mysqlscrip" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -658,13 +643,6 @@
       <workItem from="1583306864384" duration="24424000" />
       <workItem from="1583889113740" duration="32617000" />
       <workItem from="1584345517491" duration="72650000" />
-    </task>
-    <task id="LOCAL-00068" summary="修改keepalive">
-      <created>1584083648720</created>
-      <option name="number" value="00068" />
-      <option name="presentableId" value="LOCAL-00068" />
-      <option name="project" value="LOCAL" />
-      <updated>1584083648720</updated>
     </task>
     <task id="LOCAL-00069" summary="修改cleanSession">
       <created>1584084337189</created>
@@ -1002,7 +980,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584769917642</updated>
     </task>
-    <option name="localTasksCounter" value="117" />
+    <task id="LOCAL-00117" summary="new test3">
+      <created>1584770238781</created>
+      <option name="number" value="00117" />
+      <option name="presentableId" value="LOCAL-00117" />
+      <option name="project" value="LOCAL" />
+      <updated>1584770238781</updated>
+    </task>
+    <option name="localTasksCounter" value="118" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1038,7 +1023,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="380626000" />
+    <option name="totallyTimeSpent" value="382193000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -1067,7 +1052,7 @@
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" weight="0.47202796" />
       <window_info anchor="bottom" id="Structure" order="6" weight="0.25" />
-      <window_info anchor="bottom" id="Run" order="7" sideWeight="0.49716598" visible="true" weight="0.3216783" />
+      <window_info anchor="bottom" id="Run" order="7" sideWeight="0.49716598" visible="true" weight="0.11013986" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.3986014" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
@@ -1159,7 +1144,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="预检请求bug修复" />
     <MESSAGE value="预检请求bug修复2" />
     <MESSAGE value="预检请求bug修复3" />
     <MESSAGE value="预检请求bug修复4" />
@@ -1184,7 +1168,8 @@
     <MESSAGE value="test" />
     <MESSAGE value="new test" />
     <MESSAGE value="new test2" />
-    <option name="LAST_COMMIT_MESSAGE" value="new test2" />
+    <MESSAGE value="new test3" />
+    <option name="LAST_COMMIT_MESSAGE" value="new test3" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/service/device/DeviceManagementService.java">
@@ -1506,20 +1491,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="27" column="20" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/App.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="16" column="16" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/mqttService/MqttUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
@@ -1554,24 +1525,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/util/RedisUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2261">
-          <caret line="136" column="18" selection-start-line="136" selection-start-column="18" selection-end-line="136" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2221#2222#0" expanded="true" />
-            <element signature="e#2262#2263#0" expanded="true" />
-            <element signature="e#3118#3119#0" expanded="true" />
-            <element signature="e#3180#3181#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/config/WebSocketConfig.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
           <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="27" column="20" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/App.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
         </state>
       </provider>
     </entry>
@@ -1588,10 +1559,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/util/RedisUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2221#2222#0" expanded="true" />
+            <element signature="e#2262#2263#0" expanded="true" />
+            <element signature="e#3118#3119#0" expanded="true" />
+            <element signature="e#3180#3181#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sustech/conferenceSystem/controler/inform/WebSocketControler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="31" column="14" selection-start-line="31" selection-start-column="14" selection-end-line="31" selection-end-column="14" />
+        <state relative-caret-position="266">
+          <caret line="34" column="37" selection-start-line="34" selection-start-column="37" selection-end-line="34" selection-end-column="37" />
         </state>
       </provider>
     </entry>
