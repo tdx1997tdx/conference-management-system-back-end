@@ -61,7 +61,7 @@ public class DeviceManagementControler {
      * @param jsonParam
      * @return
      */
-    @RequestMapping(value = "/device_modify", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    @RequestMapping(value = "/device_state_change", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
     public String deviceStateChange(@RequestBody JSONObject jsonParam){
         int deviceId = jsonParam.getInteger("device_id");
         String state = jsonParam.getString("state");
