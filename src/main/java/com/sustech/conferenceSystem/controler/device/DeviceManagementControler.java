@@ -39,7 +39,7 @@ public class DeviceManagementControler {
      */
     @RequestMapping(value = "/device_delete", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
     public String deviceDelete(@RequestBody JSONObject jsonParam){
-        int deviceId = Integer.parseInt(jsonParam.getString("device_id"));
+        int deviceId = jsonParam.getInteger("device_id");
         Map result=deviceManagementService.deviceDeleteService(deviceId);
         return JSON.toJSONString(result);
     }
@@ -53,6 +53,20 @@ public class DeviceManagementControler {
     public String deviceModify(@RequestBody JSONObject jsonParam){
         Device device = JSON.parseObject(jsonParam.toString(), Device.class);
         Map result=deviceManagementService.deviceModifyService(device);
+        return JSON.toJSONString(result);
+    }
+
+    /**
+     * /device/device_state_change 接口，用于更改设备状态
+     * @param jsonParam
+     * @return
+     */
+    @RequestMapping(value = "/device_modify", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    public String deviceStateChange(@RequestBody JSONObject jsonParam){
+        int deviceId = jsonParam.getInteger("device_id");
+        String state = jsonParam.getString("state");
+        String roomName = jsonParam.getString("room_name");
+        Map result=deviceManagementService.deviceStateChangeService(deviceId,state,roomName);
         return JSON.toJSONString(result);
     }
 
