@@ -1,5 +1,6 @@
 package com.sustech.conferenceSystem.controler.inform;
 
+import com.alibaba.fastjson.JSONObject;
 import com.sustech.conferenceSystem.service.inform.InformService;
 import org.springframework.web.bind.annotation.*;
 
@@ -38,5 +39,18 @@ public class InformTestControler {
             produces = "application/json;charset=UTF-8")
     public String informFirstUser() throws IOException {
         return informService.informFirstUser();
+    }
+
+    /**
+     * /inform/inform_first 接口，通知第一位用户 id:001 name:YYJ
+     * @return
+     */
+    @RequestMapping(value = "/inform_meeting",
+            method = RequestMethod.GET,
+            produces = "application/json;charset=UTF-8")
+    public String informMeeting(@RequestBody JSONObject jsonParam) throws IOException {
+        long time=Integer.parseInt(jsonParam.getString("time"));
+        System.out.println("informMeeting: " + time);
+        return informService.informMeeting(time);
     }
 }

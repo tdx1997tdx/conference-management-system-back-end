@@ -113,17 +113,17 @@ public class InformService {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date dateNow = new Date();
         System.out.println("meetingCheck: 当前时间为："+sdf.format(dateNow));
-        for (MeetingSimple meetingSimple: meetingMapper.meetingGetAll()) {
-            // 需要在sql级别进行优化，减少检索范围（未完成）
-            if (isDateDiffMin(meetingSimple.getStartTime(), dateNow, BEFORE_MEETING_OPEN_INFORM)) {
-                // 会议开始前20分钟，不可更改会议信息，通知与会人员
-                MeetingFull meetingFull = meetingMapper.meetingSearchCertain(meetingSimple.getMeetingId());
-                meetingInform(meetingFull, InformReason.OPENBEFORE);
-            } else if (isDateDiffMin(meetingSimple.getStartTime(), dateNow, BEFORE_MEETING_OPEN)) {
-                // 会议开始前10分钟，自动开灯，电视机，空调，音响等设备（未完成）
-            } else if (isDateDiffMin(dateNow, meetingSimple.getStartTime(), BEFORE_MEETING_CLOSE_INFORM)) {
-                // 会议结束之前10分钟，在会议平板（电视机）上显示提示信息（未完成）
-            }
+        for (MeetingSimple meetingSimple: meetingMapper.meetingTimeDiffGet(BEFORE_MEETING_OPEN_INFORM, dateNow, START_TIME)) {
+            // 会议开始前20分钟，不可更改会议信息，通知与会人员
+            MeetingFull meetingFull = meetingMapper.meetingSearchCertain(meetingSimple.getMeetingId());
+            meetingInform(meetingFull, InformReason.OPENBEFORE);
+        }
+        for (MeetingSimple meetingSimple: meetingMapper.meetingTimeDiffGet(BEFORE_MEETING_OPEN, dateNow, START_TIME)) {
+            // 会议开始前10分钟，自动开灯，电视机，空调，音响等设备（未完成）
+            System.out.println("BEFORE_MEETING_OPEN "+sdf.format(dateNow));
+        }
+        for (MeetingSimple meetingSimple: meetingMapper.meetingTimeDiffGet(BEFORE_MEETING_CLOSE_INFORM, dateNow, END_TIME)) {
+            // 会议结束之前15分钟，在会议平板（电视机）上显示提示信息（未完成）
         }
     }
 
@@ -216,4 +216,16 @@ public class InformService {
         return messageInform(FIRST_USER_ID, FIRST_USER_NAME, message);
     }
 
+    // 测试方法
+    public String informMeeting(long time) {
+        Date dateNow = new Date();
+        StringBuilder res = new StringBuilder();
+        for (MeetingSimple meetingSimple: meetingMapper.meetingTimeDiffGet(time, dateNow, START_TIME)) {
+            res.append("start: " + meetingSimple + "\n");
+        }
+        for (MeetingSimple meetingSimple: meetingMapper.meetingTimeDiffGet(time, dateNow, END_TIME)) {
+            res.append("end: " + meetingSimple + "\n");
+        }
+        return res.toString();
+    }
 }

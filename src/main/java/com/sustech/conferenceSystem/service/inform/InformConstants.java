@@ -10,7 +10,9 @@ public class InformConstants {
     public enum InformReason {CREATE, MODIFY, DELETE, OPENBEFORE, CLOSEBEFORE}
     public static final long BEFORE_MEETING_OPEN_INFORM = 20;
     public static final long BEFORE_MEETING_OPEN = 10;
-    public static final long BEFORE_MEETING_CLOSE_INFORM = 20;
+    public static final long BEFORE_MEETING_CLOSE_INFORM = 15;
+    public static final int START_TIME = 0;
+    public static final int END_TIME = 1;
     public static final String WEBSOCKET_URI = "ws://localhost:8080/";
     public static final String Long_Polling_URI = "http://localhost:8080/";
 

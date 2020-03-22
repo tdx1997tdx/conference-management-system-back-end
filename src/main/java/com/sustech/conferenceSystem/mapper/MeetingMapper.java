@@ -3,7 +3,6 @@ package com.sustech.conferenceSystem.mapper;
 import com.sustech.conferenceSystem.dto.MeetingFull;
 import com.sustech.conferenceSystem.dto.MeetingSimple;
 import com.sustech.conferenceSystem.dto.User;
-import io.swagger.models.auth.In;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.Date;
@@ -125,4 +124,5 @@ public interface MeetingMapper {
     boolean meetingMembersDelete(MeetingFull meeting);
 
 
+    List<MeetingSimple> meetingTimeDiffGet(@Param("diffTime")long diffTime, @Param("dateNow") Date dateNow, @Param("startOrEnd")int startOrEnd);
 }
