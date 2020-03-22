@@ -127,42 +127,6 @@ public class InformService {
         }
     }
 
-    /**
-     * 检测两个日期是否相差指定时间，a在b前
-     * @param a 日期1,
-     * @param b 日期2
-     * @param min 相差多少分钟
-     * @return
-     */
-    public boolean isDateDiffMin(Date a, Date b, long min) {
-        long diff = b.getTime() - a.getTime(); // 差值是微秒级别
-        long minutes  = diff / (1000 * 60);
-        if(minutes == min) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    /**
-     * 定时任务，向所有客户端用户推送当前时间（每五秒一次）
-     * 模拟向多人推送消息
-     */
-//    @Scheduled(cron="0/5 * *  * * ? ")
-    public String informAllTest(){
-//        if (INFORM_TEST_ON) {
-//            return;
-//        }
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        Date dateNow = new Date();
-        System.out.println("当前时间为：" + sdf.format(dateNow));
-        String msg = "收到群发消息:" + "当前时间为：" + sdf.format(dateNow);
-
-        Message message = new Message();
-        message.setMessageTopic("测试发送消息");
-        message.setMessageBody(msg);
-        return informAll(message);
-    }
 
     public String informAll(Message message) {
         int websocketNum = 0;
@@ -189,6 +153,27 @@ public class InformService {
         String res = "websocketNum: " + websocketNum + " longPullingNum: " + longPullingNum + "\n" + websocketString;
         return res;
     }
+
+    /**
+     * 定时任务，向所有客户端用户推送当前时间（每五秒一次）
+     * 模拟向多人推送消息
+     */
+//    @Scheduled(cron="0/5 * *  * * ? ")
+    public String informAllTest(){
+//        if (INFORM_TEST_ON) {
+//            return;
+//        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date dateNow = new Date();
+        System.out.println("当前时间为：" + sdf.format(dateNow));
+        String msg = "收到群发消息:" + "当前时间为：" + sdf.format(dateNow);
+
+        Message message = new Message();
+        message.setMessageTopic("测试发送消息");
+        message.setMessageBody(msg);
+        return informAll(message);
+    }
+
 
     /**
      * 定时任务，向第一位客户端用户推送当前时间（每五秒一次）

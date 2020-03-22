@@ -1,6 +1,7 @@
 package com.sustech.conferenceSystem.mapper;
 
 import com.sustech.conferenceSystem.dto.Message;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -44,9 +45,10 @@ public interface MessageMapper {
     /**
      * 模糊查询消息
      * @param messageName 消息名字
+     * @param userName 用户名字
      * @return
      */
-    List<Message> fuzzySearchMessage(String messageName);
+    List<Message> fuzzySearchMessage(@Param("messageName")String messageName, @Param("userName") String userName);
 
 
     /**

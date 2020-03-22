@@ -14,8 +14,13 @@
     </select>
 
     <select id="fuzzySearchMessage" resultType ="com.sustech.conferenceSystem.dto.Message">
-        select * from message where message_topic like "%"#{messageTopic}"%"
+        select * from message where message_topic like "%"#{messageName}"%"
+        <if test="userName != null and userName != ''">
+            and receiver_name = #{userName}
+        </if>
     </select>
+
+
 
     <insert id="addMessage" parameterType ="com.sustech.conferenceSystem.dto.Message">
         insert into message(<include refid="key"/>) values(<include refid="values"/>)
