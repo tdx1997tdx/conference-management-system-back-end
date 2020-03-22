@@ -128,6 +128,7 @@
                 meeting_id = #{meetingId}
         </where>
     </select>
+
     <!--查询会议未签到-->
     <select id="findMeetingUnsign" resultType="com.sustech.conferenceSystem.dto.User">
         select u.user_id,name,state,username from user_and_meeting uam inner join user u on uam.user_id = u.user_id
@@ -135,6 +136,7 @@
             meeting_id = #{meetingId} and state=0
         </where>
     </select>
+
     <!--查询参会成员-->
     <select id="findMeetingAttend" resultType="com.sustech.conferenceSystem.dto.User">
         select u.user_id,name,state,username from user_and_meeting uam inner join user u on uam.user_id = u.user_id
@@ -179,6 +181,27 @@
             #{user.userId}
         </foreach>
     </delete>
+
+    <!--增加相关参会人员-->
+    <insert id="meetingMembersAdd">
+        insert into user_and_meeting(user_id,meeting_id) values
+        <foreach collection="members" item="user" separator="," open="(" close=")">
+            #{meetingId}, #{user.userId})
+        </foreach>
+    </insert>
+
+    <!--查询符合相差时间的会议（开始之前）-->
+    <select id="meetingTimeDiffGet" resultType="com.sustech.conferenceSystem.dto.MeetingSimple">
+        SELECT * from meeting
+        <choose>
+            <when test = "startOrEnd == 0">
+                where round((UNIX_TIMESTAMP(start_time) - UNIX_TIMESTAMP(#{dateNow})) / 60) = #{diffTime}
+            </when>
+            <otherwise>
+                where round((UNIX_TIMESTAMP(end_time) - UNIX_TIMESTAMP(#{dateNow})) / 60) = #{diffTime}
+            </otherwise>
+        </choose>
+    </select>
 
 
     <!-- key-value -->

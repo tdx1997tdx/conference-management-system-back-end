@@ -65,8 +65,8 @@ public class DeviceManagementControler {
     public String deviceStateChange(@RequestBody JSONObject jsonParam){
         int deviceId = jsonParam.getInteger("device_id");
         String state = jsonParam.getString("state");
-        String roomName = jsonParam.getString("room_name");
-        Map result=deviceManagementService.deviceStateChangeService(deviceId,state,roomName);
+        String roomId = jsonParam.getString("room_id");
+        Map result=deviceManagementService.deviceStateChangeService(deviceId,state,roomId);
         return JSON.toJSONString(result);
     }
 

@@ -80,13 +80,13 @@ public class DeviceManagementService {
      * 更改设备状态
      * @return 结果0或1
      */
-    public Map<String,String> deviceStateChangeService(Integer deviceId,String state,String roomName){
+    public Map<String,String> deviceStateChangeService(Integer deviceId,String state,String roomId){
         Map<String,String> res=new HashMap<>();
         Map<String,String> json=new HashMap<>();
         json.put("device_id",deviceId+"");
         json.put("command",state);
         String message=JSON.toJSONString(json);
-        mqttUtil.publish(roomName,message);
+        mqttUtil.publish(roomId,message);
         res.put("state","1");
         res.put("message","发送成功");
         return res;

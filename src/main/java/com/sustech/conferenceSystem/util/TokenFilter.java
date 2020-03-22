@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Arrays;
 
-@Component
+
 @WebFilter(filterName="TokenFilter",urlPatterns={"/*"})
 public class TokenFilter implements Filter {
     //排除不拦截的url
