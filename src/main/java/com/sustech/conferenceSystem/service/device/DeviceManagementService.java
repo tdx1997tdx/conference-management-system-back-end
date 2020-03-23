@@ -1,7 +1,9 @@
 package com.sustech.conferenceSystem.service.device;
 
+import com.alibaba.fastjson.JSON;
 import com.sustech.conferenceSystem.dto.Device;
 import com.sustech.conferenceSystem.mapper.DeviceMapper;
+import com.sustech.conferenceSystem.mqttService.MqttUtil;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -15,6 +17,8 @@ import java.util.Map;
 public class DeviceManagementService {
     @Resource
     private DeviceMapper deviceMapper;
+    @Resource
+    private MqttUtil mqttUtil;
 
     /**
      * 添加设备业务逻辑
@@ -72,5 +76,19 @@ public class DeviceManagementService {
         return res;
     }
 
-
+    /**
+     * 更改设备状态
+     * @return 结果0或1
+     */
+    public Map<String,String> deviceStateChangeService(Integer deviceId,String state,String roomId){
+        Map<String,String> res=new HashMap<>();
+        Map<String,String> json=new HashMap<>();
+        json.put("device_id",deviceId+"");
+        json.put("command",state);
+        String message=JSON.toJSONString(json);
+        mqttUtil.publish(roomId,message);
+        res.put("state","1");
+        res.put("message","发送成功");
+        return res;
+    }
 }
