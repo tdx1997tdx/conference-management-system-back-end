@@ -67,12 +67,8 @@ public class WebSocketControler {
         System.out.println("onOpen CheckToken: " + CheckToken);
 
 
-        session.getBasicRemote().sendText("\nid " + id);
-        session.getBasicRemote().sendText("\ntoken " + token);
         if(!token.equals(CheckToken)){
 ////        if (!token.equals("abc123")) {
-            System.out.println("onOpen: return");
-            session.getBasicRemote().sendText("\nCheckToken " + CheckToken);
             this.id = "";
             this.name = "";
             session.close();
@@ -91,9 +87,6 @@ public class WebSocketControler {
         message.setMessageBody("新用户登录， id:"+ id + " name: " + name + "当前在线连接数:" + getOnlineCount());
         sendMessage(message);
 
-//        session.getBasicRemote().sendText("\nCheckToken " + CheckToken);
-        session.getBasicRemote().sendText("\nid" + id);
-        session.getBasicRemote().sendText("\ntoken" + token);
 
         System.out.println("onOpen: " + uri);
         System.out.println("有新连接加入！当前在线连接数：" + getOnlineCount());
@@ -129,7 +122,6 @@ public class WebSocketControler {
         message.setMessageBody("id: " + id + " name: " + name + "发送给服务端消息：" + message);
         this.sendMessage(message);
         System.out.println("id: " + id + " name: " + name + "发送来消息：" + message);
-
     }
 
     /**

@@ -43,13 +43,13 @@ public class MessageQueryService {
      * @param messageName 消息名称
      * @param page 页数
      * @param volume 容量
-     * @param userName 用户名字
+     * @param userId 用户ID
      * @return 结果集合
      */
-    public Map<String,Object> messageSearchService(String messageName, int page, int volume, String userName){
+    public Map<String,Object> messageSearchService(String messageName, int page, int volume, int userId){
         Map<String,Object> res = new HashMap<>();
         PageHelper.startPage(page, volume);
-        List<Message> list=messageMapper.fuzzySearchMessage(messageName, userName);
+        List<Message> list=messageMapper.fuzzySearchMessage(messageName, userId);
         PageInfo<Message> pageInfo=new PageInfo<>(list);
         res.put("list",list);
         res.put("total",pageInfo.getTotal());
@@ -65,7 +65,7 @@ public class MessageQueryService {
     public Map<String,Object> messageSearchPageService(int page,int volume){
         Map<String,Object> res=new HashMap<>();
         PageHelper.startPage(page, volume);
-        List<Message> list=messageMapper.fuzzySearchMessage("", "");
+        List<Message> list=messageMapper.fuzzySearchMessage("", 0);
         PageInfo<Message> pageInfo=new PageInfo<>(list);
         res.put("list",list);
         res.put("total",pageInfo.getTotal());

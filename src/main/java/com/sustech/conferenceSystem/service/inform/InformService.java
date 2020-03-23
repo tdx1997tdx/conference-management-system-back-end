@@ -132,6 +132,7 @@ public class InformService {
         int websocketNum = 0;
         StringBuilder websocketString = new StringBuilder("");
         Collection<WebSocketControler> websocketCollection = webSocketServerMAP.values();
+
         for (WebSocketControler item : websocketCollection) {
             try {
                 messageInform(item.getId(), item.getName(), message);

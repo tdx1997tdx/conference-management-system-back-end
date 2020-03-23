@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Arrays;
 
+import static com.sustech.conferenceSystem.service.inform.InformConstants.INFORM_TEST_ON;
+
 @Component
 @WebFilter(filterName="TokenFilter",urlPatterns={"/*"})
 public class TokenFilter implements Filter {
@@ -31,7 +33,7 @@ public class TokenFilter implements Filter {
         HttpServletRequest req=(HttpServletRequest)request;
         HttpServletResponse res=(HttpServletResponse) response;
         //忽略预检请求
-        if(!(req.getMethod().equals("GET")||req.getMethod().equals("POST"))){
+        if(!(req.getMethod().equals("GET")||req.getMethod().equals("POST"))||INFORM_TEST_ON){
             chain.doFilter(request, response);
             return;
         }

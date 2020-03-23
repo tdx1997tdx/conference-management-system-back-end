@@ -53,16 +53,10 @@ public class MessageQueryControler {
     @RequestMapping(value = "/message_search", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
     public String messageSearch(@RequestBody JSONObject jsonParam){
         String messageName = jsonParam.getString("message_topic");
-        String userName = jsonParam.getString("user_name");
-
+        int userId = Integer.parseInt(jsonParam.getString("user_id"));
         int page = Integer.parseInt(jsonParam.getString("page"));
         int volume = Integer.parseInt(jsonParam.getString("volume"));
-        if (userName == null) {
-            System.out.println("userName null");
-        } else {
-            System.out.println("userName " + userName);
-        }
-        Map<String, Object> result=messageQueryService.messageSearchService(messageName, page, volume, userName);
+        Map<String, Object> result=messageQueryService.messageSearchService(messageName, page, volume, userId);
         return JSON.toJSONString(result);
     }
 

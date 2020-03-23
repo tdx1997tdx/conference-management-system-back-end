@@ -45,10 +45,10 @@ public interface MessageMapper {
     /**
      * 模糊查询消息
      * @param messageName 消息名字
-     * @param userName 用户名字
+     * @param userId 用户ID
      * @return
      */
-    List<Message> fuzzySearchMessage(@Param("messageName")String messageName, @Param("userName") String userName);
+    List<Message> fuzzySearchMessage(@Param("messageName")String messageName, @Param("userId") int userId);
 
 
     /**

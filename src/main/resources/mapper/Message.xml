@@ -3,20 +3,31 @@
 <mapper namespace="com.sustech.conferenceSystem.mapper.MessageMapper" >
 
     <select id="getAllMessage" resultType ="com.sustech.conferenceSystem.dto.Message">
-        select * from message
+        select msg.*, u1.username as sender_name, u2.username as receiver_name
+        from message msg, user u1, user u2
+        where msg.sender_id = u1.user_id and msg.receiver_id = u2.user_id
     </select>
 
     <select id="searchMessage" resultType ="com.sustech.conferenceSystem.dto.Message">
-        select * from message
+        select * from (
+            select msg.*, u1.username as sender_name, u2.username as receiver_name
+            from message msg, user u1, user u2
+            where msg.sender_id = u1.user_id and msg.receiver_id = u2.user_id
+        ) as total
         <where>
             <include refid="kv_and"/>
         </where>
     </select>
 
     <select id="fuzzySearchMessage" resultType ="com.sustech.conferenceSystem.dto.Message">
-        select * from message where message_topic like "%"#{messageName}"%"
-        <if test="userName != null and userName != ''">
-            and receiver_name = #{userName}
+        select * from (
+            select msg.*, u1.username as sender_name, u2.username as receiver_name
+            from message msg, user u1, user u2
+            where msg.sender_id = u1.user_id and msg.receiver_id = u2.user_id
+        ) as total
+        where message_topic like "%"#{messageName}"%"
+        <if test="userId != null and userId != 0">
+            and receiver_id = #{userId}
         </if>
     </select>
 
@@ -45,20 +56,29 @@
     <!-- 对应的插入字段的名字 -->
     <sql id="key">
         <trim suffixOverrides=",">
+            <if test="messageHeader!=null">
+                message_header,
+            </if>
             <if test="messageTopic!=null">
                 message_topic,
             </if>
             <if test="messageBody!=null">
                 message_body,
             </if>
+            <if test="reason!=null">
+                reason,
+            </if>
+            <if test="senderId!=null">
+                sender_id,
+            </if>
+            <if test="receiverId!=null">
+                receiver_id,
+            </if>
             <if test="sendTime!=null">
                 send_time,
             </if>
-            <if test="senderName!=null">
-                sender_name,
-            </if>
-            <if test="receiverName!=null">
-                receiver_name
+            <if test="haveRead!=null">
+                have_read
             </if>
         </trim>
     </sql>
@@ -66,20 +86,29 @@
     <!-- 对应的插入字段的值 -->
     <sql id="values">
         <trim suffixOverrides=",">
+            <if test="messageHeader!=null">
+                #{messageHeader},
+            </if>
             <if test="messageTopic!=null">
                 #{messageTopic},
             </if>
             <if test="messageBody!=null">
                 #{messageBody},
             </if>
+            <if test="reason!=null">
+                #{reason},
+            </if>
+            <if test="senderId!=null">
+                #{senderId},
+            </if>
+            <if test="receiverId!=null">
+                #{receiverId},
+            </if>
             <if test="sendTime!=null">
                 #{sendTime},
             </if>
-            <if test="senderName!=null">
-                #{senderName},
-            </if>
-            <if test="receiverName!=null">
-                #{receiverName}
+            <if test="haveRead!=null">
+                #{haveRead}
             </if>
         </trim>
     </sql>
@@ -87,17 +116,29 @@
     <!-- key-value -->
     <sql id="kv_comma">
         <trim suffixOverrides=",">
+            <if test="messageHeader!=null">
+                message_header = #{messageHeader},
+            </if>
             <if test="messageTopic!=null">
                 message_topic = #{messageTopic},
             </if>
-            <if test="senderName!=null">
-                sender_name = #{senderName},
-            </if>
-            <if test="receiverName!=null">
-                receiver_name = #{receiverName},
-            </if>
             <if test="messageBody!=null">
                 message_body = #{messageBody}
+            </if>
+            <if test="reason!=null">
+                reason = #{reason},
+            </if>
+            <if test="senderId!=null">
+                sender_id = #{senderId},
+            </if>
+            <if test="receiverId!=null">
+                receiver_id = #{receiverId},
+            </if>
+            <if test="sendTime!=null">
+                send_time = #{sendTime},
+            </if>
+            <if test="haveRead!=null">
+                have_read = #{haveRead}
             </if>
         </trim>
     </sql>
@@ -105,14 +146,29 @@
     <!-- key-value -->
     <sql id="kv_and">
         <trim suffixOverrides="and">
+            <if test="messageHeader!=null">
+                message_header = #{messageHeader} and
+            </if>
             <if test="messageTopic!=null">
                 message_topic = #{messageTopic} and
             </if>
-            <if test="senderName!=null">
-                sender_name = #{senderName} and
+            <if test="messageBody!=null">
+                message_body = #{messageBody}
             </if>
-            <if test="receiverName!=null">
-                receiver_name = #{receiverName}
+            <if test="reason!=null">
+                reason = #{reason} and
+            </if>
+            <if test="senderId!=null">
+                sender_id = #{senderId} and
+            </if>
+            <if test="receiverId!=null">
+                receiver_id = #{receiverId} and
+            </if>
+            <if test="sendTime!=null">
+                send_time = #{sendTime} and
+            </if>
+            <if test="haveRead!=null">
+                have_read = #{haveRead}
             </if>
         </trim>
     </sql>
