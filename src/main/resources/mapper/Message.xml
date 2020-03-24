@@ -3,14 +3,18 @@
 <mapper namespace="com.sustech.conferenceSystem.mapper.MessageMapper" >
 
     <select id="getAllMessage" resultType ="com.sustech.conferenceSystem.dto.Message">
-        select msg.*, u1.username as sender_name, u2.username as receiver_name
+        select msg.*,
+            u1.username as sender_user_name, u1.name as sender_name,
+            u2.username as receiver_user_name, u1.name as receiver_name
         from message msg, user u1, user u2
         where msg.sender_id = u1.user_id and msg.receiver_id = u2.user_id
     </select>
 
     <select id="searchMessage" resultType ="com.sustech.conferenceSystem.dto.Message">
         select * from (
-            select msg.*, u1.username as sender_name, u2.username as receiver_name
+            select msg.*,
+                u1.username as sender_user_name, u1.name as sender_name,
+                u2.username as receiver_user_name, u1.name as receiver_name
             from message msg, user u1, user u2
             where msg.sender_id = u1.user_id and msg.receiver_id = u2.user_id
         ) as total
@@ -21,7 +25,9 @@
 
     <select id="fuzzySearchMessage" resultType ="com.sustech.conferenceSystem.dto.Message">
         select * from (
-            select msg.*, u1.username as sender_name, u2.username as receiver_name
+            select msg.*,
+                u1.username as sender_user_name, u1.name as sender_name,
+                u2.username as receiver_user_name, u1.name as receiver_name
             from message msg, user u1, user u2
             where msg.sender_id = u1.user_id and msg.receiver_id = u2.user_id
         ) as total
@@ -29,9 +35,10 @@
         <if test="userId != null and userId != 0">
             and receiver_id = #{userId}
         </if>
+        <if test="haveRead != null and haveRead != 2">
+            and have_read = #{haveRead}
+        </if>
     </select>
-
-
 
     <insert id="addMessage" parameterType ="com.sustech.conferenceSystem.dto.Message">
         insert into message(<include refid="key"/>) values(<include refid="values"/>)
@@ -43,6 +50,18 @@
             <include refid="kv_comma"/>
         </set>
         where message_id=#{messageId}
+    </update>
+
+    <update id="messageALLRead">
+        update message set have_read = 1
+        where receiver_id = #{userId}
+    </update>
+
+    <update id="messageRead" parameterType="list">
+        update message set have_read = 1 where message_id in
+        <foreach collection="messageIds" index="index" item="messageId" separator="," open="(" close=")">
+           #{messageId}
+        </foreach>
     </update>
 
     <delete id="deleteMessage">

@@ -18,8 +18,10 @@ public class Message {
 
     private Integer senderId; //发信人ID
     private String senderName; //发信人名字
+    private String senderUserName; //发信人用户名
     private Integer receiverId; //接收人ID
     private String receiverName; //接收人名字
+    private String receiverUserName; //接收人用户名
 
     @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
     @JSONField(format="yyyy-MM-dd HH:mm:ss")
@@ -33,9 +35,10 @@ public class Message {
 
     public Message(String reason) {
         this.reason = reason;
-        this.messageTopic = "测试消息";
+        this.messageTopic = "System Message";
         this.senderId = 1;
         this.senderName = "System";
+        this.senderUserName = "System";
         this.sendTime = new Date();
         this.haveRead = NOT_READ;
     }

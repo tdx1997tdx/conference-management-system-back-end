@@ -2,8 +2,8 @@ package com.sustech.conferenceSystem.service.inform;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.Collection;
-import java.util.Date;
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 import com.sustech.conferenceSystem.controler.inform.LongPullingController;
 import com.sustech.conferenceSystem.controler.inform.WebSocketControler;
@@ -20,8 +20,6 @@ import org.springframework.web.context.request.async.DeferredResult;
 import javax.annotation.Resource;
 
 import static com.sustech.conferenceSystem.service.inform.InformConstants.*;
-import static com.sustech.conferenceSystem.controler.inform.WebSocketControler.webSocketServerMAP;
-import static com.sustech.conferenceSystem.controler.inform.LongPullingController.watchRequests;
 
 
 @Component
@@ -40,13 +38,17 @@ public class InformService {
     public void meetingInform(MeetingFull meetingFull, InformReason informReason){
         Message message = new Message();
         message.setMessageTopic(generateMesaageTopic(informReason));
+        message.setMessageBody(generateMesaageBody(meetingFull, informReason));
         message.setSendTime(new Date());
+        User host = meetingFull.getHost();
+        message.setSenderId(host.getUserId());
+        message.setSenderUserName(host.getUsername());
+        message.setSenderName(host.getName());
 
-        String msgBody = generateMesaageBody(meetingFull, informReason);
-        memberInform(meetingFull.getHost(), MeetingRole.HOST, message, msgBody);
-        memberInform(meetingFull.getRecorder(), MeetingRole.RECORDER, message, msgBody);
+        memberInform(host, MeetingRole.HOST, message);
+        memberInform(meetingFull.getRecorder(), MeetingRole.RECORDER, message);
         for (User user: meetingFull.getMembers()) {
-            memberInform(user, MeetingRole.MEMBER, message, msgBody);
+            memberInform(user, MeetingRole.MEMBER, message);
         }
     }
 
@@ -56,16 +58,23 @@ public class InformService {
      * @param meetingRole 人员在会议中身份
      * @return
      */
-    public void memberInform(User user, MeetingRole meetingRole, Message message, String msgBody) {
-        // 暂定，后续可能会修改，未完成
-        message.setMessageBody(generateMesaageHead(user, meetingRole) + msgBody);
-        if (true) {
-            try {
-                messageInform(user.getUserId().toString(), user.getName(), message);
-            } catch (IOException e) {
-                // 日志报错， 未完成
-                e.printStackTrace();
-            }
+    public void memberInform(User user, MeetingRole meetingRole, Message message) {
+        message.setMessageHeader(generateMesaageHead(user, meetingRole));
+        message.setReceiverId(user.getUserId());
+        message.setReceiverUserName(user.getUsername());
+        message.setReceiverName(user.getName());
+
+        if (!messageManagementService.messageAddService(message)) {
+            System.out.println("写入数据库失败");
+            return;
+            // 失败后处理（未完成）
+        }
+
+        try {
+            messageInform(user.getUserId(), user.getName(), message);
+        } catch (IOException e) {
+            // 日志报错， 未完成
+            e.printStackTrace();
         }
     }
 
@@ -76,29 +85,25 @@ public class InformService {
      * @param message 会议提醒理由（创建，修改等）
      * @throws IOException
      */
-    public String messageInform(String id, String name, Message message) throws IOException{
-        message.setReceiverName(name);
-
+    public String messageInform(int id, String name, Message message) throws IOException{
         String namespace = id + name;
 
-        if (!messageManagementService.messageAddService(message)) {
-            System.out.println("写入数据库失败");
-            return "写入数据库失败";
-        }
-        WebSocketControler webSocketControler = webSocketServerMAP.get(namespace);
+        WebSocketControler webSocketControler = webSocketServersMAP.get(namespace);
         if(webSocketControler != null){
             webSocketControler.sendMessage(message);
             return "Websocket success";
         }
         System.out.println("该用户未与服务器建立websocket连接 id:" + id + " name: " + name);
-        if (watchRequests.containsKey(namespace)) {
-            DeferredResult<Message> deferredResult = watchRequests.get(namespace);
+
+        if (deferredResultsMap.containsKey(namespace)) {
+            DeferredResult<Message> deferredResult = deferredResultsMap.get(namespace);
             LongPullingController.sendMessage(message, deferredResult);
             return "LongPulling success";
         }
         System.out.println("该用户未与服务器建立long pulling连接 id:" + id + " name: " + name);
+
+
         return "未建立连接 id:" + id + " name: " + name + " namespace: " + namespace;
-//        webSocketServer.session.getBasicRemote().sendText(message);
     }
 
     /**
@@ -118,40 +123,63 @@ public class InformService {
             MeetingFull meetingFull = meetingMapper.meetingSearchCertain(meetingSimple.getMeetingId());
             meetingInform(meetingFull, InformReason.OPENBEFORE);
         }
-        for (MeetingSimple meetingSimple: meetingMapper.meetingTimeDiffGet(BEFORE_MEETING_OPEN, dateNow, START_TIME)) {
+        for (MeetingSimple meetingSimple: meetingMapper.meetingTimeDiffGet(BEFORE_MEETING_OPEN_SWITCH_ON, dateNow, START_TIME)) {
             // 会议开始前10分钟，自动开灯，电视机，空调，音响等设备（未完成）
             System.out.println("BEFORE_MEETING_OPEN "+sdf.format(dateNow));
         }
         for (MeetingSimple meetingSimple: meetingMapper.meetingTimeDiffGet(BEFORE_MEETING_CLOSE_INFORM, dateNow, END_TIME)) {
             // 会议结束之前15分钟，在会议平板（电视机）上显示提示信息（未完成）
+            System.out.println("BEFORE_MEETING_CLOSE_INFORM "+sdf.format(dateNow));
+
         }
     }
 
-
-    public String informAll(Message message) {
+    public String informAll(Message message) throws IOException {
         int websocketNum = 0;
+        int longPullingNum = 0;
         StringBuilder websocketString = new StringBuilder("");
-        Collection<WebSocketControler> websocketCollection = webSocketServerMAP.values();
+        StringBuilder longPullingString = new StringBuilder("");
 
-        for (WebSocketControler item : websocketCollection) {
-            try {
-                messageInform(item.getId(), item.getName(), message);
+        for (Map.Entry<String, LinkState> entry: LinkStatesMap.entrySet()) {
+            System.out.println("key="+entry.getKey()+"  value="+entry.getValue());
+            if (entry.getValue() == LinkState.WEBSOCKET) {
+                WebSocketControler webSocketControler = webSocketServersMAP.get(entry.getKey());
+                webSocketControler.sendMessage(message);
                 websocketNum++;
-                websocketString.append("uri: " + item.getUri() + "\n");
-            } catch (IOException e) {
-                e.printStackTrace();
-                continue;
+                websocketString.append("websocket namespace: " + entry.getKey() + "\n");
+            } else if (entry.getValue() == LinkState.LONG_PULLING) {
+                DeferredResult<Message> deferredResult = deferredResultsMap.get(entry.getKey());
+                deferredResult.setResult(message);
+                longPullingNum++;
+                longPullingString.append("longPulling namespace: " + entry.getKey() + "\n");
             }
         }
 
+        String res = "websocketNum: " + websocketNum + "\n" + websocketString +
+                     "longPullingNum: " + longPullingNum + "\n" + longPullingString;
+        return res;
+    }
+
+    public String informAll2(Message message) throws IOException {
+        int websocketNum = 0;
         int longPullingNum = 0;
-        Collection<DeferredResult<Message>> longPullingCollection = watchRequests.values();
+        StringBuilder websocketString = new StringBuilder("");
+        StringBuilder longPullingString = new StringBuilder("");
+
+        Collection<WebSocketControler> websocketCollection = webSocketServersMAP.values();
+        for (WebSocketControler item : websocketCollection) {
+            messageInform(item.getId(), item.getName(), message);
+            websocketNum++;
+            websocketString.append("uri: " + item.getUri() + "\n");
+        }
+
+        Collection<DeferredResult<Message>> longPullingCollection = deferredResultsMap.values();
         for (DeferredResult<Message> deferredResult : longPullingCollection) {
-            // 设定收信人（未实现）
             deferredResult.setResult(message);
             longPullingNum++;
         }
-        String res = "websocketNum: " + websocketNum + " longPullingNum: " + longPullingNum + "\n" + websocketString;
+        String res = "websocketNum: " + websocketNum + "\n" + websocketString +
+                "longPullingNum: " + longPullingNum + "\n" + longPullingString;
         return res;
     }
 
@@ -160,7 +188,7 @@ public class InformService {
      * 模拟向多人推送消息
      */
 //    @Scheduled(cron="0/5 * *  * * ? ")
-    public String informAllTest(){
+    public String informAllTest() throws IOException {
 //        if (INFORM_TEST_ON) {
 //            return;
 //        }
@@ -169,8 +197,7 @@ public class InformService {
         System.out.println("当前时间为：" + sdf.format(dateNow));
         String msg = "收到群发消息:" + "当前时间为：" + sdf.format(dateNow);
 
-        Message message = new Message();
-        message.setMessageTopic("测试发送消息");
+        Message message = new Message("InformService->informAllTest");
         message.setMessageBody(msg);
         return informAll(message);
     }
@@ -182,7 +209,7 @@ public class InformService {
      * 此处规定第一位用户ID为001，名字为yyj
      * @throws IOException
      */
-    private static final String FIRST_USER_ID = "001";
+    private static final int FIRST_USER_ID = 1;
     private static final String FIRST_USER_NAME = "YYJ";
 //    @Scheduled(cron="0/5 * *  * * ? ")
 //    public void informFirstUser() throws IOException{
@@ -195,10 +222,11 @@ public class InformService {
         System.out.println("当前时间为：" + sdf.format(dateNow));
         String msg = "收到给第一位用户的消息:" + "当前时间为：" + sdf.format(dateNow);
 
-        Message message = new Message();
-        message.setReceiverName(FIRST_USER_NAME);
-        message.setMessageTopic("测试发送消息");
+        Message message = new Message("InformService->informFirstUser");
         message.setMessageBody(msg);
+        message.setReceiverId(FIRST_USER_ID);
+        message.setReceiverUserName(FIRST_USER_NAME);
+        message.setReceiverName(FIRST_USER_NAME);
         return messageInform(FIRST_USER_ID, FIRST_USER_NAME, message);
     }
 

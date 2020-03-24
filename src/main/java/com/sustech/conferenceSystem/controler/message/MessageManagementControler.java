@@ -1,6 +1,7 @@
 package com.sustech.conferenceSystem.controler.message;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.sustech.conferenceSystem.dto.Message;
 import com.sustech.conferenceSystem.service.message.MessageManagementService;
@@ -85,5 +86,49 @@ public class MessageManagementControler {
         return JSON.toJSONString(res);
     }
 
+    /**
+     * /message/message_have_read 接口，用于更改消息信息
+     * @param jsonParam
+     * @return
+     */
+    @RequestMapping(value = "/message_have_read", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    public String messageRead(@RequestBody JSONObject jsonParam) {
+        JSONArray messageArray = jsonParam.getJSONArray("message_id");
+        int[] messageIds = new int[messageArray.size()];
+        for (int i = 0; i < messageArray.size(); i++) {
+            messageIds[i] = messageArray.getInteger(i);
+        }
+        boolean isSuccess = messageManagementService.messageReadService(messageIds);
 
+        Map<String,String> res=new HashMap<>();
+        if(isSuccess){
+            res.put("state","1");
+            res.put("message","更改消息成功");
+        }else {
+            res.put("state","0");
+            res.put("message","更改消息失败");
+        }
+        return JSON.toJSONString(res);
+    }
+
+    /**
+     * /message/message_all_have_read 接口，用于更改消息信息
+     * @param jsonParam
+     * @return
+     */
+    @RequestMapping(value = "/message_all_have_read", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    public String messageALLRead(@RequestBody JSONObject jsonParam) {
+        int userId = Integer.parseInt(jsonParam.getString("user_id"));
+        boolean isSuccess = messageManagementService.messageALLReadService(userId);
+
+        Map<String,String> res=new HashMap<>();
+        if(isSuccess){
+            res.put("state","1");
+            res.put("message","更改消息成功");
+        }else {
+            res.put("state","0");
+            res.put("message","更改消息失败");
+        }
+        return JSON.toJSONString(res);
+    }
 }

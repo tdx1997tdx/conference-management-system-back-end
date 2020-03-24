@@ -8,6 +8,7 @@ import com.sustech.conferenceSystem.service.inform.InformService;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,7 +21,7 @@ public class Listener {
     private InformService informService;
     @Resource
     private MqttUtil mqttUtil;
-    public void dealWithMessage(String topic,int qos,String message){
+    public void dealWithMessage(String topic,int qos,String message) throws IOException {
         if(topic.equals("Register")){
             String res=registerProcessor(message);
             mqttUtil.publish(2,false,"AssignRoom",res);
@@ -33,7 +34,7 @@ public class Listener {
         device.setState(fliter(mess.get("device_status")));
         deviceMapper.updateDevice(device);
 
-        Message msg = new Message();
+        Message msg = new Message("Listener->dealWithMessage");
         msg.setMessageTopic("device state change");
         msg.setMessageBody(JSON.toJSONString(device));
         informService.informAll(msg);

@@ -26,7 +26,7 @@ public class InformTestControler {
     @RequestMapping(value = "/inform_all",
             method = RequestMethod.GET,
             produces = "application/json;charset=UTF-8")
-    public String informAllTest(){
+    public String informAllTest() throws IOException {
         return informService.informAllTest();
     }
 

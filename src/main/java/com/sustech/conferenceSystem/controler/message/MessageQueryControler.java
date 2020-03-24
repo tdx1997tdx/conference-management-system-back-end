@@ -54,9 +54,10 @@ public class MessageQueryControler {
     public String messageSearch(@RequestBody JSONObject jsonParam){
         String messageName = jsonParam.getString("message_topic");
         int userId = Integer.parseInt(jsonParam.getString("user_id"));
+        int haveRead = Integer.parseInt(jsonParam.getString("have_read"));
         int page = Integer.parseInt(jsonParam.getString("page"));
         int volume = Integer.parseInt(jsonParam.getString("volume"));
-        Map<String, Object> result=messageQueryService.messageSearchService(messageName, page, volume, userId);
+        Map<String, Object> result=messageQueryService.messageSearchService(messageName, page, volume, userId, haveRead);
         return JSON.toJSONString(result);
     }
 

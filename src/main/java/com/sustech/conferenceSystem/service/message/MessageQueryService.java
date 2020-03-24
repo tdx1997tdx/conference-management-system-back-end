@@ -11,6 +11,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static com.sustech.conferenceSystem.service.inform.InformConstants.HAVE_READ;
+
 /**
  * 控制消息的查询模块service层
  */
@@ -46,13 +48,20 @@ public class MessageQueryService {
      * @param userId 用户ID
      * @return 结果集合
      */
-    public Map<String,Object> messageSearchService(String messageName, int page, int volume, int userId){
+    public Map<String,Object> messageSearchService(String messageName, int page, int volume, int userId, int haveRead){
         Map<String,Object> res = new HashMap<>();
         PageHelper.startPage(page, volume);
-        List<Message> list=messageMapper.fuzzySearchMessage(messageName, userId);
+        List<Message> list=messageMapper.fuzzySearchMessage(messageName, userId, haveRead);
         PageInfo<Message> pageInfo=new PageInfo<>(list);
+        int total_read = 0;
+        for (Message msg: list) {
+            if (msg.getHaveRead() == HAVE_READ) {
+                total_read += 1;
+            }
+        }
         res.put("list",list);
         res.put("total",pageInfo.getTotal());
+        res.put("total_read",total_read);
         return res;
     }
 
@@ -65,10 +74,17 @@ public class MessageQueryService {
     public Map<String,Object> messageSearchPageService(int page,int volume){
         Map<String,Object> res=new HashMap<>();
         PageHelper.startPage(page, volume);
-        List<Message> list=messageMapper.fuzzySearchMessage("", 0);
+        List<Message> list=messageMapper.fuzzySearchMessage("", 0, 2);
         PageInfo<Message> pageInfo=new PageInfo<>(list);
+        int total_read = 0;
+        for (Message msg: list) {
+            if (msg.getHaveRead() == HAVE_READ) {
+                total_read += 1;
+            }
+        }
         res.put("list",list);
         res.put("total",pageInfo.getTotal());
+        res.put("total_read",total_read);
         return res;
     }
 

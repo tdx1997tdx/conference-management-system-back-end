@@ -1,15 +1,28 @@
 package com.sustech.conferenceSystem.service.inform;
 
+import com.sustech.conferenceSystem.controler.inform.WebSocketControler;
 import com.sustech.conferenceSystem.dto.MeetingFull;
+import com.sustech.conferenceSystem.dto.Message;
 import com.sustech.conferenceSystem.dto.User;
+import org.springframework.web.context.request.async.DeferredResult;
 
 import java.text.SimpleDateFormat;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class InformConstants {
+
+    public static ConcurrentHashMap<String, WebSocketControler> webSocketServersMAP = new ConcurrentHashMap<>();
+    // 存储各个客户端WebSocket连接情况，包含uri，session等
+    public static ConcurrentHashMap<String, DeferredResult<Message>> deferredResultsMap = new ConcurrentHashMap<>();
+    // 存储各个客户端LongPulling连接情况
+    public static ConcurrentHashMap<String, LinkState> LinkStatesMap = new ConcurrentHashMap<>();
+    // 存储各个客户端连接情况
+
     enum MeetingRole {HOST, RECORDER, MEMBER}
     public enum InformReason {CREATE, MODIFY, DELETE, OPENBEFORE, CLOSEBEFORE}
+    public enum LinkState {WEBSOCKET, LONG_PULLING, NOT_LINKED}
     public static final long BEFORE_MEETING_OPEN_INFORM = 20;
-    public static final long BEFORE_MEETING_OPEN = 10;
+    public static final long BEFORE_MEETING_OPEN_SWITCH_ON = 10;
     public static final long BEFORE_MEETING_CLOSE_INFORM = 15;
     public static final int START_TIME = 0;
     public static final int END_TIME = 1;

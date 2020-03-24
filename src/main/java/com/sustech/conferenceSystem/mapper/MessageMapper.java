@@ -2,6 +2,7 @@ package com.sustech.conferenceSystem.mapper;
 
 import com.sustech.conferenceSystem.dto.Message;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
@@ -48,7 +49,7 @@ public interface MessageMapper {
      * @param userId 用户ID
      * @return
      */
-    List<Message> fuzzySearchMessage(@Param("messageName")String messageName, @Param("userId") int userId);
+    List<Message> fuzzySearchMessage(@Param("messageName") String messageName, @Param("userId") int userId, @Param("haveRead") int haveRead);
 
 
     /**
@@ -57,4 +58,19 @@ public interface MessageMapper {
      * @return
      */
     Message findMessageById(int messageId);
+
+    /**
+     * 更改用户ID所有信息为已读
+     * @param userId 用户ID
+     * @return
+     */
+    boolean messageALLRead(@Param("userId") int userId);
+
+    /**
+     * 更改对应消息ID状态为已读
+     * @param messageIds 消息ID数组
+     * @return 结果0或1
+     */
+    boolean messageRead(@Param("messageIds")int[] messageIds);
+
 }
