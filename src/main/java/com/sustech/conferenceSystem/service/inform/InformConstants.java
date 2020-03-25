@@ -2,6 +2,7 @@ package com.sustech.conferenceSystem.service.inform;
 
 import com.sustech.conferenceSystem.controler.inform.WebSocketControler;
 import com.sustech.conferenceSystem.dto.MeetingFull;
+import com.sustech.conferenceSystem.dto.MeetingSimple;
 import com.sustech.conferenceSystem.dto.Message;
 import com.sustech.conferenceSystem.dto.User;
 import org.springframework.web.context.request.async.DeferredResult;
@@ -19,7 +20,7 @@ public class InformConstants {
     // 存储各个客户端连接情况
 
     enum MeetingRole {HOST, RECORDER, MEMBER}
-    public enum InformReason {CREATE, MODIFY, DELETE, OPENBEFORE, CLOSEBEFORE}
+    public enum InformReason {CREATE, MODIFY, DELETE, OPENBEFORE, REJECT, CLOSEBEFORE}
     public enum LinkState {WEBSOCKET, LONG_PULLING, NOT_LINKED}
     public static final long BEFORE_MEETING_OPEN_INFORM = 20;
     public static final long BEFORE_MEETING_OPEN_SWITCH_ON = 10;
@@ -35,6 +36,7 @@ public class InformConstants {
     public static final String MODIFY_MESSAGE_BODY = "您在%s出席的主题为%s的会议已被人改动，请提前查看会议修改信息并提前准备\n";
     public static final String DELETE_MESSAGE_BODY = "您在%s出席的主题为%s的会议已被删除，请留意后续通知\n";
     public static final String OPENBEFORE_MESSAGE_BODY = "您在%s出席的主题为%s的会议离开始还有20分钟，请做好会议内容准备\n";
+    public static final String REJECT_MESSAGE_BODY = "您在%s出席的主题为%s的会议有人无法出席，缺席人id: %d，姓名: %s, 请及时联系该人员查明原因\n";
     public static final String[] MESSAGE_BODY = {CREATE_MESSAGE_BODY, MODIFY_MESSAGE_BODY, DELETE_MESSAGE_BODY, OPENBEFORE_MESSAGE_BODY};
 
     public static final String MESSAGE_BODY_HEAD_HOST = "尊敬的%s先生/女士, 有一场会议需要您主持\n";
@@ -46,7 +48,8 @@ public class InformConstants {
     public static final String MODIFY_MESSAGE_TOPIC = "会议修改通知\n";
     public static final String DELETE_MESSAGE_TOPIC = "会议删除通知\n";
     public static final String OPENBEFORE_MESSAGE_TOPIC = "会议开始20分前通知";
-    public static final String[] MESSAGE_TOPIC = {CREATE_MESSAGE_TOPIC, MODIFY_MESSAGE_TOPIC, DELETE_MESSAGE_TOPIC, OPENBEFORE_MESSAGE_TOPIC};
+    public static final String REJECT_MESSAGE_TOPIC = "会议拒绝通知";
+    public static final String[] MESSAGE_TOPIC = {CREATE_MESSAGE_TOPIC, MODIFY_MESSAGE_TOPIC, DELETE_MESSAGE_TOPIC, OPENBEFORE_MESSAGE_TOPIC, REJECT_MESSAGE_TOPIC};
 
     /**
      * 根据会议提醒理由与会议详情生成消息内容（主体）
@@ -72,5 +75,17 @@ public class InformConstants {
 
     public static String generateMesaageTopic(InformReason informReason) {
         return String.format(MESSAGE_TOPIC[informReason.ordinal()]);
+    }
+
+    /**
+     * 根据会议详情生成reject消息内容（主体）
+     * @param meeting 会议
+     * @param absent 缺席人
+     * @return
+     */
+    public static String generateRejectBody(MeetingSimple meeting,User absent) {
+        String dateStr = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(meeting.getStartTime());
+        String meetingName = meeting.getMeetingName();
+        return String.format(REJECT_MESSAGE_BODY, dateStr, meetingName, absent.getUserId(), absent.getName());
     }
 }

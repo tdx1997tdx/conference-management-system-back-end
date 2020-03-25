@@ -17,6 +17,13 @@ public interface MeetingMapper {
     List<MeetingSimple> meetingGetAll();
 
     /**
+     * 根据id查找会议
+     * @param meetingId
+     * @return
+     */
+    MeetingSimple findMeetingById(int meetingId);
+
+    /**
      * 检查数据库中是否有符合要求的会议
      * @return 符合要求会议集合
      */

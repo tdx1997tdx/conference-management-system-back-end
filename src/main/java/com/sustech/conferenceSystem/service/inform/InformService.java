@@ -256,4 +256,19 @@ public class InformService {
         }
         return res.toString();
     }
+
+    public void informHost(int userId, int meetingId) {
+        MeetingSimple meeting = meetingMapper.findMeetingById(meetingId);
+        User user = userMapper.findUserById(userId);
+        User host = userMapper.findUserById(meeting.getHostId());
+        Message message = new Message();
+        InformReason informReason = InformReason.REJECT;
+        message.setMessageTopic(generateMesaageTopic(informReason));
+        message.setMessageBody(generateRejectBody(meeting, user));
+        message.setSendTime(new Date());
+        message.setSenderId(user.getUserId());
+        message.setSenderUserName(user.getUsername());
+        message.setSenderName(user.getName());
+        memberInform(host, MeetingRole.HOST, message);
+    }
 }

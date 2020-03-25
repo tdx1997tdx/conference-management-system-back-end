@@ -285,6 +285,8 @@ public class MeetingManagerService {
     public Map<String,String> rejectService(Integer userId,Integer meetingId){
         Map<String,String> res = new HashMap<>();
         userAndMeetingMapper.updateJoin(userId,meetingId,3);
+        informService.informHost(userId, meetingId);
+
         res.put("state","1");
         res.put("message","拒绝成功");
         return res;
