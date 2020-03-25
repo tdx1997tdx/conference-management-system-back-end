@@ -84,7 +84,7 @@ public class InformService {
         }
 
         try {
-            messageInform(user.getUserId(), user.getName(), message);
+            messageInform(user.getUserId(), user.getUsername(), message);
         } catch (IOException e) {
             // 日志报错， 未完成
             e.printStackTrace();
