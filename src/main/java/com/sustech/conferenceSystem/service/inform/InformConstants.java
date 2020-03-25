@@ -29,7 +29,7 @@ public class InformConstants {
     public static final int HAVE_READ = 1;
     public static final int NOT_READ = 0;
 
-    public static final boolean INFORM_TEST_ON = true;
+    public static final boolean INFORM_TEST_ON = false;
 
     public static final String CREATE_MESSAGE_BODY = "您在%s有一场主题为%s的会议需要出席，请留意时间提前准备\n";
     public static final String MODIFY_MESSAGE_BODY = "您在%s出席的主题为%s的会议已被人改动，请提前查看会议修改信息并提前准备\n";

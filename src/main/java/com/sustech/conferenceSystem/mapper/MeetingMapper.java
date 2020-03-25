@@ -115,13 +115,13 @@ public interface MeetingMapper {
      * 往会议中添加成员
      * @param meeting 其中有meeting所需所有信息
      */
-    boolean meetingMembersAdd(MeetingFull meeting);
+    boolean meetingMembersAdd(@Param("meeting")MeetingFull meeting);
 
     /**
      * 往会议中删除成员
      * @param meeting 其中有meeting所需所有信息
      */
-    boolean meetingMembersDelete(MeetingFull meeting);
+    boolean meetingMembersDelete(@Param("meeting")MeetingFull meeting);
 
 
     List<MeetingSimple> meetingTimeDiffGet(@Param("diffTime")long diffTime, @Param("dateNow") Date dateNow, @Param("startOrEnd")int startOrEnd);
