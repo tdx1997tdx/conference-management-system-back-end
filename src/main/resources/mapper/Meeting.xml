@@ -104,10 +104,10 @@
       select m.meeting_id,meeting_name,start_time,end_time from meeting m inner join user_and_meeting uam on m.meeting_id = uam.meeting_id
       where
       user_id = #{userId} and
-      ((<![CDATA[start_time>#{meetingSimple.startTime,jdbcType=TIMESTAMP}]]> and <![CDATA[start_time<#{meetingSimple.endTime,jdbcType=TIMESTAMP}]]>) or
-      (<![CDATA[start_time<#{meetingSimple.startTime,jdbcType=TIMESTAMP}]]> and <![CDATA[end_time>#{meetingSimple.endTime,jdbcType=TIMESTAMP}]]>) or
-      (<![CDATA[end_time>#{meetingSimple.startTime,jdbcType=TIMESTAMP}]]> and <![CDATA[end_time<#{meetingSimple.endTime,jdbcType=TIMESTAMP}]]>) or
-       (<![CDATA[start_time>#{meetingSimple.startTime,jdbcType=TIMESTAMP}]]> and <![CDATA[end_time<#{meetingSimple.endTime,jdbcType=TIMESTAMP}]]>))
+      ((<![CDATA[start_time>=#{meetingSimple.startTime,jdbcType=TIMESTAMP}]]> and <![CDATA[start_time<=#{meetingSimple.endTime,jdbcType=TIMESTAMP}]]>) or
+      (<![CDATA[start_time<=#{meetingSimple.startTime,jdbcType=TIMESTAMP}]]> and <![CDATA[end_time>=#{meetingSimple.endTime,jdbcType=TIMESTAMP}]]>) or
+      (<![CDATA[end_time>=#{meetingSimple.startTime,jdbcType=TIMESTAMP}]]> and <![CDATA[end_time<=#{meetingSimple.endTime,jdbcType=TIMESTAMP}]]>) or
+       (<![CDATA[start_time>=#{meetingSimple.startTime,jdbcType=TIMESTAMP}]]> and <![CDATA[end_time<=#{meetingSimple.endTime,jdbcType=TIMESTAMP}]]>))
     </select>
 
     <select id="meetingSearchCertain" resultMap="searchCertain">
