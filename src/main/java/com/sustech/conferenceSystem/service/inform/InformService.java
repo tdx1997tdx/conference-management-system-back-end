@@ -12,6 +12,7 @@ import com.sustech.conferenceSystem.dto.MeetingSimple;
 import com.sustech.conferenceSystem.dto.Message;
 import com.sustech.conferenceSystem.dto.User;
 import com.sustech.conferenceSystem.mapper.MeetingMapper;
+import com.sustech.conferenceSystem.mapper.UserMapper;
 import com.sustech.conferenceSystem.service.message.MessageManagementService;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -24,7 +25,8 @@ import static com.sustech.conferenceSystem.service.inform.InformConstants.*;
 
 @Component
 public class InformService {
-
+    @Resource
+    private UserMapper userMapper;
     @Resource
     private MeetingMapper meetingMapper;
     @Resource
@@ -63,8 +65,13 @@ public class InformService {
      * @return
      */
     public void memberInform(User user, MeetingRole meetingRole, Message message) {
-        System.out.println("memberInform" + user.getUserId());
+        System.out.println("memberInform id: " + user.getUserId() + " userName: " + user.getUsername() + " name: " + user.getName());
 
+        if (user.getUsername() == null || user.getName() == null) {
+            System.out.println("memberInform before" + user);
+            user = userMapper.findUserById(user.getUserId());
+            System.out.println("memberInform after" + user);
+        }
         message.setMessageHeader(generateMesaageHead(user, meetingRole));
         message.setReceiverId(user.getUserId());
         message.setReceiverUserName(user.getUsername());

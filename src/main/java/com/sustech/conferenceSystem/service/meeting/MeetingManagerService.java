@@ -238,6 +238,10 @@ public class MeetingManagerService {
             res.put("message","会议删除失败,无指定id会议");
             return res;
         }
+
+        //通知相关人员
+        informService.meetingInform(m, InformReason.DELETE);
+
         res.put("state","1");
         res.put("message","会议删除成功");
         return res;
