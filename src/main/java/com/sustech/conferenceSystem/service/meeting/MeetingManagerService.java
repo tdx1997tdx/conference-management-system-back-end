@@ -54,7 +54,8 @@ public class MeetingManagerService {
             meeting.setRecorder(recorder.get(0));
         }
         //通知相关人员
-        informService.meetingInform(meeting, InformReason.MODIFY);
+        MeetingFull meetingFull = meetingMapper.meetingSearchCertain(meeting.getMeetingId());
+        informService.meetingInform(meetingFull, InformReason.MODIFY);
         //修改会议
         meetingMapper.meetingModify(meeting);
         res.put("state","1");
@@ -109,7 +110,8 @@ public class MeetingManagerService {
             return res;
         }
         //通知相关人员
-        informService.meetingInform(meeting, InformReason.MODIFY);
+        MeetingFull meetingFull = meetingMapper.meetingSearchCertain(meeting.getMeetingId());
+        informService.meetingInform(meetingFull, InformReason.MODIFY);
 
         res.put("state","1");
         res.put("message","添加成功");
@@ -133,7 +135,8 @@ public class MeetingManagerService {
             return res;
         }
         //通知相关人员
-        informService.meetingInform(meeting, InformReason.MODIFY);
+        MeetingFull meetingFull = meetingMapper.meetingSearchCertain(meeting.getMeetingId());
+        informService.meetingInform(meetingFull, InformReason.MODIFY);
 
         res.put("state","1");
         res.put("message","删除成功");
@@ -192,12 +195,6 @@ public class MeetingManagerService {
                 return res;
             }
         }
-        members.remove(host);
-        members.remove(recorder);
-        meeting.setMembers(members);
-        //通知相关人员
-        System.out.println("meetingAddService " + meeting);
-        informService.meetingInform(meeting, InformReason.CREATE);
 
         //添加会议
         meeting.setMeetingState(2);
@@ -211,6 +208,10 @@ public class MeetingManagerService {
             userAndMeetingMapper.addUserAndMeeting(userAndMeeting);
         }
 
+        //通知相关人员
+        MeetingFull meetingFull = meetingMapper.meetingSearchCertain(meeting.getMeetingId());
+        informService.meetingInform(meetingFull, InformReason.CREATE);
+
         res.put("state","3");
         res.put("message","添加成功");
         return res;
@@ -223,11 +224,11 @@ public class MeetingManagerService {
      */
     public Map<String,String> meetingDeleteService(Integer meetingId){
         Map<String,String> res = new HashMap<>();
-        MeetingFull m=meetingMapper.meetingSearchCertain(meetingId);
+        MeetingFull meetingFull = meetingMapper.meetingSearchCertain(meetingId);
         //判断是否是会议前20分钟，如果在20分钟时，不能删除
-        long beginTime=m.getStartTime().getTime();
+        long beginTime = meetingFull.getStartTime().getTime();
         long nowTime = System.currentTimeMillis();
-        if(beginTime<nowTime+20 * 60 * 1000){
+        if(beginTime<nowTime + 20 * 60 * 1000){
             res.put("state","0");
             res.put("message","删除失败,会议在20分钟内开始");
             return res;
@@ -240,7 +241,7 @@ public class MeetingManagerService {
         }
 
         //通知相关人员
-        informService.meetingInform(m, InformReason.DELETE);
+        informService.meetingInform(meetingFull, InformReason.DELETE);
 
         res.put("state","1");
         res.put("message","会议删除成功");

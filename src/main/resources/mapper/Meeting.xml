@@ -176,7 +176,7 @@
 
     <!--删除相关参会人员-->
     <delete id="meetingMembersDelete">
-        delete from user_and_meeting where meeting_id = #{meetingId} and user_id in
+        delete from user_and_meeting where meeting_id = #{meeting.meetingId} and user_id in
         <foreach collection="meeting.members" item="user" separator="," open="(" close=")">
             #{user.userId}
         </foreach>
@@ -184,9 +184,9 @@
 
     <!--增加相关参会人员-->
     <insert id="meetingMembersAdd">
-        insert into user_and_meeting(user_id,meeting_id) values
+        insert into user_and_meeting(meeting_id, user_id) values
         <foreach collection="meeting.members" item="user" separator="," open="" close="">
-            (#{meetingId}, #{user.userId})
+            (#{meeting.meetingId}, #{user.userId})
         </foreach>
     </insert>
 
