@@ -37,7 +37,10 @@ public class InformConstants {
     public static final String OPENBEFORE_MESSAGE_BODY = "您在%s出席的主题为%s的会议离开始还有20分钟，请做好会议内容准备\n";
     public static final String[] MESSAGE_BODY = {CREATE_MESSAGE_BODY, MODIFY_MESSAGE_BODY, DELETE_MESSAGE_BODY, OPENBEFORE_MESSAGE_BODY};
 
-    public static final String MESSAGE_BODY_HEAD = "尊敬的%s先生/女士\n";
+    public static final String MESSAGE_BODY_HEAD_HOST = "尊敬的%s先生/女士, 有一场会议需要您主持\n";
+    public static final String MESSAGE_BODY_HEAD_RECORDER = "尊敬的%s先生/女士, 有一场会议需要您记录\n";
+    public static final String MESSAGE_BODY_HEAD_MEMBER = "尊敬的%s先生/女士, 有一场会议需要您出席\n";
+    public static final String[] MESSAGE_BODY_HEAD = {MESSAGE_BODY_HEAD_HOST, MESSAGE_BODY_HEAD_RECORDER, MESSAGE_BODY_HEAD_MEMBER};
 
     public static final String CREATE_MESSAGE_TOPIC = "会议创建通知\n";
     public static final String MODIFY_MESSAGE_TOPIC = "会议修改通知\n";
@@ -64,7 +67,7 @@ public class InformConstants {
      */
     public static String generateMesaageHead(User user, MeetingRole meetingRole) {
         String userName = user.getUsername();
-        return String.format(MESSAGE_BODY_HEAD, userName);
+        return String.format(MESSAGE_BODY_HEAD[meetingRole.ordinal()], userName);
     }
 
     public static String generateMesaageTopic(InformReason informReason) {

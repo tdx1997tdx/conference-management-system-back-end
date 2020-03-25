@@ -8,6 +8,7 @@
             u2.username as receiver_user_name, u1.name as receiver_name
         from message msg, user u1, user u2
         where msg.sender_id = u1.user_id and msg.receiver_id = u2.user_id
+        order by send_time desc
     </select>
 
     <select id="searchMessage" resultType ="com.sustech.conferenceSystem.dto.Message">
@@ -17,6 +18,7 @@
                 u2.username as receiver_user_name, u1.name as receiver_name
             from message msg, user u1, user u2
             where msg.sender_id = u1.user_id and msg.receiver_id = u2.user_id
+            order by send_time desc
         ) as total
         <where>
             <include refid="kv_and"/>
@@ -30,6 +32,7 @@
                 u2.username as receiver_user_name, u1.name as receiver_name
             from message msg, user u1, user u2
             where msg.sender_id = u1.user_id and msg.receiver_id = u2.user_id
+            order by send_time desc
         ) as total
         where message_topic like "%"#{messageName}"%"
         <if test="userId != null and userId != 0">

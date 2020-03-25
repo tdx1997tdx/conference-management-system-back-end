@@ -192,6 +192,8 @@ public class MeetingManagerService {
                 return res;
             }
         }
+        members.remove(meeting.getHost());
+        members.remove(meeting.getRecorder());
         //通知相关人员
         informService.meetingInform(meeting, InformReason.CREATE);
 

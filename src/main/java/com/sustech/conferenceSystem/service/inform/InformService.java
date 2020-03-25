@@ -48,6 +48,10 @@ public class InformService {
         memberInform(host, MeetingRole.HOST, message);
         memberInform(meetingFull.getRecorder(), MeetingRole.RECORDER, message);
         for (User user: meetingFull.getMembers()) {
+            if (user.getUserId().equals(host.getUserId()) ||
+                user.getUserId().equals(meetingFull.getRecorder().getUserId())) {
+                continue;
+            }
             memberInform(user, MeetingRole.MEMBER, message);
         }
     }
