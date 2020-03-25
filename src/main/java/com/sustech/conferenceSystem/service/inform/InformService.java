@@ -63,6 +63,8 @@ public class InformService {
      * @return
      */
     public void memberInform(User user, MeetingRole meetingRole, Message message) {
+        System.out.println("memberInform" + user.getUserId());
+
         message.setMessageHeader(generateMesaageHead(user, meetingRole));
         message.setReceiverId(user.getUserId());
         message.setReceiverUserName(user.getUsername());
@@ -92,6 +94,7 @@ public class InformService {
     public String messageInform(int id, String name, Message message) throws IOException{
         String namespace = id + name;
 
+        System.out.println("messageInform id:" + id + " name: " + name);
         WebSocketControler webSocketControler = webSocketServersMAP.get(namespace);
         if(webSocketControler != null){
             webSocketControler.sendMessage(message);

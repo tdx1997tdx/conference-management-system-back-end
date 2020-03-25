@@ -195,6 +195,7 @@ public class MeetingManagerService {
         members.remove(meeting.getHost());
         members.remove(meeting.getRecorder());
         //通知相关人员
+        System.out.println("meetingAddService " + meeting);
         informService.meetingInform(meeting, InformReason.CREATE);
 
         //添加会议

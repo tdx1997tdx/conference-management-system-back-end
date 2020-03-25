@@ -185,8 +185,8 @@
     <!--增加相关参会人员-->
     <insert id="meetingMembersAdd">
         insert into user_and_meeting(user_id,meeting_id) values
-        <foreach collection="members" item="user" separator="," open="(" close=")">
-            #{meetingId}, #{user.userId})
+        <foreach collection="members" item="user" separator="," open="" close="">
+            (#{meetingId}, #{user.userId})
         </foreach>
     </insert>
 
