@@ -12,6 +12,7 @@ import com.sustech.conferenceSystem.dto.MeetingSimple;
 import com.sustech.conferenceSystem.dto.Message;
 import com.sustech.conferenceSystem.dto.User;
 import com.sustech.conferenceSystem.mapper.MeetingMapper;
+import com.sustech.conferenceSystem.mapper.UserMapper;
 import com.sustech.conferenceSystem.service.message.MessageManagementService;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -24,7 +25,8 @@ import static com.sustech.conferenceSystem.service.inform.InformConstants.*;
 
 @Component
 public class InformService {
-
+    @Resource
+    private UserMapper userMapper;
     @Resource
     private MeetingMapper meetingMapper;
     @Resource
@@ -48,6 +50,10 @@ public class InformService {
         memberInform(host, MeetingRole.HOST, message);
         memberInform(meetingFull.getRecorder(), MeetingRole.RECORDER, message);
         for (User user: meetingFull.getMembers()) {
+            if (user.getUserId().equals(host.getUserId()) ||
+                user.getUserId().equals(meetingFull.getRecorder().getUserId())) {
+                continue;
+            }
             memberInform(user, MeetingRole.MEMBER, message);
         }
     }
@@ -59,6 +65,13 @@ public class InformService {
      * @return
      */
     public void memberInform(User user, MeetingRole meetingRole, Message message) {
+        System.out.println("memberInform id: " + user.getUserId() + " userName: " + user.getUsername() + " name: " + user.getName());
+
+        if (user.getUsername() == null || user.getName() == null) {
+            System.out.println("memberInform before" + user);
+            user = userMapper.findUserById(user.getUserId());
+            System.out.println("memberInform after" + user);
+        }
         message.setMessageHeader(generateMesaageHead(user, meetingRole));
         message.setReceiverId(user.getUserId());
         message.setReceiverUserName(user.getUsername());
@@ -71,7 +84,7 @@ public class InformService {
         }
 
         try {
-            messageInform(user.getUserId(), user.getName(), message);
+            messageInform(user.getUserId(), user.getUsername(), message);
         } catch (IOException e) {
             // 日志报错， 未完成
             e.printStackTrace();
@@ -88,6 +101,7 @@ public class InformService {
     public String messageInform(int id, String name, Message message) throws IOException{
         String namespace = id + name;
 
+        System.out.println("messageInform id:" + id + " name: " + name);
         WebSocketControler webSocketControler = webSocketServersMAP.get(namespace);
         if(webSocketControler != null){
             webSocketControler.sendMessage(message);
