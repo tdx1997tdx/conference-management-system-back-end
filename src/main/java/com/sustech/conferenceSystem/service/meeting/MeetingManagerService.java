@@ -150,34 +150,34 @@ public class MeetingManagerService {
     public Map<String,String> meetingAddService(MeetingFull meeting){
         Map<String,String> res = new HashMap<>();
         //判断host是否存在
-        List<User> host=userMapper.searchUser(meeting.getHost());
-        if(host.size()==0){
+        User host = userMapper.findUserById(meeting.getHost().getUserId());
+        if(host == null){
             res.put("state","0");
             res.put("message","host不存在");
             return res;
         }
-        meeting.setHost(host.get(0));
+        meeting.setHost(host);
         //判断recoder是否存在
-        List<User> recorder=userMapper.searchUser(meeting.getRecorder());
-        if(recorder.size()==0){
+        User recorder = userMapper.findUserById(meeting.getRecorder().getUserId());
+        if(recorder == null){
             res.put("state","0");
             res.put("message","记录者不存在");
             return res;
         }
-        meeting.setRecorder(recorder.get(0));
+        meeting.setRecorder(recorder);
         //判断member是否存在
         List<User> members=meeting.getMembers();
         //将host和recorder也加入成员中
-        members.add(meeting.getHost());
-        members.add(meeting.getRecorder());
+        members.add(host);
+        members.add(recorder);
         for(int i=0;i<members.size();i++){
-            List<User> user=userMapper.searchUser(members.get(i));
-            if(user.size()==0){
+            User user=userMapper.findUserById(members.get(i).getUserId());
+            if(user == null){
                 res.put("state","1");
                 res.put("message","成员已不存在，请刷新页面后重试");
                 return res;
             }else{
-                members.set(i,user.get(0));
+                members.set(i,user);
             }
         }
         //判断成员时间是否冲突(未完成)
@@ -192,8 +192,9 @@ public class MeetingManagerService {
                 return res;
             }
         }
-        members.remove(meeting.getHost());
-        members.remove(meeting.getRecorder());
+        members.remove(host);
+        members.remove(recorder);
+        meeting.setMembers(members);
         //通知相关人员
         System.out.println("meetingAddService " + meeting);
         informService.meetingInform(meeting, InformReason.CREATE);
