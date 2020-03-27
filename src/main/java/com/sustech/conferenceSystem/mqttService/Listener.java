@@ -22,6 +22,8 @@ public class Listener {
     @Resource
     private MqttUtil mqttUtil;
     public void dealWithMessage(String topic,int qos,String message) throws IOException {
+        System.out.println("dealWithMessage before");
+
         if(topic.equals("Register")){
             String res=registerProcessor(message);
             mqttUtil.publish(2,false,"AssignRoom",res);
@@ -37,6 +39,8 @@ public class Listener {
         Message msg = new Message("Listener->dealWithMessage");
         msg.setMessageTopic("device state change");
         msg.setMessageBody(JSON.toJSONString(device));
+        System.out.println("dealWithMessage after");
+
         informService.informAll(msg);
     }
     private Integer fliter(String staus){

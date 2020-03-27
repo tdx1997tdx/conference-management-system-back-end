@@ -149,6 +149,7 @@ public class InformService {
     }
 
     public String informAll(Message message) throws IOException {
+        System.out.println("informAll");
         int websocketNum = 0;
         int longPullingNum = 0;
         StringBuilder websocketString = new StringBuilder("");
