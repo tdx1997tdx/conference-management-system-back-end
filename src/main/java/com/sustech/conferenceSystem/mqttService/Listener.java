@@ -28,7 +28,7 @@ public class Listener {
         if(topic.equals("Register")){
             String res=registerProcessor(message);
             System.out.println("分配房间:"+res);
-            mqttUtil.publish(2,false,"AssignRoom",res);
+            mqttUtil.publish("AssignRoom",res);
             return;
         }
         String roomId=topic.split("_")[0];
