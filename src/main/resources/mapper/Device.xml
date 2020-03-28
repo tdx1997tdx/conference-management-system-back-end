@@ -123,6 +123,9 @@
     <!-- key-value -->
     <sql id="kv_and">
         <trim suffixOverrides="and">
+            <if test="deviceId!=null">
+                device_id = #{deviceId} and
+            </if>
             <if test="deviceName!=null">
                 device_name = #{deviceName} and
             </if>

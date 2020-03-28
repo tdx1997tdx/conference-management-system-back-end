@@ -42,7 +42,6 @@ public class Listener {
         msg.setMessageTopic("device state change");
         msg.setMessageBody(JSON.toJSONString(device));
         System.out.println("dealWithMessage after");
-
         informService.informAll(msg);
     }
     private Integer fliter(String staus){
