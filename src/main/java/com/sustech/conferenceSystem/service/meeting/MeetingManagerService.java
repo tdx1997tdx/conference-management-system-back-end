@@ -53,11 +53,12 @@ public class MeetingManagerService {
             }
             meeting.setRecorder(recorder.get(0));
         }
+        //修改会议
+        meetingMapper.meetingModify(meeting);
+
         //通知相关人员
         MeetingFull meetingFull = meetingMapper.meetingSearchCertain(meeting.getMeetingId());
         informService.meetingInform(meetingFull, InformReason.MODIFY);
-        //修改会议
-        meetingMapper.meetingModify(meeting);
         res.put("state","1");
         res.put("message","修改成功");
         return res;
