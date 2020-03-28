@@ -27,6 +27,7 @@ public class Listener {
         System.out.println("message:"+message);
         if(topic.equals("Register")){
             String res=registerProcessor(message);
+            System.out.println("分配房间:"+res);
             mqttUtil.publish(2,false,"AssignRoom",res);
             return;
         }
@@ -65,7 +66,6 @@ public class Listener {
             res.put("device_id",String.valueOf(d.getDeviceId()));
             res.put("room_id",d.getRoom().getRoomId()+"");
         }
-        System.out.println(JSON.toJSONString(res));
         return JSON.toJSONString(res);
     }
 }
