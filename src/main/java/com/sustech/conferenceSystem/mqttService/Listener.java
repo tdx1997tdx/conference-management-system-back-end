@@ -23,7 +23,8 @@ public class Listener {
     private MqttUtil mqttUtil;
     public void dealWithMessage(String topic,int qos,String message) throws IOException {
         System.out.println("dealWithMessage before");
-
+        System.out.println("topic:"+topic);
+        System.out.println("message:"+message);
         if(topic.equals("Register")){
             String res=registerProcessor(message);
             mqttUtil.publish(2,false,"AssignRoom",res);
@@ -64,6 +65,7 @@ public class Listener {
             res.put("device_id",String.valueOf(d.getDeviceId()));
             res.put("room_id",d.getRoom().getRoomId()+"");
         }
+        System.out.println(JSON.toJSONString(res));
         return JSON.toJSONString(res);
     }
 }
