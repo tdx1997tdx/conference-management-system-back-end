@@ -114,8 +114,8 @@
             <if test="state!=null">
                 state = #{state},
             </if>
-            <if test="room!=null">
-                room_id = #{room.roomId}
+            <if test="roomId!=null">
+                room_id = #{roomId}
             </if>
         </trim>
     </sql>

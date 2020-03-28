@@ -55,6 +55,10 @@
         select * from meeting
     </select>
 
+    <select id="findMeetingById" resultType="com.sustech.conferenceSystem.dto.MeetingSimple">
+        select * from meeting where meeting_id = #{meetingId}
+    </select>
+
     <select id="meetingSearch" resultType="com.sustech.conferenceSystem.dto.MeetingSimple">
         select user_id,meeting_id,meeting_name,room_name,name host_name,start_time,end_time,topic,m.meeting_state from meeting m inner join room r on m.room_id=r.room_id inner join user u on u.user_id=m.host_id
         <where>
@@ -176,17 +180,17 @@
 
     <!--删除相关参会人员-->
     <delete id="meetingMembersDelete">
-        delete from user_and_meeting where meeting_id = #{meetingId} and user_id in
-        <foreach collection="members" item="user" separator="," open="(" close=")">
+        delete from user_and_meeting where meeting_id = #{meeting.meetingId} and user_id in
+        <foreach collection="meeting.members" item="user" separator="," open="(" close=")">
             #{user.userId}
         </foreach>
     </delete>
 
     <!--增加相关参会人员-->
     <insert id="meetingMembersAdd">
-        insert into user_and_meeting(user_id,meeting_id) values
-        <foreach collection="members" item="user" separator="," open="(" close=")">
-            #{meetingId}, #{user.userId})
+        insert into user_and_meeting(meeting_id, user_id) values
+        <foreach collection="meeting.members" item="user" separator="," open="" close="">
+            (#{meeting.meetingId}, #{user.userId})
         </foreach>
     </insert>
 
