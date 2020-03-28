@@ -86,6 +86,8 @@ public class DeviceManagementService {
         json.put("device_id",deviceId+"");
         json.put("command",state);
         String message=JSON.toJSONString(json);
+        System.out.println("roomId:"+roomId);
+        System.out.println("message:"+message);
         mqttUtil.publish(roomId,message);
         res.put("state","1");
         res.put("message","发送成功");
