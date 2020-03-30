@@ -68,8 +68,8 @@ public class DeviceQueryControler {
      */
     @RequestMapping(value = "/device_search_page", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
     public String deviceSearchPage(@RequestBody JSONObject jsonParam){
-        int page=Integer.parseInt(jsonParam.getString("page"));
-        int volume=Integer.parseInt(jsonParam.getString("volume"));
+        int page=jsonParam.getInteger("page");
+        int volume=jsonParam.getInteger("volume");
         Map<String,Object> result=deviceQueryService.deviceSearchPageService(page,volume);
         return JSON.toJSONString(result, SerializerFeature.DisableCircularReferenceDetect);
     }
