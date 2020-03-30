@@ -5,6 +5,7 @@ import com.sustech.conferenceSystem.dto.Device;
 import com.sustech.conferenceSystem.dto.Message;
 import com.sustech.conferenceSystem.mapper.DeviceMapper;
 import com.sustech.conferenceSystem.service.inform.InformService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -14,6 +15,7 @@ import java.util.List;
 import java.util.Map;
 
 @Component
+@Slf4j
 public class Listener {
     @Resource
     private DeviceMapper deviceMapper;
@@ -22,12 +24,10 @@ public class Listener {
     @Resource
     private MqttUtil mqttUtil;
     public void dealWithMessage(String topic,int qos,String message) throws IOException {
-        System.out.println("dealWithMessage before");
-        System.out.println("topic:"+topic);
-        System.out.println("message:"+message);
+        log.info("收到新mqtt消息,主题:{},消息体:{}",topic,message);
         if(topic.equals("Register")){
             String res=registerProcessor(message);
-            System.out.println("分配房间:"+res);
+            log.info("分配房间:{}",res);
             mqttUtil.publish("AssignRoom",res);
             return;
         }
@@ -41,7 +41,6 @@ public class Listener {
         Message msg = new Message("Listener->dealWithMessage");
         msg.setMessageTopic("device state change");
         msg.setMessageBody(JSON.toJSONString(device));
-        System.out.println("dealWithMessage after");
         informService.informAll(msg);
     }
     private Integer fliter(String staus){

@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.sustech.conferenceSystem.dto.Device;
 import com.sustech.conferenceSystem.mapper.DeviceMapper;
 import com.sustech.conferenceSystem.mqttService.MqttUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -14,6 +15,7 @@ import java.util.Map;
  * 控制设备的增删改模块service层
  */
 @Service
+@Slf4j
 public class DeviceManagementService {
     @Resource
     private DeviceMapper deviceMapper;
@@ -86,8 +88,7 @@ public class DeviceManagementService {
         json.put("device_id",deviceId+"");
         json.put("command",state);
         String message=JSON.toJSONString(json);
-        System.out.println("roomId:"+roomId);
-        System.out.println("message:"+message);
+        log.info("roomId:{},message:{}",roomId,message);
         mqttUtil.publish(roomId,message);
         res.put("state","1");
         res.put("message","发送成功");
