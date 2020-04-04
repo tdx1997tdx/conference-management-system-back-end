@@ -12,11 +12,14 @@ import javax.annotation.Resource;
 @Slf4j
 public class Callback implements MqttCallback {
     @Resource
-    Listener listener;
+    private Listener listener;
+    @Resource
+    private MqttUtil mqttUtil;
     @Override
     public void connectionLost(Throwable cause) {
         // 连接丢失后，一般在这里面进行重连
         log.info("连接断开重新连接");
+        mqttUtil.initMqtt();
     }
 
     @Override
