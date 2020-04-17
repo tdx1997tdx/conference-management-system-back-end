@@ -5,14 +5,15 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.sustech.conferenceSystem.controler.inform.LongPullingController;
 import com.sustech.conferenceSystem.controler.inform.WebSocketControler;
-import com.sustech.conferenceSystem.dto.MeetingFull;
-import com.sustech.conferenceSystem.dto.MeetingSimple;
-import com.sustech.conferenceSystem.dto.Message;
-import com.sustech.conferenceSystem.dto.User;
+import com.sustech.conferenceSystem.dto.*;
+import com.sustech.conferenceSystem.mapper.DeviceMapper;
 import com.sustech.conferenceSystem.mapper.MeetingMapper;
 import com.sustech.conferenceSystem.mapper.UserMapper;
+import com.sustech.conferenceSystem.mqttService.MqttUtil;
 import com.sustech.conferenceSystem.service.message.MessageManagementService;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -29,6 +30,10 @@ public class InformService {
     private UserMapper userMapper;
     @Resource
     private MeetingMapper meetingMapper;
+    @Resource
+    private DeviceMapper deviceMapper;
+    @Resource
+    private MqttUtil mqttUtil;
     @Resource
     private MessageManagementService messageManagementService;
     /**
@@ -122,7 +127,7 @@ public class InformService {
 
     /**
      * 每1分钟执行一次
-     * 检查每个会议，是否到需要通知与会人员 / 操作会议设备 （未实现）
+     * 检查每个会议，是否到需要通知与会人员 / 操作会议设备
      */
     @Scheduled(cron="0 * *  * * ? ")
     public void meetingCheck(){
@@ -138,8 +143,18 @@ public class InformService {
             meetingInform(meetingFull, InformReason.OPENBEFORE);
         }
         for (MeetingSimple meetingSimple: meetingMapper.meetingTimeDiffGet(BEFORE_MEETING_OPEN_SWITCH_ON, dateNow, START_TIME)) {
-            // 会议开始前10分钟，自动开灯，电视机，空调，音响等设备（未完成）
+            // 会议开始前10分钟，自动开灯，电视机，空调，音响等设备
             System.out.println("BEFORE_MEETING_OPEN "+sdf.format(dateNow));
+            //根据房间获取所有设备信息
+            Device d=new Device();
+            d.setRoomId(meetingSimple.getRoomId());
+            List<Device> devices=deviceMapper.searchDevice(d);
+            for(Device dev:devices){
+                Map<String,String> message=new HashMap<>();
+                message.put("devcie_id",dev.getDeviceId()+"");
+                message.put("command","on");
+                mqttUtil.publish(meetingSimple.getRoomId()+"", JSON.toJSONString(message));
+            }
         }
         for (MeetingSimple meetingSimple: meetingMapper.meetingTimeDiffGet(BEFORE_MEETING_CLOSE_INFORM, dateNow, END_TIME)) {
             // 会议结束之前15分钟，在会议平板（电视机）上显示提示信息（未完成）
