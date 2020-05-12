@@ -226,6 +226,11 @@ public class MeetingManagerService {
     public Map<String,String> meetingDeleteService(Integer meetingId){
         Map<String,String> res = new HashMap<>();
         MeetingFull meetingFull = meetingMapper.meetingSearchCertain(meetingId);
+        if(meetingFull==null){
+            res.put("state","0");
+            res.put("message","会议删除失败,无指定id会议");
+            return res;
+        }
         //判断是否是会议前20分钟，如果在20分钟时，不能删除
         long beginTime = meetingFull.getStartTime().getTime();
         long nowTime = System.currentTimeMillis();
