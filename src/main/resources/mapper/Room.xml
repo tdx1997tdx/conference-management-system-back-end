@@ -52,10 +52,10 @@
                     room_name like "%"#{roomName}"%" and
                 </if>
                 <if test="building!=null">
-                    building = like "%"#{building}"%" and
+                    building like "%"#{building}"%" and
                 </if>
                 <if test="floor!=null">
-                    floor = like "%"#{floor}"%" and
+                    floor like "%"#{floor}"%" and
                 </if>
             </trim>
         </where>
