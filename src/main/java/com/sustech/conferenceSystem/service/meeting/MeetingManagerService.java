@@ -58,6 +58,11 @@ public class MeetingManagerService {
 
         //通知相关人员
         MeetingFull meetingFull = meetingMapper.meetingSearchCertain(meeting.getMeetingId());
+        if(meetingFull==null){
+            res.put("state","0");
+            res.put("message","会议不存在");
+            return res;
+        }
         informService.meetingInform(meetingFull, InformReason.MODIFY);
         res.put("state","1");
         res.put("message","修改成功");
@@ -71,8 +76,14 @@ public class MeetingManagerService {
      */
     public Map<String,String> meetingMembersAddService(MeetingFull meeting){
         Map<String,String> res = new HashMap<>();
+        MeetingFull meetingFull = meetingMapper.meetingSearchCertain(meeting.getMeetingId());
+        if(meetingFull==null){
+            res.put("state","0");
+            res.put("message","会议不存在");
+            return res;
+        }
         //判断会议是否20分钟开始，如果是则不能创建
-        long beginTime=meeting.getStartTime().getTime();
+        long beginTime=meetingFull.getStartTime().getTime();
         long nowTime = System.currentTimeMillis();
         if(beginTime<nowTime+20 * 60 * 1000){
             res.put("state","0");
@@ -111,7 +122,6 @@ public class MeetingManagerService {
             return res;
         }
         //通知相关人员
-        MeetingFull meetingFull = meetingMapper.meetingSearchCertain(meeting.getMeetingId());
         informService.meetingInform(meetingFull, InformReason.MODIFY);
 
         res.put("state","1");
