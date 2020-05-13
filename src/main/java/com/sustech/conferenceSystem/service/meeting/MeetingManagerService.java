@@ -42,6 +42,10 @@ public class MeetingManagerService {
                 res.put("message","修改失败,会议在20分钟内开始");
                 return res;
             }
+        }else{
+            res.put("state","0");
+            res.put("message","开始时间为null");
+            return res;
         }
         if(meeting.getRecorder()!=null){
             //判断recoder是否存在
@@ -52,6 +56,10 @@ public class MeetingManagerService {
                 return res;
             }
             meeting.setRecorder(recorder.get(0));
+        }else{
+            res.put("state","0");
+            res.put("message","Recorder为null");
+            return res;
         }
         //修改会议
         meetingMapper.meetingModify(meeting);
