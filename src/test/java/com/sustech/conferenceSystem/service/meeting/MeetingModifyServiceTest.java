@@ -4,7 +4,6 @@ import com.sustech.conferenceSystem.dto.User;
 import com.sustech.conferenceSystem.mapper.MeetingMapper;
 import com.sustech.conferenceSystem.mapper.UserAndMeetingMapper;
 import com.sustech.conferenceSystem.mapper.UserMapper;
-import com.sustech.conferenceSystem.service.inform.InformConstants;
 import com.sustech.conferenceSystem.service.inform.InformService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -28,10 +27,6 @@ public class MeetingModifyServiceTest {
     private MeetingMapper meetingMapper;
     @Mock
     private UserMapper userMapper;
-    @Mock
-    private UserAndMeetingMapper userAndMeetingMapper;
-    @Mock
-    private InformService informService;
 
     @Test
     public void testMeetingModifyService1() {

@@ -103,7 +103,7 @@ public class MeetingManagerService {
         for(int i=0;i<members.size();i++){
             List<User> user=userMapper.searchUser(members.get(i));
             if(user.size()==0){
-                res.put("state","1");
+                res.put("state","0");
                 res.put("message","成员已不存在，请刷新页面后重试");
                 return res;
             }else{
@@ -117,7 +117,7 @@ public class MeetingManagerService {
             meetingSimple.setEndTime(meeting.getEndTime());
             List<MeetingSimple> resList=meetingMapper.meetingIntervalSearch(members.get(i).getUserId(),meetingSimple);
             if(resList.size()!=0){
-                res.put("state","2");
+                res.put("state","0");
                 res.put("message","成员中在该时间段存在会议时间冲突:"+members.get(i).getName());
                 return res;
             }
