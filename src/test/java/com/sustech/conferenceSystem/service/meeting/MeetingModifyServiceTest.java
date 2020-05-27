@@ -4,6 +4,7 @@ import com.sustech.conferenceSystem.dto.User;
 import com.sustech.conferenceSystem.mapper.MeetingMapper;
 import com.sustech.conferenceSystem.mapper.UserAndMeetingMapper;
 import com.sustech.conferenceSystem.mapper.UserMapper;
+import com.sustech.conferenceSystem.service.inform.InformConstants;
 import com.sustech.conferenceSystem.service.inform.InformService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -27,6 +28,8 @@ public class MeetingModifyServiceTest {
     private MeetingMapper meetingMapper;
     @Mock
     private UserMapper userMapper;
+    @Mock
+    private InformService informService;
 
     @Test
     public void testMeetingModifyService1() {
@@ -96,11 +99,14 @@ public class MeetingModifyServiceTest {
         User recorder=new User();
         recorder.setUserId(1);
         meeting.setRecorder(recorder);
+        meeting.setHost(recorder);
         List<User> recorders=new ArrayList<>();
         recorders.add(recorder);
         Mockito.when(userMapper.searchUser(meeting.getRecorder())).thenReturn(recorders);
         Mockito.when(meetingMapper.meetingModify(meeting)).thenReturn(true);
         Mockito.when(meetingMapper.meetingSearchCertain(meeting.getMeetingId())).thenReturn(meeting);
+        Mockito.when(meetingMapper.meetingSearchCertain(meeting.getMeetingId())).thenReturn(meeting);
+        Mockito.doNothing().when(informService).meetingInform(meeting, InformConstants.InformReason.MODIFY);
         Map<String,String> ret=meetingManagerServcie.meetingModifyService(meeting);
         assertEquals("1",ret.get("state"));
         assertEquals("修改成功",ret.get("message"));

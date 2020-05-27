@@ -4,6 +4,7 @@ import com.sustech.conferenceSystem.dto.User;
 import com.sustech.conferenceSystem.mapper.MeetingMapper;
 import com.sustech.conferenceSystem.mapper.UserAndMeetingMapper;
 import com.sustech.conferenceSystem.mapper.UserMapper;
+import com.sustech.conferenceSystem.service.inform.InformConstants;
 import com.sustech.conferenceSystem.service.inform.InformService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -27,6 +28,8 @@ public class MeetingMembersAddServiceTest {
     private MeetingMapper meetingMapper;
     @Mock
     private UserMapper userMapper;
+    @Mock
+    private InformService informService;
 
     @Test
     public void testMeetingMembersAddService1() {
@@ -87,6 +90,8 @@ public class MeetingMembersAddServiceTest {
         Mockito.when(meetingMapper.meetingSearchCertain(meetingFull.getMeetingId())).thenReturn(meetingFull);
         meetingFull.setStartTime(new Date(System.currentTimeMillis()+30 * 60 * 1000));
         Mockito.when(meetingMapper.meetingMembersAdd(meetingFull)).thenReturn(true);
+        Mockito.doNothing().when(informService).meetingInform(meetingFull, InformConstants.InformReason.MODIFY);
+
         Map<String,String> ret=meetingManagerServcie.meetingMembersAddService(meetingFull);
         assertEquals("1",ret.get("state"));
         assertEquals("添加成功",ret.get("message"));

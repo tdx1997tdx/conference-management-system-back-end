@@ -47,16 +47,21 @@ public class InformService {
         message.setMessageTopic(generateMesaageTopic(informReason));
         message.setMessageBody(generateMesaageBody(meetingFull, informReason));
         message.setSendTime(new Date());
-        User host = meetingFull.getHost();
-        message.setSenderId(host.getUserId());
-        message.setSenderUserName(host.getUsername());
-        message.setSenderName(host.getName());
 
-        memberInform(host, MeetingRole.HOST, message);
-        memberInform(meetingFull.getRecorder(), MeetingRole.RECORDER, message);
+        User host = meetingFull.getHost();
+        if (host != null) {
+            message.setSenderId(host.getUserId());
+            message.setSenderUserName(host.getUsername());
+            message.setSenderName(host.getName());
+            memberInform(host, MeetingRole.HOST, message);
+        }
+        User recorder = meetingFull.getRecorder();
+        if (meetingFull.getRecorder() != null) {
+            memberInform(recorder, MeetingRole.RECORDER, message);
+        }
         for (User user: meetingFull.getMembers()) {
             if (user.getUserId().equals(host.getUserId()) ||
-                user.getUserId().equals(meetingFull.getRecorder().getUserId())) {
+                user.getUserId().equals(recorder.getUserId())) {
                 continue;
             }
             memberInform(user, MeetingRole.MEMBER, message);

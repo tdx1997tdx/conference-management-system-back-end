@@ -34,7 +34,7 @@ public class LongPullingController {
             if(webSocketControler != null){ //同样业务的连接已经在线，则把原来的挤下线。
                 message.setMessageBody(webSocketControler.getUri() + " websocket连接被long pulling挤下线了");
                 webSocketControler.sendMessage(message);
-                System.out.println("getSession close: 1");
+                System.out.println("getSession close: 11");
                 webSocketControler.getSession().close();//关闭连接，触发关闭连接方法onClose()
                 System.out.println("getSession close: 2");
             }
